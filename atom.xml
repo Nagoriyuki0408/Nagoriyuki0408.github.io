@@ -3,11 +3,11 @@
   <title>柳瀬しおこうの夢</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://nagoriyuki0408.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2025-01-16T17:04:24.304Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://nagoriyuki0408.github.io/"/>
+  <updated>2025-01-16T17:15:42.576Z</updated>
+  <id>https://nagoriyuki0408.github.io/</id>
   
   <author>
     <name>SHIOKOU</name>
@@ -17,22 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Algorithms</title>
-    <link href="http://example.com/2025/01/17/Algorithms/"/>
-    <id>http://example.com/2025/01/17/Algorithms/</id>
+    <title>MIT 6.006 Introduction to Algorithms</title>
+    <link href="https://nagoriyuki0408.github.io/2025/01/17/Algorithms/"/>
+    <id>https://nagoriyuki0408.github.io/2025/01/17/Algorithms/</id>
     <published>2025-01-16T17:04:24.000Z</published>
-    <updated>2025-01-16T17:04:24.304Z</updated>
+    <updated>2025-01-16T17:15:42.576Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Lecture Overview</strong></p><p>• Administrivia </p><p>•Course Overview </p><p>•“Peak finding” problem — 1D and 2D versions</p><p><strong>Course Overview</strong></p><p>This course covers: </p><ol><li><p>Efficient procedures for solving problems on large inputs (Ex: U.S. Highway Map, Human Genome) </p></li><li><p>Scalability </p></li><li><p>Classic data structures and elementary algorithms (CLRS text) </p></li><li><p>Real implementations in Python </p></li><li><p>Fun problem sets!</p></li></ol><p>The course is divided into 8 modules — <strong>each of which has a motivating problem and problem set(s) (except for the last module)</strong>. Tentative module topics and motivating problems are as described below:</p><ol><li>Algorithmic Thinking: Peak Finding</li><li>Sorting &amp; Trees: Event Simulation</li><li>Hashing: Genome Comparison</li><li>Numerics:  RSA Encryption</li><li>Graphs: Rubik’s Cube</li><li>Shortest Paths: Caltech → MIT</li><li>Dynamic Programming: Image Compression</li><li>Advanced Topics</li></ol><p><strong>Peak Finder</strong></p><p><strong>One-dimensional Version</strong></p><p>Position 2 is a peak if and only if b ≥ a and b ≥ c. Position 9 is a peak if i ≥ h.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Lecture Overview&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;•	 Administrivia &lt;/p&gt;
+&lt;p&gt;•	Course Overview &lt;/p&gt;
+&lt;p&gt;•	“Peak finding” problem — 1D and 2D versions</summary>
+      
     
     
     
     
+    <category term="Data Structure" scheme="https://nagoriyuki0408.github.io/tags/Data-Structure/"/>
     
   </entry>
   
   <entry>
     <title>韩语</title>
-    <link href="http://example.com/2024/12/05/%E9%9F%A9%E8%AF%AD/"/>
-    <id>http://example.com/2024/12/05/%E9%9F%A9%E8%AF%AD/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/12/05/%E9%9F%A9%E8%AF%AD/"/>
+    <id>https://nagoriyuki0408.github.io/2024/12/05/%E9%9F%A9%E8%AF%AD/</id>
     <published>2024-12-05T04:14:08.000Z</published>
     <updated>2024-12-05T04:18:46.217Z</updated>
     
@@ -58,14 +70,14 @@
     
     
     
-    <category term="多语言学习" scheme="http://example.com/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="多语言学习" scheme="https://nagoriyuki0408.github.io/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>力扣3250单调数组对的数目1</title>
-    <link href="http://example.com/2024/11/28/%E5%8A%9B%E6%89%A33250%E5%8D%95%E8%B0%83%E6%95%B0%E7%BB%84%E5%AF%B9%E7%9A%84%E6%95%B0%E7%9B%AE1/"/>
-    <id>http://example.com/2024/11/28/%E5%8A%9B%E6%89%A33250%E5%8D%95%E8%B0%83%E6%95%B0%E7%BB%84%E5%AF%B9%E7%9A%84%E6%95%B0%E7%9B%AE1/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/11/28/%E5%8A%9B%E6%89%A33250%E5%8D%95%E8%B0%83%E6%95%B0%E7%BB%84%E5%AF%B9%E7%9A%84%E6%95%B0%E7%9B%AE1/"/>
+    <id>https://nagoriyuki0408.github.io/2024/11/28/%E5%8A%9B%E6%89%A33250%E5%8D%95%E8%B0%83%E6%95%B0%E7%BB%84%E5%AF%B9%E7%9A%84%E6%95%B0%E7%9B%AE1/</id>
     <published>2024-11-28T07:55:58.000Z</published>
     <updated>2024-11-30T20:04:59.405Z</updated>
     
@@ -80,14 +92,14 @@
     
     
     
-    <category term="力扣" scheme="http://example.com/tags/%E5%8A%9B%E6%89%A3/"/>
+    <category term="力扣" scheme="https://nagoriyuki0408.github.io/tags/%E5%8A%9B%E6%89%A3/"/>
     
   </entry>
   
   <entry>
     <title>信天翁航海録</title>
-    <link href="http://example.com/2024/11/06/%E4%BF%A1%E5%A4%A9%E7%BF%81%E8%88%AA%E6%B5%B7%E9%8C%B2/"/>
-    <id>http://example.com/2024/11/06/%E4%BF%A1%E5%A4%A9%E7%BF%81%E8%88%AA%E6%B5%B7%E9%8C%B2/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/11/06/%E4%BF%A1%E5%A4%A9%E7%BF%81%E8%88%AA%E6%B5%B7%E9%8C%B2/"/>
+    <id>https://nagoriyuki0408.github.io/2024/11/06/%E4%BF%A1%E5%A4%A9%E7%BF%81%E8%88%AA%E6%B5%B7%E9%8C%B2/</id>
     <published>2024-11-06T04:48:03.000Z</published>
     <updated>2024-11-06T04:48:45.609Z</updated>
     
@@ -103,14 +115,14 @@
     
     
     
-    <category term="galgame" scheme="http://example.com/tags/galgame/"/>
+    <category term="galgame" scheme="https://nagoriyuki0408.github.io/tags/galgame/"/>
     
   </entry>
   
   <entry>
     <title>古事記</title>
-    <link href="http://example.com/2024/11/02/%E5%8F%A4%E4%BA%8B%E8%A8%98/"/>
-    <id>http://example.com/2024/11/02/%E5%8F%A4%E4%BA%8B%E8%A8%98/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/11/02/%E5%8F%A4%E4%BA%8B%E8%A8%98/"/>
+    <id>https://nagoriyuki0408.github.io/2024/11/02/%E5%8F%A4%E4%BA%8B%E8%A8%98/</id>
     <published>2024-11-01T18:05:09.000Z</published>
     <updated>2024-11-01T18:06:07.769Z</updated>
     
@@ -129,8 +141,8 @@
   
   <entry>
     <title>算法：每日一题</title>
-    <link href="http://example.com/2024/10/23/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    <id>http://example.com/2024/10/23/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/10/23/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    <id>https://nagoriyuki0408.github.io/2024/10/23/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</id>
     <published>2024-10-23T05:06:40.000Z</published>
     <updated>2024-10-24T05:40:16.355Z</updated>
     
@@ -147,14 +159,14 @@
     
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://nagoriyuki0408.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>aegisub代码</title>
-    <link href="http://example.com/2024/10/19/aegisub%E4%BB%A3%E7%A0%81/"/>
-    <id>http://example.com/2024/10/19/aegisub%E4%BB%A3%E7%A0%81/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/10/19/aegisub%E4%BB%A3%E7%A0%81/"/>
+    <id>https://nagoriyuki0408.github.io/2024/10/19/aegisub%E4%BB%A3%E7%A0%81/</id>
     <published>2024-10-18T17:16:42.000Z</published>
     <updated>2024-10-18T17:16:42.391Z</updated>
     
@@ -166,8 +178,8 @@
   
   <entry>
     <title>日記</title>
-    <link href="http://example.com/2024/10/18/%E6%97%A5%E8%A8%98/"/>
-    <id>http://example.com/2024/10/18/%E6%97%A5%E8%A8%98/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/10/18/%E6%97%A5%E8%A8%98/"/>
+    <id>https://nagoriyuki0408.github.io/2024/10/18/%E6%97%A5%E8%A8%98/</id>
     <published>2024-10-18T12:24:37.000Z</published>
     <updated>2024-10-23T06:26:46.059Z</updated>
     
@@ -183,14 +195,14 @@
     
     
     
-    <category term="日記" scheme="http://example.com/tags/%E6%97%A5%E8%A8%98/"/>
+    <category term="日記" scheme="https://nagoriyuki0408.github.io/tags/%E6%97%A5%E8%A8%98/"/>
     
   </entry>
   
   <entry>
     <title>MUSICUS!</title>
-    <link href="http://example.com/2024/10/18/MUSICUS/"/>
-    <id>http://example.com/2024/10/18/MUSICUS/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/10/18/MUSICUS/"/>
+    <id>https://nagoriyuki0408.github.io/2024/10/18/MUSICUS/</id>
     <published>2024-10-18T02:22:46.000Z</published>
     <updated>2024-10-18T17:11:25.741Z</updated>
     
@@ -210,14 +222,14 @@
     
     
     
-    <category term="galgame" scheme="http://example.com/tags/galgame/"/>
+    <category term="galgame" scheme="https://nagoriyuki0408.github.io/tags/galgame/"/>
     
   </entry>
   
   <entry>
     <title>galgame补全计划</title>
-    <link href="http://example.com/2024/10/15/galgame%EF%BC%9Agalgame%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92/"/>
-    <id>http://example.com/2024/10/15/galgame%EF%BC%9Agalgame%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/10/15/galgame%EF%BC%9Agalgame%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92/"/>
+    <id>https://nagoriyuki0408.github.io/2024/10/15/galgame%EF%BC%9Agalgame%E8%A1%A5%E5%85%A8%E8%AE%A1%E5%88%92/</id>
     <published>2024-10-14T22:54:04.000Z</published>
     <updated>2024-10-15T10:04:41.116Z</updated>
     
@@ -235,14 +247,14 @@
     
     
     
-    <category term="galgame" scheme="http://example.com/tags/galgame/"/>
+    <category term="galgame" scheme="https://nagoriyuki0408.github.io/tags/galgame/"/>
     
   </entry>
   
   <entry>
     <title>算法：二叉树</title>
-    <link href="http://example.com/2024/09/11/%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>http://example.com/2024/09/11/%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/09/11/%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://nagoriyuki0408.github.io/2024/09/11/%E7%AE%97%E6%B3%95%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2024-09-11T08:51:14.000Z</published>
     <updated>2024-09-11T11:22:59.984Z</updated>
     
@@ -258,14 +270,14 @@
     
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://nagoriyuki0408.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>概率论第二课</title>
-    <link href="http://example.com/2024/09/05/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%AC%AC%E4%BA%8C%E8%AF%BE/"/>
-    <id>http://example.com/2024/09/05/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%AC%AC%E4%BA%8C%E8%AF%BE/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/09/05/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%AC%AC%E4%BA%8C%E8%AF%BE/"/>
+    <id>https://nagoriyuki0408.github.io/2024/09/05/%E6%A6%82%E7%8E%87%E8%AE%BA%E7%AC%AC%E4%BA%8C%E8%AF%BE/</id>
     <published>2024-09-05T08:56:52.000Z</published>
     <updated>2024-09-05T16:00:51.310Z</updated>
     
@@ -280,14 +292,14 @@
     
     
     
-    <category term="概率论" scheme="http://example.com/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    <category term="概率论" scheme="https://nagoriyuki0408.github.io/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>数据结构：树和二叉树</title>
-    <link href="http://example.com/2024/09/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>http://example.com/2024/09/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://nagoriyuki0408.github.io/2024/09/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2024-09-04T14:42:58.000Z</published>
     <updated>2024-09-05T08:49:10.709Z</updated>
     
@@ -302,14 +314,14 @@
     
     
     
-    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://nagoriyuki0408.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>writing</title>
-    <link href="http://example.com/2024/09/04/acedemic%20English%20writing/"/>
-    <id>http://example.com/2024/09/04/acedemic%20English%20writing/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/09/04/acedemic%20English%20writing/"/>
+    <id>https://nagoriyuki0408.github.io/2024/09/04/acedemic%20English%20writing/</id>
     <published>2024-09-04T02:38:00.000Z</published>
     <updated>2024-09-04T09:08:24.501Z</updated>
     
@@ -326,14 +338,14 @@
     
     
     
-    <category term="English" scheme="http://example.com/tags/English/"/>
+    <category term="English" scheme="https://nagoriyuki0408.github.io/tags/English/"/>
     
   </entry>
   
   <entry>
     <title>概率论</title>
-    <link href="http://example.com/2024/09/02/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
-    <id>http://example.com/2024/09/02/%E6%A6%82%E7%8E%87%E8%AE%BA/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/09/02/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    <id>https://nagoriyuki0408.github.io/2024/09/02/%E6%A6%82%E7%8E%87%E8%AE%BA/</id>
     <published>2024-09-02T12:17:48.000Z</published>
     <updated>2024-09-04T11:51:19.545Z</updated>
     
@@ -354,8 +366,8 @@
   
   <entry>
     <title>算法：数学</title>
-    <link href="http://example.com/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%95%B0%E5%AD%A6/"/>
-    <id>http://example.com/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%95%B0%E5%AD%A6/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%95%B0%E5%AD%A6/"/>
+    <id>https://nagoriyuki0408.github.io/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%95%B0%E5%AD%A6/</id>
     <published>2024-08-20T11:41:21.000Z</published>
     <updated>2024-08-20T12:26:43.876Z</updated>
     
@@ -370,14 +382,14 @@
     
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://nagoriyuki0408.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>算法：栈与队列</title>
-    <link href="http://example.com/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
-    <id>http://example.com/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
+    <id>https://nagoriyuki0408.github.io/2024/08/20/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/</id>
     <published>2024-08-20T01:00:40.000Z</published>
     <updated>2024-09-04T14:42:33.376Z</updated>
     
@@ -393,14 +405,14 @@
     
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://nagoriyuki0408.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>离散数学：逻辑与证明（1）</title>
-    <link href="http://example.com/2024/08/19/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    <id>http://example.com/2024/08/19/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/08/19/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    <id>https://nagoriyuki0408.github.io/2024/08/19/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/</id>
     <published>2024-08-19T06:09:35.000Z</published>
     <updated>2024-08-19T06:10:52.636Z</updated>
     
@@ -416,14 +428,14 @@
     
     
     
-    <category term="离散数学" scheme="http://example.com/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    <category term="离散数学" scheme="https://nagoriyuki0408.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>算法：程序自由度</title>
-    <link href="http://example.com/2024/08/19/%E7%AE%97%E6%B3%95%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%87%AA%E7%94%B1%E5%BA%A6/"/>
-    <id>http://example.com/2024/08/19/%E7%AE%97%E6%B3%95%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%87%AA%E7%94%B1%E5%BA%A6/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/08/19/%E7%AE%97%E6%B3%95%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%87%AA%E7%94%B1%E5%BA%A6/"/>
+    <id>https://nagoriyuki0408.github.io/2024/08/19/%E7%AE%97%E6%B3%95%EF%BC%9A%E7%A8%8B%E5%BA%8F%E8%87%AA%E7%94%B1%E5%BA%A6/</id>
     <published>2024-08-19T02:01:29.000Z</published>
     <updated>2024-08-20T02:11:40.631Z</updated>
     
@@ -438,14 +450,14 @@
     
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://nagoriyuki0408.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>神樹の館竜胆線</title>
-    <link href="http://example.com/2024/08/17/%E7%A5%9E%E6%A8%B9%E3%81%AE%E9%A4%A8%E7%AB%9C%E8%83%86%E7%B7%9A/"/>
-    <id>http://example.com/2024/08/17/%E7%A5%9E%E6%A8%B9%E3%81%AE%E9%A4%A8%E7%AB%9C%E8%83%86%E7%B7%9A/</id>
+    <link href="https://nagoriyuki0408.github.io/2024/08/17/%E7%A5%9E%E6%A8%B9%E3%81%AE%E9%A4%A8%E7%AB%9C%E8%83%86%E7%B7%9A/"/>
+    <id>https://nagoriyuki0408.github.io/2024/08/17/%E7%A5%9E%E6%A8%B9%E3%81%AE%E9%A4%A8%E7%AB%9C%E8%83%86%E7%B7%9A/</id>
     <published>2024-08-17T14:51:04.000Z</published>
     <updated>2024-08-19T12:55:37.651Z</updated>
     
@@ -461,7 +473,7 @@
     
     
     
-    <category term="汉化" scheme="http://example.com/tags/%E6%B1%89%E5%8C%96/"/>
+    <category term="汉化" scheme="https://nagoriyuki0408.github.io/tags/%E6%B1%89%E5%8C%96/"/>
     
   </entry>
   
