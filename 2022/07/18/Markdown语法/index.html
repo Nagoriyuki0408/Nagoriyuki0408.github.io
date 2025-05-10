@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>markdown语法 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Markdown语法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  markdown语法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/07/18/Markdown%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time datetime="2022-07-18T06:07:36.000Z" itemprop="datePublished">2022-07-18</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">20 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="常用公式"><a href="#常用公式" class="headerlink" title="常用公式"></a>常用公式</h2><blockquote>
+<p>一般公式分为两种形式，行内公式和行间公式。行内公式是在公布代码的前后均添加一个$；</p>
+</blockquote>
+<blockquote>
+<p>行间公式则是在公式代码块的前后均添加两个$。</p>
+</blockquote>
+<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><ol>
+<li><p>行内公式：$ \Gamma(z) &#x3D; \int_0^\infty t^{z-1} e^{-t}dt,. $</p>
+</li>
+<li><p>行间公式：$$\Gamma(z) &#x3D; \int_0^\infty t^{z-1} e^{-t}dt,.$$</p>
+</li>
+</ol>
+<blockquote>
+<p>公式排列：一般使用\binom{a}{b}或者{a\choose b}来实现a，b两个公式的排列。</p>
+</blockquote>
+<h4 id="数学算式"><a href="#数学算式" class="headerlink" title="数学算式"></a>数学算式</h4><p>$\binom{n+1}{2k} $​</p>
+<h4 id="向量公式"><a href="#向量公式" class="headerlink" title="向量公式"></a>向量公式</h4><p>向量表示：使用\mathbf{x}来表示向量x</p>
+<p>数学算式：</p>
+<p>$f(\mathbf{x})&#x3D;\mathbf{w}^T\mathbf{x}$</p>
+<h4 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h4><p>定义函数的时候经常需要分情况给出表达式，使用{。其中：</p>
+<ul>
+<li>使用\来分隔分组；</li>
+<li>使用&amp;来指示需要对齐的位置；</li>
+<li>使用\空格表示空格；</li>
+<li>如果要使分类之间的垂直间隔变大，可以使用[nex]代替\来分隔不同的情况。</li>
+</ul>
+<p>数学算式：</p>
+<ol>
+<li><p>分段函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">y=</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">-x,\quad x&lt;=0\\</span><br><span class="line">x, \quad x&gt;0</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">\tag&#123;1&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>y&#x3D;<br>\begin{cases}<br>-x,\quad x&lt;&#x3D;0\<br>x, \quad x&gt;0<br>\end{cases}<br>\tag{1}<br>$$</p>
+<ol start="2">
+<li><p>方程组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\left\&#123;</span><br><span class="line">\begin&#123;array&#125;&#123;&#125;</span><br><span class="line">	a_1x+b_1y+c_1z=d_1 \\</span><br><span class="line">	a_2x+b_2y+c_2z=d_2 \\</span><br><span class="line">	a_3x+b_3y+c_3z=d_3</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right.</span><br><span class="line">\tag&#123;2&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\left{<br>\begin{array}{}<br>    a_1x+b_1y+c_1z&#x3D;d_1 \<br>    a_2x+b_2y+c_2z&#x3D;d_2 \<br>    a_3x+b_3y+c_3z&#x3D;d_3<br>\end{array}<br>\right.<br>\tag{2}<br>$$</p>
+<ol start="3">
+<li><p>均方误差</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(\theta)=\frac&#123;1&#125;&#123;2m&#125;\sum_&#123;i=1&#125;^m(y^i-h_\theta(x^i))^2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>J(\theta)&#x3D;\frac{1}{2m}\sum_{i&#x3D;1}^m(y^i-h_\theta(x^i))^2<br>$$</p>
+<ol start="4">
+<li><p>批量梯度下降</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\frac&#123;\partial J(\theta)&#125;&#123;\partial \theta_j&#125;=-\frac&#123;1&#125;&#123;m&#125;\sum_&#123;i=0&#125;^&#123;m&#125;(y^i-h_\theta(x^i))x^i</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\frac{\partial J(\theta)}{\partial \theta_j}&#x3D;-\frac{1}{m}\sum_{i&#x3D;0}^{m}(y^i-h_\theta(x^i))x^i<br>$$</p>
+<p>推导过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\frac &#123;\partial J(\theta)&#125;&#123;\partial \theta_j&#125;=\\</span><br><span class="line">-\frac&#123;1&#125;&#123;m&#125;\sum_&#123;i=0&#125;^&#123;m&#125;(y^i-h_\theta(x^i))\frac&#123;\partial&#125;&#123;\partial \theta_j&#125;(y^i-h_\theta(x^i))</span><br><span class="line">=-\frac&#123;1&#125;&#123;m&#125;\sum_&#123;i=0&#125;^&#123;m&#125;(y^i-h_\theta(x^i))\frac&#123;\partial&#125;&#123;\partial\theta_j&#125;(\sum_&#123;j=0&#125;^&#123;n&#125;\theta_jx_j^i-y^i&#125;\\</span><br><span class="line">=\frac&#123;1&#125;&#123;m&#125;\sum_&#123;i=0&#125;^&#123;m&#125;(y^i-h_\theta(x^i))x^i_j</span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>\frac {\partial J(\theta)}{\partial \theta_j}&#x3D;\\-\frac{1}{m}\sum_{i&#x3D;0}^{m}(y^i-h_\theta(x^i))\frac{\partial}{\partial \theta_j}(y^i-h_\theta(x^i))\<br>$$</p>
+<p>$$<br>&#x3D;-\frac{1}{m}\sum_{i&#x3D;0}^{m}(y^i-h_\theta(x^i))\frac{\partial}{\partial\theta_j}(\sum_{j&#x3D;0}^{n}\theta_jx_j^i-y^i)\\&#x3D;\frac{1}{m}\sum_{i&#x3D;0}^{m}(y^i-h_\theta(x^i))x^i_j<br>$$</p>
+<ol start="5">
+<li>case环境的使用</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">\int x\,\mathrm&#123;d&#125; x\\</span><br><span class="line">b^2</span><br><span class="line">\end&#123;cases&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>a&#x3D;<br>\begin{cases}<br>\int x,\mathrm{d} x\<br>b^2<br>\end{cases}<br>$$</p>
+<ol start="6">
+<li><p>带方框的等式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">\boxed&#123;x^2+y^2=z^2&#125;</span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\begin{aligned}<br>\boxed{x^2+y^2&#x3D;z^2}<br>\end{aligned}<br>$$</p>
+<ol start="7">
+<li><p>最大（最小）操作符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;gathered&#125;</span><br><span class="line">\operatorname&#123;arg\,max&#125;_a f(a)=\operatorname*&#123;arg\,max&#125;_b f(b)\\</span><br><span class="line">\operatorname&#123;arg\min&#125;_c f(c)=\operatorname*&#123;arg\,min&#125;_d f(d)\\</span><br><span class="line">\end&#123;gathered&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\begin{gathered}<br>\operatorname{arg,max}_a f(a)&#x3D;\operatorname*{arg,max}_b f(b)\<br>\operatorname{arg\min}_c f(c)&#x3D;\operatorname*{arg,min}_d f(d)\<br>\end{gathered}<br>$$</p>
+<ol start="8">
+<li><p>求极限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">\lim_&#123;a\to\infty&#125; \tfrac&#123;1&#125;&#123;a&#125;</span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>lim_{a\to\infty}\tfrac{1}{a}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\lim_{a\to\infty} \tfrac{1}{a}<br>\end{aligned}<br>$$</p>
+<ol start="9">
+<li><p>求积分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1:\begin&#123;aligned&#125;</span><br><span class="line">\int_a^b x^2 \mathrm&#123;d&#125; x</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">2:\begin&#123;aligned&#125;</span><br><span class="line">\int\limits_a^b x^2 \mathrm&#123;d&#125; x</span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\begin{aligned}<br>\int_a^b x^2 \mathrm{d} x<br>\end{aligned}<br>\tag{1}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\int\limits_a^b x^2 \mathrm{d} x<br>\end{aligned}<br>\tag{2}<br>$$</p>
+<blockquote>
+<p>使用、[2ex]代替\使分组的垂直间隔增大</p>
+</blockquote>
+<ol start="10">
+<li><p>数学算式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;cases&#125;</span><br><span class="line">-x,\quad x\leq 0 \\[3ex]</span><br><span class="line">x,\quad x&gt;0</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">\tag&#123;1&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>y&#x3D;<br>\begin{cases}<br>-x,\quad x\leq 0 \\[3ex]<br>x,\quad x&gt;0<br>\end{cases}<br>\tag{1}<br>$$</p>
+<p><strong>3.多行表达公式</strong></p>
+<p>有时候需要将一行公式分多行进行显示，其中\begin{aligned}表示开始方程，\end{equation}表示方程结束；使用\表示公式换行。\begin{gather}表示环境设置，&amp;表示对齐的位置。</p>
+<ol>
+<li><p>数学算式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">J(\mathbf&#123;x&#125;)=\frac&#123;1&#125;&#123;2m&#125;\sum_&#123;i=1&#125;^&#123;m&#125;(f(x_i)-y_i)^2\\=\frac&#123;1&#125;&#123;2m&#125;\sum_&#123;i-1&#125;^&#123;m&#125;[f(x_i)]^2-2f(x_i)y_i+y_i^2\\</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>J(\mathbf{x})&#x3D;\frac{1}{2m}\sum_{i&#x3D;1}^{m}(f(x_i)-y_i)^2\\&#x3D;\frac{1}{2m}\sum_{i-1}^{m}[f(x_i)]^2-2f(x_i)y_i+y_i^2<br>$$</p>
+<p>常见公式环境</p>
+<table>
+<thead>
+<tr>
+<th>环境名称</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>align</td>
+<td>最基本的对齐环境</td>
+</tr>
+<tr>
+<td>multline</td>
+<td>非对齐环境</td>
+</tr>
+<tr>
+<td>gather</td>
+<td>无对齐的连续方程</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>gathered 允许多行（多组）方程式在彼此之下设置并分配单个方程式编号<br>split 与align *类似，但在另一个显示的数学环境中使用<br>aligned 与align类似，可以在其他数学环境中使用。<br>alignedat 与alignat类似，同样需要一个额外的参数来指定要设置的方程列数。</p>
+</blockquote>
+<p>备注：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上&amp;符号。</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">\left.\begin&#123;aligned&#125;</span><br><span class="line">B&#x27;&amp;=-\partial \times E \\</span><br><span class="line">E&#x27;&amp;=\partial\times B-4paij</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">\right\&#125;</span><br><span class="line">\quad \text&#123;Maxwell&#x27;s equations&#125;</span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>\begin{aligned}<br>\left.\begin{aligned}<br>B’&amp;&#x3D;-\partial \times E \<br>E’&amp;&#x3D;\partial\times B-4paij<br>\end{aligned}<br>\right}<br>\quad \text{Maxwell’s equations}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\sigma_1&amp;&#x3D;x+y\quad&amp;\\ \sigma_2&amp;&#x3D;\frac{x}{y}\\<br>\sigma_1&amp;’&#x3D;\frac{\partial x+y}{\partial x}\quad&amp; \\ \sigma_2&amp;&#x3D;\frac{\partial \frac{x}{y}}{\partial x}<br>\end{aligned}\\<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">\sigma_1&amp;=x+y\quad&amp;\sigma_2&amp;=\frac&#123;x&#125;&#123;y&#125;\\</span><br><span class="line">\sigma_1&amp;&#x27;=\frac&#123;\partial x+y&#125;&#123;\partial x&#125;\quad&amp;\sigma_2&amp;=\frac&#123;\partial \frac&#123;x&#125;&#123;y&#125;&#125;&#123;\partial x&#125;</span><br><span class="line">\end&#123;aligned&#125;\\[5ex]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">a_n=\frac&#123;1&#125;&#123;pai&#125;&amp;\int_&#123;-pai&#125;^&#123;pai&#125;f(x)\cos nx\mathrm&#123;d&#125;x\\</span><br><span class="line">=\frac&#123;1&#125;&#123;pai&#125;&amp;\int_&#123;-pai&#125;^&#123;pai&#125;x^2\cos nx\mathrm&#123;d&#125;x\\</span><br><span class="line">J(\theta)=-frac&#123;1&#125;&#123;m&#125;\sum_&#123;i=1&#125;^&#123;m&#125;y_ilogh_\theta(x_i)+(1-y_i)log(1-h_\theta(x_i))</span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\begin{aligned}<br>a_n&#x3D;&amp;\frac{1}{\pi}&amp;\int_{-\pi}^{\pi}&amp;f(x)\cos nx&amp;\mathrm{d}x&amp;\<br>&#x3D;&amp;\frac{1}{\pi}&amp;\int_{-\pi}^{\pi}&amp;x^2\cos nx&amp;\mathrm{d}x&amp;\<br>J(\theta)&#x3D;&amp;-\frac{1}{m}&amp;\sum_{i&#x3D;1}^{m}&amp;y_ilogh_\theta(x_i)&amp;+(1-y_i)&amp;log(1-h_\theta(x_i))&amp;<br>\end{aligned}<br>$$</p>
+<p><strong>公式编辑的编号设置</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\tag{标号}</td>
+<td>公式宏包序号设置命令，可以用于带星号公式环境中的公式行</td>
+</tr>
+<tr>
+<td>\tag*{标号}</td>
+<td>作用与\tag相同，知识标号两侧没有圆括号</td>
+</tr>
+</tbody></table>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^2+y^2=z^2\tag&#123;1$&#x27;$&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>\begin{aligned}<br>x^2+y^2&#x3D;z^2<br>\end{aligned}<br>\tag{1}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^4+y^4=z^4\tag&#123;*&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\begin{aligned}<br>x^4+y^4&#x3D;z^4<br>\end{aligned}<br>\tag{*}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^5+y^5=z^5\tag*&#123;*&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>x^5+y^5&#x3D;z^5\tag*{*}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x^6+y^6=z^6\tag&#123;1-1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>x^6+y^6&#x3D;z^6\tag{1-1}<br>$$</p>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;pmatrix&#125;1 &amp; 2 \\ 3 &amp; 4\\ \end&#123;pmatrix&#125;\\</span><br><span class="line">\begin&#123;bmatrix&#125;1&amp;2\\3&amp;4\\ \end&#123;bmatrix&#125;\\</span><br><span class="line">\begin&#123;Bmatrix&#125;1&amp;2\\3&amp;4\\ \end&#123;Bmatrix&#125;\\</span><br><span class="line">\begin&#123;Vmatrix&#125;1&amp;2\\3&amp;4\\ \end&#123;Vmatrix&#125;\\</span><br><span class="line">\begin&#123;pmatrix&#125;1&amp;a_1&amp;a_1^2&amp;\cdots&amp;a_1^n\\</span><br><span class="line">1&amp;a_2&amp;a_2^2&amp;\cdots&amp;a_2^n&amp;\\</span><br><span class="line">\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\</span><br><span class="line">1&amp;a_m&amp;a_m^2&amp;\cdots&amp;a_n^n</span><br><span class="line">\end&#123;pmatrix&#125;</span><br><span class="line">\tag&#123;n&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\begin{pmatrix}1 &amp; 2 \\ 3 &amp; 4\ \end{pmatrix}\<br>$$</p>
+<p>$$<br>\begin{bmatrix}1&amp;2\\3&amp;4\ \end{bmatrix}\<br>$$</p>
+<p>$$<br>\begin{Bmatrix}1&amp;2\\3&amp;4\ \end{Bmatrix}\<br>$$</p>
+<p>$$<br>\begin{Vmatrix}1&amp;2\\3&amp;4\ \end{Vmatrix}\<br>$$</p>
+<p>$$<br>\begin{pmatrix}1&amp;a_1&amp;a_1^2&amp;\cdots&amp;a_1^n\\<br>1&amp;a_2&amp;a_2^2&amp;\cdots&amp;a_2^n&amp;\\<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\<br>1&amp;a_m&amp;a_m^2&amp;\cdots&amp;a_n^n<br>\end{pmatrix}<br>\tag{n}<br>$$</p>
+<ol>
+<li><p>不带括号的矩阵</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">1&amp;2&amp;3\\</span><br><span class="line">4&amp;5&amp;6\\</span><br><span class="line">7&amp;8&amp;9</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">\tag&#123;1&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\begin{matrix}<br>   1&amp;2&amp;3\\<br>   4&amp;5&amp;6\\<br>   7&amp;8&amp;9<br>   \end{matrix}<br>   \tag{1}<br>$$</p>
+<ol start="2">
+<li><p>带小括号的矩阵</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\left(</span><br><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">1&amp;2&amp;3\\</span><br><span class="line">4&amp;5&amp;6\\</span><br><span class="line">7&amp;8&amp;9</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">\right)</span><br><span class="line">\tag&#123;2&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left(<br>\begin{matrix}<br>1&amp;2&amp;3\\<br>4&amp;5&amp;6\\<br>7&amp;8&amp;9<br>\end{matrix}<br>\right)<br>\tag{2}<br>$$</p>
+</li>
+<li><p>带中括号的矩阵</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\left\&#123;</span><br><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">1&amp;2&amp;3\\</span><br><span class="line">4&amp;5&amp;6\\</span><br><span class="line">7&amp;8&amp;9</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">\right\&#125;</span><br><span class="line">\tag&#123;3&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left[<br>\begin{matrix}<br>1&amp;2&amp;3\\<br>4&amp;5&amp;6\\<br>7&amp;8&amp;9<br>\end{matrix}<br>\right]<br>\tag{3}<br>$$</p>
+</li>
+<li><p>带大括号的矩阵</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\left&#123;</span><br><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">1&amp;2&amp;3\\</span><br><span class="line">4&amp;5&amp;6\\</span><br><span class="line">7&amp;8&amp;9</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">\right&#125;</span><br><span class="line">\tag&#123;4&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left{<br>\begin{matrix}<br>1&amp;2&amp;3\\<br>4&amp;5&amp;6\\<br>7&amp;8&amp;9<br>\end{matrix}<br>\right}<br>\tag{4}<br>$$</p>
+</li>
+<li><p>带省略号的矩阵</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\left[</span><br><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">a&amp;b&amp;\cdots&amp;a\\</span><br><span class="line">b&amp;b&amp;\cdots&amp;b\\</span><br><span class="line">\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\</span><br><span class="line">c&amp;c&amp;\cdots&amp;c&amp;</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line">\right]</span><br><span class="line">\tag&#123;5&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left[<br>\begin{matrix}<br>a&amp;b&amp;\cdots&amp;a\\<br>b&amp;b&amp;\cdots&amp;b\\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\<br>c&amp;c&amp;\cdots&amp;c&amp;<br>\end{matrix}<br>\right]<br>\tag{5}<br>$$</p>
+</li>
+<li><p>带横线&#x2F;竖线分割的矩阵：</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\left[</span><br><span class="line">\begin&#123;array&#125;&#123;c|cc&#125;</span><br><span class="line">1&amp;2&amp;3&amp;\\</span><br><span class="line">4&amp;5&amp;6&amp;\\</span><br><span class="line">7&amp;8&amp;9&amp;</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right]</span><br><span class="line">\tag&#123;6&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left[<br>\begin{array}{c|cc}<br>1&amp;2&amp;3&amp;\\<br>4&amp;5&amp;6&amp;\\<br>7&amp;8&amp;9&amp;<br>\end{array}<br>\right]<br>\tag{6}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\left[</span><br><span class="line">\begin&#123;array&#125;&#123;ccc&#125;</span><br><span class="line">1&amp;2&amp;3&amp;\\ \hline</span><br><span class="line">4&amp;5&amp;6&amp;\\</span><br><span class="line">7&amp;8&amp;9&amp;</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right]</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\left[<br>\begin{array}{ccc}<br>1&amp;2&amp;3&amp;\\ \hline<br>4&amp;5&amp;6&amp;\\<br>7&amp;8&amp;9&amp;<br>\end{array}<br>\right]<br>$$</p>
+</li>
+</ol>
+<h2 id="上下标符号"><a href="#上下标符号" class="headerlink" title="上下标符号"></a>上下标符号</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$a_i$,$a_{pre}$</td>
+<td>a_i,a_{pre}</td>
+<td>下标使用_</td>
+</tr>
+<tr>
+<td>$a^i$,$a^{pre}$</td>
+<td>a^i,a^{pre}</td>
+<td>上标使用^</td>
+</tr>
+<tr>
+<td>$\bar{a}$</td>
+<td>\bar{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>${a}$</td>
+<td>\cute{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\breve{a}$</td>
+<td>\breve{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\grave{a}$</td>
+<td>\grave{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\dot{a}$</td>
+<td>\dot{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\ddot{a}$</td>
+<td>\ddot{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\dot{\dot x}$</td>
+<td>\dot{\dot x}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\hat{a}$</td>
+<td>\hat{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\widehat{xy}$</td>
+<td>\widehat{xy}</td>
+<td>多字符可用</td>
+</tr>
+<tr>
+<td>$\check{a}$</td>
+<td>\check{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\tilde{a}$</td>
+<td>\tilde{a}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\vec{a}$</td>
+<td>\vec{a}</td>
+<td>矢量使用vec{}</td>
+</tr>
+<tr>
+<td>$\overrightarrow{xy}$</td>
+<td>\overrightarow{xy}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\overline{a+b+c+d}$</td>
+<td>\overline{a+b+c+d}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\underline{a+b+c+d}$</td>
+<td>\underline{a+b+c+d}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\overbrace{a+b+c+d}$</td>
+<td>\overbrace{a+b+c+d}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\underbrace{a+b+c+d}$</td>
+<td>\underbrace{a+b+c+d}</td>
+<td></td>
+</tr>
+<tr>
+<td>$\overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}$</td>
+<td>\overbrace{a+underbrace{b+c}_1.0}+d}^{2.0}</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h2><p>小括号与方括号</p>
+<ol>
+<li><p>使用原始的()，[]得到的括号大小是固定的，如(2+3)[3+4]:</p>
+</li>
+<li><p>使用\left(或者\right)可以使括号大小与邻近的公式相适应（改语句适用于所有括号类型），如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\left(</span><br><span class="line">\frac&#123;x&#125;&#123;y&#125;</span><br><span class="line">\right)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>\left(<br>\frac{x}{y}<br>\right)<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$(,)$</td>
+<td>(,)</td>
+<td></td>
+</tr>
+<tr>
+<td>$[,]$</td>
+<td>[,]</td>
+<td></td>
+</tr>
+<tr>
+<td>$&lt;,&gt;$</td>
+<td>\lang,\lang</td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>,</td>
+<td>$</td>
+</tr>
+<tr>
+<td>$\lvert,\rvert$</td>
+<td>\lvert,\rvert</td>
+<td></td>
+</tr>
+<tr>
+<td>$\lbrace,\rbrace$</td>
+<td>\lbrace,\rbiace</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>增大括号的方法：</p>
+<table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$(x)$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\big(x\big)$</td>
+<td>\big(x\big)</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Big(x\Big)$</td>
+<td>\Big(x\Big)</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigg(x\bigg)$</td>
+<td>\bigg(x\bigg)</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Bigg(x\Bigg)$</td>
+<td>\Bigg(x\Bigg)</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Bigg(\bigg(\Big(\big(x\big)\Big)\bigg)\Bigg)$</td>
+<td>\Bigg(\bigg(\Big(\big(x\big)\Big)\bigg)\Bigg)</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Bigg[\bigg[\Big[\big[x\big]\Big]\bigg]\Bigg]$</td>
+<td>\Bigg[\bigg[\Big[\big[x\big]\Big]\bigg]\Bigg]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="分式与根式"><a href="#分式与根式" class="headerlink" title="分式与根式"></a>分式与根式</h2><p>分式的表示方法：</p>
+<ol>
+<li>使用\frac{a}{b}表示分式，比如$\frac{a+c+1}{b+c+2}$;</li>
+<li>使用\over来分割一个组的前后两部分，如$\over{b+1}{a+1}$</li>
+</ol>
+<p>\frac 表示连分式：</p>
+<p>数学算式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=a_0+\frac&#123;1^2&#125;&#123;a_1+\frac&#123;2^2&#125;&#123;a_2+\frac&#123;3^2&#125;&#123;a_3+\frac&#123;4^2&#125;&#123;a_4+\cdots&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>x&#x3D;a_0+\frac{1^2}{a_1+\frac{2^2}{a_2+\frac{3^2}{a_3+\frac{4^2}{a_4+\cdots}}}}<br>$$</p>
+<p>\cfrac表示连分式：</p>
+<table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\frac{a}{b}$</td>
+<td>\frac{a}{b}</td>
+<td>分数使用\frac{分子}{分母}</td>
+</tr>
+<tr>
+<td>$a^i,a^{pre}$</td>
+<td>a^i , a^pre</td>
+<td>上标使用^</td>
+</tr>
+</tbody></table>
+<h2 id="开方"><a href="#开方" class="headerlink" title="开方"></a>开方</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\sqrt{a+b}$</td>
+<td>\sqrt{a+b}</td>
+<td>开方使用\sqrt{}</td>
+</tr>
+<tr>
+<td>$\sqrt[n]{a+b}$</td>
+<td>\sqrt[n]{a+b}</td>
+<td>开n次方使用\sqrt[n]{}</td>
+</tr>
+</tbody></table>
+<h2 id="累加-累乘"><a href="#累加-累乘" class="headerlink" title="累加&#x2F;累乘"></a>累加&#x2F;累乘</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\sum_{i&#x3D;0}^{n}x^2$</td>
+<td>\sum_{i&#x3D;0}^{n} x^2</td>
+<td>累加使用语法\sum_{下标}^{上标}</td>
+</tr>
+<tr>
+<td>$\prod_{i&#x3D;0}^{n}x^2$</td>
+<td>\prod_{i&#x3D;0}^{n} x^2</td>
+<td>累乘使用\prod_{下标}^{上标}</td>
+</tr>
+</tbody></table>
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\sin$</td>
+<td>\sin</td>
+<td>正弦</td>
+</tr>
+<tr>
+<td>$\cos$</td>
+<td>\cos</td>
+<td>余弦</td>
+</tr>
+<tr>
+<td>$\tan$</td>
+<td>\tan</td>
+<td>正切</td>
+</tr>
+<tr>
+<td>$\cot$</td>
+<td>\cot</td>
+<td>余切</td>
+</tr>
+<tr>
+<td>$\sec $</td>
+<td>\sec</td>
+<td>反正弦</td>
+</tr>
+<tr>
+<td>$\csc$</td>
+<td>\csc</td>
+<td>反余弦</td>
+</tr>
+<tr>
+<td>$\bot$</td>
+<td>\dot</td>
+<td>垂直</td>
+</tr>
+<tr>
+<td>$\angle$</td>
+<td>\angle</td>
+<td>夹角</td>
+</tr>
+<tr>
+<td>$40^\circ$</td>
+<td>40^\circ</td>
+<td>度数</td>
+</tr>
+</tbody></table>
+<h2 id="对数函数"><a href="#对数函数" class="headerlink" title="对数函数"></a>对数函数</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\ln{(a+b)}$</td>
+<td>\ln{(a+b)}</td>
+<td>以e为底</td>
+</tr>
+<tr>
+<td>$\log_{a}^{b}$</td>
+<td>\log_{a}^{b}</td>
+<td>对数函数</td>
+</tr>
+<tr>
+<td>$\lg{(a+b)}$</td>
+<td>\lg{a+b}</td>
+<td>以10为底</td>
+</tr>
+</tbody></table>
+<h2 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\pm$</td>
+<td>\pm</td>
+<td></td>
+</tr>
+<tr>
+<td>$\mp$</td>
+<td>\mp</td>
+<td></td>
+</tr>
+<tr>
+<td>$\times$</td>
+<td>\times</td>
+<td></td>
+</tr>
+<tr>
+<td>$\div$</td>
+<td>\div</td>
+<td></td>
+</tr>
+<tr>
+<td>$\ast$</td>
+<td>\ast</td>
+<td></td>
+</tr>
+<tr>
+<td>$\star$</td>
+<td>\star</td>
+<td></td>
+</tr>
+<tr>
+<td>$\mid$</td>
+<td>\mid</td>
+<td></td>
+</tr>
+<tr>
+<td>$\nmid$</td>
+<td>\nmid</td>
+<td></td>
+</tr>
+<tr>
+<td>$\circ$</td>
+<td>\circ</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bullet$</td>
+<td>\bullet</td>
+<td></td>
+</tr>
+<tr>
+<td>$\cdot$</td>
+<td>\cdot</td>
+<td></td>
+</tr>
+<tr>
+<td>$\wr$</td>
+<td>\wr</td>
+<td></td>
+</tr>
+<tr>
+<td>$\diamond$</td>
+<td>\dianmond</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Diamond$</td>
+<td>\Diamond</td>
+<td></td>
+</tr>
+<tr>
+<td>$\triangle$</td>
+<td>\triangle</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigtriangleup$</td>
+<td>\bigtriangleup</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigtriangledown$</td>
+<td>\bigtriangledown</td>
+<td></td>
+</tr>
+<tr>
+<td>$\triangleleft$</td>
+<td>\triangleleft</td>
+<td></td>
+</tr>
+<tr>
+<td>$\triangleright$</td>
+<td>\triangleright</td>
+<td></td>
+</tr>
+<tr>
+<td>$\lhd$</td>
+<td>\lhd</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rhd$</td>
+<td>\rhd</td>
+<td></td>
+</tr>
+<tr>
+<td>$\unlhd$</td>
+<td>\unlhd</td>
+<td></td>
+</tr>
+<tr>
+<td>$\unrhd$</td>
+<td>\unrhd</td>
+<td></td>
+</tr>
+<tr>
+<td>$\circ $</td>
+<td>\circ</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigcirc$</td>
+<td>\bigcirc</td>
+<td></td>
+</tr>
+<tr>
+<td>$\odot$</td>
+<td>\odot</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigodot$</td>
+<td>\bigodot</td>
+<td></td>
+</tr>
+<tr>
+<td>$\oslash$</td>
+<td>\oslash</td>
+<td></td>
+</tr>
+<tr>
+<td>$\ominus$</td>
+<td>\ominus</td>
+<td></td>
+</tr>
+<tr>
+<td>$\otimes$</td>
+<td>\otimes</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigotimes$</td>
+<td>\bigotimes</td>
+<td></td>
+</tr>
+<tr>
+<td>$\oplus$</td>
+<td>\oplus</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigoplus$</td>
+<td>\bigoplus</td>
+<td></td>
+</tr>
+<tr>
+<td>$\dagger$</td>
+<td>\dagger</td>
+<td></td>
+</tr>
+<tr>
+<td>$\ddagger$</td>
+<td>\ddagger</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="关系符号"><a href="#关系符号" class="headerlink" title="关系符号"></a>关系符号</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\leq$</td>
+<td>\leq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\geq$</td>
+<td>\geq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\equiv$</td>
+<td>\equiv</td>
+<td></td>
+</tr>
+<tr>
+<td>$\models$</td>
+<td>\models</td>
+<td></td>
+</tr>
+<tr>
+<td>$\prec$</td>
+<td>\prec</td>
+<td></td>
+</tr>
+<tr>
+<td>$\succ$</td>
+<td>\succ</td>
+<td></td>
+</tr>
+<tr>
+<td>$\sim$</td>
+<td>\sim</td>
+<td></td>
+</tr>
+<tr>
+<td>$\perp$</td>
+<td>\perp</td>
+<td></td>
+</tr>
+<tr>
+<td>$\preceq$</td>
+<td>\preceq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\succeq$</td>
+<td>\succeq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\simeq$</td>
+<td>\simeq</td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>\mid</td>
+<td></td>
+</tr>
+<tr>
+<td>$\gg$</td>
+<td>\gg</td>
+<td></td>
+</tr>
+<tr>
+<td>$\asymp$</td>
+<td>\asymp</td>
+<td></td>
+</tr>
+<tr>
+<td>$\parallel$</td>
+<td>\parallel</td>
+<td></td>
+</tr>
+<tr>
+<td>$\approx$</td>
+<td>\approx</td>
+<td></td>
+</tr>
+<tr>
+<td>$\cong$</td>
+<td>\cong</td>
+<td></td>
+</tr>
+<tr>
+<td>$\neq$</td>
+<td>\neq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\doteq$</td>
+<td>\doteq</td>
+<td></td>
+</tr>
+<tr>
+<td>$\propto$</td>
+<td>\propto</td>
+<td></td>
+</tr>
+<tr>
+<td>$\bowtie$</td>
+<td>\bowite</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Join$</td>
+<td>\Join</td>
+<td></td>
+</tr>
+<tr>
+<td>$\smile$</td>
+<td>\smile</td>
+<td></td>
+</tr>
+<tr>
+<td>$\frown$</td>
+<td>\frown</td>
+<td></td>
+</tr>
+<tr>
+<td>$\vdash$</td>
+<td>\vdash</td>
+<td></td>
+</tr>
+<tr>
+<td>$\dashv$</td>
+<td>\dashv</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\lim$</td>
+<td>\ilm</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rightarrow$</td>
+<td>\rightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\infty$</td>
+<td>\infty</td>
+<td></td>
+</tr>
+<tr>
+<td>$\lim_{n\rightarrow\infty}n$</td>
+<td>\lim_{n\rightarrow+\infty}n</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\vec {a}$</td>
+<td>\vec a</td>
+<td></td>
+</tr>
+<tr>
+<td>$J(\mathbf{w})$</td>
+<td>J{\mathbf{w}}</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a\equiv b \pmod n</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>a\equiv b \pmod n<br>$$</p>
+<h2 id="箭头"><a href="#箭头" class="headerlink" title="箭头"></a>箭头</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\uparrow$</td>
+<td>\uparrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\downarrow$</td>
+<td>\downarrrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\updownarrow$</td>
+<td>\updownarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Uparrow$</td>
+<td>\Uparrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Downarrow$</td>
+<td>\Downarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Updownarrow$</td>
+<td>\Updownarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rightarrow$</td>
+<td>\rightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\leftarrow$</td>
+<td>\leftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\leftrightarrow$</td>
+<td>\leftrightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Rightarrow$</td>
+<td>\Rightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Leftarrow$</td>
+<td>\Leftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Leftrightarrow$</td>
+<td>\Rightleftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\longrightarrow$</td>
+<td>\longrightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\longleftarrow$</td>
+<td>\longleftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\longleftrightarrow$</td>
+<td>\longrightleftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Longrightarrow$</td>
+<td>\Longrightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Longleftarrow$</td>
+<td>\Longleftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Longleftrightarrow$</td>
+<td>\Longleftrightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\mapsto$</td>
+<td>\mapsto</td>
+<td></td>
+</tr>
+<tr>
+<td>$\longmapsto$</td>
+<td>\longmapsto</td>
+<td></td>
+</tr>
+<tr>
+<td>$\hookleftarrow$</td>
+<td>\hookleftarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\hookrightarrow$</td>
+<td>\hookrightarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rightharpoondown$</td>
+<td>\righthaipoonup</td>
+<td></td>
+</tr>
+<tr>
+<td>$\leftharpoondown$</td>
+<td>\leftharpoondown</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rightleftharpoons$</td>
+<td>\rightleftharpoons</td>
+<td></td>
+</tr>
+<tr>
+<td>$\leftharpoonup$</td>
+<td>\leftharpoonup</td>
+<td></td>
+</tr>
+<tr>
+<td>$\rightharpoondown $</td>
+<td>\rightharpoondown</td>
+<td></td>
+</tr>
+<tr>
+<td>$\leadsto$</td>
+<td>\leadsto</td>
+<td></td>
+</tr>
+<tr>
+<td>$\nearrow$</td>
+<td>\nearrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\searrow$</td>
+<td>\searrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\swarrow$</td>
+<td>\swarrow</td>
+<td></td>
+</tr>
+<tr>
+<td>$\nwarrow$</td>
+<td>\nwarrow</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\emptyset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\varnothing$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\in$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\ni$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\notin$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\subset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\supset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\not\subset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\subseteq$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\subsetneq$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\supseteq$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\cup$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigcup$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\cap$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigcap$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\uplus$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqsubset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqsupset$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqcup$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqcap$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqsubseteq$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sqsupseteq$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\vee$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\wedge$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\setminus$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="微积分"><a href="#微积分" class="headerlink" title="微积分"></a>微积分</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\prime$</td>
+<td></td>
+<td>一阶导数</td>
+</tr>
+<tr>
+<td>$\int$</td>
+<td></td>
+<td>一重积分</td>
+</tr>
+<tr>
+<td>$\iint$</td>
+<td></td>
+<td>二重积分</td>
+</tr>
+<tr>
+<td>$\iiint$</td>
+<td></td>
+<td>三重积分</td>
+</tr>
+<tr>
+<td>$\oint$</td>
+<td></td>
+<td>曲线积分</td>
+</tr>
+<tr>
+<td>$\nabla$</td>
+<td></td>
+<td>梯度</td>
+</tr>
+</tbody></table>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><table>
+<thead>
+<tr>
+<th>数学算式</th>
+<th>Markdown公式</th>
+<th>核心语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\because$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\therefore$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\forall$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\exist$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\vee $</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\wedge $</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigvee$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\bigwedge$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table>
+<thead>
+<tr>
+<th>大写</th>
+<th>Markdown公式</th>
+<th>小写</th>
+<th>Markdown公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\Alpha$</td>
+<td></td>
+<td>$\alpha$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Beta$</td>
+<td></td>
+<td>$\beta$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Gamma$</td>
+<td></td>
+<td>$\gamma$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Delta$</td>
+<td></td>
+<td>$\delta$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Epsilon$</td>
+<td></td>
+<td>$\epsilon$$\varepsilon$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Zeta$</td>
+<td></td>
+<td>$\zeta $</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Eta$</td>
+<td></td>
+<td>$\Eta$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Theta$</td>
+<td></td>
+<td>$\theta$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Iota$</td>
+<td></td>
+<td>$\iota$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Kappa$</td>
+<td></td>
+<td>$\kappa$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Lambda$</td>
+<td></td>
+<td>$\lambda$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Mu$</td>
+<td></td>
+<td>$\mu$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Nu$</td>
+<td></td>
+<td>$\nu$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Xi$</td>
+<td></td>
+<td>$\xi$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Omicron$</td>
+<td></td>
+<td>$\omicron$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Pi$</td>
+<td></td>
+<td>$\pi$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Rho$</td>
+<td></td>
+<td>$\rho$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td></td>
+<td>$\sigma$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Tau$</td>
+<td></td>
+<td>$\tau$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Upsilon$</td>
+<td></td>
+<td>$\upsilon$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Phi$</td>
+<td></td>
+<td>$\phi$$\varphi$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Chi$</td>
+<td></td>
+<td>$\chi$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Psi$</td>
+<td></td>
+<td>$\phi$</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Omega$</td>
+<td></td>
+<td>$\omega$</td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td>$$</td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td>$$</td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><ul>
+<li>实线，箭头，文字</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A(汐汐)--&gt;B[汐幸]</span><br><span class="line">B[汐幸]--&gt;C&#123;是不是汐汐人&#125;</span><br><span class="line">C&#123;是不是汐汐人&#125;--&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">```mermaid</span><br><span class="line">graph TB</span><br><span class="line">A(接口请求) --&gt; B[参数校验]</span><br><span class="line">B[参数校验] --&gt; C&#123;校验通过?&#125;</span><br><span class="line">C&#123;校验通过?&#125; -- 通过 --&gt; d[处理业务逻辑]</span><br><span class="line">C&#123;校验不通过&#125; -- 不通过 --&gt; e[结束]</span><br><span class="line">d[处理业务逻辑] --&gt; e(结束)</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A(接口请求) --&gt; B[参数校验]</span><br><span class="line">B[参数校验] --&gt; C&#123;校验通过?&#125;</span><br><span class="line">C&#123;校验通过?&#125; -- 通过 --&gt; d[处理业务逻辑]</span><br><span class="line">C&#123;校验不通过&#125; -- 不通过 --&gt; e[结束]</span><br><span class="line">d[处理业务逻辑] --&gt; e(结束)</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2022/07/18/Markdown%E8%AF%AD%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/07/23/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%9B%9E%E5%88%B0%E6%8B%89%E5%BA%B7%EF%BC%9A%E6%8B%89%E5%BA%B7%E7%9A%84%E6%88%98%E5%9C%BA%EF%BC%8C%E6%95%8C%E4%BA%BA%E4%BA%8E-%E4%B8%8E%E5%9B%9E%E7%AD%94/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            精神分析：回到拉康：拉康的战场，敌人与回答
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/07/13/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%AF%B9%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%9A%84%E7%AE%80%E4%BB%8B%EF%BC%9A%E9%9A%90%E5%96%BB%E3%80%81%E8%BD%AC%E5%96%BB%E3%80%81%E7%A7%BB%E7%BD%AE%E3%80%81%E5%87%9D%E7%BC%A9%E3%80%81%E5%BF%AB%E4%B9%90%E5%8E%9F%E5%88%99%E3%80%81%E8%B6%85%E8%B6%8A%E5%BF%AB%E4%B9%90%E5%8E%9F%E5%88%99%E3%80%82/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">精神分析：对弗洛伊德的简介：隐喻、转喻、移置、凝缩、快乐原则、超越快乐原则</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+<script>
+  const password = "22360408";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>SPOC(9)：模板和群体数据（Templates and population data） |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-SPOC（9）：模板和群体数据"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  SPOC(9)：模板和群体数据（Templates and population data）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/11/09/SPOC%EF%BC%889%EF%BC%89%EF%BC%9A%E6%A8%A1%E6%9D%BF%E5%92%8C%E7%BE%A4%E4%BD%93%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time datetime="2022-11-09T13:22:47.000Z" itemprop="datePublished">2022-11-09</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">6.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">33 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="本章主要内容（The-main-content-of-this-chapter-）"><a href="#本章主要内容（The-main-content-of-this-chapter-）" class="headerlink" title="本章主要内容（The main content of this chapter:）"></a>本章主要内容（The main content of this chapter:）</h2><ul>
+<li>函数模板与类模板（Function templates and class templates）</li>
+<li>线性群体（Linear populations）</li>
+<li>群体数据的组织（Organization of population data）</li>
+</ul>
+<h2 id="函数模板（Function-templates）"><a href="#函数模板（Function-templates）" class="headerlink" title="函数模板（Function templates）"></a>函数模板（Function templates）</h2><ul>
+<li>如果重载的函数，其解决问题的逻辑是一致的，函数体语句相同，只是处理的数据类型不同，那么写多个相同的函数体，是重复劳动，而且还可能因为代码的冗余造成不一致性。</li>
+</ul>
+<p>If the logic of solving the problem of the overloaded function is the same, the function body statement is the same, but the data type is different, then writing multiple identical function bodies is repetitive work, and it may also cause inconsistency due to the redundancy of the code.</p>
+<ul>
+<li>解决：使用模板</li>
+</ul>
+<p>Solve: Use a template</p>
+<h3 id="求绝对值函数的模板（A-template-for-finding-an-absolute-value-function）"><a href="#求绝对值函数的模板（A-template-for-finding-an-absolute-value-function）" class="headerlink" title="求绝对值函数的模板（A template for finding an absolute value function）"></a>求绝对值函数的模板（A template for finding an absolute value function）</h3><ul>
+<li>整数类型和浮点数类型求绝对值的算法，需要写两种重载函数吗？</li>
+</ul>
+<p>Do I need to write two overloaded functions for the algorithm of finding absolute values of integer type and floating-point number?</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">abs</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&lt;<span class="number">0</span>?-x:x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">abs</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&lt;<span class="number">0</span>?-x:x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决：函数模板</li>
+</ul>
+<p>Solve: Use a template</p>
+<blockquote>
+<p>创建一个通用功能的函数；</p>
+<p>支持多种不同形参</p>
+<p>简化重载函数的函数体设计</p>
+<p>create a function with a generic function;</p>
+<p>A variety of different parameters are supported</p>
+<p>Simplify the design of the function body of overloaded functions</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">T <span class="title">abs</span><span class="params">(T x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&lt;<span class="number">0</span>?-x:x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">T <span class="title">abs</span><span class="params">(T x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&lt;<span class="number">0</span>?-x:x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n=<span class="number">5</span>;</span><br><span class="line">    <span class="type">double</span> d=<span class="number">5.5</span>;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">abs</span>(n)&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in">abs</span>(d);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出（output）：</p>
+<h3 id="函数模板定义语法（Function-template-definition-syntax）"><a href="#函数模板定义语法（Function-template-definition-syntax）" class="headerlink" title="函数模板定义语法（Function template definition syntax）"></a>函数模板定义语法（Function template definition syntax）</h3><ul>
+<li>语法形式</li>
+</ul>
+<p>Grammatical forms</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;模板参数表（Template parameter table）&gt;</span><br><span class="line">函数定义（Function definition）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>+模板参数表的内容（The contents of the template parameter table）</li>
+</ul>
+<blockquote>
+<p>类型参数：class(或typename)标识符</p>
+<p>常量参数：类型说明符 标识符</p>
+<p>模板参数：template&lt;参数表&gt;class 标识符</p>
+<p>Type parameter：class (or typename) identifieri</p>
+<p>Constant parameter: Type Specifier Identifier</p>
+<p>Template parameter：template<Parameter table>class identifier</Parameter></p>
+</blockquote>
+<p>输出：</p>
+<p><img src="https://p.sda1.dev/18/abc308c1784bcd1987d39fd3af2cce49/006cb046ab052d647eee387c91e99d71.png"></p>
+<h3 id="函数模板的示例（An-example-of-a-function-template）"><a href="#函数模板的示例（An-example-of-a-function-template）" class="headerlink" title="函数模板的示例（An example of a function template）"></a>函数模板的示例（An example of a function template）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; <span class="comment">//定义函数模板 </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">outputArray</span><span class="params">(<span class="type">const</span> T *array, <span class="type">int</span> count)</span> </span>&#123; </span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++) </span><br><span class="line"> cout &lt;&lt; array[i] &lt;&lt; <span class="string">&quot; &quot;</span>; </span><br><span class="line"> <span class="comment">//如果数组元素是类的对象，需要该对象所属类重载了流插入运算符“&lt;&lt;”</span></span><br><span class="line"> <span class="comment">//If the array element is an object of a class, the stream insertion operator needs to be overloaded with the class to which the object belongs“&lt;&lt;”</span></span><br><span class="line"> cout &lt;&lt; endl;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> A_COUNT = <span class="number">8</span>, B_COUNT = <span class="number">8</span>, C_COUNT = <span class="number">20</span>; </span><br><span class="line"><span class="type">int</span> a [A_COUNT] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;; </span><br><span class="line"><span class="type">double</span> b[B_COUNT] = &#123; <span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>, <span class="number">4.4</span>, <span class="number">5.5</span>, <span class="number">6.6</span>, <span class="number">7.7</span>, <span class="number">8.8</span> &#125;; </span><br><span class="line"><span class="type">char</span> c[C_COUNT] = <span class="string">&quot;Welcome!&quot;</span>; </span><br><span class="line"> cout &lt;&lt; <span class="string">&quot; a array contains:&quot;</span> &lt;&lt; endl; </span><br><span class="line"> <span class="built_in">outputArray</span>(a, A_COUNT); </span><br><span class="line"> cout &lt;&lt; <span class="string">&quot; b array contains:&quot;</span> &lt;&lt; endl; </span><br><span class="line"> <span class="built_in">outputArray</span>(b, B_COUNT); </span><br><span class="line"> cout &lt;&lt; <span class="string">&quot; c array contains:&quot;</span> &lt;&lt; endl; </span><br><span class="line"> <span class="built_in">outputArray</span>(c, C_COUNT); </span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://p.sda1.dev/18/462884f4a8760f7007c8e2b2aeff1a2d/5a1589463899fadad249d0379fc29a77.png"></p>
+<p>注意(Notice)：</p>
+<ul>
+<li><p>一个函数模板并非自动可以处理所有类型的数据</p>
+</li>
+<li><p>只有能够进行函数模板中运算的类型，可以作为类型实参</p>
+</li>
+<li><p>自定义的类，需要重载模板中的运算符，才能作为类型实参</p>
+</li>
+<li><p>A function template may not automatically handle all types of data</p>
+</li>
+<li><p>Only types that can be used for operations in the function template can be used as type arguments</p>
+</li>
+<li><p>Custom classes need to be overloaded with operators from the template to be used as type arguments</p>
+</li>
+</ul>
+<h2 id="类模板-Class-templates"><a href="#类模板-Class-templates" class="headerlink" title="类模板(Class templates)"></a>类模板(Class templates)</h2><h3 id="类模板的作用-The-role-of-class-templates"><a href="#类模板的作用-The-role-of-class-templates" class="headerlink" title="类模板的作用(The role of class templates)"></a>类模板的作用(The role of class templates)</h3><ul>
+<li>使用类模板使用户可以为类声明一种模式，使得类中的某些数据成员、某些成员函数的参数、某些成员函数的返回值、能取任意类型（包括基本类型的和用户自定义类型）</li>
+<li>Using a class template allows the user to declare a schema for the class so that some of the data members in the class, the parameters of some member functions, the return values of some member functions, and the ability to take any type (including basic types and user-defined types).</li>
+</ul>
+<h3 id="类模板的声明-A-declaration-of-a-class-template"><a href="#类模板的声明-A-declaration-of-a-class-template" class="headerlink" title="类模板的声明(A declaration of a class template)"></a>类模板的声明(A declaration of a class template)</h3><ul>
+<li>类模板(Class template)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tamplate &lt;模板参数表（Template parameter table）&gt;</span><br><span class="line"><span class="keyword">class</span> 类名（Class name）</span><br><span class="line">&#123;类成员声明（Class member declaration）&#125;；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果需要在类模板以外定义其成员函数，则要采用以下的形式：</li>
+</ul>
+<p>If you need to define its member functions outside of the class template, you need to do so in the following form:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;模板参数表（tamplate parameter table）&gt;</span><br><span class="line">类型名（<span class="keyword">typename</span>） </span><br><span class="line">类名（<span class="keyword">class</span> <span class="title class_">name</span>）&lt;模板参数标识符列表（A list of <span class="keyword">template</span> parameter identifiers）&gt;:</span><br><span class="line">函数名（function name）(参数表（parameter table）)</span><br></pre></td></tr></table></figure>
+
+<h4 id="类模板示例（An-example-of-a-class-template）"><a href="#类模板示例（An-example-of-a-class-template）" class="headerlink" title="类模板示例（An example of a class template）"></a>类模板示例（An example of a class template）</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    <span class="type">float</span> gpa;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Store</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    T item;</span><br><span class="line">    <span class="type">bool</span> haveValue;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Store</span>();</span><br><span class="line">    <span class="function">T &amp;<span class="title">getElem</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">putElem</span><span class="params">(<span class="type">const</span> T &amp;x)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">T &amp;Store&lt;T&gt;::<span class="built_in">getElem</span>()&#123;</span><br><span class="line">    <span class="keyword">if</span>(!haveValue)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;No item present!&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> Store&lt;T&gt;::<span class="built_in">putElem</span>(<span class="type">const</span> T &amp;x)&#123;</span><br><span class="line">    item=x;</span><br><span class="line">    haveValue=<span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Store&lt;<span class="type">int</span>&gt; s1,s2;</span><br><span class="line">    s1.<span class="built_in">putElem</span>(<span class="number">10</span>);</span><br><span class="line">    s2.<span class="built_in">putElem</span>(<span class="number">20</span>);</span><br><span class="line">    cout&lt;&lt;s1.<span class="built_in">getElem</span>()&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;s2.<span class="built_in">getElem</span>()&lt;&lt;endl;</span><br><span class="line">    Student g=&#123;<span class="number">1000</span>,<span class="number">23</span>&#125;;</span><br><span class="line">    Store&lt;Student&gt; s3;</span><br><span class="line">    s3.<span class="built_in">putElem</span>(g);</span><br><span class="line">    cout&lt;&lt;s3.<span class="built_in">getElem</span>().id&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;s3.<span class="built_in">getElem</span>().gpa&lt;&lt;endl;</span><br><span class="line">    Store&lt;<span class="type">double</span>&gt; d;</span><br><span class="line">    cout&lt;&lt;d.<span class="built_in">getElem</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个代码没有出现问题但是在编译的过程中却出错了</p>
+</blockquote>
+<h2 id="线性群体的概念（The-concept-of-a-linear-group）"><a href="#线性群体的概念（The-concept-of-a-linear-group）" class="headerlink" title="线性群体的概念（The concept of a linear group）"></a>线性群体的概念（The concept of a linear group）</h2><ul>
+<li>群体是指由多个数据元素组成的集合体。群体可以分为两个大类：<strong>线性群体</strong>和<strong>非线性群体</strong></li>
+</ul>
+<p>A population is a collection of multiple data elements. Populations can be divided into two broad categories: linear groups and nonlinear groups</p>
+<ul>
+<li>线性群体中的元素按位置排列有序，可以区分按顺序。</li>
+</ul>
+<p>The elements in a linear group are arranged in an orderly manner by position and can be distinguished by order.</p>
+<ul>
+<li>非线性群体不用位置顺序来标识元素。</li>
+</ul>
+<p>Nonlinear groups do not identify elements in a positional order.</p>
+<ul>
+<li>线性群体中的元素次序与其逻辑位置关系是对应的。在线性群体中，可以按照访问的不同方法分为<strong>直接访问</strong>、<strong>顺序访问</strong>和<strong>索引访问</strong></li>
+</ul>
+<p>The order of elements in a linear group corresponds to their logical positional relationships. In a linear population, it can be divided into direct access, sequential access, and index access according to different methods of access</p>
+<h2 id="数组类模板（Array-class-templates）"><a href="#数组类模板（Array-class-templates）" class="headerlink" title="数组类模板（Array class templates）"></a>数组类模板（Array class templates）</h2><ul>
+<li>静态数组具有固定元素个数的群体，其中的元素可以通过下标直接访问。（大小在编译的时候就确定了，在运行时无法修改）</li>
+</ul>
+<p>Static arrays have groups with a fixed number of elements, the elements of which can be accessed directly via subscripts. (The size is determined at compile time and cannot be modified at runtime)</p>
+<ul>
+<li>动态数组由一系列位置连续的，任意数量相同类型的元素组成（其元素个数可以在程序运行时改变）</li>
+</ul>
+<p>A dynamic array consists of a series of consecutive, any number of elements of the same type (the number of which can be changed while the program is running)</p>
+<ul>
+<li>vector就是用类模板实现的动态数组</li>
+</ul>
+<p>vector is a dynamic array implemented with a class template</p>
+<h3 id="动态数组类模板程序（Dynamic-array-class-templater）"><a href="#动态数组类模板程序（Dynamic-array-class-templater）" class="headerlink" title="动态数组类模板程序（Dynamic array class templater）"></a>动态数组类模板程序（Dynamic array class templater）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ARRSY_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ARRSY_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Array</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        T* list;</span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Array</span>(<span class="type">int</span> sz=<span class="number">50</span>);<span class="comment">//构造函数</span></span><br><span class="line">        <span class="built_in">Array</span>(<span class="type">const</span> Array&lt;T&gt;&amp;a);<span class="comment">//拷贝构造函数</span></span><br><span class="line">        ~<span class="built_in">Array</span>();<span class="comment">//析构函数</span></span><br><span class="line">        Array&lt;T&gt;&amp;<span class="keyword">operator</span>=(<span class="type">const</span> Array&lt;T&gt;&amp;rhs);</span><br><span class="line">        T&amp;<span class="keyword">operator</span>[](<span class="type">int</span> i);</span><br><span class="line">        <span class="type">const</span> T &amp;<span class="keyword">operator</span>[](<span class="type">int</span> i) <span class="type">const</span>;</span><br><span class="line">        <span class="keyword">operator</span> T*();</span><br><span class="line">        <span class="keyword">operator</span> <span class="type">const</span> T*() <span class="type">const</span>;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getSize</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">resize</span><span class="params">(<span class="type">int</span> sz)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//数组类模板定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; Array&lt;T&gt;::<span class="built_in">Array</span>(<span class="type">int</span> sz)&#123;</span><br><span class="line">    <span class="built_in">assert</span>(sz&gt;=<span class="number">0</span>);</span><br><span class="line">    size=sz;</span><br><span class="line">    list =<span class="keyword">new</span> T[size];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//动态分配size个T类型的元素空间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;Array&lt;T&gt;::~<span class="built_in">Array</span>()&#123;</span><br><span class="line">    <span class="keyword">delete</span> [] list;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">Array&lt;T&gt;::<span class="built_in">Array</span>(<span class="type">const</span> Array&lt;T&gt; &amp;a)&#123;</span><br><span class="line">    size=a.<span class="built_in">size</span>();</span><br><span class="line">    list=<span class="keyword">new</span> T[size];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        list[i]=a.list[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//复制构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">Array&lt;T&gt;&amp;Array&lt;T&gt;::<span class="keyword">operator</span>=(<span class="type">const</span> Array&lt;T&gt;&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">if</span>(&amp;rhs!=<span class="keyword">this</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(size!=rhs.size)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">delete</span>[] list;</span><br><span class="line">            size=rhs.size;</span><br><span class="line">            list=<span class="keyword">new</span> T[size];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            list[i]=rhs.list[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//重载“=”运算符，将对象rhs复制给本对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; T &amp;Array&lt;T&gt;::<span class="keyword">operator</span>[](<span class="type">int</span> n)&#123;</span><br><span class="line">    <span class="built_in">assert</span>(n&gt;=<span class="number">0</span> &amp;&amp;n&lt;size);</span><br><span class="line">    <span class="keyword">return</span> list[n];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//重载下标运算符，实现与普通数组一样通过下标访问元素，具有越界检查功能</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T </span><br><span class="line">&amp;Array&lt;T&gt;::<span class="keyword">operator</span>[](<span class="type">int</span> n)<span class="type">const</span>&#123;</span><br><span class="line"><span class="built_in">assert</span>(n&gt;=<span class="number">0</span>&amp;&amp;n&lt;size);</span><br><span class="line"><span class="keyword">return</span> list[n];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; Array&lt;T&gt;::<span class="keyword">operator</span> T*() &#123;<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//重载“*”运算符，实现将Array&lt;T&gt;对象转换为T*类型指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">int</span> Array&lt;T&gt;::<span class="built_in">getSize</span>()<span class="type">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> size;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//取当前数组的大小</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; <span class="type">void</span> Array&lt;T&gt;::<span class="built_in">resize</span>(<span class="type">int</span> sz)&#123;</span><br><span class="line">    <span class="built_in">assert</span>(sz&gt;=<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(sz==size) <span class="keyword">return</span>;</span><br><span class="line">    T*newlist=<span class="keyword">new</span> T[sz];</span><br><span class="line">    <span class="type">int</span> n=(sz&lt;size)?sz:size;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    newlist[i]=list[i];</span><br><span class="line">    <span class="keyword">delete</span>[]list;</span><br><span class="line">    list=newlist;</span><br><span class="line">    size=sz;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将数组大小修改为sz</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Array.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Array&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> n,count=<span class="number">0</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter the elements of the array: &quot;</span>;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">bool</span> isPrism=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;count;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i%a[j]==<span class="number">0</span>)&#123;</span><br><span class="line">                isPrism=<span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(isPrism)&#123;</span><br><span class="line">                <span class="keyword">if</span>(count==a.<span class="built_in">getSize</span>())a.<span class="built_in">resize</span>(count*<span class="number">2</span>);</span><br><span class="line">                a[count++]=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;count;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout&lt;&lt;<span class="built_in">setw</span>(<span class="number">8</span>)&lt;&lt;a[i];</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链表的概念与结点类模板（The-concept-of-linked-lists-and-node-class-templates）"><a href="#链表的概念与结点类模板（The-concept-of-linked-lists-and-node-class-templates）" class="headerlink" title="链表的概念与结点类模板（The concept of linked lists and node class templates）"></a>链表的概念与结点类模板（The concept of linked lists and node class templates）</h2><h3 id="顺序访问的线性群体-链表类（Sequentially-accessed-linear-population-linked-list-classes）"><a href="#顺序访问的线性群体-链表类（Sequentially-accessed-linear-population-linked-list-classes）" class="headerlink" title="顺序访问的线性群体-链表类（Sequentially accessed linear population-linked list classes）"></a>顺序访问的线性群体-链表类（Sequentially accessed linear population-linked list classes）</h3><ul>
+<li>链表是一种动态数据结构，可以用来表示顺序访问的线性群体</li>
+</ul>
+<p>A linked list is a dynamic data structure that can be used to represent linear groups of sequential accesses</p>
+<ul>
+<li>链表是由系列结点组成的，结点可以在运行时动态生成</li>
+</ul>
+<p>A linked list is made up of a series of nodes, which can be dynamically generated at runtime</p>
+<ul>
+<li>每个结点包括数据域和指向链表下一个结点的指针（即下一个结点的地址）</li>
+</ul>
+<p>Each node includes a data field and a pointer to the next node in the linked list (i.e., the address of the next node)</p>
+<p>如果链表每个结点中只有一个指向后继结点的指针，则该链表称为单链表</p>
+<p>If a linked list has only one pointer to a successor node in each node, the linked list is called a singly linked list。</p>
+<p><img src="https://p.sda1.dev/18/98b46e9ca7dc7aa284f89d90672ee996/e0619a759e0c50f9f1c5d7b8e0d2d76a.png"></p>
+<h3 id="单链表的结点类模板（Node-class-template-for-a-singly-linked-list）"><a href="#单链表的结点类模板（Node-class-template-for-a-singly-linked-list）" class="headerlink" title="单链表的结点类模板（Node class template for a singly linked list）"></a>单链表的结点类模板（Node class template for a singly linked list）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span> &#123; </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">  Node&lt;T&gt; *next; </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">  T data;  </span><br><span class="line">  <span class="built_in">Node</span>(<span class="type">const</span> T&amp; item,Node&lt;T&gt;* next = <span class="number">0</span>); </span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">insertAfter</span><span class="params">(Node&lt;T&gt; *p)</span></span>; </span><br><span class="line">  <span class="function">Node&lt;T&gt; *<span class="title">deleteAfter</span><span class="params">()</span></span>; </span><br><span class="line">  <span class="function">Node&lt;T&gt; *<span class="title">nextNode</span><span class="params">()</span> <span class="type">const</span></span>; </span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="在结点后插入一个结点（Inserts-a-node-after-the-node）"><a href="#在结点后插入一个结点（Inserts-a-node-after-the-node）" class="headerlink" title="在结点后插入一个结点（Inserts a node after the node）"></a>在结点后插入一个结点（Inserts a node after the node）</h3><p><img src="https://p.sda1.dev/18/c053c2c0c4ecdf98b7d075d1f5af29e9/7eee1610bad70108233e04fb04c36658.png"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> Node&lt;T&gt;::<span class="built_in">insertAfter</span>(Node&lt;T&gt;*p)&#123;</span><br><span class="line">    p-&gt;next=next;</span><br><span class="line">    next=p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除结点之后的结点（Delete-the-node-after-the-node-）"><a href="#删除结点之后的结点（Delete-the-node-after-the-node-）" class="headerlink" title="删除结点之后的结点（Delete the node after the node ）"></a>删除结点之后的结点（Delete the node after the node ）</h3><p><img src="https://p.sda1.dev/18/ecc7c7711b8c7aa3f754b779f7486e1a/1a617c0aba9c24af76b1dff86491daa2.png"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">deleteAfter</span>(<span class="type">void</span>)&#123;</span><br><span class="line">    Node&lt;T&gt;*temPtr=next;</span><br><span class="line">    <span class="keyword">if</span>(next==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    next=temptr-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> temPtr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> NODE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NODE_H</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        Node&lt;T&gt;*next;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    T data;</span><br><span class="line">    <span class="built_in">Node</span>(<span class="type">const</span> T &amp;data,Node&lt;T&gt;*next=<span class="number">0</span>)&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertAfter</span><span class="params">(Node&lt;T&gt;*p)</span></span>;</span><br><span class="line">    <span class="function">Node&lt;T&gt;*<span class="title">deleteAfter</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Node&lt;T&gt;*<span class="title">nextNode</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">const</span> Node&lt;T&gt;*<span class="title">nextNode</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//类模板的实现部分</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">nextNode</span>()&#123;</span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">nextNode</span>() <span class="type">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> Node&lt;T&gt;::<span class="built_in">insertAfter</span>(Node&lt;T&gt;*p)&#123;</span><br><span class="line">    p-&gt;next=next;</span><br><span class="line">    next=p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在当前结点之后插入一个结点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">deleteAfter</span>()&#123;</span><br><span class="line">    Node&lt;T&gt;*temPtr=next;</span><br><span class="line">    <span class="keyword">if</span>(next==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    next=temPtr-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> temPtr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除q指向的结点，并返回其后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意不要重复定义构造函数</p>
+<p>Be careful not to define the constructor repeatedly</p>
+</blockquote>
+<ul>
+<li>Node.h</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> NODE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NODE_H</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        Node&lt;T&gt;*next;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    T data;</span><br><span class="line">    <span class="built_in">Node</span>(<span class="type">const</span> T &amp;data,Node&lt;T&gt;*next=<span class="number">0</span>)&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertAfter</span><span class="params">(Node&lt;T&gt;*p)</span></span>;</span><br><span class="line">    <span class="function">Node&lt;T&gt;*<span class="title">deleteAfter</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Node&lt;T&gt;*<span class="title">nextNode</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">const</span> Node&lt;T&gt;*<span class="title">nextNode</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">deleteNode</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//类模板的实现部分</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">nextNode</span>()&#123;</span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">nextNode</span>() <span class="type">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> Node&lt;T&gt;::<span class="built_in">insertAfter</span>(Node&lt;T&gt;*p)&#123;</span><br><span class="line">    p-&gt;next=next;</span><br><span class="line">    next=p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在当前结点之后插入一个结点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;Node&lt;T&gt;*Node&lt;T&gt;::<span class="built_in">deleteAfter</span>()&#123;</span><br><span class="line">    Node&lt;T&gt;*temPtr=next;</span><br><span class="line">    <span class="keyword">if</span>(next==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    next=temPtr-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> temPtr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除next指向的结点，并返回其后继结点的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> Node&lt;T&gt;::<span class="built_in">deleteNode</span>()&#123;</span><br><span class="line">    <span class="built_in">delete</span>(<span class="keyword">this</span>-&gt;next);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>LinkedList.h</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> LINKEDLIST_H </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LINKEDLIST_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Node.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span> &#123; </span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    Node&lt;T&gt;*front,*rear;</span><br><span class="line">    Node&lt;T&gt;*prevPtr,*currPtr;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    <span class="type">int</span> position;</span><br><span class="line">    <span class="function">Node&lt;T&gt; *<span class="title">newNode</span><span class="params">(<span class="type">const</span> T &amp;item,Node&lt;T&gt;*ptrNext=<span class="literal">NULL</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">freeNode</span><span class="params">(Node&lt;T&gt; *p)</span></span>; </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">copy</span><span class="params">(<span class="type">const</span> LinkedList&lt;T&gt;&amp; L)</span></span>; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LinkedList</span>();</span><br><span class="line">    <span class="built_in">LinkedList</span>(<span class="type">const</span> LinkedList&lt;T&gt;&amp; L);</span><br><span class="line">    ~<span class="built_in">LinkedList</span>();</span><br><span class="line">    LinkedList&lt;T&gt;&amp; <span class="keyword">operator</span>=(<span class="type">const</span> LinkedList&lt;T&gt;&amp; L);</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSize</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">const</span> T&amp; item)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reset</span><span class="params">(<span class="type">int</span> pos=<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">endOfList</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">currentPosition</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertFront</span><span class="params">(<span class="type">const</span> T&amp; item)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertRear</span><span class="params">(<span class="type">const</span> T &amp;item)</span></span>; </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertAt</span><span class="params">(<span class="type">const</span> T &amp;item)</span></span>; </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertAfter</span><span class="params">(<span class="type">const</span> T &amp;item)</span></span>; </span><br><span class="line">    <span class="function">T <span class="title">deleteFront</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">deleteCurrent</span><span class="params">()</span></span>; </span><br><span class="line">    <span class="function">T&amp; <span class="title">data</span><span class="params">()</span></span>;    </span><br><span class="line">    <span class="function"><span class="type">const</span> T&amp; <span class="title">data</span><span class="params">()</span> <span class="type">const</span></span>;   <span class="comment">//返回对当前结点成员数据的常引用</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>; </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">Node&lt;T&gt; *LinkedList&lt;T&gt;::<span class="built_in">newNode</span>(<span class="type">const</span> T&amp; item, Node&lt;T&gt;* ptrNext) </span><br><span class="line">&#123;</span><br><span class="line">    Node&lt;T&gt;*p;</span><br><span class="line">    p=<span class="keyword">new</span> <span class="built_in">Node</span>&lt;T&gt;(item,ptrNext);</span><br><span class="line">    <span class="comment">//给p开了新的内存空间</span></span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;Memory allocation failed in newNode()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">freeNode</span>(Node&lt;T&gt;*p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//释放p结点的内存</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">insertFront</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(front!=<span class="literal">NULL</span>) <span class="built_in">reset</span>();</span><br><span class="line">    <span class="built_in">insert</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在头部插入元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">insertAt</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line">Node&lt;T&gt;*nNode;</span><br><span class="line">prevPtr=rear;</span><br><span class="line"><span class="keyword">if</span>(prevPtr==<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    nNode=<span class="built_in">newNode</span>(item,front);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    nNode=<span class="built_in">newNode</span>(item);</span><br><span class="line">    prevPtr-&gt;<span class="built_in">insertAfter</span>(nNode);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(prev==rear)</span><br><span class="line">&#123;</span><br><span class="line">    rear=nNode;</span><br><span class="line">    position=size;</span><br><span class="line">&#125;</span><br><span class="line">currPtr=nNode;</span><br><span class="line">size++;</span><br><span class="line"><span class="comment">//在指定位置前插入元素，如果位置为0则插入到头部，否则插入到指定位置</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//插入链表当前位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">insertAfter</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line">    Node&lt;T&gt;* nNode;</span><br><span class="line">    nNode=<span class="built_in">newNode</span>(item);</span><br><span class="line">    <span class="keyword">if</span>(prevPtr==<span class="literal">NULL</span>&amp;&amp;front==<span class="literal">NULL</span>&amp;&amp;rear==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        nNode=front;</span><br><span class="line">    <span class="comment">//表为空</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        currPtr-&gt;<span class="built_in">insertAfter</span>(nNode);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表中</span></span><br><span class="line">    <span class="keyword">if</span>(currPtr==rear)</span><br><span class="line">    &#123;</span><br><span class="line">        rear-&gt;<span class="built_in">insertAfter</span>(nNode);</span><br><span class="line">        rear=nNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表尾</span></span><br><span class="line">    currPtr=nNode;</span><br><span class="line">    position++;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">insertRear</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line">Node&lt;T&gt;*nNode;</span><br><span class="line">prevPtr=rear;</span><br><span class="line">nNode=<span class="built_in">newNode</span>(item);</span><br><span class="line"><span class="keyword">if</span>(rear==<span class="literal">NULL</span>)front=rear=nNode;</span><br><span class="line"><span class="keyword">else</span> &#123;rear-&gt;<span class="built_in">insertAfter</span>(nNode);</span><br><span class="line">rear=nNode;</span><br><span class="line">&#125;</span><br><span class="line">currPtr=rear;</span><br><span class="line">position=size;</span><br><span class="line">size++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在尾部插入元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">T LinkedList&lt;T&gt;::<span class="built_in">deleteFront</span>()</span><br><span class="line">&#123;</span><br><span class="line">    T item;</span><br><span class="line">    <span class="keyword">if</span>(front==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr&lt;&lt;<span class="string">&quot;Error: List is empty in deleteFront()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    prevPtr=front;</span><br><span class="line">    item=front-&gt;data;</span><br><span class="line">    front=front-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">    prevPtr-&gt;<span class="built_in">deleteNode</span>();</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除头部元素并返回其值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">deleteCurrent</span>()</span><br><span class="line">&#123;</span><br><span class="line">    Node&lt;T&gt;*nNode;</span><br><span class="line">    <span class="keyword">if</span>(currPtr==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr&lt;&lt;<span class="string">&quot;Error: List is empty in deleteCurrent()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(currPtr==front)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">deleteFront</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    currPtr=front;</span><br><span class="line">    nNode=prevPtr-&gt;<span class="built_in">deleteAfter</span>();</span><br><span class="line">    nNode-&gt;<span class="built_in">deleteNode</span>();</span><br><span class="line">    prevPtr=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> pos=<span class="number">0</span>;pos!=position<span class="number">-1</span>;pos++)</span><br><span class="line">    &#123;</span><br><span class="line">        prevPtr=currPtr;</span><br><span class="line">        currPtr=currPtr-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    position--;</span><br><span class="line">    size--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除当前位置元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">T&amp; LinkedList&lt;T&gt;::<span class="built_in">data</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(currPtr==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr&lt;&lt;<span class="string">&quot;Error: List is empty in data()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> currPtr-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回对当前结点成员数据的引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T&amp; LinkedList&lt;T&gt;::<span class="built_in">data</span>() <span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(currPtr==<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr&lt;&lt;<span class="string">&quot;Error: List is empty in data()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> currPtr-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//返回对当前结点成员数据的常引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">copy</span>(<span class="type">const</span> LinkedList&lt;T&gt;&amp;L)</span><br><span class="line">&#123;</span><br><span class="line">Node&lt;T&gt;*p=L.front;</span><br><span class="line"><span class="type">int</span> pos;</span><br><span class="line"><span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">insertRear</span>(p-&gt;data);</span><br><span class="line">    p=p-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(position==<span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">prevPtr=<span class="literal">NULL</span>;</span><br><span class="line">currPtr=front;</span><br><span class="line"><span class="keyword">for</span>(pos=<span class="number">0</span>;pos!=position;pos++)</span><br><span class="line">&#123;</span><br><span class="line">    prevPtr=currPtr;</span><br><span class="line">    currPtr=currPtr-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//copy函数实现链表的深拷贝</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">LinkedList&lt;T&gt;::~<span class="built_in">LinkedList</span>()&#123;<span class="built_in">clear</span>();&#125;</span><br><span class="line"><span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">int</span> LinkedList&lt;T&gt;::<span class="built_in">getSize</span>()<span class="type">const</span>&#123;<span class="keyword">return</span> size;&#125;</span><br><span class="line"><span class="comment">//返回链表的长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">bool</span> LinkedList&lt;T&gt;::<span class="built_in">isEmpty</span>()<span class="type">const</span>&#123;<span class="keyword">return</span> size==<span class="number">0</span>;&#125;</span><br><span class="line"><span class="comment">//判断链表是否为空</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;:: <span class="built_in">next</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(currPtr!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        prevPtr=currPtr;</span><br><span class="line">        currPtr=currPtr-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">        position++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//移动到下一个结点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">bool</span> LinkedList&lt;T&gt;::<span class="built_in">endOfList</span>()<span class="type">const</span>&#123;<span class="keyword">return</span> currPtr==<span class="literal">NULL</span>;&#125;</span><br><span class="line"><span class="comment">//判断是否到达链表尾部</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">int</span> LinkedList&lt;T&gt;::<span class="built_in">currentPosition</span>()<span class="type">const</span>&#123;<span class="keyword">return</span> position;&#125;</span><br><span class="line"><span class="comment">//返回当前位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">LinkedList&lt;T&gt;::<span class="built_in">LinkedList</span>(<span class="type">const</span> LinkedList&lt;T&gt;&amp;L)</span><br><span class="line">&#123;</span><br><span class="line">    front=real=<span class="literal">NULL</span>;</span><br><span class="line">    prevPtr=currPtr=<span class="literal">NULL</span>;</span><br><span class="line">    size=<span class="number">0</span>;</span><br><span class="line">    position=<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">copy</span>(L);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//拷贝构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">LinkedList&lt;T&gt;&amp; LinkedList&lt;T&gt;::<span class="keyword">operator</span> =(<span class="type">const</span> LinkedList&lt;T&gt;&amp;L)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>==&amp;L) <span class="keyword">return</span>*<span class="keyword">this</span>;</span><br><span class="line">    <span class="built_in">clear</span>();</span><br><span class="line">    <span class="built_in">copy</span>(L);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//赋值运算符重载</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">reset</span>(<span class="type">int</span> pos)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> startPos;</span><br><span class="line">    <span class="keyword">if</span>(front==<span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(pos&lt;<span class="number">0</span>||pos&gt;size<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr&lt;&lt;<span class="string">&quot;Invalid position in reset()!&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(pos==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        prevPtr=<span class="literal">NULL</span>;</span><br><span class="line">        currPtr=front;</span><br><span class="line">        position=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        currPtr=front-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">        prevPtr=front;</span><br><span class="line">        startPos=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(position=startPos;position!=pos;position++)</span><br><span class="line">        &#123;</span><br><span class="line">            prevPtr=currPtr;</span><br><span class="line">            currPtr=currPtr-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//重置当前位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LinkedList&lt;T&gt;::<span class="built_in">clear</span>()</span><br><span class="line">&#123;</span><br><span class="line">    Node&lt;T&gt;*currPosition,*nextPosition;</span><br><span class="line">    currPosition=front;</span><br><span class="line">    <span class="keyword">while</span>(currPosition!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        nextPosition=currPosition-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">        <span class="built_in">freeNode</span>(currPosition);</span><br><span class="line">        currPosition=nextPosition-&gt;<span class="built_in">nextNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    front=rear=<span class="literal">NULL</span>;</span><br><span class="line">    prevPtr=currPtr=<span class="literal">NULL</span>;</span><br><span class="line">    size=<span class="number">0</span>;</span><br><span class="line">    position=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>9-7.cpp</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;LinkedList.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LinkedList&lt;<span class="type">int</span>&gt; list;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> item;</span><br><span class="line">        cin&gt;&gt;item;</span><br><span class="line">        list.<span class="built_in">insertFront</span>(item);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;List:&quot;</span>;</span><br><span class="line">    list.<span class="built_in">reset</span>();</span><br><span class="line">    <span class="keyword">while</span>(!list.<span class="built_in">endOfList</span>())&#123;</span><br><span class="line">        cout&lt;&lt;list.<span class="built_in">data</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        list.<span class="built_in">next</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Please enter some interger needed to be deleted&quot;</span>;</span><br><span class="line">    cin&gt;&gt;key;</span><br><span class="line">    list.<span class="built_in">reset</span>();</span><br><span class="line">    <span class="keyword">while</span>(!list.<span class="built_in">endOfList</span>())&#123;</span><br><span class="line">        <span class="keyword">if</span>(list.<span class="built_in">data</span>()==key)&#123;</span><br><span class="line">            list.<span class="built_in">deleteCurrent</span>();</span><br><span class="line">            list.<span class="built_in">next</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;List:&quot;</span>;</span><br><span class="line">    list.<span class="built_in">reset</span>();</span><br><span class="line">    <span class="keyword">while</span>(!list.<span class="built_in">endOfList</span>())&#123;</span><br><span class="line">        cout&lt;&lt;list.<span class="built_in">data</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        list.<span class="built_in">next</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈类"><a href="#栈类" class="headerlink" title="栈类"></a>栈类</h2><p>栈是只能从一端访问的线性群体，可以访问的这一段称栈顶，另一端称栈底，栈是一种后进先出的数据结构。</p>
+<h3 id="栈示意图"><a href="#栈示意图" class="headerlink" title="栈示意图"></a>栈示意图</h3><p><img src="https://p.sda1.dev/18/ec71067fe45ffeae0d56c0468c324e09/3b85e7559923827ad9d58f8a153e1acd.png"></p>
+<h3 id="栈的应用举例——表达式处理"><a href="#栈的应用举例——表达式处理" class="headerlink" title="栈的应用举例——表达式处理"></a>栈的应用举例——表达式处理</h3><p><img src="https://p.sda1.dev/18/352f3a5d97bef6a225965b99191c0696/67032199e0d66195c2234e0367ad9f17.png"></p>
+<h3 id="栈的基本状态"><a href="#栈的基本状态" class="headerlink" title="栈的基本状态"></a>栈的基本状态</h3><h4 id="栈空"><a href="#栈空" class="headerlink" title="栈空"></a>栈空</h4><p>栈中没有元素（以数组容纳的栈为例） </p>
+<p><img src="https://p.sda1.dev/18/98146bb399fe58cf836f389a0e628e6c/cb97e8868ac0d01dc30adbebc1bbb4d5.png"></p>
+<h4 id="栈满"><a href="#栈满" class="headerlink" title="栈满"></a>栈满</h4><p>栈中元素个数达到上限（以数组容纳的栈为例） </p>
+<p><img src="https://p.sda1.dev/18/2487afe1fbb150988fc0160459456e31/86661e6ec00def0820b2d387ab489e40.png"></p>
+<h4 id="一般状态"><a href="#一般状态" class="headerlink" title="一般状态"></a>一般状态</h4><p>栈中有元素，但未达到栈满状态（以数组容纳的栈为例） </p>
+<p><img src="https://p.sda1.dev/18/ec71067fe45ffeae0d56c0468c324e09/3b85e7559923827ad9d58f8a153e1acd.png"></p>
+<h3 id="栈的基本操作"><a href="#栈的基本操作" class="headerlink" title="栈的基本操作"></a>栈的基本操作</h3><ul>
+<li>初始化</li>
+<li>入栈</li>
+<li>出栈</li>
+<li>清空栈</li>
+<li>访问栈顶元素</li>
+<li>检测栈的状态</li>
+</ul>
+<h4 id="栈类模板"><a href="#栈类模板" class="headerlink" title="栈类模板"></a>栈类模板</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> STACK_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> STACK_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE=<span class="number">50</span>&gt;</span><br><span class="line"><span class="keyword">class</span> Stack&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        T list[SIZE];</span><br><span class="line">        <span class="type">int</span> top;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Stack</span>();</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">const</span> T&amp;item)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">const</span> T&amp; <span class="title">peek</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">isFull</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line">Stack&lt;T,SIZE&gt;::<span class="built_in">Stack</span>()</span><br><span class="line">&#123;</span><br><span class="line">    top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line"><span class="type">void</span> Stack&lt;T,SIZE&gt;::<span class="built_in">push</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">assert</span>(!<span class="built_in">isEmpty</span>());</span><br><span class="line">    list[++top]=item;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line">T Stack&lt;T,SIZE&gt;::<span class="built_in">pop</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">assert</span>(!<span class="built_in">isEmpty</span>());</span><br><span class="line">    <span class="keyword">return</span> list[top--];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line">T Stack&lt;T,SIZE&gt;::<span class="built_in">pop</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">assert</span>(!<span class="built_in">isEmpty</span>());</span><br><span class="line">    <span class="keyword">return</span> list[top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line"><span class="type">bool</span> Stack&lt;T,SIZE&gt;::<span class="built_in">isFull</span>() <span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> top==SIZE<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line"><span class="type">bool</span> Stack&lt;T,SIZE&gt;::<span class="built_in">isEmpty</span>() <span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> top==<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line"><span class="type">void</span> Stack&lt;T,SIZE&gt;::<span class="built_in">clear</span>()</span><br><span class="line">&#123;</span><br><span class="line">    top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="一个简单的整数计算器"><a href="#一个简单的整数计算器" class="headerlink" title="一个简单的整数计算器"></a>一个简单的整数计算器</h4><p>实现一个简单的整数计算器，能够进行加、减、乘、除和乘方运算。使用时算式采用后缀输入法，每个操作数、操作符之间都以空白符分隔。例如，若要计算”3+5”则输入”3 5 +”。乘方运算符用”^”表示。每次运算在前次结果基础上进行，若要将前次运算结果清除，可键入”c”。当键入”q”时程序结束。 </p>
+<h5 id="Calculator-cpp"><a href="#Calculator-cpp" class="headerlink" title="Calculator.cpp"></a>Calculator.cpp</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Calculator.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">stringToDouble</span><span class="params">(<span class="type">const</span> string &amp;str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">istringstream <span class="title">stream</span><span class="params">(str)</span></span>;</span><br><span class="line">    <span class="type">double</span> result;</span><br><span class="line">    stream&gt;&gt;result;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Calculator::enter</span><span class="params">(<span class="type">double</span> num)</span></span>&#123;s.<span class="built_in">push</span>(num);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Calculator::getTwoOperands</span><span class="params">(<span class="type">double</span> &amp;num1, <span class="type">double</span> &amp;num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">isEmpty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    num1=s.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">if</span>(s.<span class="built_in">isEmpty</span>()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    num2=s.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Calculator::compute</span><span class="params">(<span class="type">char</span> op)</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> num1,num2;</span><br><span class="line">    <span class="type">bool</span> result=<span class="built_in">getTwoOperands</span>(num1,num2);</span><br><span class="line">    <span class="keyword">if</span>(result)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(op)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>: s.<span class="built_in">push</span>(num2+num1); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>: s.<span class="built_in">push</span>(num2-num1); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>: s.<span class="built_in">push</span>(num2*num1); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>: <span class="keyword">if</span>(num1==<span class="number">0</span>)&#123;cout&lt;&lt;<span class="string">&quot;Error: Division by zero&quot;</span>&lt;&lt;endl; s.<span class="built_in">clear</span>();&#125;</span><br><span class="line">            <span class="keyword">else</span> s.<span class="built_in">push</span>(num2/num1); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&#x27;^&#x27;</span>: s.<span class="built_in">push</span>(<span class="built_in">pow</span>(num2,num1)); <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>: cout&lt;&lt;<span class="string">&quot;Invalid operator&quot;</span>&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;=&quot;</span>&lt;&lt;s.<span class="built_in">peek</span>()&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">else</span> s.<span class="built_in">clear</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Calculator::run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        string str;</span><br><span class="line">        <span class="keyword">while</span>(cin&gt;&gt;str,str!=<span class="string">&quot;q&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span>(str[<span class="number">0</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">case</span><span class="number">&#x27;</span>c<span class="number">&#x27;</span>:s.<span class="built_in">clear</span>();<span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span><span class="number">&#x27;</span>-<span class="string">&#x27;:if(str.size()&gt;1)</span></span><br><span class="line"><span class="string">                enter(stringToDouble(str));</span></span><br><span class="line"><span class="string">                else compute(str[0]);</span></span><br><span class="line"><span class="string">                break;</span></span><br><span class="line"><span class="string">                case&#x27;</span>+<span class="string">&#x27;:</span></span><br><span class="line"><span class="string">                case&#x27;</span>*<span class="string">&#x27;:</span></span><br><span class="line"><span class="string">                case&#x27;</span>/<span class="string">&#x27;:</span></span><br><span class="line"><span class="string">                case&#x27;</span>^<span class="string">&#x27;:</span></span><br><span class="line"><span class="string">                compute(str[0]);break;</span></span><br><span class="line"><span class="string">                default:enter(stringToDouble(str));</span></span><br><span class="line"><span class="string">                break;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    void Calculator::clear()&#123;</span></span><br><span class="line"><span class="string">        s.clear();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Calculator.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Calculator c;</span><br><span class="line">    c.<span class="built_in">run</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="队列类模板"><a href="#队列类模板" class="headerlink" title="队列类模板"></a>队列类模板</h2><p>队列是只能向一端添加元素，从另一端删除元素的线性群体 </p>
+<p><img src="https://p.sda1.dev/18/2708dae00ae662a19e5ddfbf78876da9/16069c1ef745b44e7269b5727e60bea9.png"></p>
+<h4 id="队列的基本状态"><a href="#队列的基本状态" class="headerlink" title="队列的基本状态"></a>队列的基本状态</h4><h5 id="队空"><a href="#队空" class="headerlink" title="队空"></a>队空</h5><p>队列中没有元素（以数组容纳的队列为例） </p>
+<p><img src="https://p.sda1.dev/18/46d2917246cb33788209e927810ea360/4902e4a84c2432cf417e542efb823bca.png" alt="队空"></p>
+<h5 id="队满"><a href="#队满" class="headerlink" title="队满"></a>队满</h5><p>队列中元素个数达到上限（以数组容纳的队列为例） </p>
+<p><img src="https://p.sda1.dev/18/c6cd6a2e8dc850b0afc04a8957986da1/bd4f36ed24ee1d73e5166304aafafa3c.png" alt="队满"></p>
+<h5 id="一般状态-1"><a href="#一般状态-1" class="headerlink" title="一般状态"></a>一般状态</h5><p>队列中有元素，但未达到队满状态（以数组容纳的队列为例） </p>
+<p><img src="https://p.sda1.dev/18/3b0e4eaa847c11fd85c5f23d20fb5938/a08bff26e1c143198a59e26331431a7c.png" alt="一般状态"></p>
+<h4 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h4><p>在想象中将数组弯曲成环形，元素出队时，后继元素不移动，每当队尾达到数组最</p>
+<p>后一个元素时，便再回到数组开头。 </p>
+<p><img src="https://p.sda1.dev/18/bdae161bb1351c1c524e9ab0991d6081/d89afbf32a0f4607b749ee964ed0cdab.png" alt="循环队列"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> QUEUE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> QUEUE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> front,rear,count;</span><br><span class="line">        T list[SIZE];</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">Queue</span>();</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">const</span> T &amp;item)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">const</span> T &amp;<span class="title">getFront</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">isFull</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line">Queue&lt;T, SIZE&gt;::<span class="built_in">Queue</span>() : <span class="built_in">front</span>(<span class="number">0</span>), <span class="built_in">rear</span>(<span class="number">0</span>), <span class="built_in">count</span>(<span class="number">0</span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>,<span class="type">int</span> SIZE&gt;</span><br><span class="line"><span class="type">void</span> Queue&lt;T,SIZE&gt;::<span class="built_in">insert</span>(<span class="type">const</span> T&amp;item)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">assert</span>(count!=SIZE);</span><br><span class="line">list[rear]=item;</span><br><span class="line">rear=(rear+<span class="number">1</span>)%SIZE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; T Queue&lt;T, SIZE&gt;::<span class="built_in">remove</span>() &#123; </span><br><span class="line"> <span class="built_in">assert</span>(count != <span class="number">0</span>); </span><br><span class="line"> <span class="type">int</span> temp = front; <span class="comment">//记录下原先的队首指针 </span></span><br><span class="line"> count--; <span class="comment">//元素个数自减 </span></span><br><span class="line"> front = (front + <span class="number">1</span>) % SIZE;<span class="comment">//队首指针增1。取余以实现循环队列 </span></span><br><span class="line"> <span class="keyword">return</span> list[temp]; <span class="comment">//返回首元素值 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line"><span class="type">const</span> T &amp;Queue&lt;T, SIZE&gt;::<span class="built_in">getFront</span>() <span class="type">const</span> &#123; </span><br><span class="line"> <span class="keyword">return</span> list[front]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line"><span class="type">int</span> Queue&lt;T, SIZE&gt;::<span class="built_in">getLength</span>() <span class="type">const</span> &#123; <span class="comment">//返回队列元素个数 </span></span><br><span class="line"> <span class="keyword">return</span> count; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line"><span class="type">bool</span> Queue&lt;T, SIZE&gt;::<span class="built_in">isEmpty</span>() <span class="type">const</span> &#123; <span class="comment">//测试队空否 </span></span><br><span class="line"> <span class="keyword">return</span> count == <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line"><span class="type">bool</span> Queue&lt;T, SIZE&gt;::<span class="built_in">isFull</span>() <span class="type">const</span> &#123; <span class="comment">//测试队满否 </span></span><br><span class="line"> <span class="keyword">return</span> count == SIZE; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="type">int</span> SIZE&gt; </span><br><span class="line"><span class="type">void</span> Queue&lt;T, SIZE&gt;::<span class="built_in">clear</span>() &#123; <span class="comment">//清空队列 </span></span><br><span class="line"> count = <span class="number">0</span>; </span><br><span class="line"> front = <span class="number">0</span>; </span><br><span class="line"> rear = <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="排序概述"><a href="#排序概述" class="headerlink" title="排序概述"></a>排序概述</h2><p>排序是将一个数据元素的任意序列，重新排列成一个按关键字有序的序列。 </p>
+<ul>
+<li>数据元素：数据的基本单位。在计算机中通常作为一个整体进行考虑。一个数据元</li>
+</ul>
+<p>素可由若干数据项组成。 </p>
+<ul>
+<li><p>关键字：数据元素中某个数据项的值，用它可以标识（识别）一个数据元素。 </p>
+</li>
+<li><p>在排序过程中需要完成两种基本操作：</p>
+</li>
+</ul>
+<blockquote>
+<p>比较两个数的大小 </p>
+</blockquote>
+<blockquote>
+<p>调整元素在序列中的位置 </p>
+</blockquote>
+<h3 id="内部排序和外部排序"><a href="#内部排序和外部排序" class="headerlink" title="内部排序和外部排序"></a>内部排序和外部排序</h3><h4 id="内部排序："><a href="#内部排序：" class="headerlink" title="内部排序："></a>内部排序：</h4><p>待排序的数据元素存放在计算机内存中进行的排序过程。 </p>
+<h4 id="外部排序："><a href="#外部排序：" class="headerlink" title="外部排序："></a>外部排序：</h4><p>待排序的数据元素数量很大，以致内存存中一次不能容纳全部数据，在排序过程中尚需对外存进行访问的排序过程。</p>
+<h3 id="几种简单的内部排序方法"><a href="#几种简单的内部排序方法" class="headerlink" title="几种简单的内部排序方法"></a>几种简单的内部排序方法</h3><h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>每一步将一个待排序元素按其关键字值的大小插入到已排序序列的适当位置上，直到待排序元素插入完为止。 </p>
+<p><img src="https://p.sda1.dev/18/ececd1f3eba3158b8bbb9c6c9d167fd4/0e454abb2a75c88edb829a7b57ad0631.png" alt="插入排序"></p>
+<h5 id="直接插入排序类模板"><a href="#直接插入排序类模板" class="headerlink" title="直接插入排序类模板"></a>直接插入排序类模板</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insertionSort</span><span class="params">(T a[],<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    T temp;</span><br><span class="line">    <span class="comment">//设置更新变量</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j=i;</span><br><span class="line">        <span class="comment">//将i的值赋给j</span></span><br><span class="line">        T temp=a[i];</span><br><span class="line">        <span class="comment">//暂存a[i]的值</span></span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;temp&lt;a[j<span class="number">-1</span>])</span><br><span class="line">        <span class="comment">//这里都是升序排列</span></span><br><span class="line">  		<span class="comment">//一直循环到比temp大的位置</span></span><br><span class="line">        &#123;</span><br><span class="line">            a[j]=a[j<span class="number">-1</span>];</span><br><span class="line">            j--;</span><br><span class="line">            <span class="comment">//将比temp大的元素全部后移一格</span></span><br><span class="line">        &#125;</span><br><span class="line">        a[j]=temp;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><p>每次从待排序序列中选择一个关键字最小的元素，（当需要按关键字升序排列时），顺序排在已排序序列的最后，直至全部排完。</p>
+<h5 id="选择排序类模板"><a href="#选择排序类模板" class="headerlink" title="选择排序类模板"></a>选择排序类模板</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mySwap</span><span class="params">(T &amp;x, T &amp;y)</span> </span>&#123; </span><br><span class="line"> T temp = x; </span><br><span class="line"> x = y; </span><br><span class="line"> y = temp; </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//交换两个对象</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">selectionSort</span><span class="params">(T a[], <span class="type">int</span> n)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) </span><br><span class="line"> &#123; </span><br><span class="line"> <span class="type">int</span> leastIndex = i; </span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; n; j++) </span><br><span class="line"> <span class="keyword">if</span> (a[j] &lt; a[leastIndex]) leastIndex = j; </span><br><span class="line"> <span class="built_in">mySwap</span>(a[i], a[leastIndex]); </span><br><span class="line"> &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p.sda1.dev/18/dd87d5b62a8c6aa41e475be43ee87eb9/4831d0605cbdc27232dce00b3ac899cb.png" alt="选择排序"></p>
+<h4 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h4><p>两两比较待排序序列中的元素，并交换不满足顺序要求的各对元素，直到全部满足顺序要求为止。</p>
+<p><img src="https://p.sda1.dev/18/c0ae93053675e0db4d492c93d177fcbb/f5edae720f4ec03d409885c50ac55717.png" alt="交换排序"></p>
+<h5 id="交换排序类模板"><a href="#交换排序类模板" class="headerlink" title="交换排序类模板"></a>交换排序类模板</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mySwap</span><span class="params">(T &amp;x, T &amp;y)</span> </span>&#123; </span><br><span class="line"> T temp = x; </span><br><span class="line"> x = y; </span><br><span class="line"> y = temp; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bubbleSort</span><span class="params">(T a[], <span class="type">int</span> n)</span> </span>&#123; </span><br><span class="line"> <span class="type">int</span> i = n – <span class="number">1</span>; </span><br><span class="line"> <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123; </span><br><span class="line"> <span class="type">int</span> lastExchangeIndex = <span class="number">0</span>; </span><br><span class="line"> <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) </span><br><span class="line"> <span class="keyword">if</span> (a[j + <span class="number">1</span>] &lt; a[j]) &#123; </span><br><span class="line"> <span class="built_in">mySwap</span>(a[j], a[j + <span class="number">1</span>]); </span><br><span class="line"> lastExchangeIndex = j; </span><br><span class="line"> &#125; </span><br><span class="line"> i = lastExchangeIndex; </span><br><span class="line"> &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2022/11/09/SPOC%EF%BC%889%EF%BC%89%EF%BC%9A%E6%A8%A1%E6%9D%BF%E5%92%8C%E7%BE%A4%E4%BD%93%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/11/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%93%BE%E8%A1%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据结构：链表
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/11/06/SPOC%EF%BC%888%EF%BC%89%EF%BC%9A%E5%A4%9A%E6%80%81%E6%80%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">SPOC(8):多态性</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+<script>
+  const password = "22360408";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>
