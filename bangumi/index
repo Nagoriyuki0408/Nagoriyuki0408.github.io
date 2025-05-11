@@ -1,0 +1,3240 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>追番列表 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="-"
+  class="article article-type-"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  追番列表
+</h1>
+ 
+
+      
+    </header>
+       
+    <div class="article-entry" itemprop="articleBody">
+       
+  
+<blockquote>
+    <p>生命不息，追番不止！</p>
+</blockquote>
+
+
+<style>
+    .bangumi-tabs{margin-bottom:15px;margin-top:15px}.bangumi-tab{padding:5px}a.bangumi-tab{text-decoration:none}.bangumi-active{background:#657b83;color:#fff}.bangumi-item{position:relative;clear:both;padding:10px 0;border-bottom:1px solid #ddd;min-height:180px}@media screen and (max-width:600px){.bangumi-item{width:100%}}.bangumi-picture{position:absolute;left:0;top:10px;width:110px}.bangumi-picture img{margin:10px 0}.bangumi-info{padding-left:120px;margin-top:10px;min-height:160px}.bangumi-meta{font-size:12px;padding-right:10px;height:45px}.bangumi-summary{font-size:12px;margin-top:10px}.bangumi-summary>p{word-break:break-all;text-overflow:ellipsis;overflow:hidden;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}.bangumi-comments{font-size:12px}.bangumi-pagination{margin-top:15px;text-align:center;margin-bottom:10px}.bangumi-button{padding:5px}.bangumi-button:hover{background:#657b83;color:#fff}.bangumi-hide{display:none}.bangumi-show{display:block}.bangumi-title{font-size:18px;font-weight:700}.bangumi-title a{line-height:1;text-decoration:none}.bangumi-info-items{font-size:12px;color:#2fd8d8;padding-top:10px;line-height:1;float:left;width:100%;height:45px}.bangumi-info-item{display:inline-block;width:13%;border-right:1px solid #2fd8d8;text-align:center;height:34px}.bangumi-info-label{display:block;line-height:12px}.bangumi-info-item em{display:block;padding-top:6px;line-height:17px;font-style:normal;font-weight:700}.bangumi-info-total{padding-top:11px;display:block;line-height:12px;font-weight:700}.bangumi-info-item-score{border-right:1px solid #0000;width:50px}.bangumi-info-label-em{color:transparent;opacity:0;visibility:hidden;line-height:6px!important;padding:0!important}@media (max-width:650px){.bangumi-coin,.bangumi-type{display:none}.bangumi-info-item{width:16%}}@media (max-width:590px){.bangumi-danmaku,.bangumi-wish{display:none}.bangumi-info-item{width:19%}}@media (max-width:520px){.bangumi-doing,.bangumi-play{display:none}.bangumi-info-item{width:24%}}@media (max-width:480px){.bangumi-collect,.bangumi-follow,.bangumi-info-item-follow{display:none}.bangumi-info-item{width:30%}}@media (max-width:400px){.bangumi-area,.bangumi-tag{display:none}.bangumi-info-item{width:45%}}@media (max-width:270px){.bangumi-info-item-score{display:none}.bangumi-info-item{width:100%;border-right:none}}.bangumi-my-comments{border:1px dashed #8f8f8f;padding:3px;border-radius:5px}.bangumi-starstop{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 100% 100%/10px 19.5px repeat-x;height:10px;width:50px;display:inline-block;float:none}.bangumi-starlight{background:url(https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.7.9/lib/img/rate_star_2x.png) 0 0/10px 19.5px repeat-x;height:10px;display:block;width:100%}.bangumi-starlight.stars1{width:5px}.bangumi-starlight.stars2{width:10px}.bangumi-starlight.stars3{width:15px}.bangumi-starlight.stars4{width:20px}.bangumi-starlight.stars5{width:25px}.bangumi-starlight.stars6{width:30px}.bangumi-starlight.stars7{width:35px}.bangumi-starlight.stars8{width:40px}.bangumi-starlight.stars9{width:45px}.bangumi-starlight.stars10{width:50px}.bangumi-info .bangumi-progress{width:100%;height:24px;background-color:#f2f2f2;border-radius:5px;overflow:hidden;font-size:16px;text-align:center;position:relative}.bangumi-info .bangumi-progress-text{z-index:100;position:relative;color:#3c4858;line-height:24px}.bangumi-info .bangumi-progress .progress-bar{z-index:50;height:100%;background-color:#007bffad;border-radius:5px;position:absolute;top:0}
+    
+</style>
+<div class="bangumi-tabs">
+    <a class="bangumi-tab" id="bangumi-tab1" href="javascript:;" rel="external" target="_self" onclick="return false">
+    Wish
+    (1)</a>
+    <a class="bangumi-tab" id="bangumi-tab2" href="javascript:;" rel="external" target="_self" onclick="return false">
+        Watching
+        (47)</a>
+    <a class="bangumi-tab" id="bangumi-tab3" href="javascript:;" rel="external" target="_self" onclick="return false">
+        Watched
+        (4)</a>
+</div>
+<div>
+    <div id="bangumi-item1">
+        
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/85c6e348a00a54d0b86d538efb186e006a027e21.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28224095/">某科学的超电磁炮T</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全25话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2.6 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>674.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>324.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>287.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/25
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：有 230 万人口，其中八成人口为学生的「学园都市」，是比其他地区科技更为先进，并从事「超能力开发」的特殊地区。而整座学园都市中仅有七人的等级 5 超能力者之一御坂美琴，由于她的能力与个性使然，因而被...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> Top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">Prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">Next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">End</a>
+</div>
+        
+    </div>
+    <div id="bangumi-item2">
+        
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/bdeaf5edf63f7e488002033b065573475a6f0c91.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md25572685/">夏日口袋</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">-</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>328.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>23.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>5.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>3.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/5
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：主人公鹰原羽依里为了整理已故祖母的遗物，利用暑假时间独自来到了鸟白岛。当他走下一天只有几班的渡轮时，遇见了一名少女。她任由海风吹拂着头发，只是凝视着远方……并非大海也并非天空的分界线。回过神来，少女已...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/bd27b817e42ad39739251bb7347c3868af10b626.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md4316462/">不吉波普不笑</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全18话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2682.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>146.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>15.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>27.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/18
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：少女宫下藤花，当她察觉到“世界之敌”的时候便会诞生出另一个名为“不吉波普”的人格。围绕着各种奇怪的事件，少年与少女们的故事慢慢展开了——...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/3a74ca41bae1a94e45b3d23afbb62b7ab613b5df.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1178/">CLANNAD ～AFTER STORY～</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全23话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>5452.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>198.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>85.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>138.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/23
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在某个小镇，主角冈崎朋也因家庭因素成为不良少年，一直与春原阳平为伍，在光坂高校过着潦倒的生活，但冀望终有一天能够离开所在的小镇。某一天，他在学校坡道前发现了一个止步不前的女孩，在朋也认识了这个名为“古...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/0082a5c243151ef989439578e745785268c58e7d.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md22006270/">剧场版 咒术回战 0</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>496.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>1364.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>1.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>8.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《咒术回战》的原点，一个爱与诅咒的故事。
+由芥见下下创作，集英社《周刊少年JUMP》连载的漫画作品《咒术回战》。于2018年3月开始连载，讲述咒术师以咒术祓除人们负面感情中诞生的诅咒的战斗故事，其单行...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/0e77f5e3da2432d7aa7ab65c8f7401d2d9a89546.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1375/">KANON / 雪之少女（京都版）</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全24话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>758.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>55.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>8.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>34.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/24
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：天上下着雪，纯白的雪花，从天空阴沉沉地飘落下来。
+北国的小镇，七年的离别，遗失的回忆，珍贵的事物，即将到来的春天，奇迹，即将上演。　
+祐一的双亲因为工作原因调去国外，不愿出国的他被迫借住在亲戚水濑家。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/2c964194013003cb52116e2c6760a1224b3cfef6.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1182/">悠久之翼2</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>275.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>23.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>6.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《ef - a fairy tale of the two.》是minori游戏公司所发行的第五部作品。本作主要讲述了在两个“音羽”小镇上几对男女互相纠葛的故事。游戏主要分为两部发售，前篇《the f...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/5ab04233a441e3b5cc68d0c88bd39d1e5a89cc33.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28234650/">漂流少年</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2275.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>128.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>20.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>14.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：漫长的暑假已然过半的8月16日。聚集在学校里的中学三年级学生·长良一行人突然被卷进从未设想过的事态之中。
+长良本人自不必说，神秘的转校生·希和瑞穗以及朝风等36名同班同学，都随着学校一起在异次元之中漂...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/3e6569204e04062340fe15431e9ea82ebc6179bf.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md5297/">千年女优</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>319.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>34.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>4.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>8.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在片中，藤原千代子是战后日本银映电影公司鼎盛时期的巨星，她演遍了日本历史上，自战国时代、幕府时代、大正时代、昭和时期、所有大时代的故事；也涵盖了日本电影所有的类型,包括古装时代剧、战争谍报剧、战后时代...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/441e0d6062ff386e69e4fabd8f5ee4738f9d5dd7.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md22165857/">小花仙 第五季 春季篇</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>99.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>18.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>383</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>1807</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>-</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：异世界帕拉尼大陆来袭，和平的拉贝尔大陆遭到攻击。在入侵者伊赛德斯的强攻下，守护拉贝尔的节气守护结界被打破，二十四节气散落花千屿。为了拯救拉贝尔大陆，同时也为了解除帕拉尼的危机，第二代的花仙魔法使者雪城...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/27cf3257e5072bc389855636f97a801a66eee267.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md21214905/">擅长捉弄的高木同学</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>765.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>384.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>7.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>3.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：害羞就输了的「捉弄」喜剧
+
+「今天一定要捉弄高木同学，让她觉得丢脸！」在某间中学里，有个一直被坐在隔壁的女孩——高木同学捉弄的男孩西片。他每天都努力奋斗，要反过来捉弄高木同学，但……？
+
+高木同学和西...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/69683aa3df3dbfc946afc0526296e8c80dfdfed3.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md20310848/">咒术回战 第二季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全23话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>3.2 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>1292.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>56.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>88.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.4</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/23
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：这是无敌的两人再也回不去的青春。
+2018年6月，虎杖悠仁被两面宿傩附身。
+2017年12月，乙骨忧太解除祈本里香的诅咒。
+再往前追溯到2006年春——五条悟和夏油杰还在高专时期。
+
+成为咒术师大显身...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/5e3bdc03651b6361aa0e47901bbb68584859db9e.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28237219/">攻壳机动队 2045 第二季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>210.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>102.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>5348</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>8888</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.1</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：神山健治和荒牧伸志拓展标性科幻系列《攻壳机动队》的视野，带大家想像不久之后 2045 年的未来世界。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/b5bd599fa35202d526aff10f0504ad0894695657.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md5802/">CHAOS;CHILD</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全14话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1158.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>62.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>2.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>14.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>8.1</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/14
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：如果你是神明，并且能够让妄想成为现实。那你会进行怎么样的妄想？
+是淫靡的世界？独裁社会？毁灭性的制裁？还是……
+2015年，涩谷。从6年前发生的大灾害“涩谷地震”之后复兴了的这个街区里新设立的私立高中...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/133030604f6d68986249fe34ba909c800eb685d5.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md3068/">Love Live! School Idol Project</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全13话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>3970.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>210.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>20.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>361.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/13
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：【本字幕由LoveEcho!字幕组协力译制】位于东京都千代田区的传统高校“音乃木阪学院”，因为入读的学生人数骤减，所以正面临着废校的危机。其中九位少女为了保护她们喜爱的学校而决定成为偶像，因为只要她们...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/5cd372cf304c8afd5aad405b74e78dfaaae80160.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md20141298/">跃动青春</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>7939.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>229.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>49.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>34.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：岩仓美津未从乡下的小初中，以第一名的成绩考入了东京的高升学率高中。
+这位乡村神童心怀完美的人生蓝图、独自来到东京。她成绩优异，却与他人有着独特的距离感，稍显格格不入。
+她虽然偶尔会失败，但还是凭借天真...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/431be20a3fe0c726af1c80b7f94b6ef0cf8a9282.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md7752/">春宵苦短，少女前进吧</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>478.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>62.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>4.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>5.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：古色古香的京都，奇妙的恋爱之旅正在展开。春天，黑发少女踏上寻找伪电气白兰地的夜之旅，学长却被从天而降的锦鲤砸晕；夏天，少女在旧书市寻找心爱的童年绘本，学长则面临残酷的火锅地狱；秋天，身背红鲤鱼的少女化...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/9989cf5ed42c0d038b472c4952cfbbce56d2899b.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md20139274/">攻壳机动队 2045 剧场版</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>59.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>102.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1510</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>941</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>-</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：2045年，“全世界同时违约”爆发，对所有国家造成了严重的经济灾害。同时又因为人工智能的爆发性进化，世界陷入了受控的“可持续战争”之中。在这个近未来时代，人类还未衰退至能在日常生活中感受到人工智能带来...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/8494b0785550977b99cd8bf94b11bec208baccca.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28435376/">擅长捉弄的高木同学 剧场版</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>572.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>358.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>19.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>6.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在一所初中里，有一个叫做西片的男生，时常遭到同桌女生高木同学的捉弄。
+每次他设法捉弄回去，都会被高木同学看透。
+季节变换，两个人都升上了三年级。周围的同学们开始思考将来，掺杂着不安与期待的同时，高木同...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/91e9534cc55aa1a6dc959e7d6d33bde970208232.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28229899/">咒术回战</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全24话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>9.6 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>1321.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>468.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>555.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/24
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：少年战斗着——「为寻求正确的死亡」
+辛酸·后悔·耻辱
+
+人类产生的负面情感，化为诅咒，潜入日常生活
+
+诅咒是蔓延于世界的祸源，最糟糕的情况下，会让人类踏入死亡
+并且，诅咒只能以诅咒祓除
+
+拥有惊人身体...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/00ee95c464defbaafa243220ad862c623339bd8d.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1565/">攻壳机动队 S.A.C. 2nd GIG</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>708.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>23.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>9.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：故事内容延续第一部TV版《攻壳机动队 STAND ALONE COMPLEX》的剧情继续发展。但TV版的2部作品与剧场版无甚联系，可以看做是两个平行世界里发生的事情。
+这次TV版第2季的制作班底与第一...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/6ebd07ba376115d212add10de0d237eb94f0852a.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1564/">攻壳机动队 STAND ALONE COMPLEX</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1466.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>78.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>3.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>20.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《攻壳机动队》，是由日本漫画家士郎正宗1989年4月22日首次连载于讲谈社青年漫画月刊《Young Magazine海贼版》的漫画，进度为每三个月一话，第一部总共收录有12话，在结束了第一部以后正式开...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/c66315b6bba3e45c185f90f9bea00e3f6668fe55.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28234234/">小花仙</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全52话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>3155.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>18.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>3.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>12.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>6.5</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/52
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：地球少女夏安安在机遇巧合下与散落地球上的花仙国拉贝尔大陆上的花仙精灵王缔结了盟约，成为了拯救危机的命定花仙魔法使者。在懵懂中发现原来自己的妈妈是花仙国的精灵守护神，从而立志要收集所有散落的花仙精灵王重...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/a1ac76ef1f44a16b55219cb5d8af95d831e0959e.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28228268/">攻壳机动队 SAC_2045</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>737.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>75.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>2.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>5.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.5</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：2045 年，世界陷入系统性的“持续战争”中，然而公众仍未意识到人类的存亡可能掌握在 AI 手里。在神秘的“新人类”出现后，全身义体化的少校草薙素子所在的公安九课作为雇佣兵登场。由于超级大国都试图把控...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/b56ed5170780b398a545fa0e142af678b90bfda8.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28235860/">擅长捉弄的高木同学 第三季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>6725.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>349.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>173.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>76.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：“捉弄”缩短了二人的距离，
+2022年想要守候的初恋就在这里。
+
+在一所初中里，有一个叫做西片的男生，他时不时就会遭到同桌女生高木的捉弄。
+西片每次思考对策，想要捉弄回高木，都会被高木看透。
+
+于是西...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/f2ebcd79e5ca8ae397b368cd52fb6846d7bb467a.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28229870/">成神之日</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>4853.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>204.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>28.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>43.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>5.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在她成为神的那天，世界开始走向终结——
+高中最后的暑假，在成神阳太的眼前，突然有一天，自称“知晓一切的神”的少女雏出现了。
+“30天后，这个世界就会结束。”
+阳太对告知这样的消息感到困惑，但是看到神一...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/b847c8fab1d30b1df21ff869997fec84628a504c.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28234980/">星之梦～雪圈球～</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>203.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>121.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>4.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>1.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：KEY社制作PC游戏『planetarian』在2019年迎来发售15周年。
+无论何时都不会消散的，美丽而无垠的星光……。
+满天繁星等待着您。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/8aa0bfce050c72c6626b63d3093a88527c251026.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28220978/">轻音少女 第一季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全14话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>9325.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>370.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>75.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>211.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/14
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：【本片翻译由华盟字幕社提供】新学年开始，高中一年级新生平泽唯在误将“轻音乐”当做了“轻便、简易的音乐”，而由于自己小时候玩响板得到老师表扬，于是萌发申请入部的想法。
+另一方面，樱丘高中“轻音部”因原来...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/1b43da7cac4e694e398c2b6dc54cd7defb1a5786.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md996/">FORTUNE ARTERIAL -赤之约定-</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>590.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>48.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>9.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.1</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：游戏的故事是从主人公，支仓孝平随父母在外面游荡最后自己决定转学进了海岛上一所英国风的修智馆学院开始。面对谁也不认识的陌生世界，还有初次的宿舍生活。支仓感到一点的不安。然而他的不安很快就被每日各种各样的...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/45812fddaeb60e33cfd327280661e02238697aaa.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28229884/">请问您今天要来点兔子吗？BLOOM</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2043.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>255.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>26.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>24.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：心爱在木造房屋小镇度过的第二个夏天即将结束，季节即将变成各种盛大活动满载的秋季。
+不论是在学校还是在Rabbit House，都有很多开心的事情！
+心爱、智乃以及大家都难以抑制对未来的期待……！...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/09533e0b510630235326a818adabb6c64c1abce2.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28229881/">魔女之旅</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1.3 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>467.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>120.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>139.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：某个地方有一位旅人，她的名字是伊蕾娜。
+是一位年纪轻轻就成了魔法使中最上位「魔女」的天才。
+因为向往着幼时读过的旅行故事，随意地进行着漫长的旅行。
+在这个广阔的世界里自由地漫步，接触着形形色色有趣的人...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/05257c5235d8d39385c73c8e2644c44d955a7587.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28229117/">女武神的餐桌 第二季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全8话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>5122.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>187.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>58.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>40.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.3</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/8
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：女武神带着美食与心意归来，崩坏3《女武神的餐桌》动画第二季回归。
+等春天化作一杯冰甜的樱花酿，等樱桃酱在夏夜中熬成，等海鲜浓汤带来大海的秋风，等熔岩巧克力融化在冬日的心间。
+女武神们希望和你一起，让四...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/e38296a893ee9e030056847b4bb7fea442c856cb.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1204/">H2O 赤砂的印记</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>148.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>18.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>6668</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>2.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.3</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：就在那个初夏，我失去了光明——身患原因不明的疾病。
+
+双眼失明的少年弘瀬琢磨，由于父亲工作的原因，被托付给住在乡下的叔叔抚养。
+
+田间小道连绵不绝，夏日的阳光足以把人们的皮肤晒得黑黑的。一边是心里那看...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/348d999193f1a537061fad7aa0cbee3e7bb4cc3b.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28225115/">请问您今天要来点兔子吗？？～Sing for You～</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>224.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>166.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>3.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>3.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：被选为音乐会独奏的智乃，让理世对她进行特训，理世为了让智乃习惯在众人面前唱歌而举办了卡拉OK大会，与其说是智乃的练习，倒不如说是大家的狂欢。紧张的智乃能在当天好好的唱歌吗？...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/ce55ba2772db23fcf816ac7f82afc2f6eb2c26c9.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28221390/">平凡职业造就世界最强</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全14话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1.7 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>381.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>56.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>181.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>6.1</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/14
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：经常被同学欺凌的南云始，与同班同学一起被召唤到了异世界。与接连着发现了自己的那作弊般的能力的同班同学们相反的是，始却得到了炼成师这个平凡职业。即使在异世界也是最弱的他，被某个同班同学陷害后掉进了迷宫的...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/4c7324327dd9ae035007c3e9bc40cd2ce08635b1.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28221403/">擅长捉弄的高木同学 第二季</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>8161.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>305.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>160.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>179.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.9</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：“今天一定要捉弄高木同学，让她害羞！”
+某所初中里，邻座女生高木同学总是捉弄男生西片。
+西片为了反过来戏弄高木同学，每天都在奋斗着……
+高木同学和西片的全力“捉弄”青春之战就此开始。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/f0ca3a855d90b27e7cdb5e5becb3f919edf87d65.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md28221384/">女武神的餐桌</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全10话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">国创</span> <em>中国大陆</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>6874.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>180.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>48.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>61.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.4</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/10
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《崩坏3》官方首部原创连载动画。这是回到宿舍的女武神们，发生在她们身上的和食物有关的故事。女武神们做的料理各不相同，但是其中蕴含的心意，对重要的人想要传达的思念，却是相通的。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/b1df01136f133bf1c9d518e6285b6ceb89bb3590.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md4067/">寻找失去的未来</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>582.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>57.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>1.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>16.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.1</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：　　主人公·秋山奏隶属于学校的天文学会，而天文学会当中有着许多个性丰富的成员。他们在一起解决发生在内滨学园的各种怪异事件。而他之所以加入天文学会，也有着一段不为人知的故事：某天因为受伤的关系，他放学后...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/94b8e40429614d34374da619f0fc433e7c91a278.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md5786/">猫咪日常</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>3195.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>126.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>6.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>13.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.6</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：故事讲述了怕生的女孩小长井友子和她饲养的3只猫咪的日常。而这3只猫分别是撒娇高手的“玛”、淡定王“罗”、爱哭鬼“西”，她们有着人的形态，有猫耳和尾巴，会说人类语言。...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/1a8c32f926ecf9602981e4d0e9a64c01e86ee751.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md3053/">银河铁道之夜 2006</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全1话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>44.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>5.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>2899</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>2539</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.5</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/1
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《银河铁道之夜》说的是一个名叫乔邦尼的男孩，有一天在山丘上睡着了。在睡梦中，他搭上了一趟开往天国的银河铁道列车，和班上他最喜欢的男孩康贝瑞拉一起来到了天国。然而当他醒来，发现这不过是一个梦。但当他跑下...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/6ce4e85797b511f9c77734af7360bda53719df7d.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1816/">AIR</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1975.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>162.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>14.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>33.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：夏天，在靠近海边小小的街道上
+一位青年从公共汽车站下车了
+青年一直在旅行中
+这样的小镇他无心久留
+在赚足了路费后，他会去那些更繁华的地方
+他的旅伴，是母亲留给他的小小的人偶
+他不用手接触，人偶就能动起...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/77a8be24ae45d1c52b2c1a65851e6e20e63a7167.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md5020/">Rewrite</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全13话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>4681.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>184.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>13.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>114.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>8.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/13
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：绿化都市风祭。
+在这个文明和绿色共存的理想都市里居住着的天王寺瑚太朗和神戸小鳥、吉野晴彦等朋友们过着平凡的每一天。
+就在这平静的风祭市里、每年一次的喧嚣时期到来了。
+这就是将整个都市气氛烘托热烈的收获...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/bf5603c57dee60c2ccfdc1c8b907e1b20e24ce1b.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md5045/">星之梦</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全5话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>1233.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>127.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>7.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>26.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/5
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在封印的都市中被废弃的天象馆，误入其中的男人所见到的机器人少女，那是被繁星所引导的奇迹的物语。
+那是世界大战之后雨下个不停的世界。受到细菌武器的影响，而被人们抛弃了的最危险的城市【封印都市】。在某个百...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/image/e4d3dbad653a8091328143e262fac7c1d0da515d.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md3242/">Little Busters!</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2153.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>156.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>9.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>63.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《Little Busters!》是根据Key社发行的同名美少女游戏改编的电视动画，由J.C.STAFF制作。故事的主题是青春与友情，讲述了自幼父母双亡的主人公直枝理树，在深陷绝望之时被一个名为“Li...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/1a106bb8dd6d1cd17a635e7f43fce11d270a7d04.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md8672/">来自风平浪静的明天</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2305.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>161.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>14.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>130.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.6</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：由于人口渐少，海洋村落“汐鹿生”中的波路中学被迫废校，学生们都转校到了陆地上的美滨中学。在海中生活的四名少年少女——先岛光、向井户爱花、比良平千咲、伊佐木要，在那里遇到了陆地上的少年——木原纺。以此为...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/b8cf93d74af443f8dfcd2adc808a1a2545264254.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md2762/">请问您今天要来点兔子吗？？</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2805.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>131.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>19.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>90.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：作品的舞台是一家咖啡店，在这家店中，以天真烂漫的少女·心爱为中心，讲述了角色们愉快的日常生活。在作品当中登场的妹子们包括酷酷的智乃、有着军人气质的理世、充满和风的千夜、看起来是大小姐实际却非常贫穷的纱...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/e1015a803ad97406f9eddfbc6ad608cc965f8b05.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md4316442/">天使降临到我身边</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全13话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>9778.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>426.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>67.5 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>227.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/13
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：怕生的御宅族女大学生宫子，遇到了天使般的小学生！？在看到妹妹带来的新朋友小花的瞬间，宫子就无法抑制住心跳！！她为了和小花成为朋友而奋斗，但……“想要和超绝可爱的她做朋友”系小品喜剧，开幕！...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/c22e59c082dae3ff578f573fcf74686a5eee111d.png" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md3292/">快要坏掉的八音盒</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全3话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>358.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>35.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>2.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>4.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.6</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/3
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：在不久的近未来，人型机器人被开发出来，并在中上层家庭广泛使用。由于失去父母而丧失生活热情的少年·敬一郎与机器人小花相遇了。敬一郎把小花带回家，与她一起生活，希望能够重拾自己对生活的希望。小花会带给敬一...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> Top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">Prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">Next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">End</a>
+</div>
+        
+    </div>
+    <div id="bangumi-item3">
+        
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/803ee7dc0e151ea3f634fe49e73d3b3fb93ca433.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md959/">Angel Beats!</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全13话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>3986.9 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>311.2 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>36.1 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>100.8 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.8</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/13
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：　　故事从男主角死亡之后从“死后的世界”醒来开始，在“死后的世界”中的学校里，他与一位名为由利(ゆり)、在“死后的世界”率领着一个名为“死んだ(Shinda)世界(Sekai)战线(Sensen)”简...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/9c3e77244687a81e4b75e88ec22eeb8dbaa26380.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md2572/">Charlotte</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全13话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2.1 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>627.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>124.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>276.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.5</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/13
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：思春期的少年少女中极少部分人会发作的特殊能力。
+驱使着无人知晓的能力，过着顺风顺水学园生活的乙坂有宇。
+突然出现在这样的他的面前的少女，友利奈绪。
+从与她相遇的那一天起，被揭露出特殊能力者的宿命。
+这...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/03cd3e02df47b9200cf566c1d4048baf26f504c8.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1635/">EVA 新世纪福音战士</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全26话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>2.3 亿</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>445.6 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>94.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>337.0 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/26
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：2000年9月13日，第二次冲击爆发。在南极大陆上发生的这起大灾难，造成地轴偏斜、海平面上升、全球气候改变，世界人口减半。2015年，不明巨型生物“使徒”在日本登陆，并向第3新东京市袭来。国联军与使徒...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-item">
+    <div class="bangumi-picture"><img src="https://cdn.jsdelivr.net/npm/hexo-bilibili-bangumi@1.2.0/lib/img/loading.gif"  data-src="https://i0.hdslb.com/bfs/bangumi/4dd345a0aaa9d8d49c0c80f5f79d2aefa85ad4ea.jpg" referrerPolicy="no-referrer" width="110" style="width:110px;margin:20px auto;" />
+    </div>
+    <div class="bangumi-info">
+        <div class="bangumi-title">
+            <a target="_blank" href="https://www.bilibili.com/bangumi/media/md1181/">悠久之翼</a>
+        </div>
+        <div class="bangumi-meta">
+            <span class="bangumi-info-items" >
+                
+                <span class="bangumi-info-item">
+                <span class="bangumi-info-total">全12话</span><em
+                        class="bangumi-info-label-em">0</em>
+                </span>
+                
+                
+                <span class="bangumi-info-item bangumi-area">
+                    <span class="bangumi-info-label">番剧</span> <em>日本</em>
+                </span>
+                
+                <span class="bangumi-info-item bangumi-play">
+                    <span class="bangumi-info-label">Views</span> <em>540.7 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-follow">
+                    <span class="bangumi-info-label">Follow</span> <em>59.3 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-coin">
+                    <span class="bangumi-info-label">Coins</span> <em>2.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-danmaku">
+                    <span class="bangumi-info-label">Danmaku</span> <em>12.4 万</em>
+                </span>
+                <span class="bangumi-info-item bangumi-info-item-score">
+                    <span class="bangumi-info-label">Score</span> <em>9.7</em>
+                </span>
+            </span>
+        </div>
+        
+        <div class="bangumi-progress" style="margin-top:5px;">
+            <div class="bangumi-progress-text">追番进度：0/12
+            </div>
+            <div class="progress-bar" style="width: 0%;"></div>
+        </div>
+        
+        <div class="bangumi-comments" style="margin-top: 10px;"><p>Summary：《ef - a fairy tale of the two.》是minori游戏公司所发行的第五部作品。本作主要讲述了在两个“音羽”小镇上几对男女互相纠葛的故事。游戏主要分为两部发售，前篇《the f...</p> </div>
+    </div>
+</div>
+
+        
+        <div class="bangumi-pagination">
+    <a class="bangumi-button bangumi-firstpage" href="javascript:;" target="_self" onclick="return false"> Top</a>
+    <a class="bangumi-button bangumi-previouspage" href="javascript:;" target="_self" onclick="return false">Prev</a>
+    <span class="bangumi-pagenum">2 / 3</span>
+    <a class="bangumi-button bangumi-nextpage" href="javascript:;" target="_self" onclick="return false">Next</a>
+    <a class="bangumi-button bangumi-lastpage" href="javascript:;" target="_self" onclick="return false">End</a>
+</div>
+        
+    </div>
+</div>
+<script>
+    (function () {
+    
+    const bangumiLazyload = true;
+    "use strict";/* eslint-disable no-plusplus */(function(){// eslint-disable-next-line func-style
+function a(){this.classList.add("bangumi-active");for(var a=this.siblings(),b=0;b<a.length;b++)a[b].classList.remove("bangumi-active");// 显示对应板块
+var c=this.id.replace("tab","item"),d=document.getElementById(c);d.classList.remove("bangumi-hide"),d.classList.add("bangumi-show"),a=document.getElementById(c).siblings();for(var e=0;e<a.length;e++)a[e].classList.remove("bangumi-show"),a[e].classList.add("bangumi-hide")}Element.prototype.siblings=function(){for(var a=[],b=this.parentNode.children,c=0;c<b.length;c++)b[c]!==this&&a.push(b[c]);return a};for(var b=document.getElementsByClassName("bangumi-tab"),c=0;c<b.length;c++)b[c].onclick=a,b[c].onclick.apply(b[c]);"undefined"!=typeof pagenumsPre&&axios.get(new URL("../bangumis.json",window.location.href)).then(function(a){if(a.data){var b={wantWatch:a.data.wantWatch.slice(10).map(function(a){return ejs.render(ejsTemplate,{item:a,loading:loading,metaColor:metaColor,type:type})}).join("\n"),watching:a.data.watching.slice(10).map(function(a){return ejs.render(ejsTemplate,{item:a,loading:loading,metaColor:metaColor,type:type})}).join("\n"),watched:a.data.watched.slice(10).map(function(a){return ejs.render(ejsTemplate,{item:a,loading:loading,metaColor:metaColor,type:type})}).join("\n")};document.querySelectorAll("#bangumi-item1>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin",b.wantWatch),document.querySelectorAll("#bangumi-item2>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin",b.watching),document.querySelectorAll("#bangumi-item3>.bangumi-pagination")[0].insertAdjacentHTML("beforeBegin",b.watched)}})})();
+
+    document.getElementsByClassName('bangumi-tab')[1].click();
+    /* eslint-disable no-plusplus, func-style */(function(){var a=Math.ceil;function b(b,c){return`${b+1} / ${a(0==c.length/10?1:a(c.length/10))}`}function c(){const a=this.parentNode.siblings();g(a,0),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=b(0,a)}function d(){const a=this.parentNode.siblings();let c=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;c=c.substr(0,c.indexOf("/")-1),c=parseInt(c,10)-1,0<c&&c--,g(a,c),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=b(c,a)}function e(){const c=this.parentNode.siblings();let d=this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText;d=d.substr(0,d.indexOf("/")-1),d=parseInt(d,10)-1,d<a(c.length/10)-1&&d++,g(c,d),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=b(d,c)}function f(){const c=this.parentNode.siblings();g(c,a(c.length/10)-1),this.parentNode.getElementsByClassName("bangumi-pagenum")[0].innerText=b(-1==a(c.length/10)-1?0:a(c.length/10)-1,c)}function g(a,b){for(let c=0;c<a.length;c++)if(Math.floor(c/10)===b){a[c].classList.remove("bangumi-hide");const[b]=a[c].getElementsByTagName("img");bangumiLazyload&&(b.src=b.getAttribute("data-src"))}else a[c].classList.add("bangumi-hide")}const h=document.getElementsByClassName("bangumi-firstpage"),j=document.getElementsByClassName("bangumi-previouspage"),k=document.getElementsByClassName("bangumi-nextpage"),l=document.getElementsByClassName("bangumi-lastpage"),m=document.getElementsByClassName("bangumi-pagenum");for(let b=0;b<h.length;b++){h[b].onclick=c,j[b].onclick=d,k[b].onclick=e,l[b].onclick=f;// set page num
+const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenumsPre[b]??m[b].parentNode.siblings().length;h[b].click(),m[b].innerText=`1 / ${0===a(g/10)?1:a(g/10)}`}})();
+
+    })();
+</script>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/bangumi/index" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+   
+ 
+   
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

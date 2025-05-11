@@ -54,425 +54,188 @@
     
       
     <main class="content on">
+      <section class="outer">
+  <article
+  id="page-"
+  class="article article-type-page"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+       
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="hexo-generator-searchdb"><a href="#hexo-generator-searchdb" class="headerlink" title="hexo-generator-searchdb"></a>hexo-generator-searchdb</h1><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-generator-searchdb"><img src="https://img.shields.io/npm/v/hexo-generator-searchdb?style=flat-square" alt="npm-image"></a><br><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases"><img src="https://img.shields.io/node/v/hexo-generator-searchdb?style=flat-square" alt="node-image"></a><br><a target="_blank" rel="noopener" href="https://hexo.io/"><img src="https://img.shields.io/badge/hexo-%3E%3D%203.0-blue?style=flat-square" alt="hexo-image"></a><br><a href="LICENSE"><img src="https://img.shields.io/npm/l/hexo-generator-searchdb?style=flat-square" alt="lic-image"></a></p>
+<p>Seach data generator plugin for Hexo.</p>
+<p>This plugin is used for generating a search index file, which contains all the neccessary data of your articles that you can use to write a local search engine for your blog. Supports both XML and JSON format output.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p><img src="https://img.shields.io/github/languages/code-size/theme-next/hexo-generator-searchdb?style=flat-square" alt="size-image"><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-generator-searchdb"><img src="https://img.shields.io/npm/dm/hexo-generator-searchdb?style=flat-square" alt="dm-image"></a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-generator-searchdb"><img src="https://img.shields.io/npm/dt/hexo-generator-searchdb?style=flat-square" alt="dt-image"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>You can configure this plugin in your root <code>_config.yml</code>. All the arguments are optional.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>path</strong> - file path. By default is <code>search.xml</code>. If the file extension is <code>.json</code>, the output format will be JSON. Otherwise XML format file will be exported.</li>
+<li><strong>field</strong> - the search scope you want to search, you can chose:<ul>
+<li><strong>post</strong> - (Default) will only covers all the posts of your blog.</li>
+<li><strong>page</strong> - will only covers all the pages of your blog.</li>
+<li><strong>all</strong> - will covers all the posts and pages of your blog.</li>
+</ul>
+</li>
+<li><strong>content</strong> - whether contains the whole content of each article. If <code>false</code>, the generated results only cover title and other meta info without mainbody. By default is <code>true</code>.</li>
+<li><strong>format</strong> - the form of the page contents, options are:<ul>
+<li><strong>html</strong> (Default) - original html string being minified.</li>
+<li><strong>striptags</strong> - original html string being minified, and remove all the tags.</li>
+<li><strong>raw</strong> - markdown text of each posts or pages.</li>
+</ul>
+</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="What’s-this-plugin-supposed-to-do"><a href="#What’s-this-plugin-supposed-to-do" class="headerlink" title="What’s this plugin supposed to do?"></a>What’s this plugin supposed to do?</h3><p>This plugin is used for generating a xml &#x2F; json file from your Hexo blog that provides data for searching.</p>
+<h3 id="Where’s-this-file-saved-to"><a href="#Where’s-this-file-saved-to" class="headerlink" title="Where’s this file saved to?"></a>Where’s this file saved to?</h3><p>After executing <code>hexo g</code> you will get the generated result at your public folder.</p>
+<h3 id="How-to-use-this-plugin-in-my-Hexo-blog"><a href="#How-to-use-this-plugin-in-my-Hexo-blog" class="headerlink" title="How to use this plugin in my Hexo blog?"></a>How to use this plugin in my Hexo blog?</h3><p>You have two choices:</p>
+<ul>
+<li>you don’t want to write search engine by yourself. There are many themes that take use this plugin for local searching that works out of box.</li>
+<li>you are familiar with fetch API or jQuery Ajax and would like to write your own search engine. You can implement one by yourself according to the theme NexT. Read the <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">source code</a> of this theme. Generally there are 3 steps:<ol>
+<li>write a <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/v7.5.0/layout/_partials/search/localsearch.swig">search view</a>. This is the place for displaying a search form and search results ;</li>
+<li>write a <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/v7.5.0/source/js/local-search.js">search script</a>. This script tells the browser how to grab search data and filter out contents what we’re searching;</li>
+<li>tell hexo to <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/v7.5.0/layout/_third-party/search/localsearch.swig">connect the above two part</a>.</li>
+</ol>
+</li>
+</ul>
+ 
+      <!-- reward -->
       
-<section class="cover">
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
     
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover2.jpg" alt="image frame" />
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
     </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">柳瀬しおこうの夢</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
       </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['空想の毒が自我を飲み込む', '私はここにいる', ''],
-        startDelay: 0,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
 </div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/hexo-generator-searchdb-1.2.0/README.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
 </script>
-
 <style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
+  #vcomments-box {
+    padding: 5px 30px;
+  }
 
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
     }
+  }
 
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
 </style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-精神分析：小他者、对象a、大他者"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/06/17/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%B0%8F%E4%BB%96%E8%80%85%E3%80%81%E5%AF%B9%E8%B1%A1a%E3%80%81%E5%A4%A7%E4%BB%96%E8%80%85/"
-    >精神分析：小他者、对象a、大他者</a> 
-</h2>
- 
 
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/06/17/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%B0%8F%E4%BB%96%E8%80%85%E3%80%81%E5%AF%B9%E8%B1%A1a%E3%80%81%E5%A4%A7%E4%BB%96%E8%80%85/" class="article-date">
-  <time datetime="2022-06-17T14:51:42.000Z" itemprop="datePublished">2022-06-17</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">398</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/" rel="tag">精神分析</a></li></ul>
-
-    </footer>
-  </div>
-
-    
  
    
   
 </article>
 
-    
-    <article
-  id="post-精神分析：爱与典范"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/06/17/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E7%88%B1%E4%B8%8E%E5%85%B8%E8%8C%83/"
-    >精神分析：爱与典范</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/06/17/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E7%88%B1%E4%B8%8E%E5%85%B8%E8%8C%83/" class="article-date">
-  <time datetime="2022-06-17T14:50:22.000Z" itemprop="datePublished">2022-06-17</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.5k</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">5 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/" rel="tag">精神分析</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-精神分析：纹身的爱欲机制"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/06/12/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E7%BA%B9%E8%BA%AB%E7%9A%84%E7%88%B1%E6%AC%B2%E6%9C%BA%E5%88%B6/"
-    >精神分析：“刺青，以对抗自己没有生命力这件事情。”</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/06/12/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E7%BA%B9%E8%BA%AB%E7%9A%84%E7%88%B1%E6%AC%B2%E6%9C%BA%E5%88%B6/" class="article-date">
-  <time datetime="2022-06-12T12:42:40.000Z" itemprop="datePublished">2022-06-12</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">662</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/" rel="tag">精神分析</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-精神分析：对弗洛伊德的简介"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/06/11/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%AF%B9%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%9A%84%E7%AE%80%E4%BB%8B/"
-    >精神分析：对弗洛伊德的简介</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/06/11/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%AF%B9%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%9A%84%E7%AE%80%E4%BB%8B/" class="article-date">
-  <time datetime="2022-06-10T18:59:31.000Z" itemprop="datePublished">2022-06-11</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">142</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/" rel="tag">精神分析</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-精神分析：因为有你的存在，世界才有了纵深的意义"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/19/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%9B%A0%E4%B8%BA%E6%9C%89%E4%BD%A0%E7%9A%84%E5%AD%98%E5%9C%A8%EF%BC%8C%E4%B8%96%E7%95%8C%E6%89%8D%E6%9C%89%E4%BA%86%E7%BA%B5%E6%B7%B1%E7%9A%84%E6%84%8F%E4%B9%89/"
-    >精神分析：因为有你的存在，世界才有了纵深的意义</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/05/19/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%9B%A0%E4%B8%BA%E6%9C%89%E4%BD%A0%E7%9A%84%E5%AD%98%E5%9C%A8%EF%BC%8C%E4%B8%96%E7%95%8C%E6%89%8D%E6%9C%89%E4%BA%86%E7%BA%B5%E6%B7%B1%E7%9A%84%E6%84%8F%E4%B9%89/" class="article-date">
-  <time datetime="2022-05-19T04:43:45.000Z" itemprop="datePublished">2022-05-19</time>
-</a>   
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">474</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/" rel="tag">精神分析</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/9/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
-  </nav>
-  
 </section>
-</div>
-
       <footer class="footer">
   <div class="outer">
     <ul>
@@ -542,10 +305,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
     </li>
     
     <li class="nav-item">
@@ -846,7 +605,7 @@
     
     
     <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=28699497&auto=1&height=32"></iframe>
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
 </div>
 
 <style>
@@ -859,42 +618,6 @@
 </style>
     
     
-<script>
-  const password = "22360408";
-  const lock_password = window.sessionStorage.getItem("lock_password");
-  console.log(password, lock_password);
-  if (lock_password !== password) {
-    Swal.fire({
-      title: "Please enter password",
-      input: "text",
-      inputAttributes: {
-        autocapitalize: "off",
-      },
-      showCancelButton: false,
-      showLoaderOnConfirm: true,
-      allowOutsideClick: false,
-      confirmButtonText: "Ok",
-    }).then((result) => {
-      console.log(result);
-      if (result.isConfirmed) {
-        console.log(password);
-        if (result.value === password) {
-          window.sessionStorage.setItem("lock_password", result.value);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Incorrect password, please try again",
-            confirmButtonText: "Ok",
-            allowOutsideClick: false,
-          }).then(() => {
-            window.location.reload();
-          });
-        }
-      }
-    });
-  }
-</script>
-
 
   </div>
 </body>
