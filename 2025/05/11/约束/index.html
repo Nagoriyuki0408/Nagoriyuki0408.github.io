@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>数据库：第一章 数据库相关概念 |  柳瀬しおこうの夢</title>
+      <title>约束 |  柳瀬しおこうの夢</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,8 +56,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-数据库：MySql"
-  class="article article-type-post"
+  id="数据库：第四章-约束"
+  class="article article-type-数据库：第四章"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据库：第一章 数据库相关概念
+  约束
 </h1>
  
 
@@ -75,15 +75,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AMySql/" class="article-date">
-  <time datetime="2025-05-11T00:56:48.000Z" itemprop="datePublished">2025-05-11</time>
+      <a href="/2025/05/11/%E7%BA%A6%E6%9D%9F/" class="article-date">
+  <time datetime="2025-05-11T01:05:11.000Z" itemprop="datePublished">2025-05-11</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">741</span>
         </span>
     </span>
 
@@ -92,7 +92,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">6 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -107,119 +107,243 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-MySQL概述"><a href="#1-MySQL概述" class="headerlink" title="1. MySQL概述"></a>1. MySQL概述</h1><h2 id="1-1-数据库相关概念"><a href="#1-1-数据库相关概念" class="headerlink" title="1.1 数据库相关概念"></a>1.1 数据库相关概念</h2><p><strong>什么是数据库？</strong>  #flashcard<br>数据库（Database）是一个有组织的数据集合，用于存储和管理信息。 它可以让你以结构化的方式存储、检索、更新和删除数据。 想象一下，它就像一个电子化的文件柜，可以高效地存储和查找各种信息。</p>
-<!--ID: 1744130598815-->
+  <h2 id="3-1-约束的概述"><a href="#3-1-约束的概述" class="headerlink" title="3.1 约束的概述"></a>3.1 约束的概述</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>约束是作用于表中字段上的规则，用于限制存储在表中的数据。</p>
+<h3 id="二、目的"><a href="#二、目的" class="headerlink" title="二、目的"></a>二、目的</h3><p>保证数据库中数据的正确、有效性和完整性。</p>
+<h3 id="三、分类"><a href="#三、分类" class="headerlink" title="三、分类"></a>三、分类</h3><table>
+<thead>
+<tr>
+<th>约束</th>
+<th>描述</th>
+<th>关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非空约束</td>
+<td>限制该字段的数据不能为 null</td>
+<td>NOT NULL</td>
+</tr>
+<tr>
+<td>唯一约束</td>
+<td>保证该字段的所有数据都是唯一、不重复的</td>
+<td>UNIQUE</td>
+</tr>
+<tr>
+<td>主键约束</td>
+<td>主键是一行数据的唯一标识，要求非空且唯一</td>
+<td>PRIMARY KEY</td>
+</tr>
+<tr>
+<td>默认约束</td>
+<td>保存数据时，如果未指定该字段的值，则采用默认值</td>
+<td>DEFAULT</td>
+</tr>
+<tr>
+<td>检查约束（8.0.16 版本之后）</td>
+<td>保证字段值满足某一个条件</td>
+<td>CHECK</td>
+</tr>
+<tr>
+<td>外键约束</td>
+<td>用来让两张表的数据之间建立连接，保证数据的一致性和完整性</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/T5Xz2fj.png"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="3-2-约束的演示"><a href="#3-2-约束的演示" class="headerlink" title="3.2 约束的演示"></a>3.2 约束的演示</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>字段含义</th>
+<th>字段类型</th>
+<th>约束条件</th>
+<th>约束关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>ID 唯一标识</td>
+<td>int</td>
+<td>主键，并且自动增长</td>
+<td>PRIMARY KEY, AUTO_INCREMENT</td>
+</tr>
+<tr>
+<td>name</td>
+<td>姓名</td>
+<td>varchar(10)</td>
+<td>不为空，并且唯一</td>
+<td>NOT NULL, UNIQUE</td>
+</tr>
+<tr>
+<td>age</td>
+<td>年龄</td>
+<td>int</td>
+<td>大于 0，并且小于等于 120</td>
+<td>CHECK</td>
+</tr>
+<tr>
+<td>status</td>
+<td>状态</td>
+<td>char(1)</td>
+<td>如果没有指定该值，默认为 1</td>
+<td>DEFAULT</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>性别</td>
+<td>char(1)</td>
+<td>无</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><img src="https://i.imgur.com/5MpJ4r7.png"><br>主键约束<br><img src="https://i.imgur.com/cdMXYyF.png"></p>
+<h2 id="3-3-外键约束"><a href="#3-3-外键约束" class="headerlink" title="3.3 外键约束"></a>3.3 外键约束</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>外键用于在两张表的数据间建立连接，保障数据的一致性与完整性。</p>
+<h3 id="示例（员工表-emp-）"><a href="#示例（员工表-emp-）" class="headerlink" title="示例（员工表 emp ）"></a>示例（员工表 emp ）</h3><table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>age</th>
+<th>job</th>
+<th>salary</th>
+<th>entrydate</th>
+<th>managerid</th>
+<th>dept_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>金庸</td>
+<td>66</td>
+<td>总裁</td>
+<td>20800</td>
+<td>2000 - 01 - 01</td>
+<td><null></null></td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>张无忌</td>
+<td>20</td>
+<td>项目经理</td>
+<td>12500</td>
+<td>2005 - 12 - 05</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>杨逍</td>
+<td>33</td>
+<td>开发</td>
+<td>8400</td>
+<td>2000 - 11 - 03</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>韦一笑</td>
+<td>48</td>
+<td>开发</td>
+<td>11000</td>
+<td>2002 - 02 - 05</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>常遇春</td>
+<td>43</td>
+<td>开发</td>
+<td>10500</td>
+<td>2004 - 09 - 07</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/tigs9Lp.png"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/we1dUsD.png"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="https://i.imgur.com/ur3HOXQ.png"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>建立表</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="（一）添加外键-创建表时添加"><a href="#（一）添加外键-创建表时添加" class="headerlink" title="（一）添加外键 - 创建表时添加"></a>（一）添加外键 - 创建表时添加</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名(</span><br><span class="line">    字段名 数据类型,</span><br><span class="line">   ...</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span>] [外键名称] <span class="keyword">FOREIGN</span> KEY (外键字段名) <span class="keyword">REFERENCES</span> 主表(主表列名)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="（二）添加外键-表创建后添加"><a href="#（二）添加外键-表创建后添加" class="headerlink" title="（二）添加外键 - 表创建后添加"></a>（二）添加外键 - 表创建后添加</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> 外键名称 <span class="keyword">FOREIGN</span> KEY (外键字段名) <span class="keyword">REFERENCES</span> 主表(主表列名);</span><br></pre></td></tr></table></figure>
 
-<p><strong>核心概念：</strong> #flashcard </p>
-<ul>
-<li><strong>数据 (Data):</strong>  数据库中存储的基本元素，可以是任何类型的信息，例如文本、数字、日期、图像等。</li>
-<li><strong>数据库管理系统 (DBMS):</strong>  用于创建、管理和访问数据库的软件。 MySQL 就是一种 DBMS。 其他常见的 DBMS 包括 PostgreSQL、Oracle、SQL Server 等。</li>
-<li><strong>SQL (Structured Query Language):</strong>  用于与数据库进行交互的标准化语言。 可以使用 SQL 来查询、插入、更新和删除数据。</li>
-<li><strong>表 (Table):</strong>  数据库中存储数据的基本单元。 表格由行和列组成，类似于电子表格。</li>
-<li><strong>行 (Row) &#x2F; 记录 (Record):</strong>  表中的一行数据，代表一个实体或对象的信息。</li>
-<li><strong>列 (Column) &#x2F; 字段 (Field):</strong>  表中的一列数据，代表实体或对象的某个属性。</li>
-<li><strong>主键 (Primary Key):</strong>  用于唯一标识表中每一行的列。 主键的值不能重复，也不能为空。</li>
-<li><strong>外键 (Foreign Key):</strong>  用于建立表与表之间关系的列。 外键指向另一个表的主键。</li>
-<li><strong>索引 (Index):</strong>  一种数据结构，用于加速数据库的查询速度。 类似于书籍的目录，可以快速定位到需要的数据。</li>
-<li><strong>事务 (Transaction):</strong>  一系列数据库操作的集合，要么全部成功执行，要么全部失败回滚。 事务保证了数据的完整性和一致性。</li>
-<li><strong>模式 (Schema):</strong>  数据库的结构定义，包括表、列、数据类型、关系等。<br><img src="https://i.imgur.com/24p8DZW.png"><!--ID: 1744130598825--></li>
-</ul>
-<h2 id="1-2-MySQL"><a href="#1-2-MySQL" class="headerlink" title="1.2 MySQL"></a>1.2 MySQL</h2><h3 id="1-2-1-MySQL的下载"><a href="#1-2-1-MySQL的下载" class="headerlink" title="1.2.1 MySQL的下载"></a>1.2.1 MySQL的下载</h3><p><img src="https://i.imgur.com/J5BtKvY.png"></p>
-<p>下载社区版本<br><img src="https://i.imgur.com/SBDMeCM.png"><br><img src="https://i.imgur.com/Z1ZCD3w.png"><br><img src="https://i.imgur.com/7YBKjYs.png"></p>
-<ol>
-<li><img src="https://i.imgur.com/PE6ZnrH.png"></li>
-<li><img src="https://i.imgur.com/50TKXiy.png"></li>
-<li>安装选中的这些包<img src="https://i.imgur.com/5oY92R6.png"><img src="https://i.imgur.com/uSfnajk.png"></li>
-<li><img src="https://i.imgur.com/xS55uwm.png"></li>
-<li><img src="https://i.imgur.com/ZaSMdVr.png" alt="shiokou0408"></li>
-<li><img src="https://i.imgur.com/uJRLAAm.png"></li>
-<li>以录到底，直接运行<img src="https://i.imgur.com/tr7kdlb.png"></li>
-</ol>
-<p>安装完成</p>
-<h3 id="1-2-2-MySQL的启动与停止-flashcard"><a href="#1-2-2-MySQL的启动与停止-flashcard" class="headerlink" title="1.2.2 MySQL的启动与停止 #flashcard"></a>1.2.2 MySQL的启动与停止 #flashcard</h3><p><img src="https://i.imgur.com/244bfRx.png"></p>
-<!--ID: 1744130598833-->
-
-
-<p><img src="https://i.imgur.com/LneMvbr.png"></p>
-<p>直接右键操作可查看 MySQL 数据库运行相关情况。也可通过命令行操作：</p>
-<ul>
-<li>启动：<code>net start mysql80</code></li>
-<li>停止：<code>net stop mysql80</code><br>mysql80是在注册为windows系统时的名称。<br><img src="https://i.imgur.com/fY1HYMq.png"></li>
-</ul>
-<h3 id="1-2-3-客户端连接-flashcard"><a href="#1-2-3-客户端连接-flashcard" class="headerlink" title="1.2.3 客户端连接 #flashcard"></a>1.2.3 客户端连接 #flashcard</h3><p>方法一：使用MySQL提供的客户端命令行工具。</p>
-<!--ID: 1744130598841-->
-
-<!--⚠️Imgur upload failed, check dev console-->
-<p>![[Pasted image 20250408163939.png]]<img src="https://i.imgur.com/j5ek70w.png"><br><img src="https://i.imgur.com/IEH5HCl.png"></p>
-<p><strong>方式二：windows系统自带命令行工具连接</strong><br>指令：<code>mysql [-h 127.0.0.1] [-P 3306] -u root -p</code></p>
-<ul>
-<li><code>mysql</code>：启动 MySQL 客户端命令。</li>
-<li><code>-h 127.0.0.1</code>：<code>-h</code> 用于指定连接主机地址，<code>127.0.0.1</code> 代表本地主机。</li>
-<li><code>-P 3306</code>：<code>-P</code>（大写）指定连接端口，MySQL 默认端口为 3306 。</li>
-<li><code>-u root</code>：<code>-u</code> 用于指定用户名，<code>root</code> 为 MySQL 超级用户账号。</li>
-<li><code>-p</code>：表示后续需输入密码。<br>使用这种方法，得配置MySQL的环境变量。<br>[[MySQl的环境变量]]</li>
-</ul>
-<h3 id="1-2-3-数据模型-flashcard"><a href="#1-2-3-数据模型-flashcard" class="headerlink" title="1.2.3 数据模型 #flashcard"></a>1.2.3 数据模型 #flashcard</h3><p><strong>客户端与 DBMS 关系</strong></p>
-<ul>
-<li>客户端通过 DBMS（数据库管理系统）与数据库交互，如左侧图示，客户端设备（两台电脑）借助 DBMS（齿轮图标代表其管理运作功能 ）来操作数据库。<!--ID: 1744130598849--></li>
-</ul>
-<p><strong>数据库示例</strong> #flashcard </p>
-<ul>
-<li>数据库可存储不同类型数据记录，如图右侧表格：<ul>
-<li>上方表格存储数据库相关信息，含 <code>id</code>、<code>name</code>（数据库名称，如 MySQL ）、<code>price</code>（价格 ）、<code>type</code>（类型 ）字段，示例记录有 MySQL 价格 100 等。</li>
-<li>下方表格存储人员信息，有 <code>id</code>、<code>name</code>（人名 ）、<code>age</code>（年龄 ）、<code>gender</code>（性别 ）字段 ，如令狐冲 28 岁男性等记录。<br>  <img src="https://i.imgur.com/3KmrfBn.png"><br>  关系型数据库  <!--ID: 1744130598858--></li>
-</ul>
-</li>
-</ul>
-<p><strong>什么是关系型数据库？</strong> #flashcard<br>关系型数据库 (Relational Database) 是一种基于关系模型的数据库。 关系模型使用表格（也称为关系）来表示数据和数据之间的关系。 它是目前最常用的一种数据库类型。<br><img src="https://i.imgur.com/kJIqQcC.png"><br>二维表就是像电子表格一样，用行和列来组织数据的表格。 每行代表一个东西，每列代表这个东西的一个属性。 简单、直观、好用！<br><strong>特点：</strong></p>
-<ul>
-<li><strong>数据结构化：</strong> 数据以表格的形式存储，结构清晰，易于理解和管理。</li>
-<li><strong>数据完整性：</strong> 通过主键、外键、约束等机制保证数据的完整性和一致性。</li>
-<li><strong>ACID 特性：</strong> 关系型数据库支持 ACID 事务，保证数据的可靠性。<ul>
-<li><strong>原子性 (Atomicity):</strong>  事务中的所有操作要么全部成功，要么全部失败。</li>
-<li><strong>一致性 (Consistency):</strong>  事务执行前后，数据库的状态必须保持一致。</li>
-<li><strong>隔离性 (Isolation):</strong>  多个事务并发执行时，每个事务都应该感觉不到其他事务的存在。</li>
-<li><strong>持久性 (Durability):</strong>  事务一旦提交，其结果就应该永久保存，即使系统发生故障也不会丢失。</li>
-</ul>
-</li>
-<li><strong>SQL 支持：</strong> 使用 SQL 作为标准查询语言，易于学习和使用。<!--ID: 1744130598866--></li>
-</ul>
-<p><strong>核心概念：</strong> #flashcard </p>
-<ul>
-<li><strong>关系模型 (Relational Model):</strong>  关系型数据库的基础理论。 它将数据组织成表格，表格由行和列组成。</li>
-<li><strong>表 (Table):</strong>  数据库中存储数据的基本单元。 每个表代表一个实体或对象，例如客户、订单、产品等。</li>
-<li><strong>行 (Row) &#x2F; 记录 (Record):</strong>  表中的一行数据，代表一个实体或对象的具体信息。</li>
-<li><strong>列 (Column) &#x2F; 字段 (Field):</strong>  表中的一列数据，代表实体或对象的某个属性。</li>
-<li><strong>主键 (Primary Key):</strong>  用于唯一标识表中每一行的列。 主键的值不能重复，也不能为空。</li>
-<li><strong>外键 (Foreign Key):</strong>  用于建立表与表之间关系的列。 外键指向另一个表的主键。</li>
-<li><strong>关系 (Relationship):</strong>  表与表之间的联系。 关系可以是：<ul>
-<li><strong>一对一 (One-to-One):</strong>  一个表中的一条记录对应另一个表中的一条记录。</li>
-<li><strong>一对多 (One-to-Many):</strong>  一个表中的一条记录对应另一个表中的多条记录。</li>
-<li><strong>多对多 (Many-to-Many):</strong>  一个表中的多条记录对应另一个表中的多条记录。 通常需要一个中间表来建立多对多关系。</li>
-</ul>
-</li>
-<li><strong>SQL (Structured Query Language):</strong>  用于与关系型数据库进行交互的标准化语言。 可以使用 SQL 来查询、插入、更新和删除数据。</li>
-</ul>
-<p> 数据模型 #flashcard<br><img src="https://i.imgur.com/PhpEO1q.png"></p>
-<ol>
-<li><strong>客户端 - DBMS - 数据库关系</strong><ul>
-<li>客户端（如电脑设备）通过数据库管理系统（DBMS）与数据库进行交互。DBMS 如同中间桥梁，管理和控制客户端对数据库的访问与操作。</li>
-</ul>
-</li>
-<li><strong>数据库内容示例</strong><ul>
-<li><strong>数据库相关信息表</strong>：<ul>
-<li>字段包括 <code>id</code>、<code>name</code>、<code>price</code>、<code>type</code> 。</li>
-<li>示例数据：<code>id</code> 为 1 时，<code>name</code> 是 MySQL，<code>price</code> 为 100，<code>type</code> 是数据库 ；还有 Oracle 等相关记录。</li>
-</ul>
-</li>
-<li><strong>人员信息表</strong>：<ul>
-<li>字段包括 <code>id</code>、<code>name</code>、<code>age</code>、<code>gender</code> 。</li>
-<li>示例数据：记录了令狐冲（28 岁，男）、风清扬（68 岁，男）、东方不败（32 岁，男）等信息。  <!--ID: 1744130598878--></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+<p><img src="https://i.imgur.com/p9RNjjx.png"><br><img src="https://i.imgur.com/PXH93Hn.png"><br>关联成功<br><img src="https://i.imgur.com/P46GUN6.png"></p>
+<p>删除外键<br><img src="https://i.imgur.com/tYALbQK.png"><br>蓝色小钥匙已经消失<br><img src="https://i.imgur.com/qr29Jnf.png"></p>
+<h3 id="外键约束行为"><a href="#外键约束行为" class="headerlink" title="外键约束行为"></a>外键约束行为</h3><table>
+<thead>
+<tr>
+<th>行为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NO ACTION</td>
+<td>在父表删除 &#x2F; 更新记录时，先检查是否有对应外键，有则不允许操作，与 RESTRICT 一致</td>
+</tr>
+<tr>
+<td><strong>RESTRICT</strong></td>
+<td>同 NO ACTION，检查父表记录对应外键，有则禁止删除 &#x2F; 更新</td>
+</tr>
+<tr>
+<td><strong>CASCADE</strong></td>
+<td>父表删除 &#x2F; 更新记录时，若存在对应外键，同时删除 &#x2F; 更新子表中外键关联记录</td>
+</tr>
+<tr>
+<td>SET NULL</td>
+<td>父表删除记录时，若有对应外键，将子表中外键值设为 null（要求外键允许取 null ）</td>
+</tr>
+<tr>
+<td>SET DEFAULT</td>
+<td>父表变动时，子表外键设为默认值（InnoDB 不支持）</td>
+</tr>
+<tr>
+<td><strong>语法格式</strong>：</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> 外键名称 <span class="keyword">FOREIGN</span> KEY (外键字段) <span class="keyword">REFERENCES</span> 主表名(主表字段名) <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ArKz1Nx.png"><br><img src="https://i.imgur.com/Om3Tiwd.png"><br>外键和内键同时变化<br>set null<br><img src="https://i.imgur.com/kkvyhCo.png"><br><img src="https://i.imgur.com/JZRTlB9.png"><br>直接在图形化界面切换外键<br><img src="https://i.imgur.com/O4R6XsO.png"><br><img src="https://i.imgur.com/DjiFy1Q.png"></p>
  
       <!-- reward -->
       
@@ -290,7 +414,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AMySql/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/11/%E7%BA%A6%E6%9D%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,19 +427,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2025/05/11/SQL/" class="article-nav-link">
+      <a href="/2025/05/11/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            SQL
+            多表查询
           
         </div>
       </a>
     
     
-      <a href="/2025/01/17/Algorithms/" class="article-nav-link">
+      <a href="/2025/05/11/%E5%87%BD%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">MIT 6.006 Introduction to Algorithms</div>
+        <div class="article-nav-title">函数</div>
       </a>
     
   </nav>
