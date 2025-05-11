@@ -12471,7 +12471,7 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>SQL</title>
+    <title>数据库：第二章 SQL</title>
     <url>/2025/05/11/SQL/</url>
     <content><![CDATA[<h2 id="2-1-SQL通用语句-flashcard"><a href="#2-1-SQL通用语句-flashcard" class="headerlink" title="2.1 SQL通用语句 #flashcard"></a>2.1 SQL通用语句 #flashcard</h2><ol>
 <li><strong>书写格式</strong>：SQL 语句可单行或多行书写，均以分号 <code>;</code> 结尾。</li>
@@ -13144,7 +13144,7 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>事务</title>
+    <title>数据库：第六章 事务</title>
     <url>/2025/05/11/%E4%BA%8B%E5%8A%A1/</url>
     <content><![CDATA[<h2 id="事务简介"><a href="#事务简介" class="headerlink" title="事务简介"></a>事务简介</h2><h3 id="事务概念"><a href="#事务概念" class="headerlink" title="事务概念"></a>事务概念</h3><ul>
 <li><strong>定义</strong>：事务是一组操作的集合，是不可分割的工作单位。这些操作会作为一个整体向系统提交或撤销，即要么全部成功，要么全部失败 。</li>
@@ -13252,7 +13252,7 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>函数</title>
+    <title>数据库：第三章 函数</title>
     <url>/2025/05/11/%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<p>函数：数据库函数是预定义的、可重用的代码块，用于执行特定的数据操作或计算，并返回一个结果。</p>
 <h2 id="3-1-字符串函数"><a href="#3-1-字符串函数" class="headerlink" title="3.1 字符串函数"></a>3.1 字符串函数</h2><table>
@@ -13485,7 +13485,7 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>多表查询</title>
+    <title>数据库：第五章 多表查询</title>
     <url>/2025/05/11/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</url>
     <content><![CDATA[<h2 id="5-1-数据库表结构关系-概述"><a href="#5-1-数据库表结构关系-概述" class="headerlink" title="5.1 数据库表结构关系 - 概述"></a>5.1 数据库表结构关系 - 概述</h2><p>在项目开发进行数据库表结构设计时，需依据业务需求及业务模块关系来分析设计。因业务相互关联，表结构间存在多种联系，主要有：</p>
 <ul>
@@ -13600,7 +13600,7 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>约束</title>
+    <title>数据库：第四章 约束</title>
     <url>/2025/05/11/%E7%BA%A6%E6%9D%9F/</url>
     <content><![CDATA[<h2 id="3-1-约束的概述"><a href="#3-1-约束的概述" class="headerlink" title="3.1 约束的概述"></a>3.1 约束的概述</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>约束是作用于表中字段上的规则，用于限制存储在表中的数据。</p>
 <h3 id="二、目的"><a href="#二、目的" class="headerlink" title="二、目的"></a>二、目的</h3><p>保证数据库中数据的正确、有效性和完整性。</p>
