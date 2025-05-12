@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>第三章：Pandas |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-第三章：Pandas"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  第三章：Pandas
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/05/12/%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9APandas/" class="article-date">
+  <time datetime="2025-05-12T13:38:56.000Z" itemprop="datePublished">2025-05-12</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>&#x2F;Pandas 是一个强大的 Python 数据分析和处理库。它提供了快速、灵活和富有表现力的数据结构，旨在使处理结构化（表格化、多维数组、时间序列）和非结构化数据变得简单直观。</p>
+<p><strong>Pandas 的核心数据结构：</strong></p>
+<ol>
+<li><p><strong>Series（序列）</strong></p>
+<ul>
+<li>Series 是一种一维带标签的数组，可以存储任何数据类型（整数、浮点数、字符串、Python 对象等）。</li>
+<li>它类似于 NumPy 的一维数组，但多了标签（索引）功能。</li>
+<li>索引可以是数字、字符串或任何其他不可变对象。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从列表创建 Series</span></span><br><span class="line">data = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]</span><br><span class="line">s = pd.Series(data)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># 0    10</span></span><br><span class="line"><span class="comment"># 1    20</span></span><br><span class="line"><span class="comment"># 2    30</span></span><br><span class="line"><span class="comment"># 3    40</span></span><br><span class="line"><span class="comment"># 4    50</span></span><br><span class="line"><span class="comment"># dtype: int64</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从字典创建 Series (键变为索引)</span></span><br><span class="line">data = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">30</span>&#125;</span><br><span class="line">s = pd.Series(data)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># a    10</span></span><br><span class="line"><span class="comment"># b    20</span></span><br><span class="line"><span class="comment"># c    30</span></span><br><span class="line"><span class="comment"># dtype: int64</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定索引</span></span><br><span class="line">s = pd.Series(data, index=[<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># b    20.0</span></span><br><span class="line"><span class="comment"># c    30.0</span></span><br><span class="line"><span class="comment"># d     NaN</span></span><br><span class="line"><span class="comment"># dtype: float64</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>DataFrame（数据框）</strong></p>
+<ul>
+<li>DataFrame 是一个二维带标签的数据结构，可以看作是 Series 的容器。</li>
+<li>它类似于电子表格或 SQL 表格，由行和列组成。</li>
+<li>每一列可以是不同的数据类型。</li>
+<li>DataFrame 是 Pandas 中最常用的数据结构。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从字典创建 DataFrame</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;Name&#x27;</span>: [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Charlie&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;Age&#x27;</span>: [<span class="number">25</span>, <span class="number">30</span>, <span class="number">28</span>],</span><br><span class="line">    <span class="string">&#x27;City&#x27;</span>: [<span class="string">&#x27;New York&#x27;</span>, <span class="string">&#x27;London&#x27;</span>, <span class="string">&#x27;Paris&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment">#        Name  Age      City</span></span><br><span class="line"><span class="comment"># 0     Alice   25  New York</span></span><br><span class="line"><span class="comment"># 1       Bob   30    London</span></span><br><span class="line"><span class="comment"># 2  Charlie   28     Paris</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从列表的列表创建 DataFrame</span></span><br><span class="line">data = [[<span class="string">&#x27;Alice&#x27;</span>, <span class="number">25</span>, <span class="string">&#x27;New York&#x27;</span>], [<span class="string">&#x27;Bob&#x27;</span>, <span class="number">30</span>, <span class="string">&#x27;London&#x27;</span>], [<span class="string">&#x27;Charlie&#x27;</span>, <span class="number">28</span>, <span class="string">&#x27;Paris&#x27;</span>]]</span><br><span class="line">df = pd.DataFrame(data, columns=[<span class="string">&#x27;Name&#x27;</span>, <span class="string">&#x27;Age&#x27;</span>, <span class="string">&#x27;City&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment">#        Name  Age      City</span></span><br><span class="line"><span class="comment"># 0     Alice   25  New York</span></span><br><span class="line"><span class="comment"># 1       Bob   30    London</span></span><br><span class="line"><span class="comment"># 2  Charlie   28     Paris</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>Pandas 的主要功能：</strong></p>
+<ul>
+<li><p><strong>数据导入&#x2F;导出：</strong></p>
+<ul>
+<li>Pandas 可以从各种格式的文件中读取数据，例如 CSV、Excel、SQL 数据库、JSON 等。</li>
+<li>也可以将数据导出到这些格式。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取 CSV 文件</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取 Excel 文件</span></span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;data.xlsx&#x27;</span>, sheet_name=<span class="string">&#x27;Sheet1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入 CSV 文件</span></span><br><span class="line">df.to_csv(<span class="string">&#x27;output.csv&#x27;</span>, index=<span class="literal">False</span>) <span class="comment"># index=False 避免写入索引</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入 Excel 文件</span></span><br><span class="line">df.to_excel(<span class="string">&#x27;output.xlsx&#x27;</span>, sheet_name=<span class="string">&#x27;Sheet1&#x27;</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件路径，使用原始字符串避免转义问题</span></span><br><span class="line">file_path = <span class="string">r&#x27;F:\PythonProject2\numpy\youtube_video_data\GB_video_data_numbers.csv&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查文件是否存在</span></span><br><span class="line"><span class="keyword">if</span> os.path.exists(file_path):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 尝试使用 UTF-8 编码读取 CSV 文件</span></span><br><span class="line">        df = pd.read_csv(file_path, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># 打印 DataFrame 的前几行，用于预览数据</span></span><br><span class="line">        <span class="built_in">print</span>(df.head())</span><br><span class="line">    <span class="keyword">except</span> UnicodeDecodeError:</span><br><span class="line">        <span class="comment"># 如果 UTF-8 解码失败，则尝试使用 GBK 编码</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;UTF-8 decoding failed, trying GBK...&quot;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 尝试使用 GBK 编码读取 CSV 文件</span></span><br><span class="line">            df = pd.read_csv(file_path, encoding=<span class="string">&#x27;gbk&#x27;</span>)</span><br><span class="line">            <span class="comment"># 打印 DataFrame 的前几行，用于预览数据</span></span><br><span class="line">            <span class="built_in">print</span>(df.head())</span><br><span class="line">        <span class="keyword">except</span> UnicodeDecodeError:</span><br><span class="line">            <span class="comment"># 如果 GBK 解码失败，则尝试使用 Latin-1 编码</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;GBK decoding failed, trying latin1...&quot;</span>)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 尝试使用 Latin-1 编码读取 CSV 文件</span></span><br><span class="line">                df = pd.read_csv(file_path, encoding=<span class="string">&#x27;latin1&#x27;</span>)</span><br><span class="line">                <span class="comment"># 打印 DataFrame 的前几行，用于预览数据</span></span><br><span class="line">                <span class="built_in">print</span>(df.head())</span><br><span class="line">            <span class="keyword">except</span> UnicodeDecodeError:</span><br><span class="line">                <span class="comment"># 如果所有解码尝试都失败，则提示用户检查文件编码</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;All decoding attempts failed.  Please check the file encoding.&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="comment"># 捕获其他可能发生的异常，并打印错误信息</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;An error occurred: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 如果文件不存在，则打印错误信息</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Error: File not found at <span class="subst">&#123;file_path&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>数据清洗：</strong></p>
+<ul>
+<li>处理缺失值（<code>dropna()</code>, <code>fillna()</code>）</li>
+<li>删除重复值（<code>drop_duplicates()</code>）</li>
+<li>数据类型转换（<code>astype()</code>）</li>
+<li>字符串处理（<code>str</code> 属性，例如 <code>str.lower()</code>, <code>str.replace()</code>）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 处理缺失值</span></span><br><span class="line">df.dropna()  <span class="comment"># 删除包含缺失值的行</span></span><br><span class="line">df.fillna(<span class="number">0</span>) <span class="comment"># 用 0 填充缺失值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除重复行</span></span><br><span class="line">df.drop_duplicates()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据类型转换</span></span><br><span class="line">df[<span class="string">&#x27;Age&#x27;</span>] = df[<span class="string">&#x27;Age&#x27;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串处理</span></span><br><span class="line">df[<span class="string">&#x27;Name&#x27;</span>] = df[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.lower() <span class="comment"># 将 Name 列转换为小写</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据选择和过滤：</strong></p>
+<ul>
+<li>使用标签（<code>loc[]</code>）或位置（<code>iloc[]</code>）选择数据</li>
+<li>使用条件表达式过滤数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用标签选择行和列</span></span><br><span class="line">df.loc[<span class="number">0</span>, <span class="string">&#x27;Name&#x27;</span>]  <span class="comment"># 选择第一行 &#x27;Name&#x27; 列的值</span></span><br><span class="line">df.loc[<span class="number">1</span>:<span class="number">3</span>, [<span class="string">&#x27;Name&#x27;</span>, <span class="string">&#x27;Age&#x27;</span>]] <span class="comment"># 选择 2-4 行的 &#x27;Name&#x27; 和 &#x27;Age&#x27; 列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用位置选择行和列</span></span><br><span class="line">df.iloc[<span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># 选择第一行第一列的值</span></span><br><span class="line">df.iloc[<span class="number">1</span>:<span class="number">3</span>, <span class="number">0</span>:<span class="number">2</span>] <span class="comment"># 选择 2-3 行的 1-2 列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用条件表达式过滤数据</span></span><br><span class="line">df[df[<span class="string">&#x27;Age&#x27;</span>] &gt; <span class="number">25</span>] <span class="comment"># 选择 Age 大于 25 的行</span></span><br><span class="line">df[(df[<span class="string">&#x27;Age&#x27;</span>] &gt; <span class="number">25</span>) &amp; (df[<span class="string">&#x27;City&#x27;</span>] == <span class="string">&#x27;London&#x27;</span>)] <span class="comment"># 选择 Age 大于 25 且 City 为 London 的行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据转换：</strong></p>
+<ul>
+<li>添加&#x2F;删除列（<code>df[&#39;NewColumn&#39;] = ...</code>, <code>df.drop(&#39;Column&#39;, axis=1)</code>）</li>
+<li>排序（<code>sort_values()</code>）</li>
+<li>分组（<code>groupby()</code>）</li>
+<li>聚合（<code>sum()</code>, <code>mean()</code>, <code>count()</code>, <code>min()</code>, <code>max()</code>）</li>
+<li>透视表（<code>pivot_table()</code>）</li>
+<li>应用自定义函数（<code>apply()</code>）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加新列</span></span><br><span class="line">df[<span class="string">&#x27;Salary&#x27;</span>] = df[<span class="string">&#x27;Age&#x27;</span>] * <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除列</span></span><br><span class="line">df = df.drop(<span class="string">&#x27;City&#x27;</span>, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 排序</span></span><br><span class="line">df = df.sort_values(<span class="string">&#x27;Age&#x27;</span>, ascending=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分组和聚合</span></span><br><span class="line">grouped = df.groupby(<span class="string">&#x27;City&#x27;</span>)[<span class="string">&#x27;Age&#x27;</span>].mean() <span class="comment"># 按 City 分组，计算 Age 的平均值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 透视表</span></span><br><span class="line">pivot_table = pd.pivot_table(df, values=<span class="string">&#x27;Age&#x27;</span>, index=<span class="string">&#x27;City&#x27;</span>, columns=<span class="string">&#x27;Name&#x27;</span>, aggfunc=<span class="string">&#x27;mean&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用自定义函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">categorize_age</span>(<span class="params">age</span>):</span><br><span class="line">    <span class="keyword">if</span> age &lt; <span class="number">25</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Young&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> age &lt; <span class="number">35</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Adult&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Senior&#x27;</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;AgeCategory&#x27;</span>] = df[<span class="string">&#x27;Age&#x27;</span>].apply(categorize_age)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据合并&#x2F;连接：</strong></p>
+<ul>
+<li><code>concat()</code>：沿轴连接 Pandas 对象</li>
+<li><code>merge()</code>：类似于 SQL 的 JOIN 操作</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># concat</span></span><br><span class="line">df1 = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>], <span class="string">&#x27;B&#x27;</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;)</span><br><span class="line">df2 = pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [<span class="number">5</span>, <span class="number">6</span>], <span class="string">&#x27;B&#x27;</span>: [<span class="number">7</span>, <span class="number">8</span>]&#125;)</span><br><span class="line">df = pd.concat([df1, df2])</span><br><span class="line"></span><br><span class="line"><span class="comment"># merge</span></span><br><span class="line">df1 = pd.DataFrame(&#123;<span class="string">&#x27;ID&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">&#x27;Name&#x27;</span>: [<span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Charlie&#x27;</span>]&#125;)</span><br><span class="line">df2 = pd.DataFrame(&#123;<span class="string">&#x27;ID&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>], <span class="string">&#x27;Salary&#x27;</span>: [<span class="number">50000</span>, <span class="number">60000</span>, <span class="number">70000</span>]&#125;)</span><br><span class="line">df = pd.merge(df1, df2, on=<span class="string">&#x27;ID&#x27;</span>, how=<span class="string">&#x27;left&#x27;</span>) <span class="comment"># 左连接</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>时间序列分析：</strong></p>
+<ul>
+<li>Pandas 对时间序列数据有很好的支持。</li>
+<li>可以创建时间序列索引，进行时间序列的切片、重采样、移动窗口统计等操作。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建时间序列</span></span><br><span class="line">dates = pd.date_range(<span class="string">&#x27;2023-01-01&#x27;</span>, periods=<span class="number">10</span>, freq=<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line">ts = pd.Series(<span class="built_in">range</span>(<span class="number">10</span>), index=dates)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重采样</span></span><br><span class="line">ts.resample(<span class="string">&#x27;W&#x27;</span>).<span class="built_in">sum</span>() <span class="comment"># 按周重采样，计算每周的总和</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Pandas 的优势：</strong></p>
+<ul>
+<li><strong>易于使用：</strong> Pandas 提供了简洁直观的 API，使得数据处理变得容易。</li>
+<li><strong>高性能：</strong> Pandas 基于 NumPy 构建，底层使用 C 语言实现，因此具有很高的性能。</li>
+<li><strong>功能强大：</strong> Pandas 提供了丰富的功能，可以满足各种数据分析和处理需求。</li>
+<li><strong>与其他库集成：</strong> Pandas 可以与 NumPy、Matplotlib、Scikit-learn 等其他 Python 库无缝集成。</li>
+</ul>
+<p><strong>学习 Pandas 的建议：</strong></p>
+<ul>
+<li>从 Pandas 的官方文档开始：<a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/">https://pandas.pydata.org/docs/</a></li>
+<li>学习 Pandas 的核心数据结构：Series 和 DataFrame。</li>
+<li>掌握 Pandas 的主要功能：数据导入&#x2F;导出、数据清洗、数据选择和过滤、数据转换、数据合并&#x2F;连接、时间序列分析。</li>
+<li>多做练习，通过实际项目来巩固所学知识。</li>
+</ul>
+<p>Pandas 是数据科学领域中不可或缺的工具。 掌握 Pandas 可以让你更高效地处理和分析数据，从而做出更好的决策。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/12/%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9APandas/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/05/12/Gal-Music-%E4%BB%8E%E6%91%87%E6%BB%9A%E5%BD%93%E4%B8%AD%E5%AF%BB%E6%B1%82%E5%AD%98%E5%9C%A8%E7%9A%84%E4%BB%B7%E5%80%BC/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Gal:Musicus~从摇滚当中寻求存在的价值
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/05/12/%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9ANumpy%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">第二章：Numpy的使用</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
