@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Github:Git操作 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-软件使用/Github：Git操作"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Github:Git操作
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/23/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Github%EF%BC%9AGit%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2022-06-23T09:23:53.000Z" itemprop="datePublished">2022-06-23</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">9 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Git工作流程"><a href="#Git工作流程" class="headerlink" title="Git工作流程"></a>Git工作流程</h2><p>一般工作流程</p>
+<ul>
+<li>克隆Git资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件</li>
+<li>如果其他人修改了，你可以更新资源</li>
+<li>在提交前查看修改</li>
+<li>提交修改</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<p><img src="https://p.sda1.dev/18/2fd9786efda6a8c9caa00586196f4d11/d04c8f15892553dd9f987d55ae96596d.png"></p>
+<h2 id="Git工作区、暂存区和版本区"><a href="#Git工作区、暂存区和版本区" class="headerlink" title="Git工作区、暂存区和版本区"></a>Git工作区、暂存区和版本区</h2><ul>
+<li>工作区：就是你在电脑里能看到的目录。</li>
+<li>暂存区（stage or index）；一般存放在.git目录下的index文件中，所以我们把暂存区有时也叫作索引（index）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.git/index</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt="工作区、版本库的暂存区和版本库之间的关系"></p>
+<ul>
+<li>左侧为工作区，右侧为版本库。在版本库中标记为“index”的区域是暂存区（stage&#x2F;index），标记为“master”的是master分支所代表的目录树。</li>
+<li>图中我们可以看出此时“HEAD”实际上是指向master分支的一个“游标”。所以图中的HEAD可以用master来替换。</li>
+</ul>
+<ul>
+<li>图中的 objects 标识的区域为 Git 的对象库，实际位于 “.git&#x2F;objects” 目录下，里面包含了创建的各种对象及内容。</li>
+<li>当对工作区修改（或新增）的文件执行 <strong>git add</strong> 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</li>
+<li>当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。</li>
+<li>当执行 <strong>git reset HEAD</strong> 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。</li>
+<li>当执行 <strong>git rm –cached <file></file></strong> 命令时，会直接从暂存区删除文件，工作区则不做出改变。</li>
+<li>当执行 <strong>git checkout .</strong> 或者 <strong>git checkout – <file></file></strong> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区中的改动。</li>
+<li>当执行 <strong>git checkout HEAD .</strong> 或者 <strong>git checkout HEAD <file></file></strong> 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg" alt="img"></p>
+<h1 id="Git创建仓库"><a href="#Git创建仓库" class="headerlink" title="Git创建仓库"></a>Git创建仓库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+<p>Git使用该命令来初始化一个Git仓库，Git的很多命令都需要在Git的仓库中运行。</p>
+<p>在进行完这步操作之后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init newrepo</span><br></pre></td></tr></table></figure>
+
+<p>这一步是将指定的目录作为Git仓库。而我们想要存入文件，以及将它们纳入版本控制就需要下面这样操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add *.c</span><br><span class="line">$ git add README</span><br><span class="line">$ git commit -m &#x27;初始化项目版本&#x27;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注：</strong> 在 Linux 系统中，commit 信息使用单引号 **’**，Windows 系统，commit 信息使用双引号 **”**。</p>
+<p>所以在 git bash 中 <strong>git commit -m ‘提交说明’</strong> 这样是可以的，在 Windows 命令行中就要使用双引号 **git commit -m “提交说明”**。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone</span><br></pre></td></tr></table></figure>
+
+<p>我们使用git clone的命令从现有Git仓库中拷贝项目（类似swn checkout）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;repo&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果需要指定目录，则指令为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;repo&gt; &lt;directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例子：比如我们要克隆hexo的小插件的Git代码仓库，可以用下面的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/theme-next/hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<p>git的配置使用<strong>git config</strong>的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br><span class="line">credential.helper=osxkeychain</span><br><span class="line">core.repositoryformatversion=0</span><br><span class="line">core.filemode=true</span><br><span class="line">core.bare=false</span><br><span class="line">core.logallrefupdates=true</span><br><span class="line">core.ignorecase=true</span><br><span class="line">core.precomposeunicode=true</span><br></pre></td></tr></table></figure>
+
+<p>编辑git配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config -e#正对当前仓库</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config -e --global#针对系统上所有仓库 </span><br></pre></td></tr></table></figure>
+
+<p>设置提交代码时的用户的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name&quot;shiokou&quot;</span><br><span class="line">$ git config --global user.email shiokou0408@gmail.com</span><br></pre></td></tr></table></figure>
+
+<p>如果去掉–global参数只对目前仓库有效。</p>
+<h1 id="GIT操作"><a href="#GIT操作" class="headerlink" title="GIT操作"></a>GIT操作</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add</span><br><span class="line">$ git commit</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>git init:初始化仓库</li>
+<li>git add：添加文件到暂$存区</li>
+<li>git commit：将暂存区内容添加到仓库中</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone</span><br></pre></td></tr></table></figure>
+
+<p>拷贝一份远程仓库，也就是下载一个项目</p>
+<h2 id="提交与修改"><a href="#提交与修改" class="headerlink" title="提交与修改"></a>提交与修改</h2><p>Git 的工作就是创建和保存你的项目的快照及与之后的快照进行对比。</p>
+<p>下表列出了有关创建与提交你的项目的快照的命令：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>git add</code></td>
+<td align="left">添加文件到暂存区</td>
+</tr>
+<tr>
+<td align="left"><code>git status</code></td>
+<td align="left">查看仓库当前的状态，显示有变更的文件。</td>
+</tr>
+<tr>
+<td align="left"><code>git diff</code></td>
+<td align="left">比较文件的不同，即暂存区和工作区的差异。</td>
+</tr>
+<tr>
+<td align="left"><code>git commit</code></td>
+<td align="left">提交暂存区到本地仓库。</td>
+</tr>
+<tr>
+<td align="left"><code>git reset</code></td>
+<td align="left">回退版本。</td>
+</tr>
+<tr>
+<td align="left"><code>git rm</code></td>
+<td align="left">将文件从暂存区和工作区中删除。</td>
+</tr>
+<tr>
+<td align="left"><code>git mv</code></td>
+<td align="left">移动或重命名工作区文件。</td>
+</tr>
+<tr>
+<td align="left"><code>git checkout</code></td>
+<td align="left">分支切换。</td>
+</tr>
+<tr>
+<td align="left"><code>git switch （Git 2.23 版本引入）</code></td>
+<td align="left">更清晰地切换分支。</td>
+</tr>
+<tr>
+<td align="left"><code>git restore （Git 2.23 版本引入）</code></td>
+<td align="left">恢复或撤销文件的更改。</td>
+</tr>
+</tbody></table>
+<h2 id="提交日志"><a href="#提交日志" class="headerlink" title="提交日志"></a>提交日志</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>git log</code></td>
+<td align="left">查看历史提交记录</td>
+</tr>
+<tr>
+<td align="left"><code>git blame &lt;file&gt;</code></td>
+<td align="left">以列表形式查看指定文件的历史修改记录</td>
+</tr>
+</tbody></table>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>git remote</code></td>
+<td align="left">远程仓库操作</td>
+</tr>
+<tr>
+<td align="left"><code>git fetch</code></td>
+<td align="left">从远程获取代码库</td>
+</tr>
+<tr>
+<td align="left"><code>git pull</code></td>
+<td align="left">下载远程代码并合并</td>
+</tr>
+<tr>
+<td align="left"><code>git push</code></td>
+<td align="left">上传远程代码并合并</td>
+</tr>
+</tbody></table>
+<h2 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title="Git分支管理"></a>Git分支管理</h2><p>分支代表一条独立的开发线，分支有以下优势。</p>
+<ul>
+<li>可以从开发主线上分离</li>
+<li>不影响主线的同时工作</li>
+</ul>
+<p><img src="https://static.jyshare.com/images/svg/git-brance.svg" alt="img"></p>
+<p>Git的分支更像是指向更改快照的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch(branchname)</span><br></pre></td></tr></table></figure>
+
+<p>创建分支命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout(branchname)</span><br></pre></td></tr></table></figure>
+
+<p>切换分支命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge</span><br></pre></td></tr></table></figure>
+
+<p>合并分支命令：可以选择多次合并统一分支，也可以直接删除被并入的分支。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir gitdemo</span><br><span class="line">$ cd gitdemo/</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository...</span><br><span class="line">$ touch README</span><br><span class="line">$ git add README</span><br><span class="line">$ git commit -m &#x27;第一次版本提交&#x27;</span><br><span class="line">[master (root-commit) 3b58100] 第一次版本提交</span><br><span class="line"> 1 file changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 README</span><br></pre></td></tr></table></figure>
+
+<p>测试目录</p>
+<p>Git分支管理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p>没有参数的时候，会显示本地分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p>手动创建分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git branch yushio</span><br><span class="line">$ git branch</span><br><span class="line">* master</span><br><span class="line">  yushio</span><br></pre></td></tr></table></figure>
+
+<p>切换分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">README</span><br><span class="line">$ echo &#x27;runoob.com&#x27; &gt; test.txt</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m &#x27;add test.txt&#x27;</span><br><span class="line">[master 3e92c19] add test.txt</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 test.txt</span><br><span class="line">$ ls</span><br><span class="line">README        test.txt</span><br><span class="line">$ git checkout testing</span><br><span class="line">Switched to branch &#x27;testing&#x27;</span><br><span class="line">$ ls</span><br><span class="line">README</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ ls</span><br><span class="line">README        test.txt</span><br></pre></td></tr></table></figure>
+
+<p>创建分支并切换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b newtest</span><br><span class="line">Switched to a new branch &#x27;newtest&#x27;</span><br><span class="line">$ git rm test.txt </span><br><span class="line">rm &#x27;test.txt&#x27;</span><br><span class="line">$ ls</span><br><span class="line">README</span><br><span class="line">$ touch runoob.php</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -am &#x27;removed test.txt、add runoob.php&#x27;</span><br><span class="line">[newtest c1501a2] removed test.txt、add runoob.php</span><br><span class="line"> 2 files changed, 1 deletion(-)</span><br><span class="line"> create mode 100644 runoob.php</span><br><span class="line"> delete mode 100644 test.txt</span><br><span class="line">$ ls</span><br><span class="line">README        runoob.php</span><br><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ ls</span><br><span class="line">README        test.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建了新分支，新的分支上删除了test.txt，增加了runoob.php，但是切换回master分支之后，前者还在，后者不在。</p>
+<p>删除分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d (branchname)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br><span class="line">  testing</span><br><span class="line">$ git branch -d testing</span><br><span class="line">Deleted branch testing (was 85fc7e7).</span><br><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p>合并分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br><span class="line">  newtest</span><br><span class="line">$ ls</span><br><span class="line">README        test.txt</span><br><span class="line">$ git merge newtest</span><br><span class="line">Updating 3e92c19..c1501a2</span><br><span class="line">Fast-forward</span><br><span class="line"> runoob.php | 0</span><br><span class="line"> test.txt   | 1 -</span><br><span class="line"> 2 files changed, 1 deletion(-)</span><br><span class="line"> create mode 100644 runoob.php</span><br><span class="line"> delete mode 100644 test.txt</span><br><span class="line">$ ls</span><br><span class="line">README        runoob.ph</span><br></pre></td></tr></table></figure>
+
+<p>将newtest合并到主分支上，newtest.txt没有了，合并完成之后，删除分支。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d newtest</span><br><span class="line">Deleted branch newtest (was c1501a2).</span><br></pre></td></tr></table></figure>
+
+<p>之后就只有master分支了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p>合并冲突</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br><span class="line">$ cat runoob.php</span><br></pre></td></tr></table></figure>
+
+<p>将runoob.php内容改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo &#x27;runoob&#x27;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>创建change_site分支：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b change_site</span><br><span class="line">Switched to a new branch &#x27;change_site&#x27;</span><br><span class="line">$ vim runoob.php</span><br><span class="line">$ head -3 runoob.php</span><br><span class="line">&lt;?php</span><br><span class="line">echo &#x27;runoob&#x27;;</span><br><span class="line">?&gt;</span><br><span class="line">$ git commit -am &#x27;changed the runoob.php&#x27;</span><br><span class="line">[change_site 7774248] changed the runoob.php</span><br><span class="line"> 1 file changed, 3 insertions(+)</span><br></pre></td></tr></table></figure>
+
+<p>换回master</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">$ cat runoob.php</span><br><span class="line">$ vim runoob.php    # 修改内容如下</span><br><span class="line">$ cat runoob.php</span><br><span class="line">&lt;?php</span><br><span class="line">echo 1;</span><br><span class="line">?&gt;</span><br><span class="line">$ git diff</span><br><span class="line">diff --git a/runoob.php b/runoob.php</span><br><span class="line">index e69de29..ac60739 100644</span><br><span class="line">--- a/runoob.php</span><br><span class="line">+++ b/runoob.php</span><br><span class="line">@@ -0,0 +1,3 @@</span><br><span class="line">+&lt;?php</span><br><span class="line">+echo 1;</span><br><span class="line">+?&gt;</span><br><span class="line">$ git commit -am &#x27;修改代码&#x27;</span><br><span class="line">[master c68142b] 修改代码</span><br><span class="line"> 1 file changed, 3 insertions(+)</span><br></pre></td></tr></table></figure>
+
+<p>现在合并“change_site”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git merge change_site</span><br><span class="line">Auto-merging runoob.php</span><br><span class="line">CONFLICT (content): Merge conflict in runoob.php</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br><span class="line"></span><br><span class="line">$ cat runoob.php     # 打开文件，看到冲突内容</span><br><span class="line">&lt;?php</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">echo 1;</span><br><span class="line">=======</span><br><span class="line">echo &#x27;runoob&#x27;;</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; change_site</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>出现冲突，手动修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ vim runoob.php </span><br><span class="line">$ cat runoob.php</span><br><span class="line">&lt;?php</span><br><span class="line">echo 1;</span><br><span class="line">echo &#x27;runoob&#x27;;</span><br><span class="line">?&gt;</span><br><span class="line">$ git diff</span><br><span class="line">diff --cc runoob.php</span><br><span class="line">index ac60739,b63d7d7..0000000</span><br><span class="line">--- a/runoob.php</span><br><span class="line">+++ b/runoob.php</span><br><span class="line">@@@ -1,3 -1,3 +1,4 @@@</span><br><span class="line">  &lt;?php</span><br><span class="line"> +echo 1;</span><br><span class="line">+ echo &#x27;runoob&#x27;;</span><br><span class="line">  ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通知Git文件冲突已经解决</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line">UU runoob.php</span><br><span class="line">$ git add runoob.php</span><br><span class="line">$ git status -s</span><br><span class="line">M  runoob.php</span><br><span class="line">$ git commit</span><br><span class="line">[master 88afe0e] Merge branch &#x27;change_site&#x27;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2022/06/23/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Github%EF%BC%9AGit%E6%93%8D%E4%BD%9C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/" rel="tag">Github</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/07/13/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E5%AF%B9%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E7%9A%84%E7%AE%80%E4%BB%8B%EF%BC%9A%E9%9A%90%E5%96%BB%E3%80%81%E8%BD%AC%E5%96%BB%E3%80%81%E7%A7%BB%E7%BD%AE%E3%80%81%E5%87%9D%E7%BC%A9%E3%80%81%E5%BF%AB%E4%B9%90%E5%8E%9F%E5%88%99%E3%80%81%E8%B6%85%E8%B6%8A%E5%BF%AB%E4%B9%90%E5%8E%9F%E5%88%99%E3%80%82/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            精神分析：对弗洛伊德的简介：隐喻、转喻、移置、凝缩、快乐原则、超越快乐原则
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/06/17/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%EF%BC%9A%E9%95%9C%E5%83%8F%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%85%B3%E7%B3%BB%E5%8D%B3%E4%BC%AA%EF%BC%8C%E6%97%A0%E4%B8%AD%E7%94%9F%E4%BC%AA%E6%9C%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">精神分析：镜像阶段：关系即伪，无中生伪有</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

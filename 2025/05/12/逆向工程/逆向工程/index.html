@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>逆向工程 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-逆向工程/逆向工程"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  逆向工程
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/05/12/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" class="article-date">
+  <time datetime="2025-05-12T14:05:01.000Z" itemprop="datePublished">2025-05-12</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">7.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">27 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="第一章：关于逆向工程"><a href="#第一章：关于逆向工程" class="headerlink" title="第一章：关于逆向工程"></a><strong>第一章：关于逆向工程</strong></h1><h2 id="1-1-逆向工程（Reverse-Engineering）"><a href="#1-1-逆向工程（Reverse-Engineering）" class="headerlink" title="1.1 逆向工程（Reverse Engineering）"></a>1.1 逆向工程（Reverse Engineering）</h2><h2 id="1-2-代码逆向工程（Reverse-Code-Engineering）"><a href="#1-2-代码逆向工程（Reverse-Code-Engineering）" class="headerlink" title="1.2 代码逆向工程（Reverse Code Engineering）"></a>1.2 代码逆向工程（Reverse Code Engineering）</h2><h3 id="1-2-1-逆向分析法"><a href="#1-2-1-逆向分析法" class="headerlink" title="1.2.1 逆向分析法"></a>1.2.1 逆向分析法</h3><ol>
+<li>静态分析法</li>
+<li>动态分析法</li>
+</ol>
+<h3 id="1-2-2-源代码、十六进制代码、汇编代码"><a href="#1-2-2-源代码、十六进制代码、汇编代码" class="headerlink" title="1.2.2 源代码、十六进制代码、汇编代码"></a>1.2.2 源代码、十六进制代码、汇编代码</h3><h3 id="1-2-3-”打补丁”与“破解”"><a href="#1-2-3-”打补丁”与“破解”" class="headerlink" title="1.2.3 ”打补丁”与“破解”"></a>1.2.3 ”打补丁”与“破解”</h3><h2 id="1-3-代码逆向准备"><a href="#1-3-代码逆向准备" class="headerlink" title="1.3 代码逆向准备"></a>1.3 代码逆向准备</h2><h3 id="1-3-1-目标"><a href="#1-3-1-目标" class="headerlink" title="1.3.1 目标"></a>1.3.1 目标</h3><h3 id="1-3-2-激情"><a href="#1-3-2-激情" class="headerlink" title="1.3.2 激情"></a>1.3.2 激情</h3><h3 id="1-3-3-谷歌"><a href="#1-3-3-谷歌" class="headerlink" title="1.3.3 谷歌"></a>1.3.3 谷歌</h3><h2 id="1-4-逆向分析技术的禁忌"><a href="#1-4-逆向分析技术的禁忌" class="headerlink" title="1.4 逆向分析技术的禁忌"></a>1.4 逆向分析技术的禁忌</h2><h3 id="1-4-1-贪心"><a href="#1-4-1-贪心" class="headerlink" title="1.4.1 贪心"></a>1.4.1 贪心</h3><h3 id="1-4-2-急躁"><a href="#1-4-2-急躁" class="headerlink" title="1.4.2 急躁"></a>1.4.2 急躁</h3><h2 id="1-5-逆向分析技术的乐趣"><a href="#1-5-逆向分析技术的乐趣" class="headerlink" title="1.5 逆向分析技术的乐趣"></a>1.5 逆向分析技术的乐趣</h2><h1 id="第二章-逆向分析Hello-World！"><a href="#第二章-逆向分析Hello-World！" class="headerlink" title="第二章 逆向分析Hello World！"></a><strong>第二章 逆向分析Hello World！</strong></h1><h2 id="2-1-Hello-World！程序"><a href="#2-1-Hello-World！程序" class="headerlink" title="2.1 Hello World！程序"></a>2.1 Hello World！程序</h2><p>先用源代码文件生成exe文件</p>
+<h2 id="2-2-调试HelloWorld-exe程序"><a href="#2-2-调试HelloWorld-exe程序" class="headerlink" title="2.2 调试HelloWorld.exe程序"></a>2.2 调试HelloWorld.exe程序</h2><p>exe是二进制文件，我们需要用Debugger（调试器），它内嵌了Disassembler（反汇编）模块，可以用它将二进制代码转化为Assembly（汇编）指令代码。</p>
+<h3 id="2-2-1-调试目标"><a href="#2-2-1-调试目标" class="headerlink" title="2.2.1 调试目标"></a>2.2.1 调试目标</h3><p>找到转换得到的汇编语言代码中的main()函数。</p>
+<h3 id="2-2-2-开始调试"><a href="#2-2-2-开始调试" class="headerlink" title="2.2.2 开始调试"></a>2.2.2 开始调试</h3><p>工具：OllyDbg<br>工具的基本介绍：<!--![[Image_269761186866128.jpg]]--><br><img src="https://i.imgur.com/IxqLk7M.jpeg"></p>
+<p>步骤：使用OllyDbg打开HelloWorld.exe程序。</p>
+<!--![[Image_269837128878617.jpg]]-->
+<p><img src="https://i.imgur.com/wMi4aIQ.jpeg"></p>
+<h3 id="2-2-3-入口点"><a href="#2-2-3-入口点" class="headerlink" title="2.2.3 入口点"></a>2.2.3 入口点</h3><p>调试停止的地点是HelloWorld.exe执行的起始点（4011A0），它是一段EP（EntryPoint）代码。<br>重要指令：CALL&amp;JMP<!--![[Screenshot_20250303_103950.jpg]]--><br><img src="https://i.imgur.com/LHndYOe.jpeg"></p>
+<p>代码含义：调用40270C处的函数，再跳转到40104F的函数处。</p>
+<h3 id="2-2-4-跟踪40270C函数"><a href="#2-2-4-跟踪40270C函数" class="headerlink" title="2.2.4 跟踪40270C函数"></a>2.2.4 跟踪40270C函数</h3><!--![[Screenshot_20250303_104214.jpg]]-->
+<p><img src="https://i.imgur.com/FMZoS8i.jpeg"></p>
+<p>在EP代码的4011A0处，按F7（step into），进入该处的函数内部：</p>
+<!--<!--![[Screenshot_20250303_104420.j-->pg]]-->
+<p><img src="https://i.imgur.com/Kb3tn4m.jpeg"></p>
+<p><img src="https://i.imgur.com/m3PSNrw.jpeg"></p>
+<!--⚠️Imgur upload failed, check dev console-->
+
+<p>右边是&#x3D;&#x3D;OllyDbg&#x3D;&#x3D;的注释，红色的字是代码调用的&#x3D;&#x3D;API&#x3D;&#x3D;函数名称，这些函数并不是源码中的内容，是保证程序正常运行而被添加的内容。目前不需要关注这些API函数，可以直接按&#x3D;&#x3D;F8（Step over）&#x3D;&#x3D;命令或者跳过。在&#x3D;&#x3D;4027A1&#x3D;&#x3D;处有&#x3D;&#x3D;RETN&#x3D;&#x3D;指令，直接按&#x3D;&#x3D;F8（Step over）&#x3D;&#x3D;命令或者&#x3D;&#x3D;Ctrl+F9（Execute till Return）&#x3D;&#x3D;，继续操作按F7&#x2F;F8执行RETN指令，程序会跳转到&#x3D;&#x3D;4011A5&#x3D;&#x3D;地址处，也就是结束了目前的函数，进入了下一个点。</p>
+<h3 id="2-2-5-跟踪40104F跳转语句"><a href="#2-2-5-跟踪40104F跳转语句" class="headerlink" title="2.2.5 跟踪40104F跳转语句"></a>2.2.5 跟踪40104F跳转语句</h3><p>执行&#x3D;&#x3D;4011A5&#x3D;&#x3D;的跳转命令&#x3D;&#x3D;JMP 0040104F&#x3D;&#x3D;，跳转到&#x3D;&#x3D;40104F&#x3D;&#x3D;地址处，结果如下：</p>
+<!--![[Screenshot_20250303_105621.jpg]]-->
+<p><img src="https://i.imgur.com/Q8FSRW6.jpeg"></p>
+<p>这些看上去很复杂，实质上只是启动函数，跟着这个函数，我们就能查找到目标的main()函数。</p>
+<h3 id="2-2-6-查找main-函数"><a href="#2-2-6-查找main-函数" class="headerlink" title="2.2.6 查找main()函数"></a>2.2.6 查找main()函数</h3><p>逐条分析&#x3D;&#x3D;40104F&#x3D;&#x3D;就可以找到要查找的main()函数，这是一种笨拙的方式。<br>OllyDbg的四种指令：Restart（F2）、Step Into（F7）、Step Over（F8）、Execute till Return（Ctrl+F9）.<br>从&#x3D;&#x3D;40104F&#x3D;&#x3D;地址开始，没执行一次F7就下移动一行代码，移动到401056地址处的CALL 402524函数调用指令时，执行Step Into进入&#x3D;&#x3D;402524&#x3D;&#x3D;函数。<!--![[Screenshot_20250303_111310.jpg]]--><br><img src="https://i.imgur.com/Fs77NNt.jpeg"></p>
+<p>没有看到&#x3D;&#x3D;MessageBox()API&#x3D;&#x3D;的代码，这个函数不是main()函数，就跳出这个函数。</p>
+<!--<!--![[Screenshot_20250303_111717.j-->pg]]-->
+<p><img src="https://i.imgur.com/iEsDh4X.jpeg"></p>
+<p><img src="https://i.imgur.com/W5N83o0.jpeg"></p>
+<p>如果在调试过程中遇到以下的代码，像&#x3D;&#x3D;4010E4&#x3D;&#x3D;地址处的&#x3D;&#x3D;CALL Kernel32.GetCommandLineW&#x3D;&#x3D;指令，那就直接&#x3D;&#x3D;F8&#x3D;&#x3D;跳过，这是调用&#x3D;&#x3D;Win32 API&#x3D;&#x3D;的代码。<br>如果一切正常，则可以看到如下的代码：<!--![[Screenshot_20250303_112028.jpg]]--><br><img src="https://i.imgur.com/EuftB4Q.jpeg"></p>
+<p>在当前地址处有一个&#x3D;&#x3D;CALL 401000&#x3D;&#x3D;指令，用于调用&#x3D;&#x3D;401000&#x3D;&#x3D;函数，按F7进入这个函数。</p>
+<!--![[Screenshot_20250303_112148.jpg]]-->
+<p><img src="https://i.imgur.com/JTBN7ij.jpeg"></p>
+<p>这里出现了&#x3D;&#x3D;MessageBoxW()API的代码&#x3D;&#x3D;，参数是“<a target="_blank" rel="noopener" href="http://www.reversecore.com”和“hello/">www.reversecore.com”和“Hello</a> World！”两个字符串，所以这就是main()函数。</p>
+<h2 id="2-3-进一步熟悉调试器"><a href="#2-3-进一步熟悉调试器" class="headerlink" title="2.3 进一步熟悉调试器"></a>2.3 进一步熟悉调试器</h2><h3 id="2-3-1-调试器指令"><a href="#2-3-1-调试器指令" class="headerlink" title="2.3.1 调试器指令"></a>2.3.1 调试器指令</h3><!--![[Screenshot_20250303_112610.jpg]]-->
+<p><img src="https://i.imgur.com/AVlm4IC.jpeg"></p>
+<h3 id="2-3-2-“大本营”"><a href="#2-3-2-“大本营”" class="headerlink" title="2.3.2 “大本营”"></a>2.3.2 “大本营”</h3><p>重新运行调试器的时候，调试都会返回到EP处，使用起来不方便。调试代码时需要寻找重要的地址，以方便在重新调试的时候，快速回到这里。</p>
+<h3 id="2-3-3-设置“大本营”的四种方法"><a href="#2-3-3-设置“大本营”的四种方法" class="headerlink" title="2.3.3 设置“大本营”的四种方法"></a>2.3.3 设置“大本营”的四种方法</h3><ol>
+<li><p>Goto命令<br>确定“大本营”的地址为40104F，执行&#x3D;&#x3D;Go to（Ctrl+G）&#x3D;&#x3D;命令，打开一个&#x3D;&#x3D;Enter expression to follow&#x3D;&#x3D;对话框，在文本框中输入“40104F”。<br>下一次直接执行&#x3D;&#x3D;Execute till cursor（F4）&#x3D;&#x3D;命令，就可以直接到这个点了。</p>
+<!--![[Screenshot_20250303_113305.jpg]]-->
+<p><img src="https://i.imgur.com/bNTxHpU.jpeg"></p>
+</li>
+<li><p>设置断点<br>直接设置&#x3D;&#x3D;BP（Break Point）F2&#x3D;&#x3D;让调试流转到大本营。</p>
+</li>
+</ol>
+<!--![[Screenshot_20250303_113323.jpg]]-->
+<p><img src="https://i.imgur.com/SMMF2Rj.jpeg"></p>
+<p>在&#x3D;&#x3D;OllyDbg&#x3D;&#x3D;菜单栏依次选择&#x3D;&#x3D;View-Breakpoints（ALT+B）&#x3D;&#x3D;，打开BPS对话框，可以看到设置过的断点，直接双击可以跳转到相应的位置。<br>2. 注释<br>按；键可以在指定地址添加注释：</p>
+<!--![[Screenshot_20250303_113612.jpg]]-->
+<p><img src="https://i.imgur.com/s7kHjCL.jpeg"></p>
+<p>鼠标右键，选择 Search for-user defined comment，可以找到所有注释，双击对应注释可以跳转到对应位置。</p>
+<!--![[Screenshot_20250303_113823.jpg]]-->
+<p><img src="https://i.imgur.com/kSyGSqy.jpeg"></p>
+<ol>
+<li>标签<br>按：键可以输入标签，加入标签之后，我们可以直接在代码窗口中看到标签。标签也可以用类似的方式进行搜索。<!--![[Screenshot_20250303_113952.jpg]]-->
+<img src="https://i.imgur.com/2YOYWDy.jpeg"></li>
+</ol>
+<h2 id="2-4-快速查找指定代码的四种方法"><a href="#2-4-快速查找指定代码的四种方法" class="headerlink" title="2.4 快速查找指定代码的四种方法"></a>2.4 快速查找指定代码的四种方法</h2><h3 id="2-4-1-代码执行法"><a href="#2-4-1-代码执行法" class="headerlink" title="2.4.1 代码执行法"></a>2.4.1 代码执行法</h3><p>要查找的是main()函数中调用MessageBox()函数的代码。在调试时，一直F8总会在某个时候被调用出来，这就是原理。先从大本营开始，一直按F8，直到出现弹窗信息，按Ctrl+F2再次载入待调试的可执行文件并重新调试，如果出现弹窗了，那对应调用的函数就是main()函数。</p>
+<h3 id="2-4-2-字符串检索法"><a href="#2-4-2-字符串检索法" class="headerlink" title="2.4.2 字符串检索法"></a>2.4.2 字符串检索法</h3><p>基于OllyDbg的预分析工程列出的表格，会列出程序代码引用的字符串，像下面的表格中，&#x3D;&#x3D;401007&#x3D;&#x3D;处有一个&#x3D;&#x3D;PUSH 004092A0&#x3D;&#x3D;命令，这里引用的&#x3D;&#x3D;004092A0&#x3D;&#x3D;就是字符串“Hello World！”。双击字符串就可以跳转到调用&#x3D;&#x3D;MessageBoxW(）&#x3D;&#x3D;函数的代码处。接下来可以使用Go to命令，进一步寻找目标地址的字符串。</p>
+<!--<!--![[Screenshot_20250303_135513.j-->pg]]-->
+<p><img src="https://i.imgur.com/ghJhYTK.jpeg"></p>
+<p><img src="https://i.imgur.com/mklhl1B.jpeg"></p>
+<p>灰色部分是“Hello World！”字符串，它用Unicode码形式表示，字符串后面被填充了NULL值。VC++里，static字符串（在程序内部被硬编码（Hard Coding）的字符串）会被默认保存为Unicode码形式。从409地址和401地址的区别可以知道，代码和数据所在的区域是彼此分开的。</p>
+<h3 id="2-4-3-API检索法（1）：在调用代码中设置断点"><a href="#2-4-3-API检索法（1）：在调用代码中设置断点" class="headerlink" title="2.4.3 API检索法（1）：在调用代码中设置断点"></a>2.4.3 API检索法（1）：在调用代码中设置断点</h3><p>右键菜单，Search for-All intermodular calls。<br>原理：要想向显示器显示内容，需要使用Win32 API向OS请求显示输出。我们在观察一个程序的功能后，能大致推测处它在运行时调用的Win32 API，比如我们运行时出现弹窗时，就能知道它调用了user32.MessageBoxW()API。<br>注意：OllyDbg的预分析的内容不止分析程序中的字符串，还可以摘录处运行时调用的API函数列表。&#x3D;&#x3D;All intermodular calls&#x3D;&#x3D;命令可以只查看调用了哪些API函数。</p>
+<!--<!--![[Screenshot_20250303_140532.j-->pg]]-->
+<p><img src="https://i.imgur.com/F1zBbxk.jpeg"></p>
+<p><img src="https://i.imgur.com/qQ1PCCH.jpeg"></p>
+<p>从这里可以看到调用MessageBoxW()的代码，该函数的地址也放出来了，双击地址就可以进行定位。这是一个快速分析程序结构的方法。</p>
+<h3 id="2-4-4-API检索法（2）：在API代码中设置断点"><a href="#2-4-4-API检索法（2）：在API代码中设置断点" class="headerlink" title="2.4.4 API检索法（2）：在API代码中设置断点"></a>2.4.4 API检索法（2）：在API代码中设置断点</h3><p>鼠标右键：Search for-Name in all calls<br>Ollydbg并不能为所有可执行文件都列出API函数调用，使用压缩器或者&#x2F;保护器工具对可执行文件进行压缩或保护之后，文件的结构就会发生改变。</p>
+<!--![[Screenshot_20250303_141725.jpg]]-->
+<p><img src="https://i.imgur.com/Tlkq5Df.jpeg"></p>
+<p>这种情况下，DLL代码库被加载到进程内存后，我们可以直接向DLL代码库当中添加断点，API是操作系统对用户程序提供的一系列函数，存在C:\Windows\systems32文件夹中的*.dll文件夹。就是需要使用API向OS提出请求，然后DLL文件会被加载到程序的进程内存。<br>在OllyDbg菜单栏中依次选择View-Memory菜单（ALT+M），打开内存映射窗口。</p>
+<!--![[Screenshot_20250303_142156.jpg]]-->
+<p><img src="https://i.imgur.com/Yr1xQUx.jpeg"></p>
+<p>使用OllyDbg中的&#x3D;&#x3D;Name in all modules&#x3D;&#x3D;命令可以列出被加载的DLL文件中所提供的所有API。使用&#x3D;&#x3D;Name in all modules&#x3D;&#x3D;命令打开All names窗口，搜索出来&#x3D;&#x3D;MessageBoxW&#x3D;&#x3D;。</p>
+<!--![[Screenshot_20250303_142533.jpg]]-->
+<p><img src="https://i.imgur.com/Qhhh2sO.jpeg"></p>
+<p>USER32模块中有一个Export类型的&#x3D;&#x3D;MessageBoxW&#x3D;&#x3D;函数，双击就可以显示它的代码，就像刚才说的，实现是在<br>USER32.dll库中的。</p>
+<!--![[Screenshot_20250303_142943.jpg]]-->
+<p><img src="https://i.imgur.com/Ym50rZO.jpeg"></p>
+<p>观察MessageBoxW函数和HelloWorld.exe的地址，会发现完全不同，在函数起始地址上按F2，设置好断点之后按F9继续执行，</p>
+<!--![[Screenshot_20250303_143349.jpg]]-->
+<p><img src="https://i.imgur.com/jauv6P0.jpeg"></p>
+<!--⚠️Imgur upload failed, check dev console-->
+
+
+<p>如果运行程序的过程中，调用了MessageBoxW()API的花，则调用程序时，程序运行到这里就会停。</p>
+<!--![[Screenshot_20250303_143529.jpg]]-->
+<p><img src="https://i.imgur.com/MOjLvte.jpeg"></p>
+<p>ESP的值是&#x3D;&#x3D;0012FF30&#x3D;&#x3D;，对应的返回地址是&#x3D;&#x3D;401014&#x3D;&#x3D;，当main函数调用完MessageBoxW函数时，程序执行流将会返回到该地址处。按Ctril+F9就可以运行到RETN处，按F7可以返回401014处。</p>
+<h2 id="2-5-使用“打补丁”方式修改“Hello-World！”字符串"><a href="#2-5-使用“打补丁”方式修改“Hello-World！”字符串" class="headerlink" title="2.5 使用“打补丁”方式修改“Hello World！”字符串"></a>2.5 使用“打补丁”方式修改“Hello World！”字符串</h2><h3 id="2-5-1-“打补丁”"><a href="#2-5-1-“打补丁”" class="headerlink" title="2.5.1 “打补丁”"></a>2.5.1 “打补丁”</h3><p>在找到MessageBoxW的部分和“Hello World！”地址后，按Ctrl+F2重新调试，并将调试流运行到main函数的起始地址处（401000），在这里设置断点（F2），再按F9执行程序。main()函数的地址401000被作为前进营。</p>
+<!--![[Screenshot_20250303_144406.jpg]]-->
+<p><img src="https://i.imgur.com/JVuWD1p.jpeg"></p>
+<h3 id="2-5-2-修改字符串的两种方法"><a href="#2-5-2-修改字符串的两种方法" class="headerlink" title="2.5.2 修改字符串的两种方法"></a>2.5.2 修改字符串的两种方法</h3><ol start="2">
+<li>直接修改字符串缓冲区（buffer）<br>直接修改MessageBoxW函数中的字符串，就可以成功，在Dump窗口中按Ctrl+G快捷键执行Go to命令，输入4092A0进入字符串缓冲区，然后选中这里的字符串，按Ctrl+E快捷键打开编辑窗口。<!--<!--![[Screenshot_20250303_145121.j-->pg]]-->
+<img src="https://i.imgur.com/he5neXf.jpeg"></li>
+</ol>
+<p><img src="https://i.imgur.com/9JQPMbC.jpeg"></p>
+<p>这里可以看出“Hello World！”字符串占据的区域为4092A0～4092B0.用新字符串覆盖该区域。<br>新字符串长度大于原有字符串，执行覆盖操作时，可能损坏字符串后面的数据，所以一定要小心。<br>注意：在Unicode字符串必须以NULL结束，占据两个字节（在HEX项目中添加）。</p>
+<!--![[Screenshot_20250303_145843.jpg]]-->
+<p><img src="https://i.imgur.com/QR4EIA1.jpeg"></p>
+<p>回到原本的main()函数，<br>![[Screenshot_20250303_145947.jpg]]<br><img src="/2025/05/12/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" alt="Uploading file...8i4w2"></p>
+<!--⚠️Imgur upload failed, check dev console-->
+
+<p>现在修改已经成功了，按F9运行程序，就可以看到修改的内容。可执行文件保存字符串一般会给字符串多流出一些空间，有可能不会遇到那个爆内存的问题。<br>保存更改到可执行文件：调试得到的只是一个展示的效果，需要建立一些新的可执行文件。在Dump窗口中，选中更改后的“Hello Reserving”字符串，单击右键，在弹出的菜单中选择Copy to executable file菜单，打开Hex窗口，在这个窗口右键，然后选择sava file，输入文件名，然后保存为可执行文件。</p>
+<ol start="3">
+<li>在其他内存区域生成新字符串并传递给消息函数<br>Ctrl+F2快捷键重启调试，按F9运行，此时程序停在之前设置的断点处：<!--![[Screenshot_20250303_151849.jpg]]-->
+<img src="https://i.imgur.com/gwFXZBA.jpeg"></li>
+</ol>
+<!--⚠️Imgur upload failed, check dev console-->
+
+<p>401007地址处有一条PUSH 004092A0命令，它把4092A0地址处的“Hello World！”字符串以参数形式传递到MessageBoxW函数中的。传递字符串参数的时候，传递的是字符串所在区域的首地址，我们可以在某个地方新开一个长字符串，然后把新字符串的首地址传递给MessageBoxW()函数。<br>使用Dump查看4092A0查看NULL填充部分的内容，程序被加载到内存时，有一个最小的内存分配大小，一般为1000，即使程序运行是只占用100内存，夹在的时候也会被分到1000左右的内存，这些程序的一部分是程序，其余的被填充为NULL。<br>使用这些填充为NULL的部分作为字符串缓冲区传递给MessageBoxW函数，使用Ctrl+E向结尾部分适当位置（409F50）写入新字符串（“Hello Reserving World!!!”）即可</p>
+<!--![[Screenshot_20250303_155027.jpg]]-->
+<p><img src="https://i.imgur.com/qh0kWMe.jpeg"></p>
+<p>我们需要用汇编命令修改代码，将光标置于401007处，按空格打开Assemble窗口。</p>
+<!--![[Screenshot_20250303_155147.jpg]]-->
+<p><img src="https://i.imgur.com/qpS2cFn.jpeg"></p>
+<p>输入上面的指令过后，就完成了地址转换。但是这个程序另存之后不能正常运行。</p>
+<h2 id="2-6-小结"><a href="#2-6-小结" class="headerlink" title="2.6 小结"></a>2.6 小结</h2><!--![[Screenshot_20250303_155321.jpg]]-->
+<p><img src="https://i.imgur.com/7CJg3g0.jpeg"></p>
+<!--![[Screenshot_20250303_155336.jpg]]-->
+<p><img src="https://i.imgur.com/3EsSZoV.jpeg"></p>
+<!--![[Screenshot_20250303_155353.jpg]]-->
+<p><img src="https://i.imgur.com/uXCMyzM.jpeg"></p>
+<!--![[Screenshot_20250303_155414.jpg]]-->
+<p><img src="https://i.imgur.com/OxDxQww.jpeg"></p>
+<!--![[Screenshot_20250303_155428.jpg]]-->
+<p><img src="https://i.imgur.com/An7xFXO.jpeg"></p>
+<h1 id="第三章-小端序标记法"><a href="#第三章-小端序标记法" class="headerlink" title="第三章 小端序标记法"></a><strong>第三章 小端序标记法</strong></h1><p>字节序（Byte Ordering）是多字节数据在计算机内存中存储或网络传输时各字节的存储顺序，一类是小端序（Little endian），另一类是大端序（Big endian）</p>
+<h2 id="3-1-字节序"><a href="#3-1-字节序" class="headerlink" title="3.1 字节序"></a>3.1 字节序</h2><!--![[Screenshot_20250306_192816.jpg]]-->
+<p><img src="https://i.imgur.com/LFvr4iy.jpeg"></p>
+<p>对于上面的这些代码，一共有四种数据类型，它们的大小不同，可以根据下图判断同一个数据根据不同字节序保存时的不同之处：</p>
+<!--![[Screenshot_20250306_192940.jpg]]-->
+<p><img src="https://i.imgur.com/J7lrZ40.jpeg"></p>
+<p>当类型为BYTE的时候，单个字节大小的两种序列的表示一样，大于或等于两个字节的时候，会用不同字节序列的存储顺序。采用大端序的时候，内存地址低位存储数据的高位，内存地址高位存储数据的低位，是最直观的字节存储顺序；采用小端序存储数据时，地址高于存储数据的高位，地址低位存储数据的低位，这是一种逆序存储方式。在str中，因为数组的存储在内存当中是连续的，因此存储顺序都相同。</p>
+<h3 id="3-1-1-大断序和小端序"><a href="#3-1-1-大断序和小端序" class="headerlink" title="3.1.1 大断序和小端序"></a>3.1.1 大断序和小端序</h3><p>大端序保存多字节数据非常直观，常用于大型UNIX服务器的RISC系列的CPU中。网络协议中也常用大端序方式。Intel x86 CPU采用的是小端序，用小端序进行算数运算以及扩展&#x2F;缩小数据时，效率都非常高。</p>
+<h3 id="3-1-2-在Ollydbg中查看小程序"><a href="#3-1-2-在Ollydbg中查看小程序" class="headerlink" title="3.1.2 在Ollydbg中查看小程序"></a>3.1.2 在Ollydbg中查看小程序</h3><!--<!--![[Screenshot_20250306_193811.j-->pg]]-->
+<p><img src="https://i.imgur.com/Az9qMji.jpeg"></p>
+<p><img src="https://i.imgur.com/oKmOqaU.jpeg"></p>
+<p>编成代码过后，生成LittleEndian.exe文件，使用OllyDbg调试，用Go to命令，跳转到401000地址处</p>
+<!--![[Screenshot_20250306_193933.jpg]]-->
+<p><img src="https://i.imgur.com/kkWVnrG.jpeg"></p>
+<p>main()函数地址为401000，全局变量b、w、dw、str的地址分别为40AC40、40AC44、40AC48、40AC4C。下面通过OllyDbg的数据窗口分别查看它们所在的内存区域，先使用Go to命令，跳转到40AC40处：</p>
+<!--![[Screenshot_20250306_194237.jpg]]-->
+<p><img src="https://i.imgur.com/Zc0pL3o.jpeg"></p>
+<p>可以看出来w、dw的都是以小端序方式存储。</p>
+<h1 id="第四章-IA-32寄存器基本讲解"><a href="#第四章-IA-32寄存器基本讲解" class="headerlink" title="第四章 IA-32寄存器基本讲解"></a><strong>第四章 IA-32寄存器基本讲解</strong></h1><h2 id="4-1-什么是CPU寄存器"><a href="#4-1-什么是CPU寄存器" class="headerlink" title="4.1 什么是CPU寄存器"></a>4.1 什么是CPU寄存器</h2><p>寄存器（register）是CPU内部用来存放数据的一些小型存储区域，它与我们常说的RAM（Random Access Memory，随机存储器，内存）略有不同。CPU访问RAM中的数据时，要经过较长的物理路径，花费的时间长一点，寄存器集成在CPU内部，拥有非常高的读写速度。<br><strong>学习的原因：</strong><br>必须学习调试器解析（Disassenble，反汇编）出的汇编指令。IA-32为我们提供了数量非常庞大的汇编指令，汇编指令大部分用于操作寄存器或者检查其中的数据，因此我们需要学习寄存器相关的内容。</p>
+<h2 id="4-2-IA-32寄存器"><a href="#4-2-IA-32寄存器" class="headerlink" title="4.2 IA-32寄存器"></a>4.2 IA-32寄存器</h2><!--![[Screenshot_20250306_195350.jpg]]-->
+<p><img src="https://i.imgur.com/1ymgnFA.jpeg"></p>
+<p>之后会继续学习控制寄存器（control regisers）、内存管理寄存器（Memory management）、调试寄存器（Debug registers）的知识。</p>
+<h3 id="基本程序运行寄存器"><a href="#基本程序运行寄存器" class="headerlink" title="基本程序运行寄存器"></a>基本程序运行寄存器</h3><!--![[Screenshot_20250306_195541.jpg]]-->
+<p><img src="https://i.imgur.com/WVxHUYx.jpeg"></p>
+<p>寄存器名称缩略语之前添加字母E，表示寄存器在16位CPU（IA-16）时就已经存在，并且其大小在IA-32下由原16位扩展为32位。</p>
+<h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><p>顾名思义，通用寄存器是一种通用型的寄存器，用于传送和暂存数据，也可以参与算数逻辑运算，并且保存运算结果，IA-32中每个通用寄存器的大小都是32位，即四个字节，主要用于保存常量和地址等，由特定的汇编指令操作特定寄存器。</p>
+<!--![[Screenshot_20250306_200342.jpg]]-->
+<p><img src="https://i.imgur.com/eZRHHEy.jpeg"></p>
+<p>为了实现对低16位的兼容，各寄存器又可以分为高（H：High）、低（L：Low）几个独立寄存器。</p>
+<ul>
+<li>EAX：（0～31）32位</li>
+<li>AX：（0～15）EAX的低16位</li>
+<li>AH：（8～15）AX的高8位<br>若想使用四个字节，就用EAX；两个字节用AX；AX本身分为高8位的AH和低8位的AL两个独立寄存器。因此可以将32位寄存器分别用作8位、16位、32位寄存器。<br>寄存器的名字：<br>EAX：针对操作数和结果数据的累加器<br>EBX：DS段中的数据指针基址寄存器<br>ECX：字符串和循环操作的计数器<br>EDX：I&#x2F;O指针数据寄存器<br>上面的四个寄存器主要用在算数运算：ADD、SUB、XOR、OR指令中，常常用于保存变量和常量的值。某些指令：MUL、DIV、LODS等，可以直接用来操作特定寄存器，执行这些命令仅改变特定寄存器的值。<br>ECX和EAX也可以用来作特殊用途。LOOP命令中，ECX用来循环计数（loop count），每执行一次循环，ECX都会减1.EAX一般用在函数返回值上，所有Win32 API函数都会先把返回值保存到EAX再返回。<br>在编写Windows汇编程序时，Win32 API函数在内部会使用ECX与EDX，调用这些API时，ECX和EDX的值就会改变。因此在ECX和EDX中保存了重要数据时，调用API之前需要先把这些数据备份到其他寄存器或栈。<br>其他寄存器：<br>EBP：SS段中栈内数据指针扩展基址指针寄存器<br>ESI：字符串操作源目标指针目的变址寄存器<br>ESP：SS段中栈指针寄存器<br>ESP指示栈区域的栈顶地址，某些指令（PUSH、POP、CALL、RET）可以直接用来操作ESP。<br>EBP表示栈区域的基地址，函数被调用时保存ESP的值，函数返回时再将值返回ESP，保证栈不会崩溃（这叫栈帧（Stack Frame）技术，他是代码逆向分析技术中的一个重要概念）。ESI与EDI和特定指令（LODS、STOS、REP、MOVS等）一起使用，主要用于内存复制。</li>
+</ul>
+<h4 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h4><p>段（Segment）这一术语来自IA-32的内存管理模型，学习段寄存器前，先了解一下的内容：<br>IA-32的保护模式中，段是一种内存保护技术，它将内存分为多个区段，并为每个区段赋予起始地址、范围、访问权限等，以保护内存。此外，它还同分页技术（Paging）一起用于将虚拟内存变更为实际物理内存。段内存记录在SDT（Segment Descriptor Table，段描述符表）中，而段寄存器就持有这些SDT的索引（index）。<br>段寄存器共由六种寄存器组成，分别为CS、SS、DS、ES、FS、GS，每个寄存器的大小为16为，即两个字节。此外每个段寄存器指向的段描述符（Segment Descriptor）与虚拟内存结合，形成一个线性地址（Linear Address），借助分页技术，线性地址最终被转换为实际的物理地址（Physical Address）。<br>不使用分页技术的操作系统中，线性地址直接变为物理地址。<br>CS：Code Segment 代码段寄存器<br>SS：Stack Segment 栈段寄存器<br>DS：Date Segment 数据段寄存器<br>ES：Extra Segment 附加数据段寄存器<br>FS：Data Segment 数据段寄存器<br>GS：Date Segment 数据段寄存器</p>
+<!--<!--![[Screenshot_20250306_203222.j-->pg]]-->
+<p><img src="https://i.imgur.com/LZQLAmF.jpeg"></p>
+<p><img src="https://i.imgur.com/kBNRnqY.jpeg"></p>
+<p>程序调试中常用到FS寄存器，它用于计算SEH（Structured Exception Handler结构化异常处理机制）、TEB（Thread Environment Block，线程环境块）、PEB（Process Environment Block，进程环境块）等地址，这些都是高级调试技术。</p>
+<h4 id="程序状态与控制寄存器"><a href="#程序状态与控制寄存器" class="headerlink" title="程序状态与控制寄存器"></a>程序状态与控制寄存器</h4><ul>
+<li>EFLAGS：Flag Register，标志寄存器<br>IA-32中标志寄存器的名称为EFLAGS，其大小为4个字节（32位），由原来的16位FLAGS寄存器扩展而来。EFLAGS寄存器的每位都有意义，每位的值是1或者0，代表on&#x2F;off或者True&#x2F;False。其中有些位由系统直接设定，有的则根据程序命令的执行结果设置。<!--<!--![[Screenshot_20250306_205050.j-->pg]]-->
+<img src="https://i.imgur.com/KE1YqBn.jpeg"></li>
+</ul>
+<p><img src="https://i.imgur.com/lXlWvps.jpeg"></p>
+<p>EFLASG有32个位元，掌握每位的含义是很苦难的，初阶段掌握三个标志即可：ZF（Zero Flag，零标志）、OF（Overflow Flag，溢出标志）、CF（Carry Flag，进位标志）。<br>因为在Jcc（条件跳转）指令中要检查这三个标志的值。<br>ZF：若运算结果为0，则为真，反之则为假<br>OF：有符号整数（signed integer）溢出时，OF值被设置为1.MSB（Most Significant Bit，最高有效位）改变时，其值也被设为1.<br>CF：无符号整数（unsigned integer）溢出时，其值也被置为1.</p>
+<h4 id="指令指针寄存器"><a href="#指令指针寄存器" class="headerlink" title="指令指针寄存器"></a>指令指针寄存器</h4><p>ELP：Instruction Pointer，指令指针寄存器<br>指令指针寄存器保存着CPU要执行的指令地址，四个字节，由16位扩展而来</p>
+<!--![[Screenshot_20250306_213701.jpg]]-->
+<p><img src="https://i.imgur.com/CeTvAAI.jpeg"></p>
+<h1 id="第五章：栈"><a href="#第五章：栈" class="headerlink" title="第五章：栈"></a><strong>第五章：栈</strong></h1><p>栈（Stack）的用途广泛，用来存储局部变量、传递函数参数、保存函数返回地址等。调试程序时需要不断查看栈内存。</p>
+<h2 id="5-1-栈"><a href="#5-1-栈" class="headerlink" title="5.1 栈"></a>5.1 栈</h2><p>栈内存进程中的作用如下：</p>
+<ol>
+<li>暂时保存函数内的局部变量</li>
+<li>调用函数时传递参数</li>
+<li>保存函数返回后的地址<br>栈是一种数据结构，按照FILO（First In Last Out）的原则存储数据。</li>
+</ol>
+<h3 id="5-1-1-栈的特征"><a href="#5-1-1-栈的特征" class="headerlink" title="5.1.1 栈的特征"></a>5.1.1 栈的特征</h3><!--![[Screenshot_20250310_192322.jpg]]-->
+<p><img src="https://i.imgur.com/zXP7g2E.jpeg"></p>
+<p>一个进程中，栈顶指针（ESP）初始状态指向栈底端。执行PUSH命令将数据压入栈时，栈顶指针就会上移到栈顶端。执行POP命令从栈中弹出数据时，若栈为空，则栈顶指针重新移动到栈底端。这就是栈的逆向扩展。</p>
+<h3 id="5-1-2-栈操作示例"><a href="#5-1-2-栈操作示例" class="headerlink" title="5.1.2 栈操作示例"></a>5.1.2 栈操作示例</h3><p>现在准备一个Stack.exe作为验证栈工作原理的文件，这个文件已经被修改了内部运行代码，直接双击运行它会发生错误。另外在调试过程中，寄存器的初始值和栈的初址等会随着运行环境的不同而不同。</p>
+<!--![[Screenshot_20250310_192818.jpg]]-->
+<p><img src="https://i.imgur.com/y5bjXaO.jpeg"></p>
+<p>可以看到栈顶指针的值为12FF8C，观测右下角的栈窗口，可以看到ESP指向的地址和值。这个时候我们Steo into进入401000地址的PUSH命令。可以看到ESP的值变成12FF88，比原本减少了4个字节，并且栈顶指针指向12FF88这个地址，这个地址保存着100这个值，换言之就是执行PUSH命令之后，数值100被压入栈，ESP随之向上移动，这样ESP的值就减少了四个字节，然后再按F7，执行401005地址处的POP EAX命令。</p>
+<!--<!--![[Screenshot_20250310_194010.j-->pg]]-->
+<p><img src="https://i.imgur.com/PoUKeHE.jpeg"></p>
+<p><img src="https://i.imgur.com/zLiLdH2.jpeg"></p>
+<p>执行完POP EAX命令后，ESP值又增加了4个字节，变为12FF8C，栈又变为图中的初始状态。</p>
+<!--![[Screenshot_20250310_194122.jpg]]-->
+<p><img src="https://i.imgur.com/ytTzGj5.jpeg"></p>
+<h1 id="第六章-分析abex’-crackme-1"><a href="#第六章-分析abex’-crackme-1" class="headerlink" title="第六章 分析abex’ crackme 1"></a><strong>第六章 分析abex’ crackme 1</strong></h1><h2 id="6-1-abex’-crackme-1"><a href="#6-1-abex’-crackme-1" class="headerlink" title="6.1 abex’ crackme #1"></a>6.1 abex’ crackme #1</h2><p>首先运行这个程序尝试了解它，双击程序过后可以得到以下的消息窗口</p>
+<!--![[Screenshot_20250310_194353.jpg]]-->
+<p><img src="https://i.imgur.com/cTFT30g.jpeg"></p>
+<p>消息的最后部分出现了“CD-Rom”这个词，我们推测它前面的HD为HDD（Hard Disk Drive），我们继续确定这个选择，过后就会发现程序弹出Error消息之后就停止运行了，但是abex的详细情况还是不得而知。下面直接调试它，来把握这个小程序的意图。</p>
+<!--<!--![[Screenshot_20250310_194809.j-->pg]]-->
+<p><img src="https://i.imgur.com/1QbTilB.jpeg"></p>
+<p><img src="https://i.imgur.com/FK3AakO.jpeg"></p>
+<p>大多数crackme小程序都让我们猜测序列号（serial key），但是abex#1稍显特殊。</p>
+<h3 id="6-1-1-开始调试"><a href="#6-1-1-开始调试" class="headerlink" title="6.1.1 开始调试"></a>6.1.1 开始调试</h3><p>使用OllyDbg软件加载进入小程序，代码窗口中可以看到程序的汇编代码<!--![[Screenshot_20250310_195050.jpg]]--><br><img src="https://i.imgur.com/dkYvgyE.jpeg"></p>
+<p>EP代码很短，和之前的程序不一样，因为这个程序是直接用汇编语言写出来的可执行文件。使用VC++、VC、Delphi等开发工具编写程序的时候，除了自己编写的代码，还有一部分启动函数是由编译器添加的，经过反编译后，代码就变得特别复杂，直接用汇编语言写程序，汇编代码就会变成反汇编代码，可以看到图中main()直接出现在EP当中。</p>
+<h3 id="6-1-2-分析代码"><a href="#6-1-2-分析代码" class="headerlink" title="6.1.2 分析代码"></a>6.1.2 分析代码</h3><p>代码非常简短，我们可以直接分析右上角Win32 API调用的内容</p>
+<!--![[Screenshot_20250310_195646.jpg]]-->
+<p><img src="https://i.imgur.com/kY3AXIq.jpeg"></p>
+<h2 id="6-2-破解"><a href="#6-2-破解" class="headerlink" title="6.2 破解"></a>6.2 破解</h2><h2 id="6-3-将参数压入栈"><a href="#6-3-将参数压入栈" class="headerlink" title="6.3 将参数压入栈"></a>6.3 将参数压入栈</h2><h2 id="6-4-小结"><a href="#6-4-小结" class="headerlink" title="6.4 小结"></a>6.4 小结</h2><h1 id="第七章-栈帧"><a href="#第七章-栈帧" class="headerlink" title="第七章 栈帧"></a><strong>第七章 栈帧</strong></h1><h1 id="7-1-栈帧"><a href="#7-1-栈帧" class="headerlink" title="7.1 栈帧"></a>7.1 栈帧</h1><ol>
+<li><strong>栈帧原理</strong><ul>
+<li>栈帧是利用 EBP（栈帧指针，非 ESP ）寄存器访问栈内局部变量、参数、函数返回地址等的手段。</li>
+<li>ESP 寄存器为栈顶指针，值随时变化；EBP 寄存器行使栈帧指针职能。程序运行时，调用函数先将 ESP 值保存到 EBP 并维持在函数内部，以 EBP 值为基准可安全访问相关数据。</li>
+</ul>
+</li>
+<li><strong>栈帧结构汇编代码</strong><img src="https://i.imgur.com/33uCx8C.png"><ul>
+<li><code>PUSH EBP</code>：函数开始，先把 EBP 原值保存到栈中。</li>
+<li><code>MOV EBP, ESP</code>：保存当前 ESP 到 EBP 。</li>
+<li><code>; 函数体</code>：无论 ESP 值如何变化，EBP 保持不变，可安全访问函数局部变量、参数 。</li>
+<li><code>MOV ESP, EBP</code>：将函数起始地址返回到 ESP 中。</li>
+<li><code>POP EBP</code>：函数返回前弹出保存在栈中的 EBP 值。</li>
+<li><code>RETN</code>：函数终止。</li>
+</ul>
+</li>
+<li><strong>栈帧作用</strong><ul>
+<li>借助栈帧技术管理函数调用，能很好地对调用栈进行管理与维护，无论函数调用深度和复杂度如何。</li>
+</ul>
+</li>
+<li><strong>提示</strong><ul>
+<li>最新编译器 “优化”（Optimization）选项，编译简单函数时不会生成栈帧。</li>
+<li>栈中保存函数返回地址存在安全隐患，攻击者可利用缓冲区溢出技术更改返回地址。</li>
+</ul>
+</li>
+</ol>
+<h1 id="7-2-调试示例：stackframe-exe"><a href="#7-2-调试示例：stackframe-exe" class="headerlink" title="7.2 调试示例：stackframe.exe"></a>7.2 调试示例：stackframe.exe</h1><h2 id="7-2-1-Stackframe-cpp"><a href="#7-2-1-Stackframe-cpp" class="headerlink" title="7.2.1 Stackframe.cpp"></a>7.2.1 Stackframe.cpp</h2><h4 id="一、C-代码示例"><a href="#一、C-代码示例" class="headerlink" title="一、C++ 代码示例"></a>一、C++ 代码示例</h4><ol>
+<li><strong>文件信息</strong><ul>
+<li><strong>文件名</strong>：StackFrame.cpp</li>
+<li><strong>头文件引入</strong>：<code>#include &quot;stdio.h&quot;</code></li>
+</ul>
+</li>
+<li><strong>函数定义</strong><ul>
+<li><strong><code>add</code> 函数</strong><ul>
+<li><strong>功能</strong>：接收两个 <code>long</code> 类型参数 <code>a</code> 和 <code>b</code>，将其分别赋值给局部变量 <code>x</code> 和 <code>y</code>，然后返回 <code>x + y</code> 的结果。</li>
+<li><strong>代码</strong>：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">add</span><span class="params">(<span class="type">long</span> a, <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> x = a, y = b;</span><br><span class="line">    <span class="keyword">return</span> (x + y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><code>main</code> 函数</strong><ul>
+<li><strong>功能</strong>：定义局部变量 <code>a = 1</code>，<code>b = 2</code>，调用 <code>add</code> 函数计算两数之和，并使用 <code>printf</code> 输出结果，最后返回 <code>0</code> 表示程序正常结束。</li>
+<li><strong>代码</strong>：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">add</span>(a, b));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>编译提示</strong>：为更好地观察栈帧相关情况，需关闭 Visual C++ 的优化选项（&#x2F;Od）后再编译程序。</li>
+</ol>
+<h4 id="二、调试操作"><a href="#二、调试操作" class="headerlink" title="二、调试操作"></a>二、调试操作</h4><ol>
+<li><strong>工具及指令</strong>：使用 OllyDbg 调试工具打开生成的 StackFrame.exe 文件，通过按 <code>Ctrl+G</code> 快捷键（Go to 命令）转到 401000 地址进行观察调试。</li>
+<li><strong>汇编代码注释说明</strong>：图 7 - 1 右侧的注释是人为添加的，不同调试环境可能有不同标注。后续会通过与 C 语言源代码对照，分析代码执行各阶段栈内数据变化，帮助理解。</li>
+</ol>
+<h4 id="三、汇编代码示例（以-401000-地址附近为例-）"><a href="#三、汇编代码示例（以-401000-地址附近为例-）" class="headerlink" title="三、汇编代码示例（以 401000 地址附近为例 ）"></a>三、汇编代码示例（以 401000 地址附近为例 ）</h4><ol>
+<li><strong><code>add</code> 函数相关汇编指令</strong><ul>
+<li><code>00401000</code> ：<code>PUSH EBP</code> ，保存旧的 EBP 值，为建立新栈帧做准备。</li>
+<li><code>00401001</code> ：<code>MOV EBP, ESP</code> ，将当前栈顶指针 ESP 的值赋给 EBP，建立新的栈帧基准。</li>
+<li><code>00401003</code> ：<code>MOV EAX,DWORD PTR SS:[EBP+8]</code> ，从栈中获取参数 <code>a</code> （<code>[EBP+8]</code> 指向参数 <code>a</code> ）并存储到 EAX 寄存器。</li>
+<li><code>00401006</code> ：<code>MOV DWORD PTR SS:[EBP - 8],EAX</code> ，将 EAX 中的值（即参数 <code>a</code> ）存储到栈中局部变量 <code>x</code> 的位置（<code>[EBP - 8]</code> ） 。</li>
+<li>后续指令类似，用于获取参数 <code>b</code> 并存储到局部变量 <code>y</code> ，以及进行加法运算等操作。</li>
+<li><code>00401015</code> ：<code>MOV ESP,EBP</code> ，恢复栈顶指针 ESP 到函数调用前的位置。</li>
+<li><code>00401018</code> ：<code>POP EBP</code> ，恢复旧的 EBP 值。</li>
+<li><code>00401019</code> ：<code>RETN</code> ，函数返回。</li>
+</ul>
+</li>
+<li><strong><code>main</code> 函数相关汇编指令</strong><ul>
+<li>包含局部变量存储操作，如 <code>MOV DWORD PTR SS:[EBP - 4],1</code> 将值 <code>1</code> 存储到局部变量 <code>a</code> 的位置（<code>[EBP - 4]</code> ） 。</li>
+<li>有函数调用指令 <code>CALL 00401000</code> 调用 <code>add</code> 函数 ，并进行参数传递等操作。</li>
+<li>还有 <code>printf</code> 函数调用相关指令，用于输出结果</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-2-2-开始执行main-函数-生成栈帧"><a href="#7-2-2-开始执行main-函数-生成栈帧" class="headerlink" title="7.2.2 开始执行main()函数&amp;生成栈帧"></a>7.2.2 开始执行main()函数&amp;生成栈帧</h2><ol>
+<li><p><strong>调试准备与初始状态</strong><img src="https://i.imgur.com/FpfDP2t.png"></p>
+<ul>
+<li>在 OllyDbg 中，于 <code>main()</code> 函数起始地址（401020）处按 F2 键设断点，按 F9 运行程序，程序会在断点处暂停。</li>
+<li>初始时，ESP 值为 12FF44，EBP 值为 12FF88 。地址 401250 存于 ESP（12FF44 ）中，是 <code>main()</code> 函数执行完要返回的地址。不同运行环境地址可能不同。</li>
+</ul>
+</li>
+<li><p><strong>生成栈帧过程</strong></p>
+<ul>
+<li><strong>压栈保存 EBP 原值</strong>：<code>main()</code> 函数起始指令 <code>00401020 PUSH EBP</code> ，<code>PUSH</code> 是压栈指令，将 EBP 原值压入栈中，用于在函数执行完毕返回前恢复 EBP 值。</li>
+<li><strong>设置新 EBP</strong>：<code>00401021 MOV EBP,ESP</code> ，<code>MOV</code> 为数据传送指令，把 ESP 值传送给 EBP 。自此 EBP 值与当前 ESP 相同，且在 <code>main()</code> 函数执行期间保持不变，方便通过 EBP 安全访问栈中函数参数与局部变量 ，执行完这两条指令，<code>main()</code> 函数栈帧生成。</li>
+</ul>
+</li>
+<li><p>**栈窗口观察操作<img src="https://i.imgur.com/ZepAeWe.png"><br>**</p>
+<ul>
+<li>进入 OllyDbg 栈窗口，右键依次选 Address - Relative to EBP，可将地址转换为相对于 EBP 的偏移，更直观观察栈内情况。此时 EBP 值为 12FF40（与 ESP 一致 ），12FF40 地址处保存着 <code>main()</code> 函数开始执行时 EBP 的初始值 12FF88 。<img src="https://i.imgur.com/RqreTms.png"></li>
+</ul>
+</li>
+</ol>
+<h2 id="7-2-3-设置局部变量"><a href="#7-2-3-设置局部变量" class="headerlink" title="7.2.3 设置局部变量"></a>7.2.3 设置局部变量</h2><h2 id="7-2-4-add-函数参数传递与调用"><a href="#7-2-4-add-函数参数传递与调用" class="headerlink" title="7.2.4 add()函数参数传递与调用"></a>7.2.4 add()函数参数传递与调用</h2><h2 id="7-2-5-开始执行add-函数-生成栈帧"><a href="#7-2-5-开始执行add-函数-生成栈帧" class="headerlink" title="7.2.5 开始执行add()函数&amp;生成栈帧"></a>7.2.5 开始执行add()函数&amp;生成栈帧</h2><h2 id="7-2-6-设置add-函数的局部变量-x-y"><a href="#7-2-6-设置add-函数的局部变量-x-y" class="headerlink" title="7.2.6 设置add()函数的局部变量(x,y)"></a>7.2.6 设置add()函数的局部变量(x,y)</h2><h2 id="7-2-7-ADD运算"><a href="#7-2-7-ADD运算" class="headerlink" title="7.2.7 ADD运算"></a>7.2.7 ADD运算</h2><h2 id="7-2-8-删除函数add-的栈帧-函数执行完毕-返回"><a href="#7-2-8-删除函数add-的栈帧-函数执行完毕-返回" class="headerlink" title="7.2.8 删除函数add()的栈帧&amp;函数执行完毕(返回)"></a>7.2.8 删除函数add()的栈帧&amp;函数执行完毕(返回)</h2><h2 id="7-2-9-从栈中删除函数add-的函数-整理栈"><a href="#7-2-9-从栈中删除函数add-的函数-整理栈" class="headerlink" title="7.2.9 从栈中删除函数add()的函数(整理栈)"></a>7.2.9 从栈中删除函数add()的函数(整理栈)</h2><h2 id="7-2-10-调用printf-函数"><a href="#7-2-10-调用printf-函数" class="headerlink" title="7.2.10 调用printf()函数"></a>7.2.10 调用printf()函数</h2><h2 id="7-2-11-设置返回值"><a href="#7-2-11-设置返回值" class="headerlink" title="7.2.11 设置返回值"></a>7.2.11 设置返回值</h2><h1 id="7-3-设置OllyDbg选项"><a href="#7-3-设置OllyDbg选项" class="headerlink" title="7.3 设置OllyDbg选项"></a>7.3 设置OllyDbg选项</h1><h2 id="7-3-1-Disasm选项"><a href="#7-3-1-Disasm选项" class="headerlink" title="7.3.1 Disasm选项"></a>7.3.1 Disasm选项</h2><h2 id="7-3-2-Analysis选项"><a href="#7-3-2-Analysis选项" class="headerlink" title="7.3.2 Analysis选项"></a>7.3.2 Analysis选项</h2> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/12/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/05/12/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">机器学习</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

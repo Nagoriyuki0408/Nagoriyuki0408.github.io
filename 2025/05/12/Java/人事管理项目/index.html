@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>第六章：人事管理项目 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Java/人事管理项目"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  第六章：人事管理项目
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/05/12/Java/%E4%BA%BA%E4%BA%8B%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/" class="article-date">
+  <time datetime="2025-05-12T03:22:48.000Z" itemprop="datePublished">2025-05-12</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">19 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>结合AI以及一些基本的GUI内容进行人事管理项目的开发。</p>
+<ul>
+<li>第一步：创建一个模块来做这个项目</li>
+<li>第二步：分析项目的业务需求</li>
+</ul>
+<ol>
+<li>提供一个登录和注册用户的界面</li>
+<li>提供一个人事信息管理的界面：展示全部员工信息，提供一个根据名称查询某个员工信息的展示，添加员工信息，删除员工信息，修改员工信息</li>
+<li>分析项目的角色<ul>
+<li>登录用户：登录名称，密码</li>
+<li>员工信息：ID、性别、年龄、电话、职位、入职时间、薪水、部门信息</li>
+</ul>
+</li>
+<li>分析系统的界面：<ul>
+<li>登录界面类：创建登录界面</li>
+<li>信息管理界面类：创建信息管理界面</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>第三步：结合AI开始开发：Gemini<ul>
+<li>Ai帮我们生成一个登录界面</li>
+<li>AI帮我们生成一个信息管理界面</li>
+</ul>
+</li>
+</ul>
+<h2 id="人事系统-界面获取"><a href="#人事系统-界面获取" class="headerlink" title="人事系统 界面获取"></a>人事系统 界面获取</h2><h2 id="人事系统-界面分析-角色定义"><a href="#人事系统-界面分析-角色定义" class="headerlink" title="人事系统 界面分析 角色定义"></a>人事系统 界面分析 角色定义</h2><h2 id="人事系统-登录功能-AI"><a href="#人事系统-登录功能-AI" class="headerlink" title="人事系统 登录功能 AI"></a>人事系统 登录功能 AI</h2><h3 id="LoginFrame类的源码"><a href="#LoginFrame类的源码" class="headerlink" title="LoginFrame类的源码"></a>LoginFrame类的源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.border.EmptyBorder;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginFrame</span> <span class="keyword">extends</span> <span class="title class_">JFrame</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> JTextField usernameField;</span><br><span class="line">    <span class="keyword">private</span> JPasswordField passwordField;</span><br><span class="line">    <span class="keyword">private</span> JButton loginButton;</span><br><span class="line">    <span class="keyword">private</span> JButton registerButton;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LoginFrame</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="string">&quot;登录界面&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.setSize(<span class="number">400</span>, <span class="number">300</span>); <span class="comment">// 稍微增大窗口</span></span><br><span class="line">        <span class="built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        <span class="built_in">this</span>.setLocationRelativeTo(<span class="literal">null</span>);</span><br><span class="line">        createAndShowGUI(); <span class="comment">// 调用 createAndShowGUI 方法</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createAndShowGUI</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 创建主面板</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">mainPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">BorderLayout</span>()); <span class="comment">// 使用 BorderLayout</span></span><br><span class="line">        mainPanel.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">240</span>, <span class="number">240</span>, <span class="number">240</span>)); <span class="comment">// 浅灰色背景</span></span><br><span class="line">        mainPanel.setBorder(<span class="keyword">new</span> <span class="title class_">EmptyBorder</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>)); <span class="comment">// 设置边距</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字体</span></span><br><span class="line">        <span class="type">Font</span> <span class="variable">chineseFont</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;宋体&quot;</span>, Font.PLAIN, <span class="number">18</span>); <span class="comment">// 使用宋体，增大字号</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建顶部面板，包含标题</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">titlePanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>();</span><br><span class="line">        titlePanel.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">240</span>, <span class="number">240</span>, <span class="number">240</span>)); <span class="comment">// 浅灰色背景</span></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">titleLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;用户登录&quot;</span>); <span class="comment">// 更友好的标题</span></span><br><span class="line">        titleLabel.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;微软雅黑&quot;</span>, Font.BOLD, <span class="number">24</span>)); <span class="comment">// 更现代的字体</span></span><br><span class="line">        titlePanel.add(titleLabel);</span><br><span class="line">        mainPanel.add(titlePanel, BorderLayout.NORTH);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建中心面板，包含用户名和密码输入框</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">centerPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">2</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">10</span>)); <span class="comment">// 使用 GridLayout，增加间距</span></span><br><span class="line">        centerPanel.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">240</span>, <span class="number">240</span>, <span class="number">240</span>)); <span class="comment">// 浅灰色背景</span></span><br><span class="line">        centerPanel.setBorder(<span class="keyword">new</span> <span class="title class_">EmptyBorder</span>(<span class="number">10</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">0</span>)); <span class="comment">// 设置内部边距</span></span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">usernameLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;用户名:&quot;</span>);</span><br><span class="line">        usernameLabel.setFont(chineseFont);</span><br><span class="line">        centerPanel.add(usernameLabel);</span><br><span class="line"></span><br><span class="line">        usernameField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        usernameField.setFont(chineseFont);</span><br><span class="line">        centerPanel.add(usernameField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">passwordLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;密码:&quot;</span>);</span><br><span class="line">        passwordLabel.setFont(chineseFont);</span><br><span class="line">        centerPanel.add(passwordLabel);</span><br><span class="line"></span><br><span class="line">        passwordField = <span class="keyword">new</span> <span class="title class_">JPasswordField</span>();</span><br><span class="line">        passwordField.setFont(chineseFont);</span><br><span class="line">        centerPanel.add(passwordField);</span><br><span class="line">        mainPanel.add(centerPanel, BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建底部面板，包含登录和注册按钮</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">buttonPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">FlowLayout</span>(FlowLayout.CENTER, <span class="number">20</span>, <span class="number">0</span>)); <span class="comment">// 使用 FlowLayout, 增加按钮间距</span></span><br><span class="line">        buttonPanel.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">240</span>, <span class="number">240</span>, <span class="number">240</span>)); <span class="comment">// 浅灰色背景</span></span><br><span class="line"></span><br><span class="line">        loginButton = <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;登录&quot;</span>);</span><br><span class="line">        loginButton.setFont(chineseFont);</span><br><span class="line">        loginButton.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">59</span>, <span class="number">89</span>, <span class="number">182</span>)); <span class="comment">// 更醒目的颜色</span></span><br><span class="line">        loginButton.setForeground(Color.WHITE);</span><br><span class="line">        loginButton.setFocusPainted(<span class="literal">false</span>); <span class="comment">// 移除焦点边框</span></span><br><span class="line">        buttonPanel.add(loginButton);</span><br><span class="line"></span><br><span class="line">        registerButton = <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;注册&quot;</span>);</span><br><span class="line">        registerButton.setFont(chineseFont);</span><br><span class="line">        registerButton.setBackground(<span class="keyword">new</span> <span class="title class_">Color</span>(<span class="number">59</span>, <span class="number">89</span>, <span class="number">182</span>)); <span class="comment">// 更醒目的颜色</span></span><br><span class="line">        registerButton.setForeground(Color.WHITE);</span><br><span class="line">        registerButton.setFocusPainted(<span class="literal">false</span>); <span class="comment">// 移除焦点边框</span></span><br><span class="line">        buttonPanel.add(registerButton);</span><br><span class="line">        mainPanel.add(buttonPanel, BorderLayout.SOUTH);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加事件监听器</span></span><br><span class="line">        loginButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">                <span class="comment">// 在这里添加登录逻辑</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> usernameField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(passwordField.getPassword()); <span class="comment">// 获取密码</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// <span class="doctag">TODO:</span>  验证用户名和密码</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&quot;admin&quot;</span>.equals(username) &amp;&amp; <span class="string">&quot;password&quot;</span>.equals(password)) &#123;</span><br><span class="line">                    JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;登录成功!&quot;</span>);</span><br><span class="line">                    <span class="comment">// 登录成功后，创建并显示员工信息管理界面</span></span><br><span class="line">                    SwingUtilities.invokeLater(() -&gt; &#123;</span><br><span class="line">                        <span class="keyword">new</span> <span class="title class_">EmployeeManagementFrame</span>().setVisible(<span class="literal">true</span>);</span><br><span class="line">                    &#125;);</span><br><span class="line">                    LoginFrame.<span class="built_in">this</span>.dispose(); <span class="comment">// 关闭登录界面</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;用户名或密码错误!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        registerButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">                <span class="comment">// 在这里添加注册逻辑</span></span><br><span class="line">                JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;注册功能尚未实现!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//添加面板到窗体</span></span><br><span class="line">        <span class="built_in">this</span>.add(mainPanel);</span><br><span class="line">        <span class="built_in">this</span>.setVisible(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SwingUtilities.invokeLater(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">LoginFrame</span>();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="独立的继承内容"><a href="#独立的继承内容" class="headerlink" title="独立的继承内容"></a>独立的继承内容</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">LoginFrame</span><span class="params">()</span> &#123;  </span><br><span class="line">    <span class="built_in">super</span>(<span class="string">&quot;登录界面&quot;</span>);  </span><br><span class="line">    <span class="built_in">this</span>.setSize(<span class="number">400</span>, <span class="number">300</span>); <span class="comment">// 稍微增大窗口  </span></span><br><span class="line">    <span class="built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  </span><br><span class="line">    <span class="built_in">this</span>.setLocationRelativeTo(<span class="literal">null</span>);  </span><br><span class="line">    createAndShowGUI(); <span class="comment">// 调用 createAndShowGUI 方法  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="人事系统-弹出添加员工信息的界面-AI"><a href="#人事系统-弹出添加员工信息的界面-AI" class="headerlink" title="人事系统 弹出添加员工信息的界面 AI"></a>人事系统 弹出添加员工信息的界面 AI</h2><h3 id="员工信息类EmployeeManagementFrame源码"><a href="#员工信息类EmployeeManagementFrame源码" class="headerlink" title="员工信息类EmployeeManagementFrame源码"></a>员工信息类EmployeeManagementFrame源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.border.EmptyBorder;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeManagementFrame</span> <span class="keyword">extends</span> <span class="title class_">JFrame</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> JTextField idField, genderField, ageField, phoneField, positionField, hireDateField, salaryField, departmentField;</span><br><span class="line">    <span class="keyword">private</span> JButton addButton, deleteButton, updateButton;</span><br><span class="line">    <span class="keyword">private</span> JTextArea displayArea;</span><br><span class="line">    <span class="keyword">private</span> ArrayList&lt;Employee&gt; employeeList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(); <span class="comment">// 存储员工信息</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">EmployeeManagementFrame</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="string">&quot;员工信息管理&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.setSize(<span class="number">800</span>, <span class="number">600</span>);</span><br><span class="line">        <span class="built_in">this</span>.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); <span class="comment">// 关闭窗口时只关闭当前窗口</span></span><br><span class="line">        <span class="built_in">this</span>.setLocationRelativeTo(<span class="literal">null</span>);</span><br><span class="line">        createAndShowGUI();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">createAndShowGUI</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 主面板</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">mainPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">BorderLayout</span>());</span><br><span class="line">        mainPanel.setBorder(<span class="keyword">new</span> <span class="title class_">EmptyBorder</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 顶部面板，用于输入员工信息</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">inputPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">8</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">        inputPanel.setBorder(BorderFactory.createTitledBorder(<span class="string">&quot;员工信息&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="type">Font</span> <span class="variable">labelFont</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;宋体&quot;</span>, Font.PLAIN, <span class="number">16</span>);</span><br><span class="line">        <span class="type">Font</span> <span class="variable">fieldFont</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;宋体&quot;</span>, Font.PLAIN, <span class="number">14</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">idLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;ID:&quot;</span>);</span><br><span class="line">        idLabel.setFont(labelFont);</span><br><span class="line">        idField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        idField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(idLabel);</span><br><span class="line">        inputPanel.add(idField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">genderLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;性别:&quot;</span>);</span><br><span class="line">        genderLabel.setFont(labelFont);</span><br><span class="line">        genderField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        genderField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(genderLabel);</span><br><span class="line">        inputPanel.add(genderField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">ageLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;年龄:&quot;</span>);</span><br><span class="line">        ageLabel.setFont(labelFont);</span><br><span class="line">        ageField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        ageField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(ageLabel);</span><br><span class="line">        inputPanel.add(ageField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">phoneLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;电话:&quot;</span>);</span><br><span class="line">        phoneLabel.setFont(labelFont);</span><br><span class="line">        phoneField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        phoneField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(phoneLabel);</span><br><span class="line">        inputPanel.add(phoneField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">positionLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;职位:&quot;</span>);</span><br><span class="line">        positionLabel.setFont(labelFont);</span><br><span class="line">        positionField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        positionField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(positionLabel);</span><br><span class="line">        inputPanel.add(positionField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">hireDateLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;入职时间:&quot;</span>);</span><br><span class="line">        hireDateLabel.setFont(labelFont);</span><br><span class="line">        hireDateField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        hireDateField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(hireDateLabel);</span><br><span class="line">        inputPanel.add(hireDateField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">salaryLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;薪水:&quot;</span>);</span><br><span class="line">        salaryLabel.setFont(labelFont);</span><br><span class="line">        salaryField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        salaryField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(salaryLabel);</span><br><span class="line">        inputPanel.add(salaryField);</span><br><span class="line"></span><br><span class="line">        <span class="type">JLabel</span> <span class="variable">departmentLabel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;部门信息:&quot;</span>);</span><br><span class="line">        departmentLabel.setFont(labelFont);</span><br><span class="line">        departmentField = <span class="keyword">new</span> <span class="title class_">JTextField</span>();</span><br><span class="line">        departmentField.setFont(fieldFont);</span><br><span class="line">        inputPanel.add(departmentLabel);</span><br><span class="line">        inputPanel.add(departmentField);</span><br><span class="line"></span><br><span class="line">        mainPanel.add(inputPanel, BorderLayout.NORTH);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 中心面板，用于显示员工信息</span></span><br><span class="line">        displayArea = <span class="keyword">new</span> <span class="title class_">JTextArea</span>();</span><br><span class="line">        displayArea.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;Monospaced&quot;</span>, Font.PLAIN, <span class="number">14</span>));</span><br><span class="line">        <span class="type">JScrollPane</span> <span class="variable">scrollPane</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JScrollPane</span>(displayArea);</span><br><span class="line">        mainPanel.add(scrollPane, BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 底部面板，包含添加、删除和修改按钮</span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">buttonPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">FlowLayout</span>(FlowLayout.CENTER, <span class="number">20</span>, <span class="number">0</span>));</span><br><span class="line">        addButton = <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;添加&quot;</span>);</span><br><span class="line">        deleteButton = <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;删除&quot;</span>);</span><br><span class="line">        updateButton = <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;修改&quot;</span>);</span><br><span class="line"></span><br><span class="line">        buttonPanel.add(addButton);</span><br><span class="line">        buttonPanel.add(deleteButton);</span><br><span class="line">        buttonPanel.add(updateButton);</span><br><span class="line"></span><br><span class="line">        mainPanel.add(buttonPanel, BorderLayout.SOUTH);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加事件监听器</span></span><br><span class="line">        addButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">                <span class="comment">// 添加员工信息</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> idField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">gender</span> <span class="operator">=</span> genderField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">age</span> <span class="operator">=</span> ageField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">phone</span> <span class="operator">=</span> phoneField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">position</span> <span class="operator">=</span> positionField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">hireDate</span> <span class="operator">=</span> hireDateField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">salary</span> <span class="operator">=</span> salaryField.getText();</span><br><span class="line">                <span class="type">String</span> <span class="variable">department</span> <span class="operator">=</span> departmentField.getText();</span><br><span class="line"></span><br><span class="line">                <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>(id, gender, age, phone, position, hireDate, salary, department);</span><br><span class="line">                employeeList.add(employee);</span><br><span class="line"></span><br><span class="line">                updateDisplayArea(); <span class="comment">// 更新显示区域</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 清空输入框</span></span><br><span class="line">                idField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                genderField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                ageField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                phoneField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                positionField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                hireDateField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                salaryField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">                departmentField.setText(<span class="string">&quot;&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        deleteButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">                <span class="comment">// 删除员工信息</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">idToDelete</span> <span class="operator">=</span> JOptionPane.showInputDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;请输入要删除的员工ID:&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span> (idToDelete != <span class="literal">null</span> &amp;&amp; !idToDelete.isEmpty()) &#123;</span><br><span class="line">                    Iterator&lt;Employee&gt; iterator = employeeList.iterator();</span><br><span class="line">                    <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">                        <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">                        <span class="keyword">if</span> (employee.getId().equals(idToDelete)) &#123;</span><br><span class="line">                            iterator.remove(); <span class="comment">// 使用迭代器删除元素</span></span><br><span class="line">                            updateDisplayArea(); <span class="comment">// 更新显示区域</span></span><br><span class="line">                            JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;员工信息删除成功!&quot;</span>);</span><br><span class="line">                            <span class="keyword">return</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;未找到该ID的员工!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        updateButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;</span><br><span class="line">                <span class="comment">// 修改员工信息</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">idToUpdate</span> <span class="operator">=</span> JOptionPane.showInputDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;请输入要修改的员工ID:&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span> (idToUpdate != <span class="literal">null</span> &amp;&amp; !idToUpdate.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (Employee employee : employeeList) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (employee.getId().equals(idToUpdate)) &#123;</span><br><span class="line">                            <span class="comment">// 弹出修改信息的对话框</span></span><br><span class="line">                            <span class="type">JPanel</span> <span class="variable">updatePanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">8</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>));</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">genderFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getGender());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">ageFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getAge());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">phoneFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getPhone());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">positionFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getPosition());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">hireDateFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getHireDate());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">salaryFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getSalary());</span><br><span class="line">                            <span class="type">JTextField</span> <span class="variable">departmentFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getDepartment());</span><br><span class="line"></span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;性别:&quot;</span>));</span><br><span class="line">                            updatePanel.add(genderFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;年龄:&quot;</span>));</span><br><span class="line">                            updatePanel.add(ageFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;电话:&quot;</span>));</span><br><span class="line">                            updatePanel.add(phoneFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;职位:&quot;</span>));</span><br><span class="line">                            updatePanel.add(positionFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;入职时间:&quot;</span>));</span><br><span class="line">                            updatePanel.add(hireDateFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;薪水:&quot;</span>));</span><br><span class="line">                            updatePanel.add(salaryFieldUpdate);</span><br><span class="line">                            updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;部门:&quot;</span>));</span><br><span class="line">                            updatePanel.add(departmentFieldUpdate);</span><br><span class="line"></span><br><span class="line">                            <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> JOptionPane.showConfirmDialog(EmployeeManagementFrame.<span class="built_in">this</span>, updatePanel, <span class="string">&quot;修改员工信息&quot;</span>, JOptionPane.OK_CANCEL_OPTION);</span><br><span class="line">                            <span class="keyword">if</span> (result == JOptionPane.OK_OPTION) &#123;</span><br><span class="line">                                <span class="comment">// 更新员工信息</span></span><br><span class="line">                                employee.setGender(genderFieldUpdate.getText());</span><br><span class="line">                                employee.setAge(ageFieldUpdate.getText());</span><br><span class="line">                                employee.setPhone(phoneFieldUpdate.getText());</span><br><span class="line">                                employee.setPosition(positionFieldUpdate.getText());</span><br><span class="line">                                employee.setHireDate(hireDateFieldUpdate.getText());</span><br><span class="line">                                employee.setSalary(salaryFieldUpdate.getText());</span><br><span class="line">                                employee.setDepartment(departmentFieldUpdate.getText());</span><br><span class="line"></span><br><span class="line">                                updateDisplayArea(); <span class="comment">// 更新显示区域</span></span><br><span class="line">                                JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;员工信息修改成功!&quot;</span>);</span><br><span class="line">                                <span class="keyword">return</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;未找到该ID的员工!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">this</span>.add(mainPanel);</span><br><span class="line">        <span class="built_in">this</span>.setVisible(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新显示区域</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">updateDisplayArea</span><span class="params">()</span> &#123;</span><br><span class="line">        displayArea.setText(<span class="string">&quot;&quot;</span>); <span class="comment">// 清空显示区域</span></span><br><span class="line">        <span class="keyword">for</span> (Employee employee : employeeList) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">employeeInfo</span> <span class="operator">=</span> String.format(<span class="string">&quot;ID: %s, 性别: %s, 年龄: %s, 电话: %s, 职位: %s, 入职时间: %s, 薪水: %s, 部门: %s\n&quot;</span>,</span><br><span class="line">                    employee.getId(), employee.getGender(), employee.getAge(), employee.getPhone(), employee.getPosition(), employee.getHireDate(), employee.getSalary(), employee.getDepartment());</span><br><span class="line">            displayArea.append(employeeInfo);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SwingUtilities.invokeLater(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">EmployeeManagementFrame</span>().setVisible(<span class="literal">true</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;```</span><br><span class="line">### Employee类</span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line">    <span class="keyword">private</span> String gender;</span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String position;</span><br><span class="line">    <span class="keyword">private</span> String hireDate;</span><br><span class="line">    <span class="keyword">private</span> String salary;</span><br><span class="line">    <span class="keyword">private</span> String department;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Employee</span><span class="params">(String id, String gender, String age, String phone, String position, String hireDate, String salary, String department)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.id = id;</span><br><span class="line">        <span class="built_in">this</span>.gender = gender;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.phone = phone;</span><br><span class="line">        <span class="built_in">this</span>.position = position;</span><br><span class="line">        <span class="built_in">this</span>.hireDate = hireDate;</span><br><span class="line">        <span class="built_in">this</span>.salary = salary;</span><br><span class="line">        <span class="built_in">this</span>.department = department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Getters and setters</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getId</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setId</span><span class="params">(String id)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getGender</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setGender</span><span class="params">(String gender)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(String age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getPhone</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPhone</span><span class="params">(String phone)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.phone = phone;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getPosition</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPosition</span><span class="params">(String position)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.position = position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getHireDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> hireDate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setHireDate</span><span class="params">(String hireDate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.hireDate = hireDate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getSalary</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> salary;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSalary</span><span class="params">(String salary)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.salary = salary;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getDepartment</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDepartment</span><span class="params">(String department)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.department = department;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义管理窗口"><a href="#自定义管理窗口" class="headerlink" title="自定义管理窗口"></a>自定义管理窗口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">EmployeeManagementFrame</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(<span class="string">&quot;员工信息管理&quot;</span>);</span><br><span class="line">    <span class="built_in">this</span>.setSize(<span class="number">800</span>, <span class="number">600</span>);</span><br><span class="line">    <span class="built_in">this</span>.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); <span class="comment">// 关闭窗口时只关闭当前窗口</span></span><br><span class="line">    <span class="built_in">this</span>.setLocationRelativeTo(<span class="literal">null</span>);</span><br><span class="line">    createAndShowGUI();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将相关的数据全部放到类的前面，作为全局变量</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="人事系统-登录功能-人工"><a href="#人事系统-登录功能-人工" class="headerlink" title="人事系统 登录功能 人工"></a>人事系统 登录功能 人工</h2><p>系统中需要存储用户信息，我们可以先开发注册功能，注册一些用户信息，为了简化操作，我们可以直接在系统当中存放一些用户信息。<br>准备一个集合容器，存储系统中全部的用户信息</p>
+<h3 id="用户信息集合容器"><a href="#用户信息集合容器" class="headerlink" title="用户信息集合容器"></a>用户信息集合容器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;User&gt; users = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;User&gt;();  </span><br><span class="line"><span class="comment">//初始化几个测试用户对象信息，作为登录用  </span></span><br><span class="line"><span class="keyword">static</span> &#123;  </span><br><span class="line">    users.add(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;Shiokou&quot;</span>, <span class="string">&quot;Shiokou&quot;</span>));  </span><br><span class="line">    users.add(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;Shiokou1&quot;</span>, <span class="string">&quot;Shiokou1&quot;</span>));  </span><br><span class="line">    users.add(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;Shiokou2&quot;</span>, <span class="string">&quot;Shiokou2&quot;</span>));  </span><br><span class="line">    users.add(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;Shiokou3&quot;</span>, <span class="string">&quot;Shiokou3&quot;</span>));  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><ul>
+<li>给登录按钮绑定一个点击事件监听器</li>
+<li>一旦点击登录按钮，就拿到输入框输入用户名和密码</li>
+<li>去集合当中查看是否存在这个用户对象，如果通过认证，则跳转到信息管理界面，登录失败就弹出提示<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">loginButton.addActionListener(<span class="keyword">new</span> <span class="title class_">ActionListener</span>() &#123;  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent e)</span> &#123;  </span><br><span class="line">        <span class="comment">// 在这里添加登录逻辑  </span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> usernameField.getText();  </span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(passwordField.getPassword()); <span class="comment">// 获取密码  </span></span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 验证用户名和密码  </span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">authenticated</span> <span class="operator">=</span> <span class="literal">false</span>;  </span><br><span class="line">        <span class="keyword">for</span> (User user : users) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (user.getUsername().equals(username) &amp;&amp; user.getPassword().equals(password)) &#123;  </span><br><span class="line">                authenticated = <span class="literal">true</span>;  </span><br><span class="line">                <span class="keyword">break</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (authenticated) &#123;  </span><br><span class="line">            JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;登录成功!&quot;</span>);  </span><br><span class="line">            <span class="comment">// 登录成功后，创建并显示员工信息管理界面  </span></span><br><span class="line">            SwingUtilities.invokeLater(() -&gt; &#123;  </span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">EmployeeManagementFrame</span>().setVisible(<span class="literal">true</span>);  </span><br><span class="line">            &#125;);  </span><br><span class="line">            LoginFrame.<span class="built_in">this</span>.dispose(); <span class="comment">// 关闭登录界面  </span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">            JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;用户名或密码错误!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="注册功能追加"><a href="#注册功能追加" class="headerlink" title="注册功能追加"></a>注册功能追加</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">registerButton.addActionListener(e -&gt; &#123;  </span><br><span class="line">    <span class="comment">// 创建注册界面  </span></span><br><span class="line">    <span class="type">JPanel</span> <span class="variable">registerPanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>));  </span><br><span class="line">    <span class="type">JTextField</span> <span class="variable">registerUsernameField</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>();  </span><br><span class="line">    <span class="type">JPasswordField</span> <span class="variable">registerPasswordField</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPasswordField</span>();  </span><br><span class="line">    <span class="type">JPasswordField</span> <span class="variable">confirmPasswordField</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPasswordField</span>();  </span><br><span class="line">  </span><br><span class="line">    registerPanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;用户名:&quot;</span>));  </span><br><span class="line">    registerPanel.add(registerUsernameField);  </span><br><span class="line">    registerPanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;密码:&quot;</span>));  </span><br><span class="line">    registerPanel.add(registerPasswordField);  </span><br><span class="line">    registerPanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;确认密码:&quot;</span>));  </span><br><span class="line">    registerPanel.add(confirmPasswordField);  </span><br><span class="line">  </span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> JOptionPane.showConfirmDialog(LoginFrame.<span class="built_in">this</span>, registerPanel, <span class="string">&quot;注册&quot;</span>, JOptionPane.OK_CANCEL_OPTION);  </span><br><span class="line">    <span class="keyword">if</span> (result == JOptionPane.OK_OPTION) &#123;  </span><br><span class="line">        <span class="comment">// 获取注册信息  </span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> registerUsernameField.getText();  </span><br><span class="line">        <span class="type">char</span>[] password = registerPasswordField.getPassword();  </span><br><span class="line">        <span class="type">char</span>[] confirmPassword = confirmPasswordField.getPassword();  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 验证用户名是否已存在  </span></span><br><span class="line">        <span class="keyword">for</span> (User user : users) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (user.getUsername().equals(username)) &#123;  </span><br><span class="line">                JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;用户名已存在!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 验证密码和确认密码是否一致  </span></span><br><span class="line">        <span class="keyword">if</span> (!Arrays.equals(password, confirmPassword)) &#123;  </span><br><span class="line">            JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;密码和确认密码不一致!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);  </span><br><span class="line">            <span class="keyword">return</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 创建新用户  </span></span><br><span class="line">        <span class="type">User</span> <span class="variable">newUser</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(username, <span class="keyword">new</span> <span class="title class_">String</span>(password));  </span><br><span class="line">        users.add(newUser);  </span><br><span class="line">  </span><br><span class="line">        JOptionPane.showMessageDialog(LoginFrame.<span class="built_in">this</span>, <span class="string">&quot;注册成功!&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="完成信息管理界面的核心开发"><a href="#完成信息管理界面的核心开发" class="headerlink" title="完成信息管理界面的核心开发"></a>完成信息管理界面的核心开发</h2><h3 id="界面的用户信息"><a href="#界面的用户信息" class="headerlink" title="界面的用户信息"></a>界面的用户信息</h3><h4 id="有参构造器"><a href="#有参构造器" class="headerlink" title="有参构造器"></a>有参构造器</h4><ul>
+<li>登录成功后将登录信息传给信息管理界面</li>
+<li>通过有参构造器的使用，调用的时候传入用户的姓名信息。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">EmployeeManagementFrame</span><span class="params">(String username)</span> &#123;  </span><br><span class="line">    <span class="built_in">super</span>(<span class="string">&quot;欢迎，&quot;</span>+username+<span class="string">&quot;进入人事信息管理界面&quot;</span>);  </span><br><span class="line">    <span class="built_in">this</span>.username = username;  </span><br><span class="line">    frame =<span class="built_in">this</span>;  </span><br><span class="line">    createAndShowGUI();  </span><br><span class="line">    <span class="built_in">this</span>.setVisible(<span class="literal">true</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>添加员工信息的功能<ul>
+<li>准备一个静态的集合，存储系统中的所有员工信息</li>
+<li>给添加事件绑定事件</li>
+<li>点击添加按钮后，弹出一个添加员工信息的输入框</li>
+<li>把员工信息封装成一个员工对象，存到系统当中去，然后刷新表格，展示最新添加的数据</li>
+</ul>
+</li>
+</ul>
+<h4 id="信息表现形式"><a href="#信息表现形式" class="headerlink" title="信息表现形式"></a>信息表现形式</h4><ul>
+<li>用表格来表示用户的各种信息</li>
+<li>修改的事件监听器</li>
+<li>删除的事件监听器</li>
+<li>添加的事件监听器</li>
+</ul>
+<h5 id="表格的表现形式"><a href="#表格的表现形式" class="headerlink" title="表格的表现形式"></a>表格的表现形式</h5><h5 id="添加的事件监听器"><a href="#添加的事件监听器" class="headerlink" title="添加的事件监听器"></a>添加的事件监听器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">addButton.addActionListener(e -&gt; &#123;  </span><br><span class="line">    <span class="comment">// 添加员工信息  </span></span><br><span class="line">    <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> idField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">gender</span> <span class="operator">=</span> genderField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">age</span> <span class="operator">=</span> ageField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">phone</span> <span class="operator">=</span> phoneField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">position</span> <span class="operator">=</span> positionField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">hireDate</span> <span class="operator">=</span> hireDateField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">salary</span> <span class="operator">=</span> salaryField.getText();  </span><br><span class="line">    <span class="type">String</span> <span class="variable">department</span> <span class="operator">=</span> departmentField.getText();  </span><br><span class="line">  </span><br><span class="line">    <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>(id, gender, age, phone, position, hireDate, salary, department);  </span><br><span class="line">    employeeList.add(employee);  </span><br><span class="line">    employees.add(employee); <span class="comment">// 添加到静态集合  </span></span><br><span class="line">  </span><br><span class="line">    updateDisplayArea(); <span class="comment">// 更新显示区域  </span></span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 清空输入框  </span></span><br><span class="line">    idField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    genderField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    ageField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    phoneField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    positionField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    hireDateField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    salaryField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">    departmentField.setText(<span class="string">&quot;&quot;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除的事件监听器"><a href="#删除的事件监听器" class="headerlink" title="删除的事件监听器"></a>删除的事件监听器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">eleteMenuItem.addActionListener(e -&gt; &#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">selectedRow</span> <span class="operator">=</span> employeeTable.getSelectedRow();  </span><br><span class="line">    <span class="keyword">if</span> (selectedRow != -<span class="number">1</span>) &#123;  </span><br><span class="line">        <span class="type">Employee</span> <span class="variable">employeeToDelete</span> <span class="operator">=</span> employees.get(selectedRow);  </span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> JOptionPane.showConfirmDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;确定要删除员工 &quot;</span> + employeeToDelete.getId() + <span class="string">&quot; 吗?&quot;</span>, <span class="string">&quot;删除确认&quot;</span>, JOptionPane.YES_NO_OPTION);  </span><br><span class="line">        <span class="keyword">if</span> (result == JOptionPane.YES_OPTION) &#123;  </span><br><span class="line">            employees.remove(selectedRow);  </span><br><span class="line">            updateDisplayArea(); <span class="comment">// 更新显示区域  </span></span><br><span class="line">            JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;员工信息删除成功!&quot;</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;请选择要删除的员工!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="修改的事件监听器"><a href="#修改的事件监听器" class="headerlink" title="修改的事件监听器"></a>修改的事件监听器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">updateMenuItem.addActionListener(e -&gt; &#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">selectedRow</span> <span class="operator">=</span> employeeTable.getSelectedRow();  </span><br><span class="line">    <span class="keyword">if</span> (selectedRow != -<span class="number">1</span>) &#123;  </span><br><span class="line">        <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> employees.get(selectedRow);  </span><br><span class="line">        <span class="comment">// 弹出修改信息的对话框  </span></span><br><span class="line">        <span class="type">JPanel</span> <span class="variable">updatePanel</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JPanel</span>(<span class="keyword">new</span> <span class="title class_">GridLayout</span>(<span class="number">8</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>));  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">genderFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getGender());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">ageFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getAge());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">phoneFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getPhone());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">positionFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getPosition());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">hireDateFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getHireDate());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">salaryFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getSalary());  </span><br><span class="line">        <span class="type">JTextField</span> <span class="variable">departmentFieldUpdate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JTextField</span>(employee.getDepartment());  </span><br><span class="line">  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;性别:&quot;</span>));  </span><br><span class="line">        updatePanel.add(genderFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;年龄:&quot;</span>));  </span><br><span class="line">        updatePanel.add(ageFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;电话:&quot;</span>));  </span><br><span class="line">        updatePanel.add(phoneFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;职位:&quot;</span>));  </span><br><span class="line">        updatePanel.add(positionFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;入职时间:&quot;</span>));  </span><br><span class="line">        updatePanel.add(hireDateFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;薪水:&quot;</span>));  </span><br><span class="line">        updatePanel.add(salaryFieldUpdate);  </span><br><span class="line">        updatePanel.add(<span class="keyword">new</span> <span class="title class_">JLabel</span>(<span class="string">&quot;部门:&quot;</span>));  </span><br><span class="line">        updatePanel.add(departmentFieldUpdate);  </span><br><span class="line">  </span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> JOptionPane.showConfirmDialog(EmployeeManagementFrame.<span class="built_in">this</span>, updatePanel, <span class="string">&quot;修改员工信息&quot;</span>, JOptionPane.OK_CANCEL_OPTION);  </span><br><span class="line">        <span class="keyword">if</span> (result == JOptionPane.OK_OPTION) &#123;  </span><br><span class="line">            <span class="comment">// 更新员工信息  </span></span><br><span class="line">            employee.setGender(genderFieldUpdate.getText());  </span><br><span class="line">            employee.setAge(ageFieldUpdate.getText());  </span><br><span class="line">            employee.setPhone(phoneFieldUpdate.getText());  </span><br><span class="line">            employee.setPosition(positionFieldUpdate.getText());  </span><br><span class="line">            employee.setHireDate(hireDateFieldUpdate.getText());  </span><br><span class="line">            employee.setSalary(salaryFieldUpdate.getText());  </span><br><span class="line">            employee.setDepartment(departmentFieldUpdate.getText());  </span><br><span class="line">  </span><br><span class="line">            updateDisplayArea(); <span class="comment">// 更新显示区域  </span></span><br><span class="line">            JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;员工信息修改成功!&quot;</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        JOptionPane.showMessageDialog(EmployeeManagementFrame.<span class="built_in">this</span>, <span class="string">&quot;请选择要修改的员工!&quot;</span>, <span class="string">&quot;错误&quot;</span>, JOptionPane.ERROR_MESSAGE);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="鼠标行动监听器"><a href="#鼠标行动监听器" class="headerlink" title="鼠标行动监听器"></a>鼠标行动监听器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">employeeTable.addMouseListener(<span class="keyword">new</span> <span class="title class_">MouseAdapter</span>() &#123;  </span><br><span class="line">        <span class="meta">@Override</span>  </span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">mouseReleased</span><span class="params">(MouseEvent e)</span> &#123;  </span><br><span class="line">            <span class="keyword">if</span> (e.isPopupTrigger()) &#123;  </span><br><span class="line">                <span class="type">int</span> <span class="variable">row</span> <span class="operator">=</span> employeeTable.rowAtPoint(e.getPoint());  </span><br><span class="line">                <span class="keyword">if</span> (row &gt;= <span class="number">0</span> &amp;&amp; row &lt; employeeTable.getRowCount()) &#123;  </span><br><span class="line">                    employeeTable.setRowSelectionInterval(row, row);  </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    employeeTable.clearSelection();  </span><br><span class="line">                &#125;  </span><br><span class="line">                popupMenu.show(e.getComponent(), e.getX(), e.getY());  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;);  </span><br><span class="line">  </span><br><span class="line">    <span class="built_in">this</span>.add(mainPanel);  </span><br><span class="line">    <span class="built_in">this</span>.setVisible(<span class="literal">true</span>);  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 初始化表格数据  </span></span><br><span class="line">    updateDisplayArea();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="美化GUI界面"><a href="#美化GUI界面" class="headerlink" title="美化GUI界面"></a>美化GUI界面</h3><h4 id="ImagePanel类"><a href="#ImagePanel类" class="headerlink" title="ImagePanel类"></a>ImagePanel类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.shiokou.HM.ui;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> javax.imageio.ImageIO;  </span><br><span class="line"><span class="keyword">import</span> javax.swing.*;  </span><br><span class="line"><span class="keyword">import</span> java.awt.*;  </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;  </span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ImagePanel</span> <span class="keyword">extends</span> <span class="title class_">JPanel</span> &#123;  </span><br><span class="line">    <span class="keyword">private</span> Image image;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ImagePanel</span><span class="params">(String imagePath)</span> &#123;  </span><br><span class="line">        <span class="keyword">try</span> &#123;  </span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> getClass().getResourceAsStream(imagePath);  </span><br><span class="line">            <span class="keyword">if</span> (inputStream != <span class="literal">null</span>) &#123;  </span><br><span class="line">                image = ImageIO.read(inputStream);  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                System.err.println(<span class="string">&quot;找不到图片: &quot;</span> + imagePath);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException ex) &#123;  </span><br><span class="line">            ex.printStackTrace();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">paintComponent</span><span class="params">(Graphics g)</span> &#123;  </span><br><span class="line">        <span class="built_in">super</span>.paintComponent(g);  </span><br><span class="line">        <span class="keyword">if</span> (image != <span class="literal">null</span>) &#123;  </span><br><span class="line">            g.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">this</span>.getWidth(), <span class="built_in">this</span>.getHeight(), <span class="built_in">this</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/12/Java/%E4%BA%BA%E4%BA%8B%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/05/12/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            第一章：环境安装
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/05/12/Java/%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">第五章：面向对象编程</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
