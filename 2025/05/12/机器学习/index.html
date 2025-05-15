@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>机器学习 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-机器学习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  机器学习
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2025-05-12T14:01:05.000Z" itemprop="datePublished">2025-05-12</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="切换默认下载位置"><a href="#切换默认下载位置" class="headerlink" title="切换默认下载位置"></a><strong>切换默认下载位置</strong></h1><h3 id="1-使用国内镜像源（推荐）"><a href="#1-使用国内镜像源（推荐）" class="headerlink" title="1. 使用国内镜像源（推荐）"></a>1. <strong>使用国内镜像源</strong>（推荐）</h3><p>国内的 PyPI 镜像通常比默认的 PyPI 服务器快很多，尤其是像 TensorFlow 这样的大文件。你可以临时或永久使用国内源下载：</p>
+<h4 id="临时使用（仅本次安装生效）："><a href="#临时使用（仅本次安装生效）：" class="headerlink" title="临时使用（仅本次安装生效）："></a><strong>临时使用</strong>（仅本次安装生效）：</h4><p>bash</p>
+<p>复制编辑</p>
+<p><code>pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+<h4 id="永久修改-pip-源（推荐）："><a href="#永久修改-pip-源（推荐）：" class="headerlink" title="永久修改 pip 源（推荐）："></a><strong>永久修改 pip 源</strong>（推荐）：</h4><p>修改 <code>pip</code> 的默认下载源，使所有 <code>pip install</code> 都加速：</p>
+<p>bash</p>
+<p>复制编辑</p>
+<p><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+<p>或者手动修改 <code>pip</code> 配置文件：</p>
+<ul>
+<li><p><strong>Windows</strong>：编辑 <code>C:\Users\你的用户名\pip\pip.ini</code>（如果不存在，就新建）：</p>
+<p>  ini</p>
+<p>  复制编辑</p>
+<p>  <code>[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+</li>
+<li><p><strong>Linux&#x2F;macOS</strong>：修改 <code>~/.pip/pip.conf</code>：</p>
+<p>  ini</p>
+<p>  复制编辑</p>
+<p>  <code>[global] index-url = https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+</li>
+</ul>
+<p>常见的国内镜像源：</p>
+<table>
+<thead>
+<tr>
+<th>镜像源</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>清华</td>
+<td><code>https://pypi.tuna.tsinghua.edu.cn/simple</code></td>
+</tr>
+<tr>
+<td>阿里</td>
+<td><code>https://mirrors.aliyun.com/pypi/simple</code></td>
+</tr>
+<tr>
+<td>豆瓣</td>
+<td><code>https://pypi.doubanio.com/simple</code></td>
+</tr>
+<tr>
+<td>腾讯</td>
+<td><code>https://mirrors.cloud.tencent.com/pypi/simple</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="2-手动下载-whl-文件"><a href="#2-手动下载-whl-文件" class="headerlink" title="2. 手动下载 .whl 文件"></a>2. <strong>手动下载 <code>.whl</code> 文件</strong></h3><p>如果切换源仍然很慢，你可以手动下载 TensorFlow 的 <code>.whl</code> 文件，然后本地安装：</p>
+<ol>
+<li><p>访问 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/tensorflow/">https://pypi.tuna.tsinghua.edu.cn/simple/tensorflow/</a> 查找适合你的 Python 版本的 <code>.whl</code> 文件。</p>
+</li>
+<li><p>下载 <code>.whl</code> 文件到本地。</p>
+</li>
+<li><p>使用 <code>pip install</code> 安装：</p>
+<p> bash</p>
+<p> 复制编辑</p>
+<p> <code>pip install 路径/文件名.whl</code></p>
+</li>
+</ol>
+<p>试试看能否加速下载？如果有问题，可以贴出你的 Python 版本和操作系统，我帮你匹配正确的 TensorFlow 版本。</p>
+<p>如果你想让 <code>pip</code> 在安装时下载到你电脑的指定目录，可以使用 <code>--download</code>（较老版本）或 <code>--cache-dir</code> 选项。</p>
+<h3 id="方法-1：指定-cache-dir-存储下载文件"><a href="#方法-1：指定-cache-dir-存储下载文件" class="headerlink" title="方法 1：指定 --cache-dir 存储下载文件"></a><strong>方法 1：指定 <code>--cache-dir</code> 存储下载文件</strong></h3><p>你可以使用 <code>--cache-dir</code> 选项让 <code>pip</code> 下载的文件存储到特定目录：</p>
+<p>bash</p>
+<p>复制编辑</p>
+<p><code>pip install tensorflow --cache-dir C:\my_downloads</code></p>
+<p>这样 <code>pip</code> 在安装 TensorFlow 时，会先将文件下载到 <code>C:\my_downloads</code> 目录，再进行安装。</p>
+<hr>
+<h3 id="方法-2：手动下载-whl-文件"><a href="#方法-2：手动下载-whl-文件" class="headerlink" title="方法 2：手动下载 .whl 文件"></a><strong>方法 2：手动下载 <code>.whl</code> 文件</strong></h3><p>如果你想完全控制下载目录，可以手动下载 <code>.whl</code> 文件，然后本地安装：</p>
+<ol>
+<li><p>访问 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/tensorflow/">https://pypi.tuna.tsinghua.edu.cn/simple/tensorflow/</a></p>
+</li>
+<li><p>选择适合你的 Python 版本的 <code>.whl</code> 文件，手动下载到你的电脑某个目录，比如 <code>D:\tensorflow\</code></p>
+</li>
+<li><p>运行：</p>
+<p> bash</p>
+<p> 复制编辑</p>
+<p> <code>pip install D:\tensorflow\tensorflow-2.x.x-cp39-cp39-win_amd64.whl</code></p>
+<p> （请替换 <code>.whl</code> 文件名为你实际下载的文件名）</p>
+</li>
+</ol>
+<hr>
+<h3 id="方法-3：使用-pip-download-仅下载不安装"><a href="#方法-3：使用-pip-download-仅下载不安装" class="headerlink" title="方法 3：使用 pip download 仅下载不安装"></a><strong>方法 3：使用 <code>pip download</code> 仅下载不安装</strong></h3><p>如果你想 <strong>先下载再安装</strong>，可以用 <code>pip download</code>：</p>
+<p>bash</p>
+<p>复制编辑</p>
+<p><code>pip download tensorflow -d C:\my_downloads</code></p>
+<p>这样 TensorFlow 会下载到 <code>C:\my_downloads</code> 目录，但不会自动安装。然后你可以手动安装：</p>
+<p>bash</p>
+<p>复制编辑</p>
+<p><code>pip install --no-index --find-links C:\my_downloads tensorflow</code></p>
+<p>你希望下载到哪个具体路径？如果有问题，可以告诉我你的 Python 版本和系统环境，我帮你调整最优的下载方式！</p>
+<h1 id="使用Pytorch搭建神经网络"><a href="#使用Pytorch搭建神经网络" class="headerlink" title="使用Pytorch搭建神经网络"></a><strong>使用Pytorch搭建神经网络</strong></h1><p>[[Python操作步骤]]</p>
+<ol>
+<li><p><strong>导入必要的库</strong>：首先，确保你已经安装了<code>pandas</code>和<code>numpy</code>等数据处理库，以及深度学习框架如<code>TensorFlow</code>或<code>PyTorch</code>。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf  <span class="comment"># 或者 import torch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>读取CSV文件</strong>：使用<code>pandas</code>的<code>read_csv</code>函数读取CSV文件内容。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">&#x27;your_file.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据预处理</strong>：根据模型的需求，对数据进行清洗和转换。例如，处理缺失值、归一化数值、编码分类变量等。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例：处理缺失值</span></span><br><span class="line">data = data.dropna()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：归一化数值</span></span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">scaler = StandardScaler()</span><br><span class="line">data_scaled = scaler.fit_transform(data)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>划分训练集和测试集</strong>：将数据集划分为训练集和测试集，以评估模型的性能。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(data_scaled[:, :-<span class="number">1</span>], data_scaled[:, -<span class="number">1</span>], test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p><strong>构建神经网络模型</strong>：使用所选的深度学习框架构建神经网络模型。例如，使用<code>TensorFlow</code>的<code>Keras</code>接口。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"></span><br><span class="line">model = Sequential([</span><br><span class="line">    Dense(<span class="number">64</span>, activation=<span class="string">&#x27;relu&#x27;</span>, input_shape=(X_train.shape[<span class="number">1</span>],)),</span><br><span class="line">    Dense(<span class="number">64</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">    Dense(<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>)  <span class="comment"># 根据具体任务调整激活函数和输出层神经元数量</span></span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p><strong>编译和训练模型</strong>：设置优化器、损失函数和评估指标，然后训练模型。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">model.fit(X_train, y_train, epochs=<span class="number">10</span>, batch_size=<span class="number">32</span>, validation_split=<span class="number">0.2</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p><strong>评估模型</strong>：使用测试集评估模型的性能。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss, accuracy = model.evaluate(X_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Test Accuracy: <span class="subst">&#123;accuracy&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Jupyterbook"><a href="#Jupyterbook" class="headerlink" title="Jupyterbook"></a>Jupyterbook</h1><p><strong>1. 安装 Jupyter Notebook</strong></p>
+<p>如果你尚未安装 Jupyter Notebook，可以通过以下方式进行安装：</p>
+<ul>
+<li><p><strong>使用 Anaconda 安装</strong>：Anaconda 是一个集成了多种数据科学工具的发行版，其中包含了 Jupyter Notebook。</p>
+<ul>
+<li><p><strong>下载 Anaconda</strong>：前往 <a target="_blank" rel="noopener" href="https://www.anaconda.com/">Anaconda 官方网站</a> 下载适用于你操作系统的安装包。</p>
+</li>
+<li><p><strong>安装 Anaconda</strong>：运行下载的安装包，按照提示完成安装。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>使用 pip 安装</strong>：如果你已经安装了 Python 环境，可以使用 pip 来安装 Jupyter Notebook。</p>
+<p>  bash</p>
+<p>  复制编辑</p>
+<p>  <code>pip install jupyter</code></p>
+</li>
+</ul>
+<p><strong>2. 启动 Jupyter Notebook</strong></p>
+<p>安装完成后，你可以通过以下方式启动 Jupyter Notebook：</p>
+<ul>
+<li><p><strong>使用 Anaconda Navigator</strong>：打开 Anaconda Navigator，点击 “Launch” 启动 Jupyter Notebook。</p>
+</li>
+<li><p><strong>使用命令行</strong>：打开命令提示符（Windows）或终端（macOS&#x2F;Linux），输入以下命令启动：</p>
+<p>  bash</p>
+<p>  复制编辑</p>
+<p>  <code>jupyter notebook</code></p>
+</li>
+</ul>
+<p>启动后，默认浏览器会自动打开 Jupyter Notebook 的主界面。</p>
+<p><strong>3. 创建并运行 Python 代码</strong></p>
+<p>在 Jupyter Notebook 中，你可以通过以下步骤创建并运行 Python 代码：</p>
+<ul>
+<li><p><strong>创建新笔记本</strong>：在 Jupyter Notebook 主界面，点击右上角的 “New” 按钮，然后选择 “Python 3” 创建一个新的笔记本。</p>
+</li>
+<li><p><strong>编写代码</strong>：在新建的笔记本中，你会看到一个单元格（cell）。在其中输入你的 Python 代码。例如：</p>
+<p>  python</p>
+<p>  复制编辑</p>
+<p>  <code>print(&quot;Hello, Jupyter!&quot;)</code></p>
+</li>
+<li><p><strong>运行代码</strong>：按下键盘上的 <code>Shift + Enter</code>，或者点击工具栏中的 “Run” 按钮，来执行单元格中的代码。输出结果会显示在单元格下方。</p>
+</li>
+</ul>
+<p><strong>4. 加载并运行外部 Python 文件</strong></p>
+<p>如果你有现成的 <code>.py</code> 文件，想在 Jupyter Notebook 中运行，可以使用以下方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/DoReAGON/article/details/100122750?utm_source=chatgpt.com">CSDN</a></p>
+<ul>
+<li><p><strong>使用 <code>%run</code> 魔法命令</strong>：在一个单元格中输入 <code>%run your_script.py</code>，然后运行该单元格即可执行 <code>your_script.py</code> 中的代码。</p>
+<p>  python</p>
+<p>  复制编辑</p>
+<p>  <code>%run your_script.py</code></p>
+</li>
+</ul>
+<p>请确保 <code>your_script.py</code> 文件位于当前 Jupyter Notebook 工作目录下，或者提供正确的文件路径。</p>
+<ul>
+<li><p><strong>使用 <code>%load</code> 魔法命令</strong>：在一个单元格中输入 <code>%load your_script.py</code>，然后运行该单元格。这会将 <code>your_script.py</code> 中的代码加载到单元格中，你可以在编辑后再运行。</p>
+<p>  python</p>
+<p>  复制编辑</p>
+<p>  <code>%load your_script.py</code></p>
+</li>
+</ul>
+<p>加载后，单元格中会显示 <code>your_script.py</code> 的内容。你可以根据需要修改代码，然后再运行该单元格。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/05/12/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            逆向工程
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/05/12/%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9APandas/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">第三章：Pandas</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

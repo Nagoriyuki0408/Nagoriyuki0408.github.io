@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>数据库：第五章 多表查询 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="数据库：第五章-数据库.第五章.多表查询"
+  class="article article-type-数据库：第五章"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  数据库：第五章 多表查询
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93.%E7%AC%AC%E4%BA%94%E7%AB%A0.%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="article-date">
+  <time datetime="2025-05-11T01:05:33.000Z" itemprop="datePublished">2025-05-11</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="5-1-数据库表结构关系-概述"><a href="#5-1-数据库表结构关系-概述" class="headerlink" title="5.1 数据库表结构关系 - 概述"></a>5.1 数据库表结构关系 - 概述</h2><p>在项目开发进行数据库表结构设计时，需依据业务需求及业务模块关系来分析设计。因业务相互关联，表结构间存在多种联系，主要有：</p>
+<ul>
+<li><strong>一对多（多对一）</strong>：一个表中的一条记录对应另一个表中的多条记录，反之，一个表中的多条记录对应另一个表中的一条记录 。</li>
+<li><strong>多对多</strong>：两个表中的记录相互间存在多条对应关系。</li>
+<li><strong>一对一</strong>：两个表中的记录一一对应 。</li>
+</ul>
+<h3 id="数据库表关系-：一对多（多对一）"><a href="#数据库表关系-：一对多（多对一）" class="headerlink" title="数据库表关系 ：一对多（多对一）"></a>数据库表关系 ：一对多（多对一）</h3><p><strong>案例</strong>：以部门与员工关系为例，一个部门存在多个员工，而一个员工只隶属于一个部门 。<br><strong>关系特点</strong>：一方（部门）可对应多方（员工），多方中的每一方（员工）仅对应一方（部门） 。<br><strong>实现方式</strong>：在 “多” 的一方（员工表）建立外键，该外键指向 “一” 的一方（部门表）的主键。这样就能通过外键关联，体现部门与员工间一对多（多对一）的关系 。<br><img src="https://i.imgur.com/S1OgrLI.png"></p>
+<h3 id="数据库表关系-：多对多（多对多）"><a href="#数据库表关系-：多对多（多对多）" class="headerlink" title="数据库表关系 ：多对多（多对多）"></a>数据库表关系 ：多对多（多对多）</h3><p><strong>案例</strong>：学生与课程的关系，一个学生可选择多门课程，一门课程也能被多个学生选择。<br><strong>关系特点</strong>：双方中任意一方的一条记录，都能与另一方的多条记录关联。<br><strong>实现方式</strong>：创建第三张中间表，中间表至少设置两个外键，分别与学生表主键、课程表主键关联，以此体现多对多关系。</p>
+<p><img src="https://i.imgur.com/YdCAfXZ.png"></p>
+<p><img src="https://i.imgur.com/kgMhOAO.png"><br>中间表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建student_course表，用于体现学生与课程的多对多关系</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student_course(</span><br><span class="line">    <span class="comment">-- 定义id字段，类型为int，自动递增，设为主键，并添加注释“主键”</span></span><br><span class="line">    id <span class="type">int</span> auto_increment comment <span class="string">&#x27;主键&#x27;</span> <span class="keyword">primary</span> key, </span><br><span class="line">    <span class="comment">-- 定义studentid字段，类型为int，不允许为null，添加注释“学生ID”</span></span><br><span class="line">    studentid <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;学生ID&#x27;</span>, </span><br><span class="line">    <span class="comment">-- 定义courseid字段，类型为int，不允许为null，添加注释“课程ID”</span></span><br><span class="line">    courseid <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;课程ID&#x27;</span>, </span><br><span class="line">    <span class="comment">-- 定义外键fk_courseid，关联course表的id字段</span></span><br><span class="line">    <span class="keyword">constraint</span> fk_courseid <span class="keyword">foreign</span> key (courseid) <span class="keyword">references</span> course (id), </span><br><span class="line">    <span class="comment">-- 定义外键fk_studentid，关联student表的id字段</span></span><br><span class="line">    <span class="keyword">constraint</span> fk_studentid <span class="keyword">foreign</span> key (studentid) <span class="keyword">references</span> student (id) </span><br><span class="line">)comment <span class="string">&#x27;学生课程中间表&#x27;</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">-- 向student_course表插入数据</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student_course <span class="keyword">values</span> </span><br><span class="line">(<span class="keyword">null</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">(<span class="keyword">null</span>,<span class="number">1</span>,<span class="number">2</span>),</span><br><span class="line">(<span class="keyword">null</span>,<span class="number">1</span>,<span class="number">3</span>),</span><br><span class="line">(<span class="keyword">null</span>,<span class="number">2</span>,<span class="number">2</span>),</span><br><span class="line">(<span class="keyword">null</span>,<span class="number">2</span>,<span class="number">3</span>),</span><br><span class="line">(<span class="keyword">null</span>,<span class="number">3</span>,<span class="number">4</span>); </span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库表关系-：一对一（一对一）"><a href="#数据库表关系-：一对一（一对一）" class="headerlink" title="数据库表关系 ：一对一（一对一）"></a>数据库表关系 ：一对一（一对一）</h3><p><strong>案例</strong>：以用户与用户详情关系为例。<br><strong>关系特点</strong>：表与表之间记录一一对应。常用于单表拆分场景，把一张表的基础字段置于一张表，其他详情字段放在另一张表，借此提升操作效率。<br><img src="https://i.imgur.com/fq3KwA5.png"><br><img src="https://i.imgur.com/7gI6fUD.png"></p>
+<h2 id="5-2-数据库表结构关系-多表查询"><a href="#5-2-数据库表结构关系-多表查询" class="headerlink" title="5.2 数据库表结构关系 - 多表查询"></a>5.2 数据库表结构关系 - 多表查询</h2><p><img src="https://i.imgur.com/W7o5hNT.png"></p>
+<h3 id="笛卡尔积："><a href="#笛卡尔积：" class="headerlink" title="笛卡尔积："></a>笛卡尔积：</h3><p><strong>定义</strong>：在数学里，笛卡尔积是两个集合（如 A 集合和 B 集合 ）所有元素的组合情况。<br><strong>在数据库中的应用</strong>：多表查询时会出现笛卡尔积现象，需消除无效的笛卡尔积，以获取正确、有效的查询结果。<br><img src="https://i.imgur.com/IrGrpKu.png"><br><img src="https://i.imgur.com/S3Ezk7S.png"></p>
+<h3 id="多表查询分类"><a href="#多表查询分类" class="headerlink" title="多表查询分类"></a>多表查询分类</h3><h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><h5 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h5><p><strong>定义</strong>：查询两张表交集部分。</p>
+<p><strong>语法</strong></p>
+<ul>
+<li><p><strong>隐式内连接</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段列表 <span class="keyword">FROM</span> 表<span class="number">1</span>,表<span class="number">2</span> <span class="keyword">WHERE</span> 条件...;</span><br></pre></td></tr></table></figure>
+<p>通过在 <code>FROM</code> 子句中列出多个表，并用 <code>WHERE</code> 子句指定连接条件。</p>
+</li>
+<li><p><strong>显式内连接</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段列表 <span class="keyword">FROM</span> 表<span class="number">1</span> [<span class="keyword">INNER</span>] <span class="keyword">JOIN</span> 表<span class="number">2</span> <span class="keyword">ON</span> 连接条件...;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>JOIN</code> 关键字明确表示连接操作，<code>ON</code> 关键字后指定连接条件，<code>INNER</code> 可省略 。<br><img src="https://i.imgur.com/6ClLq7q.png"><br>没公共部分，故少一个数据<img src="https://i.imgur.com/mVshc8J.png"></p>
+</li>
+</ul>
+<h5 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h5><p>左外连接</p>
+<ul>
+<li><strong>语法</strong>：<code>SELECT 字段列表 FROM 表1 LEFT [OUTER] JOIN 表2 ON 条件...;</code></li>
+<li><strong>说明</strong>：相当于查询表 1（左表）的所有数据，包含表 1 和表 2 交集部分的数据 。即左表的记录全部展示，右表满足连接条件的记录展示，不满足的用 <code>NULL</code> 填充对应字段。<br><img src="https://i.imgur.com/cm41Q8p.png"><br>查全了<br>右外连接</li>
+<li><strong>语法</strong>：<code>SELECT 字段列表 FROM 表1 RIGHT [OUTER] JOIN 表2 ON 条件...;</code></li>
+<li><strong>说明</strong>：查询表 2（右表）的所有数据，包含表 1 和表 2 交集部分的数据 。右表记录全部展示，左表满足连接条件的记录展示，不满足的用 <code>NULL</code> 填充对应字段。<br><img src="https://i.imgur.com/i2wb9sc.png"><br>修改的时候记得commit<br><img src="https://i.imgur.com/QBvUY8e.png"></li>
+</ul>
+<h5 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h5><p>自连接查询语法</p>
+<ul>
+<li><strong>语法</strong>：<code>SELECT 字段列表 FROM 表A 别名A JOIN 表A 别名B ON 条件...;</code></li>
+<li><strong>说明</strong>：自连接查询是指在同一个表上进行连接操作。该表通过不同别名（如别名A和别名B ）被视为不同的逻辑表来建立连接关系。自连接查询既可以是内连接查询（仅返回满足连接条件的行），也可以是外连接查询（如左外连接、右外连接，会根据连接类型返回包含不满足条件行，以 <code>NULL</code> 填充相关字段的数据 ）。 </li>
+<li><img src="https://i.imgur.com/Ld04WIA.png"><br><img src="https://i.imgur.com/b03AKWt.png"><br><img src="https://i.imgur.com/Uqpa5Fu.png"><br><img src="https://i.imgur.com/XKHD5lZ.png"></li>
+</ul>
+<h3 id="UNION-查询"><a href="#UNION-查询" class="headerlink" title="UNION 查询"></a>UNION 查询</h3><ul>
+<li><strong>定义</strong>：将多次查询的结果合并起来，形成一个新的查询结果集。</li>
+<li><strong>语法</strong><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 字段列表 <span class="keyword">FROM</span> 表A...</span><br><span class="line"><span class="keyword">UNION</span> [<span class="keyword">ALL</span>]</span><br><span class="line"><span class="keyword">SELECT</span> 字段列表 <span class="keyword">FROM</span> 表B...;</span><br></pre></td></tr></table></figure>
+<img src="https://i.imgur.com/8RDw5Pw.png"></li>
+</ul>
+<p><img src="https://i.imgur.com/5LVCIWU.png"><br><img src="https://i.imgur.com/7BRpZEz.png"><br><img src="https://i.imgur.com/rw36JOe.png"></p>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ul>
+<li><strong>概念</strong>：在 SQL 语句中嵌套 <code>SELECT</code> 语句，也叫嵌套查询。子查询外部语句可以是 <code>INSERT</code> &#x2F; <code>UPDATE</code> &#x2F; <code>DELETE</code> &#x2F; <code>SELECT</code> 中的任意一个。</li>
+<li>例如：<code>SELECT * FROM t1 WHERE column1 = (SELECT column1 FROM t2);</code></li>
+<li><strong>分类</strong>：<ul>
+<li><strong>标量子查询</strong>：子查询结果为单个值。</li>
+<li><strong>列子查询</strong>：子查询结果为一列。</li>
+<li><strong>行子查询</strong>：子查询结果为一行。</li>
+<li><strong>表子查询</strong>：子查询结果为多行多列。<br>  <img src="https://i.imgur.com/VpEdVbq.png"><br>  <img src="https://i.imgur.com/z919F8I.png"></li>
+</ul>
+</li>
+</ul>
+<h4 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a><strong>标量子查询</strong></h4><p>子查询结果为单个值。</p>
+<ul>
+<li><strong>定义</strong>：子查询返回的结果是单个值（如数字、字符串、日期等 ），这是子查询中最简单的形式。</li>
+<li><strong>常用操作符</strong>：<code>=</code>、<code>&lt;&gt;</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code> 。 可用于 <code>WHERE</code> 子句等位置，进行条件判断等操作 。<br><img src="https://i.imgur.com/qkxspyJ.png"><br>子查询<br><img src="https://i.imgur.com/pTrJAcv.png"></li>
+</ul>
+<h4 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a><strong>列子查询</strong></h4><p>子查询结果为一列。</p>
+<p><strong>列子查询</strong>是指子查询返回的结果是一列数据（可以有多行）。</p>
+<p>在列子查询中，常用的操作符包括：</p>
+<ul>
+<li><strong>IN</strong>: 用于判断某个值是否在子查询返回的结果集合中。如果存在，则条件为真。</li>
+<li><strong>NOT IN</strong>: 用于判断某个值是否不在子查询返回的结果集合中。如果不存在，则条件为真。</li>
+<li><strong>ANY (或 SOME)</strong>:  只要子查询返回的结果集合中，有任意一个值满足条件，则条件为真。 <code>ANY</code> 和 <code>SOME</code> 的作用是相同的。</li>
+<li><strong>ALL</strong>: 子查询返回的结果集合中，所有值都必须满足条件，条件才为真。<!--⚠️Imgur upload failed, check dev console-->
+![[Pasted image 20250417150657.png]]<br><img src="https://i.imgur.com/mbNrngn.png"><br><img src="https://i.imgur.com/ckkxIjT.png"><br><img src="https://i.imgur.com/ojWHuYl.png"></li>
+</ul>
+<h4 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a><strong>行子查询</strong></h4><ul>
+<li><strong>定义</strong>：子查询返回的结果是一行（可以是多列），这种子查询称为行子查询。</li>
+<li><strong>常用操作符</strong>：&#x3D;、&lt;&gt;、IN、NOT IN<br><img src="https://i.imgur.com/OwnuaVE.png"></li>
+</ul>
+<h4 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h4><ul>
+<li><strong>定义</strong>：子查询返回的结果是多行多列，这种子查询称为表子查询。</li>
+<li><strong>常用操作符</strong>：IN<br><img src="https://i.imgur.com/v1GjaMm.png"><br><img src="https://i.imgur.com/DyeDBLT.png"></li>
+</ul>
+<h3 id="多表查询案例"><a href="#多表查询案例" class="headerlink" title="多表查询案例"></a>多表查询案例</h3><p>根据需求，完成 SQL 语句的编写</p>
+<ol>
+<li><p><strong>查询员工基本信息</strong>：查询员工的姓名、年龄、职位、部门信息。<img src="https://i.imgur.com/ntVL2Lx.png"></p>
+</li>
+<li><p><strong>查询特定年龄员工信息</strong>：查询年龄小于 30 岁的员工姓名、年龄、职位、部门信息。<img src="https://i.imgur.com/PnN7Gnx.png"></p>
+</li>
+<li><p><strong>查询部门信息</strong>：查询拥有员工的部门 ID、部门名称。<img src="https://i.imgur.com/RSqSJaJ.png"></p>
+</li>
+<li><p><strong>查询大龄员工及部门</strong>：查询所有年龄大于 40 岁的员工，及其归属的部门名称；若员工无部门分配，也需展示。<img src="https://i.imgur.com/FVXICPo.png"></p>
+</li>
+<li><p><strong>查询工资等级</strong>：查询所有员工的工资等级。<img src="https://i.imgur.com/r5YAhw1.png"></p>
+</li>
+<li><p><strong>查询特定部门员工信息及工资等级</strong>：查询 “研发部” 所有员工的信息及工资等级。<img src="https://i.imgur.com/DnPhbCs.png"></p>
+</li>
+<li><p><strong>查询特定部门平均工资</strong>：查询 “研发部” 员工的平均工资。<img src="https://i.imgur.com/xUp0OPi.png"></p>
+</li>
+<li><p><strong>查询高工资员工信息</strong>：查询工资比 “灭绝” 高的员工信息。<img src="https://i.imgur.com/ANPatuy.png"></p>
+</li>
+<li><p><strong>查询高于平均薪资员工信息</strong>：查询比平均薪资高的员工信息。<img src="https://i.imgur.com/gcKH3S0.png"></p>
+</li>
+<li><p><strong>查询低于部门平均工资员工信息</strong>：查询低于本部门平均工资的员工信息。<img src="https://i.imgur.com/CSjl53m.png"></p>
+</li>
+<li><p><strong>统计部门员工人数</strong>：查询所有的部门信息，并统计部门的员工人数。<img src="https://i.imgur.com/sWC2cR2.png"></p>
+</li>
+<li><p><strong>查询学生选课情况</strong>：查询所有学生的选课情况，展示出学生名称，学号，课程名称<img src="https://i.imgur.com/Zqb2xv0.png"></p>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93.%E7%AC%AC%E4%BA%94%E7%AB%A0.%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93.%E7%AC%AC%E5%85%AD%E7%AB%A0.%E4%BA%8B%E5%8A%A1/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据库：第六章 事务
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/05/11/%E6%95%B0%E6%8D%AE%E5%BA%93.%E7%AC%AC%E5%9B%9B%E7%AB%A0.%E7%BA%A6%E6%9D%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">数据库：第四章 约束</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

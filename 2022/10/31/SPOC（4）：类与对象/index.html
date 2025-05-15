@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>SPOC(4):类与对象 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-SPOC（4）：类与对象"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  SPOC(4):类与对象
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/10/31/SPOC%EF%BC%884%EF%BC%89%EF%BC%9A%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time datetime="2022-10-31T15:05:24.000Z" itemprop="datePublished">2022-10-31</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">5.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">24 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="面向对象程序设计的特点-Features-of-object-oriented-programming"><a href="#面向对象程序设计的特点-Features-of-object-oriented-programming" class="headerlink" title="面向对象程序设计的特点(Features of object-oriented programming)"></a>面向对象程序设计的特点(Features of object-oriented programming)</h2><h3 id="抽象-Abstract-："><a href="#抽象-Abstract-：" class="headerlink" title="抽象(Abstract:)："></a>抽象(Abstract:)：</h3><p>对同一类对象的共同属性和行为进行概括形成类。<br>首先注意问题的本质以及描述，第三次是实现过程和细节。</p>
+<blockquote>
+<p>Summarize the common properties and behaviors of objects of the same class to form classes.</p>
+<p>First, pay attention to the essence of the problem and the description, and the third is the implementation process and details.</p>
+</blockquote>
+<h4 id="数据抽象-Data-Abstraction-："><a href="#数据抽象-Data-Abstraction-：" class="headerlink" title="数据抽象(Data Abstraction:)："></a>数据抽象(Data Abstraction:)：</h4><p>描述某类对象的属性或状态（对象相互区别的物理量）</p>
+<p>Describe the properties or states of a certain class of objects (physical quantities that distinguish objects from each other)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> hour，<span class="type">int</span> minute，<span class="type">int</span> second;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="代码抽象-Code-Abstraction-："><a href="#代码抽象-Code-Abstraction-：" class="headerlink" title="代码抽象(Code Abstraction:)："></a>代码抽象(Code Abstraction:)：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setTime（），showTime（）</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="抽象的实现；类（abstract-implementation-class-）。"><a href="#抽象的实现；类（abstract-implementation-class-）。" class="headerlink" title="抽象的实现；类（abstract implementation;class.）。"></a>抽象的实现；类（abstract implementation;class.）。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTime</span><span class="params">(<span class="type">int</span> newH,<span class="type">int</span> newH,<span class="type">int</span> newS)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> hour,minute,second;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="边界（border）："><a href="#边界（border）：" class="headerlink" title="边界（border）："></a>边界（border）：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>｛｝;</span><br></pre></td></tr></table></figure>
+
+<h4 id="外部接口（External-interfaces）"><a href="#外部接口（External-interfaces）" class="headerlink" title="外部接口（External interfaces） :"></a>外部接口（External interfaces） :</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承（inherit）："><a href="#继承（inherit）：" class="headerlink" title="继承（inherit）："></a>继承（inherit）：</h2><p>在已有类的基础上，进行扩展形成新的类。</p>
+<blockquote>
+<p>On the basis of the existing class, it is expanded to form a new class.</p>
+</blockquote>
+<h4 id="多态-Polymorphism-："><a href="#多态-Polymorphism-：" class="headerlink" title="多态(Polymorphism)："></a>多态(Polymorphism)：</h4><ul>
+<li>多态：同一名称，不同的功能实现方式。</li>
+<li>目的：达到行为表示统一，减少程序中标识符的个数。</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>Polymorphism: Same name, different ways to implement functions.</p>
+</li>
+<li><p>Purpose: To achieve unity of behavior representation and reduce the number of identifiers in the program.</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="类和对象的定义-Definitions-of-classes-and-objects"><a href="#类和对象的定义-Definitions-of-classes-and-objects" class="headerlink" title="类和对象的定义(Definitions of classes and objects)"></a>类和对象的定义(Definitions of classes and objects)</h2><p>类是对同一类对象的抽象和概括，定义类的对象，才可以通过对象使用类中定义的功能。</p>
+<blockquote>
+<p>A class is an abstraction and generalization of objects of the same class, and the objects that define the class can use the functions defined in the class through the objects</p>
+</blockquote>
+<h3 id="类和对象的定义事例-Examples-of-definition-of-classes-and-objects"><a href="#类和对象的定义事例-Examples-of-definition-of-classes-and-objects" class="headerlink" title="类和对象的定义事例(Examples of definition of classes and objects)"></a>类和对象的定义事例(Examples of definition of classes and objects)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTime</span><span class="params">(<span class="type">int</span> newH=<span class="number">0</span>,<span class="type">int</span> newH=<span class="number">0</span>,<span class="type">int</span> newM=<span class="number">0</span>,<span class="type">int</span> newS=<span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> hour,minute,second;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="成员函数的实现-Implementation-of-member-functions"><a href="#成员函数的实现-Implementation-of-member-functions" class="headerlink" title="成员函数的实现(Implementation of member functions):"></a>成员函数的实现(Implementation of member functions):</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clock::setTime</span><span class="params">(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS)</span></span>&#123;</span><br><span class="line">hour=newH;</span><br><span class="line">minute=newM;</span><br><span class="line">second=newS;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clock::showTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">cout&lt;&lt;hour&lt;&lt;<span class="string">&quot;:&quot;</span>&lt;&lt;minute&lt;&lt;<span class="string">&quot;:&quot;</span>&lt;&lt;second;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象的使用-Use-of-objects-："><a href="#对象的使用-Use-of-objects-：" class="headerlink" title="对象的使用(Use of objects)："></a>对象的使用(Use of objects)：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> mian（）</span><br><span class="line">｛Clock myClock;</span><br><span class="line">myClock.<span class="built_in">setTime</span>(<span class="number">8</span>,<span class="number">30</span>,<span class="number">30</span>);</span><br><span class="line">myClock.<span class="built_in">showTime</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
+<h3 id="构造函数-Constructor-："><a href="#构造函数-Constructor-：" class="headerlink" title="构造函数(Constructor)："></a>构造函数(Constructor)：</h3><p>类中的特殊函数，用于描述初始化算法<br>构造函数的作用：在对象被创建时使用特定的值构造对象，讲对象初始化为一个特定的初始状态。<br>例如：希望构造一个Clock类对象时，讲初试时间设置为0：0：0，就可以用过构造函数来设置。<br>构造函数的形式：<br>函数名与类名相同，不能定义返回值类型，也不能有return语句，<br>可以有形式参数，也可以没有形式参数<br>可以是内联函数<br>可以重载<br>可以带默认参数值<br>构造函数什么时候调用，在定义新对象的时候开始定义。</p>
+<blockquote>
+<p>A special function in a class that describes the initialization algorithm</p>
+<p>What the constructor does: When the object is created, it constructs the object with a specific value, and the object is initialized to a specific initial state.</p>
+<p>For example, if you want to construct a Clock object, if you want to set the initial test time to 0:0:0, you can use the constructor to set it.</p>
+<p>The form of the constructor:</p>
+<p>The function name is the same as the class name, and the return value type cannot be defined, nor can there be a return statement.</p>
+<p>It can be with or without formal parameters</p>
+<p>Can be an inline function</p>
+<p>Can be overloaded</p>
+<p>It can be with default parameter values</p>
+<p>When the constructor is called, it is defined when a new object is defined.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Clock myClock（<span class="number">0</span>，<span class="number">0</span>，<span class="number">0</span>）；</span><br></pre></td></tr></table></figure>
+
+<p>构造函数的时候，可以有参数表，也可以空着，也可以赋予初值。</p>
+<blockquote>
+<p>When constructors, there can be a table of arguments, or it can be empty, or it can be given an initial value.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Clock（）;</span><br><span class="line">Clock（<span class="type">int</span> a=<span class="number">0</span>，<span class="type">int</span> b=<span class="number">0</span>，<span class="type">int</span> c=<span class="number">0</span>）；</span><br></pre></td></tr></table></figure>
+
+<p>隐含生成的构造函数<br>如果程序中未定义构造函数，编译器将自动生成一个默认构造函数<br>参数列表为空，部位数据成员设置初始值<br>如果类内定义了成员的初始值，则使用内类定义的初始值，<br>如果没有定义类内的初始值，则以默认方式初始化<br>基本类型的数据默认初始化的值是不确定的。<br>“&#x3D;default”<br>如果程序中已定义构造函数，默认情况下，编译器就不再隐含生成默认构造函数。如果此时依然希望编译器隐含生成默认构造函数，可以使用“&#x3D;default”。</p>
+<blockquote>
+<p>Implicitly generated constructors</p>
+<p>If a constructor is not defined in the program, the compiler will automatically generate a default constructor</p>
+<p>The parameter list is empty, and the initial value is set for the part data member</p>
+<p>If the initial value of a member is defined within the class, the initial value defined by the inner class is used,</p>
+<p>If no initial value within the class is defined, it is initialized in the default way</p>
+<p>The default initialization value of the base type of data is non-deterministic.</p>
+<p>“&#x3D;default”</p>
+<p>If a constructor is defined in the program, the compiler no longer implicitly generates the default constructor by default. If you still want the compiler to implicitly generate the default constructor, you can use “&#x3D;default”.</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Clock</span>()=defalut;<span class="comment">//指示编译器提供默认构造函数</span></span><br><span class="line"><span class="built_in">Clock</span>(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c);</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> hour,minute,second;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="构造函数例题1-Constructor-Example-1-："><a href="#构造函数例题1-Constructor-Example-1-：" class="headerlink" title="构造函数例题1(Constructor Example 1:)："></a>构造函数例题1(Constructor Example 1:)：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Clock</span>(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS);</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTime</span><span class="params">(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> hour,minute,second;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h6 id="构造函数的实现-Implementation-of-the-constructor"><a href="#构造函数的实现-Implementation-of-the-constructor" class="headerlink" title="构造函数的实现(Implementation of the constructor)"></a>构造函数的实现(Implementation of the constructor)</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Clock::<span class="built_in">Clock</span>(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS):<span class="comment">//初始化列表</span></span><br><span class="line"><span class="built_in">hour</span>(newH),<span class="built_in">minute</span>(newM),<span class="built_in">second</span>(newS)&#123;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="function">Clock <span class="title">c</span><span class="params">(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">c.<span class="built_in">showTime</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="构造函数例题2-Constructor-Example-2-："><a href="#构造函数例题2-Constructor-Example-2-：" class="headerlink" title="构造函数例题2(Constructor Example 2)："></a>构造函数例题2(Constructor Example 2)：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Clock</span>(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS);</span><br><span class="line"><span class="built_in">Clock</span>();</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setTime</span><span class="params">(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> hour,minute,second;</span><br><span class="line">&#125;;</span><br><span class="line">Clock::<span class="built_in">Clock</span>():<span class="built_in">hour</span>(<span class="number">0</span>),<span class="built_in">minute</span>(<span class="number">0</span>),<span class="built_in">second</span>(<span class="number">0</span>)&#123;&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function">Clock <span class="title">c1</span><span class="params">(<span class="number">8</span>,<span class="number">10</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">Clock c2；</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
+<h5 id="委托构造函数-Delegate-constructor"><a href="#委托构造函数-Delegate-constructor" class="headerlink" title="委托构造函数(Delegate constructor)"></a>委托构造函数(Delegate constructor)</h5><p>在一个类中重载多个构造函数，只是形参不一样。<br>多个函数重载，显得重复。<br>委托构造函数：一个构造函数可以委托另一个函数帮它完成工作。</p>
+<blockquote>
+<p>Overload multiple constructors in a class, but with different parameters.</p>
+<p>Multiple functions are overloaded and appear repetitive.</p>
+<p>Delegate constructors: A constructor can delegate another function to do its job for it.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Clock</span>(<span class="type">int</span> newH,<span class="type">int</span> newM,<span class="type">int</span> newS):<span class="built_in">hour</span>(newH),<span class="built_in">minute</span>(newM),<span class="built_in">second</span>(newS)&#123;<span class="comment">//构造函数&#125;</span></span><br><span class="line">Clock::<span class="built_in">Clock</span>():<span class="built_in">hour</span>(<span class="number">0</span>),<span class="built_in">minute</span>(<span class="number">0</span>),<span class="built_in">second</span>(<span class="number">0</span>)&#123;&#125;<span class="comment">//默认构造函数</span></span><br><span class="line">Clock::<span class="built_in">Clock</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="复制构造函数-Copy-constructor"><a href="#复制构造函数-Copy-constructor" class="headerlink" title="复制构造函数(Copy constructor)"></a>复制构造函数(Copy constructor)</h5><p>定义一个基本变量的时候，用一个已经存在的对象，初始化新对象。<br>实现两个对象的成员对象的一一对应复制<br>复制构造函数是一类特殊的构造函数，其形参为本类的对象引用，作用是用一个已经存在的对象去初始化同类型的新对象，</p>
+<blockquote>
+<p>When defining a basic variable, initialize the new object with an existing object.</p>
+<p>Implement one-to-one correspondence replication of member objects of two objects</p>
+<p>The copy constructor is a special class of constructors, whose form parameters are object references of this class, and the function is to initialize a new object of the same type with an existing object.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> 类名 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">类名（形参）;<span class="comment">//构造函数</span></span><br><span class="line">类名(<span class="type">const</span> 类名&amp;对象名);<span class="comment">//复制构造函数的实现</span></span><br><span class="line">&#123;函数体&#125;</span><br><span class="line"><span class="keyword">class</span> 类名 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">类名（形参）;<span class="comment">//构造函数</span></span><br><span class="line">类名(<span class="type">const</span> 类名&amp;对象名);<span class="comment">//复制构造函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类名::类(<span class="type">const</span> 类名&amp;对象名)</span><br><span class="line">&#123;函数体&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>调用情况：<br>定义一个对象时，以本类另一个对象作为初始值，发生复制构造；<br>如果函数的形参是类的对象，调用函数时，将使用实参对象初始化形参对象，发生复制构造；<br>如果函数的返回值是类的对象，函数执行完成返回主调函数时，将使用return语句中的对象初始化一个临时无名的对象，传递给主调函数，此时发生复制构造。<br>这种情况也可以通过移动构造来避免不必要的构造。<br>隐含的复制构造函数<br>如果程序员没有为类声明拷贝初始化构造函数，则编译器自己生成一个隐含的复制构造函数。<br>这个构造函数执行的功能是：用初始值对象的每一个数据成员，初始化将要建立的对象的对应数据成员。<br>“&#x3D;delete”<br>如果不希望对象被复制构造<br>C++98做法：将复制构造函数声明为private，并且不提供函数的实现<br>c++11的做法：用“&#x3D;delete”指示编译器不生成默认复制构造函数。</p>
+<blockquote>
+<p>Invocation case:</p>
+<p>When an object is defined, another object of the class is used as the initial value, and the replication construction occurs.</p>
+<p>If the parameter of the function is an object of the class, when the function is called, the parameter object will be initialized with the parameter object, and the replication construction will occur.</p>
+<p>If the return value of the function is an object of the class, when the function is executed and returns the major function, a temporary nameless object will be initialized with the object in the return statement and passed to the major function.</p>
+<p>In this case, unnecessary constructs can also be avoided by moving constructs.</p>
+<p>Implicit copy constructor</p>
+<p>If the programmer does not declare a copy initialization constructor for the class, the compiler generates an implicit copy constructor itself.</p>
+<p>This constructor performs the function of initializing the corresponding data member of the object to be created with each data member of the initial value object.</p>
+<p>“&#x3D;delete”</p>
+<p>If you don’t want the object to be copied to the construct</p>
+<p>C++98 method: declare the copy constructor as private and do not provide an implementation of the function</p>
+<p>C++11 approach: Use “&#x3D;delete” to indicate that the compiler does not generate the default copy constructor.</p>
+</blockquote>
+<p>例题：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Point</span>(<span class="type">int</span> xx=<span class="number">0</span>,<span class="type">int</span> yy=<span class="number">0</span>)&#123;x=xx.y=yy&#125;</span><br><span class="line"><span class="built_in">Point</span>(<span class="type">const</span> Point&amp;p)=<span class="keyword">delete</span>;<span class="comment">//指示编译器不生成默认复制构造函数</span></span><br><span class="line"><span class="keyword">private</span>：</span><br><span class="line"><span class="type">int</span> x，y;</span><br><span class="line">｝;</span><br></pre></td></tr></table></figure>
+
+<h6 id="复制构造函数的例题-Example-problem-for-copying-a-constructor"><a href="#复制构造函数的例题-Example-problem-for-copying-a-constructor" class="headerlink" title="复制构造函数的例题(Example problem for copying a constructor)"></a>复制构造函数的例题(Example problem for copying a constructor)</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun1</span><span class="params">(Point p)</span></span>&#123;</span><br><span class="line">cout&lt;&lt;p.<span class="built_in">getX</span>()&lt;&lt;endl;</span><br><span class="line"><span class="comment">//p.getX(1);</span></span><br><span class="line"><span class="function">Point <span class="title">fun2</span><span class="params">()</span></span>&#123;</span><br><span class="line">Point a;</span><br><span class="line"><span class="keyword">return</span> a;</span><br><span class="line">｝；</span><br><span class="line">Point::<span class="built_in">Point</span>(<span class="type">const</span> Point&amp;p)&#123;</span><br><span class="line">x=p.x;</span><br><span class="line">y=p.y;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Calling the copy constructor&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">Point a;</span><br><span class="line"><span class="function">Point <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line">cout&lt;&lt;b.<span class="built_in">getX</span>()&lt;&lt;endl;</span><br><span class="line"><span class="built_in">fun1</span>(b);</span><br><span class="line">b=<span class="built_in">fun2</span>();</span><br><span class="line">cout&lt;&lt;b.<span class="built_in">getX</span>()&lt;&lt;endl;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="析构函数-Destructor-："><a href="#析构函数-Destructor-：" class="headerlink" title="析构函数(Destructor:)："></a>析构函数(Destructor:)：</h5><p>程序占用内存，消亡的时候需要某种机制来善后。<br>这个机制是析构函数。<br>析构函数完成对象被删除前的一些清理工作。<br>析构函数可以被默认生成。<br>构造函数和析构函数在系统的操作中是必不可缺的函数。<br>～类名();<br>析构函数没有参数，没有返回类型。</p>
+<blockquote>
+<p>Programs take up memory, and when they die, they need some kind of mechanism to deal with the aftermath.</p>
+<p>This mechanism is a destructor.</p>
+<p>The destructor does some of the cleanup work before the object is deleted.</p>
+<p>Destructors can be generated by default.</p>
+<p>Constructors and destructors are indispensable functions in the operation of the system.</p>
+<p>~Class Name ();</p>
+<p>The destructor has no arguments and no return type.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Point</span>(<span class="type">int</span> xx,<span class="type">int</span> yy);</span><br><span class="line">~<span class="built_in">Point</span>();</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">Point::<span class="built_in">Point</span>(<span class="type">int</span> xx,<span class="type">int</span> yy)&#123;</span><br><span class="line">x=xx;</span><br><span class="line">y=yy;</span><br><span class="line">&#125;</span><br><span class="line">Point::~<span class="built_in">Point</span>()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类的组合-Combination-of-classes-："><a href="#类的组合-Combination-of-classes-：" class="headerlink" title="类的组合(Combination of classes)："></a>类的组合(Combination of classes)：</h3><p>制造业是组装的方式，程序中也可以借用这种部件组装的形式。<br>c++可以实现类的组合。<br>组合类的构造函数怎么声明？<br>类组合的构造函数设计：<br>原则：不仅要负责对本类中的基本类型成员数据初始化，也要对对象初始化。</p>
+<blockquote>
+<p>Manufacturing is the way of assembly, and the program can also borrow this form of component assembly.</p>
+<p>C++ enables a combination of classes.</p>
+<p>How do I declare the constructor of a composition class?</p>
+<p>Constructor design for class composition:</p>
+<p>Principle: Be responsible for initializing not only the primitive type member data in this class, but also the object.</p>
+</blockquote>
+<h4 id="声明形式-Declaration-form-："><a href="#声明形式-Declaration-form-：" class="headerlink" title="声明形式(Declaration form:)："></a>声明形式(Declaration form:)：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">类名：：类名（成员对象所需的形参，本类成员形参）；</span><br><span class="line">｛对象<span class="number">1</span>（参数），对象<span class="number">2</span>（参数）｝</span><br><span class="line">｛</span><br><span class="line"><span class="comment">//函数体其他语句</span></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
+<p>构造组合类对象时的初始化次序<br>首先对构造函数初始化列表中列出的成员（包括基本类型成员和对象成员）进行初始化，初始化次序是成员在类体中定义的次序。<br>成员对象构造函数调用顺序：按对象成员的定义顺序，先声明者先构造。<br>初始化列表中未出现的成员对象，调用默认构造函数（即无形参的）初始化<br>处理完初始化列表之后，再执行构造函数的函数体。</p>
+<blockquote>
+<p>The initialization order in which combined class objects are constructed</p>
+<p>First, the members listed in the constructor initialization list (including primitive type members and object members) are initialized, and the initialization order is the order in which the members are defined in the class body.</p>
+<p>Member object constructor call order: The order in which the object members are defined is constructed first.</p>
+<p>For member objects that do not appear in the initialization list, call the default constructor (i.e., the intangible parameters) to initialize</p>
+<p>After the initialization list is processed, the constructor’s body is executed.</p>
+</blockquote>
+<h4 id="组合类的例子-Examples-of-combinatorial-classes"><a href="#组合类的例子-Examples-of-combinatorial-classes" class="headerlink" title="组合类的例子(Examples of combinatorial classes)"></a>组合类的例子(Examples of combinatorial classes)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="前向引用声明-Forward-Reference-Statement"><a href="#前向引用声明-Forward-Reference-Statement" class="headerlink" title="前向引用声明(Forward Reference Statement)"></a>前向引用声明(Forward Reference Statement)</h3><p>有的时候希望在一个类中，引用另一个类，出现两个类相互引用的情况。<br>谁在前面谁在后面。<br>类应该先声明，后引用。<br>如果需要在某个类的声明之前，引用该类，则需要进行前向引用声明。<br>前向引用声明只为程序引入一个标识符，但是具体声明在别的地方。</p>
+<blockquote>
+<p>Sometimes you want to reference another class in one class, and the two classes refer to each other.</p>
+<p>Who’s in front and who’s behind.</p>
+<p>Classes should be declared first, then referenced.</p>
+<p>If you need to reference a class before it is declared, you need to make a forward reference declaration.</p>
+<p>Forward reference declarations only introduce an identifier for the program, but the specific declaration is elsewhere.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>:<span class="comment">//前向引用声明</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(B,b)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(A a)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="前向引用声明的注意事项-Considerations-for-Forward-Referencing-Statements"><a href="#前向引用声明的注意事项-Considerations-for-Forward-Referencing-Statements" class="headerlink" title="前向引用声明的注意事项(Considerations for Forward Referencing Statements)"></a>前向引用声明的注意事项(Considerations for Forward Referencing Statements)</h4><p>在提供一个完整的类声明之前，不能声明该类的对象，也不能在内联成员函数中使用该类对象。<br>当使用前向引用声明时，只能使用被声明的符号，而不能涉及类的任何细节。</p>
+<blockquote>
+<p>Objects of the class cannot be declared until a complete class declaration has been provided, nor can it be used in an inline member function.</p>
+<p>When using forward reference declarations, only the symbol being declared can be used, and no details of the class can be touched.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Fred</span>;<span class="comment">//前向引用声明</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Barney</span></span><br><span class="line">&#123;</span><br><span class="line">Fred x;<span class="comment">//错误：类Fred的声明尚且不完善（不知道占据的字节数目）</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fred</span></span><br><span class="line">&#123;</span><br><span class="line">Barney y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UML简介-brief-introduction"><a href="#UML简介-brief-introduction" class="headerlink" title="UML简介(brief introduction)"></a>UML简介(brief introduction)</h3><p>可视化的面向对象的建模语言。<br>事物（Things）<br>关系（Relationships）<br>图（）<br>类图<br>Clock类的完整表示<br>类图：</p>
+<p>对象图：</p>
+<p>依赖关系：</p>
+<p>作用关系，关联：</p>
+<p>包含关系，聚集：</p>
+<blockquote>
+<p>Visual object-oriented modeling language.</p>
+<p>Things</p>
+<p>Relationships</p>
+<p>Fig()</p>
+<p>Class diagram</p>
+<p>A complete representation of the Clock class</p>
+<p>Class Diagram:</p>
+<p>Object Diagram:</p>
+<p>Dependencies:</p>
+<p>Role, Relationship:</p>
+<p>Containment Relationships, Clusters:</p>
+</blockquote>
+<h3 id="结构体-Struct’"><a href="#结构体-Struct’" class="headerlink" title="结构体(Struct’)"></a>结构体(Struct’)</h3><p>结构体是一种特殊的类<br>与类唯一的区别：<br>类的缺省访问权限是private<br>结构体的缺省访问权限是public<br>什么时候用结构体而不用类<br>定义主要用来保存数据，而没有什么操作的类型。<br>人们习惯将结构体的数据成员设为共有，因此这时候用结构体更方便。</p>
+<blockquote>
+<p>A struct is a special class</p>
+<p>The only difference with the class:</p>
+<p>The default access to a class is private</p>
+<p>The default access to structs is public</p>
+<p>When to use structs instead of classes</p>
+<p>Define types that are primarily used to hold data, but not to do anything.</p>
+<p>People are used to making the data members of a struct shared, so it’s more convenient to use a struct at this time.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> 结构体名称&#123;</span><br><span class="line">公有成员</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">保护型成员</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">私有成员</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>结构体中既可以有数据成员也可以有函数成员。<br>c语言的结构体不能定义函数成员。<br>结构体的初始化<br>如果：<br>一个结构体的全部数据成员都是公共成员；<br>没有用户定义的构造函数；<br>没有基类和虚函数；<br>这个结构体的变量可以用一下语法形式初始化：<br>类型名 变量名 &#x3D;{成员数据1初值，成员数据2初值}；</p>
+<blockquote>
+<p>A struct can have both data and function members.</p>
+<p>C structs cannot define function members.</p>
+<p>Initialization of the struct</p>
+<p>If:</p>
+<p>All data members of a struct are public members;</p>
+<p>There are no user-defined constructors;</p>
+<p>There are no base classes and virtual functions;</p>
+<p>The variables of this struct can be initialized with the following syntax:</p>
+<p>Type Name Variable Name &#x3D; {Initial value of member data 1, initial value of member data 2};</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line"><span class="type">int</span> num;</span><br><span class="line">string name;</span><br><span class="line"><span class="type">char</span> sex;</span><br><span class="line"><span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Student stu=&#123;<span class="number">97001</span>,<span class="string">&quot;Lin lin&quot;</span>,<span class="string">&#x27;F&#x27;</span>,<span class="number">19</span>&#125;;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Num:&quot;</span>&lt;&lt;stu.num&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Name:&quot;</span>&lt;&lt;syu.name&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Sex&quot;</span>&lt;&lt;stu.sex&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;Age&quot;</span>&lt;&lt;stu.age&lt;&lt;endl;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="联合体-combo"><a href="#联合体-combo" class="headerlink" title="联合体(combo)"></a>联合体(combo)</h3><p>与类和结构体都很像；特点是存储空间的共用。<br>union 联合体名称{<br>公有成员<br>protected；<br>保护成员<br>private;<br>私有成员<br>};<br>&#x2F;&#x2F;所有的成员共用相同的内存，任何两个对象都不会同时存在。</p>
+<blockquote>
+<p>It’s very similar to classes and structs; It is characterized by the sharing of storage space.</p>
+<p>union consortium name {</p>
+<p>Public Member</p>
+<p>protected；</p>
+<p>Protect members</p>
+<p>private;</p>
+<p>Private members</p>
+<p>};</p>
+<p>All members share the same memory, and no two objects exist at the same time.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> <span class="title class_">Mark</span><span class="comment">//表示成绩的联合体</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">char</span> grade;<span class="comment">//等级制的成绩</span></span><br><span class="line"><span class="type">bool</span> pass;<span class="comment">//只记得是否通过课程的成绩</span></span><br><span class="line"><span class="type">int</span> precent;<span class="comment">//百分制的成绩</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">无名联合体</span><br><span class="line"><span class="keyword">union</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="type">float</span> f;</span><br><span class="line">&#125;</span><br><span class="line">i=<span class="number">10</span>;</span><br><span class="line">f=<span class="number">2.2</span>;<span class="comment">//冲掉内存</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ExamInfo</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">string name;</span><br><span class="line"><span class="keyword">enum</span>&#123;GREDE,PASS,PERCENTAGE&#125;mode<span class="comment">//枚举类型</span></span><br><span class="line"><span class="keyword">union</span>&#123;</span><br><span class="line"><span class="type">char</span> grade;</span><br><span class="line"><span class="type">bool</span> pass;</span><br><span class="line"><span class="type">int</span> percent;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">ExamInfo</span>(string name,<span class="type">char</span> grade):<span class="built_in">name</span>(name),<span class="built_in">mode</span>(GRADE),<span class="built_in">grade</span>(grade)&#123;&#125;</span><br><span class="line"><span class="built_in">ExamInfo</span>(string name,<span class="type">bool</span> pass):<span class="built_in">name</span>(name),<span class="built_in">mode</span>(PASS),<span class="built_in">pass</span>(pass)&#123;&#125;</span><br><span class="line"><span class="built_in">ExamInfo</span>(string name,<span class="type">int</span> percent):<span class="built_in">name</span>(name),<span class="built_in">mode</span>(PERCENTAGE),<span class="built_in">percent</span>(percent)&#123;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">void</span>::ExamInfo::<span class="built_in">show</span>()</span><br><span class="line">&#123;</span><br><span class="line">cout&lt;&lt;name&lt;&lt;<span class="string">&quot;:&quot;</span>;</span><br><span class="line"><span class="keyword">switch</span>(mode)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> GRADE:cout&lt;&lt;grade;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> PASS:cout&lt;&lt;(pass?)<span class="string">&quot;PASS&quot;</span>:<span class="string">&quot;FAIL&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> PERCENTAGE:cout&lt;&lt;percent;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;endl；</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function">ExamInfo <span class="title">course1</span><span class="params">(<span class="string">&quot;English&quot;</span>,<span class="string">&#x27;B&#x27;</span>)</span></span>;</span><br><span class="line"><span class="function">ExamInfo <span class="title">course2</span><span class="params">(<span class="string">&quot;Calculus&quot;</span>,<span class="literal">true</span>)</span></span>;</span><br><span class="line"><span class="function">ExamInfo <span class="title">course3</span><span class="params">(<span class="string">&quot;c++ programing&quot;</span>,<span class="number">85</span>)</span></span>;</span><br><span class="line">course1.<span class="built_in">show</span>();</span><br><span class="line">course2.<span class="built_in">show</span>();</span><br><span class="line">course3.<span class="built_in">show</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="枚举类-Enumeration-Classes-："><a href="#枚举类-Enumeration-Classes-：" class="headerlink" title="枚举类(Enumeration Classes)："></a>枚举类(Enumeration Classes)：</h3><p> 枚举类型可以自动转化成整数类型，称作强类型枚举<br>语法形式：<br>默认的底层类型是int类，</p>
+<blockquote>
+<p>Enumeration types can be automatically converted into integer types, called strongly typed enums</p>
+<p>Grammatical forms:</p>
+<p>The default low-level type is the int class,</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">class</span> 枚举类型名：底层类型（枚举值列表）</span><br></pre></td></tr></table></figure>
+
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Type</span>&#123;General,Light,Medium,Heavy&#125;;</span><br><span class="line"><span class="keyword">enum class</span> <span class="title class_">Type</span>:<span class="type">char</span>&#123;General,Light,Medium,Heavy&#125;;</span><br><span class="line"><span class="keyword">enum class</span> <span class="title class_">Category</span>&#123;General=<span class="number">1</span>,Pistol,MachineGun,Cannon&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>优点：<br>强作用域，<br>转换限制，<br>可以指定底层类型。<br>1、枚举类型的用途浅例<br>写程序时，我们徐阳为某个对象关联一组可以选择alternative属性，例如学生的成绩分为A、B、C、D等，天气分为sunny、cloudy、rainy等，<br>更常见的是，打开一个文件可以有三种状态，</p>
+<blockquote>
+<p>Merit:</p>
+<p>strong scope,</p>
+<p>conversion limit,</p>
+<p>You can specify the underlying type.</p>
+<ol>
+<li>A shallow example of the use of enumeration types</li>
+</ol>
+<p>When writing a program, we associate a set of optional alternative attributes with an object, such as students’ grades are divided into A, B, C, D, etc., and the weather is divided into sunny, cloudy, rainy, etc.,</p>
+<p>More commonly, opening a file can have three states,</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input;</span><br><span class="line">output;</span><br><span class="line">append;</span><br></pre></td></tr></table></figure>
+
+<p>典型的做法是，定义三个常量(Typically, three constants are defined:)：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> input=<span class="number">1</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> output=<span class="number">2</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> append=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="强作用域，将其作用域限制在枚举类中-strong-scope-which-limits-its-scope-to-an-enumerated-class-，"><a href="#强作用域，将其作用域限制在枚举类中-strong-scope-which-limits-its-scope-to-an-enumerated-class-，" class="headerlink" title="强作用域，将其作用域限制在枚举类中(strong scope, which limits its scope to an enumerated class,)，"></a>强作用域，将其作用域限制在枚举类中(strong scope, which limits its scope to an enumerated class,)，</h4><p>例：使用Type的枚举值General：<br>Type::General<br>转换限制，枚举类对象不可以与整型隐式地相互转换。<br>可以指定底层类型<br>例：</p>
+<blockquote>
+<p>Example: Use the enumeration value of Type General:</p>
+<p>Type::General</p>
+<p>Conversion limitations, enumeration objects cannot be implicitly converted to and from integers.</p>
+<p>You can specify the underlying type</p>
+<p>Example:</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Type</span>：<span class="type">char</span>&#123;General,Light,Medium,Heavy&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">enum class</span> <span class="title class_">Side</span>&#123;Right,Left&#125;;</span><br><span class="line"><span class="keyword">enum class</span> <span class="title class_">Thing</span>&#123;Wrong,Right&#125;;<span class="comment">//不冲突</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Side s=Side::Right;</span><br><span class="line">Thing w=Thing::Wrong;</span><br><span class="line">cout&lt;&lt;(s==w)&lt;&lt;endl;<span class="comment">//编译错误，无法直接比较不同枚举类</span></span><br><span class="line"><span class="comment">//底层都是整型</span></span><br><span class="line"><span class="comment">//属于不同的类，不能简单比较</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第四章的总结："><a href="#第四章的总结：" class="headerlink" title="第四章的总结："></a>第四章的总结：</h3><p>面向对象的基本概念<br>类和对象的声明<br>构造函数<br>析构函数<br>内联函数成员<br>复制构造函数<br>类的组合<br>结构体<br>联合体<br>枚举类<br>UML：图像建模语言</p>
+<blockquote>
+<h3 id="Summary-of-Chapter-4"><a href="#Summary-of-Chapter-4" class="headerlink" title="Summary of Chapter 4:"></a>Summary of Chapter 4:</h3><p>Basic concepts of object-orientation</p>
+<p>Declarations of classes and objects</p>
+<p>Constructor</p>
+<p>Destructors</p>
+<p>Inline function members</p>
+<p>Copy the constructor</p>
+<p>Combination of classes</p>
+<p>Structure</p>
+<p>Complex</p>
+<p>Enumeration classes</p>
+<p>UML: Image Modeling Language</p>
+</blockquote>
+<h3 id="实验四-Experiment-4-："><a href="#实验四-Experiment-4-：" class="headerlink" title="实验四(Experiment 4)："></a>实验四(Experiment 4)：</h3><p>类与对象的声明与使用<br>不同访问属性的成员的访问方式<br>观察构造函数和析构函数的执行过程</p>
+<blockquote>
+<p>Declarations and use of classes and objects</p>
+<p>How members of different access attributes are accessed</p>
+<p>Observe the execution of constructors and destructors</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude<span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">CPU_Rank</span>&#123;P1=<span class="number">1</span>,P2,P3,P4,P5,P6,P7&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPU</span>:</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">CPU_Rank rank;</span><br><span class="line"><span class="type">int</span> frequency;</span><br><span class="line"><span class="type">float</span> voltage;<span class="comment">//电压</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">CPU（CPU_Rank r,<span class="type">int</span> f,<span class="type">float</span> v）:<span class="built_in">CPU_Rank</span>(r),<span class="built_in">frequency</span>(f),<span class="built_in">voltage</span>(v)</span><br><span class="line">&#123;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;构造了一个CPU！&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">~<span class="built_in">CPU</span>()&#123;cout&lt;&lt;<span class="string">&quot;析构了一个CPU！&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line"><span class="function">CPU_Rank <span class="title">GetRank</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> rank;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetFrequency</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> frequency;&#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">GetVoltage</span><span class="params">()</span> <span class="type">const</span></span>&#123;<span class="keyword">return</span> voltage;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetRank</span><span class="params">(CPU_Rank r)</span></span>&#123;rank=r;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetFrequency</span><span class="params">(<span class="type">int</span> f)</span></span>&#123;frequency=f;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetVoltage</span><span class="params">(<span class="type">float</span> v)</span></span>&#123;voltage =v;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Run</span><span class="params">()</span></span>&#123;cout&lt;&lt;<span class="string">&quot;CPU开始运行&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Stop</span><span class="params">()</span></span>&#123;cout&lt;&lt;<span class="string">&quot;CPU停止运行&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">CPU a=&#123;P6,<span class="number">300</span>,<span class="number">2.8</span>&#125;;</span><br><span class="line">a.<span class="built_in">Run</span>();</span><br><span class="line">a.<span class="built_in">Stop</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">MyString</span>(str p):<span class="built_in">p</span>(p);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> </span><br><span class="line"><span class="type">const</span> </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2022/10/31/SPOC%EF%BC%884%EF%BC%89%EF%BC%9A%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/11/01/%E7%AE%97%E6%B3%95%EF%BC%9A%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            算法：反转链表
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/10/24/%E7%AE%97%E6%B3%95%EF%BC%9A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">算法：动态规划</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>CPP:Clang-Format的书写方式 |  柳瀬しおこうの夢</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="柳瀬しおこうの夢" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-CPP-Clang-Format的书写方式"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CPP:Clang-Format的书写方式
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/08/02/CPP-Clang-Format%E7%9A%84%E4%B9%A6%E5%86%99%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time datetime="2024-08-02T11:39:28.000Z" itemprop="datePublished">2024-08-02</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">14.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">70 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本文在介绍使用clong-format格式化代码时，命令行参数或定义文件（.clong-format）的格式。</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>想要和本文实现同样的操作，请确认你的PC处于以下的环境。</p>
+<ul>
+<li>RHEL9.0、clang-format 15.0</li>
+<li>Windows10Pro 21H2、VSCode 1.69.2、clang-format 8.0.1</li>
+</ul>
+<h3 id="1-指定方法和基本的格式"><a href="#1-指定方法和基本的格式" class="headerlink" title="1.指定方法和基本的格式"></a>1.指定方法和基本的格式</h3><p>有两种通用方法</p>
+<p>その１．コマンドライン引数としてパラメータを指定する</p>
+<p>其中之一.将参数指定为命令行参数。</p>
+<p>書式例</p>
+<p>书写示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang-format --style=<span class="string">&quot;&#123; BasedOnStyle: LLVM, IndentWidth: 4 &#125;&quot;</span> input_file_name.cpp</span><br></pre></td></tr></table></figure>
+
+<p>その２．コマンドライン引数として設定ファイルを指定する</p>
+<p>其中之二.将改动文件指定为命令行参数</p>
+<p>書式例</p>
+<p>书写示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang-format --style=file:<span class="string">&quot;~/project_dir/.clang-format&quot;</span> input_file_name.cpp</span><br></pre></td></tr></table></figure>
+
+<p>clang-formatのコマンドオプションの詳細は以下を参照。</p>
+<p>clang-format的命令行设置的详细内容请参照下方。</p>
+<p>また、VSCodeで使用の際は設定ファイルより値を指定する方法となる。<br>設定ファイルは、「.clang-format」の名称で作成する。<br>作成したファイルは、ソースコード直下又はC_Cpp:Clang_format_pathにて指定したパスから読み込みを行う。</p>
+<p>接着，在VSCode处使用的时候</p>
+<p>C_Cpp:Clang_format_pathの設定方法は次を参照。<br><a target="_blank" rel="noopener" href="https://camo.qiitausercontent.com/1c3a48578aedf5740016286a0bd9109b9869041c/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f313331373638382f35366333303437612d376166332d666639332d636134382d6663646535626363613536612e706e67"><img src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F1317688%2F56c3047a-7af3-ff93-ca48-fcde5bcca56a.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=c8f9e6806285ab0a911268defcb9165b" alt="無題.png"></a></p>
+<p>設定ファイルはYAML形式で記載を行う。</p>
+<p>例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">キー<span class="number">1</span>: 値<span class="number">1</span></span><br><span class="line">キー<span class="number">2</span>: 値<span class="number">2</span></span><br><span class="line"># コメント</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>また、言語を指定して定義を切り分けることもできる。</p>
+<p>書式例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"># Language指定なし(共通定義)。</span><br><span class="line"># 既定値としてLLVMを使用、インデントをスペース4つに指定する。</span><br><span class="line">BasedOnStyle: LLVM</span><br><span class="line">IndentWidth: 4</span><br><span class="line">---</span><br><span class="line">♯ C++用の定義</span><br><span class="line">Language: Cpp</span><br><span class="line">DerivePointerAlignment: false</span><br><span class="line">PointerAlignment: Left</span><br><span class="line">---</span><br><span class="line">♯ JavaScript用の定義</span><br><span class="line">Language: JavaScript</span><br><span class="line">ColumnLimit: 100</span><br><span class="line">---</span><br><span class="line">♯ Protocol Buffers用の定義</span><br><span class="line">Language: Proto</span><br><span class="line">DisableFormat: true</span><br><span class="line">---</span><br><span class="line">♯ C#用の定義</span><br><span class="line">Language: CSharp</span><br><span class="line">ColumnLimit: 100</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以下のコマンドを実行すると、clang-formatの既定値の定義を出力することができる。<br>(ベースファイルとして使える)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang-format -style=llvm -dump-config &gt; .clang-format</span><br></pre></td></tr></table></figure>
+
+<p>※styleに指定できる値は、BasedOnStyleを参照</p>
+<h2 id="２-書式及びオプション"><a href="#２-書式及びオプション" class="headerlink" title="２. 書式及びオプション"></a>２. 書式及びオプション</h2><p>style及び.clang-formatファイルに指定可能な個々のフォーマットスタイルについて記載する。</p>
+<p>【凡例】</p>
+<ul>
+<li><p>キー名(値の型) 使用可能なバージョン</p>
+<p>　概要 　値の範囲 　書式例</p>
+</li>
+</ul>
+<p>の順で記載する。<br>値の型は、</p>
+<table>
+<thead>
+<tr>
+<th align="left">型</th>
+<th align="left">意味</th>
+<th align="left">例</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Integer</td>
+<td align="left">数値</td>
+<td align="left">100,-20</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Unsigned</td>
+<td align="left">正の数値</td>
+<td align="left">50</td>
+<td align="left">負数を指定するとエラーとなる</td>
+</tr>
+<tr>
+<td align="left">String</td>
+<td align="left">文字列</td>
+<td align="left">“(_test)?$”</td>
+<td align="left">主に正規表現を指定する項目で使用</td>
+</tr>
+<tr>
+<td align="left">List of Strings</td>
+<td align="left">文字列の配列</td>
+<td align="left">[‘com.example’, ‘com’, ‘org’]</td>
+<td align="left">主にキーワードのリストを指定する項目で使用</td>
+</tr>
+<tr>
+<td align="left">Boolean</td>
+<td align="left">真偽値</td>
+<td align="left">true, false</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p>その他、個別の列挙型がある。<br>列挙型の一覧については、以下のドキュメントを参照</p>
+<p><strong>注意</strong><br>一部のキーについてデータ型がclang-formatのバージョンによって、Booleanから列挙型に変更となっているものがあります。<br>旧のデータ型がBooleanの場合、レガシーオプションとして列挙型＋Booleanのどちらでも指定可能となっています。<br>本稿を執筆するにあたり、各キーがどのバージョンでBooleanから列挙型に変更となったかまでの調査は出来ておりません。<br>ただし、レガシーオプションが存在するキーについてはその内容も記述をおこなっています。<br>ご自身が使用する環境で列挙型での指定がエラーとなる場合、Booleanでの指定を試してください。</p>
+<ul>
+<li><p>BasedOnStyle(String)</p>
+<p>すべてのオプションの既定値となる値を指定する。 値意味LLVM<a target="_blank" rel="noopener" href="https://llvm.org/docs/CodingStandards.html">LLVMコーディング規約</a>を標準とするGoogle<a target="_blank" rel="noopener" href="https://google.github.io/styleguide/cppguide.html">Google C++ スタイルガイド</a>を標準とするChromium<a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md">Chromium スタイルガイド</a>を標準とするMozilla<a target="_blank" rel="noopener" href="https://firefox-source-docs.mozilla.org/code-quality/coding-style/index.html">Mozilla コーディングスタイル</a>を標準とするWebKit<a target="_blank" rel="noopener" href="https://www.webkit.org/coding/coding-style.html">WebKit コードスタイル ガイドライン</a>を標準とするMicrosoft<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/code-style-rule-options?view=vs-2022">.NET コードスタイルのルールオプション</a>を標準とするGNU<a target="_blank" rel="noopener" href="https://www.gnu.org/prep/standards/standards.html">GNU コーディング規約</a>を標準とするInheritParentConfig親の設定を読み込み使用する。親が見つからない場合、フォールバックとして動作する。</p>
+</li>
+<li><p>AccessModifierOffset(Integer) 3.3以降</p>
+<p>アクセス修飾子(public等)のインデントまたはアウトデントに対する補正を指定する。 つまり、IndentWidthで指定した値にAccessModifierOffsetで指定した値を足した値が、インデントとして設定されます。 合計した値は最低0以上である必要があり、0より小さい値となる場合、AccessModifierOffsetの値は破棄されます。</p>
+</li>
+<li><p>AlignAfterOpenBracket(BracketAlignmentStyle) 3.8以降</p>
+<p>開き括弧の後の引数の並べ方を指定する。 この指定は、丸括弧、波括弧及び角括弧に適用となる。 値意味Align開き括弧にパラメータの先頭を合わせる。DontAlign位置を合わせない。次行以降のインデントにはContinuationIndentWidthを使用する。AlwaysBreakパラメータが1行に収まらない場合、常に開き括弧の後で改行を行う。BlockIndentAlwaysBreakと同じ動作。ただし、閉じ括弧を改行する。Align<code>someLongFunction(argument1,                 argument2); </code>DontAlign<code>someLongFunction(argument1,    argument2); </code>AlwaysBreak<code>someLongFunction(    argument1, argument2); </code>BlockIndent<code>someLongFunction(    argument1, argument2 ); </code><strong>警告</strong> 現在(clang-format15.0時点)、丸括弧のみに適用されます。</p>
+</li>
+<li><p>AlignArrayOfStructures(ArrayInitializerAlignmentStyle) 13以降</p>
+<p>構造体配列の初期化子について、整列方向を指定する。 値意味Left配列の初期化リストを左寄せに整列する。Right配列の初期化リストを右寄せに整列する。None配列の初期化リストを整列を行わない。Left<code>// 配列の初期化リストを左寄せに整列する struct test demo[] = &#123;    &#123;56, 23,    &quot;hello&quot;&#125;,    &#123;-1, 93463, &quot;world&quot;&#125;,    &#123;7,  5,     &quot;!!&quot;   &#125; &#125;; </code>Right<code>// 配列の初期化リストを右寄せに整列する struct test demo[] = &#123;    &#123;56,    23, &quot;hello&quot;&#125;,    &#123;-1, 93463, &quot;world&quot;&#125;,    &#123; 7,     5,    &quot;!!&quot;&#125; &#125;; </code></p>
+</li>
+<li><p>AlignConsecutiveAssignments(AlignConsecutiveStyle) 3.8以降</p>
+<p>連続した代入の揃え方を指定する。 指定した値により、次のパラメータの値を決定する。 　・Enabled 　・AcrossEmptyLines 　・AcrossComments 　・AlignCompound 　・PadOperators パラメータの意味については後述する。 ※公式ドキュメントの記述に誤りがある。公式の例にある個別パラメータへの真偽値の設定は出来ない。 値 \ パラメータEnabledAcrossEmptyLinesAcrossCommentsAlignCompoundPadOperatorsNonefalsefalsefalsefalsetrueConsecutivetruefalsefalsefalsetrueAcrossEmptyLinestruetruefalsefalsetrueAcrossCommentstruefalsetruefalsetrueAcrossEmptyLinesAndCommentstruetruetruefalsetruetruetruefalsefalsefalsetruefalsefalsefalsefalsefalsetrue※AlignCompoundがtrueとなる値は存在しない。 　値にtrueを指定した場合、Consecutiveと同じ動作となる。同様にfalseを指定した場合、Noneと同じ動作となる。各パラメータの設定値により、次の動作を行う。Enabled(Boolean)アライメントを有効とするかを指定する。true<code>// アライメントを有効にする int a            = 1; int somelongname = 2; double c         = 3; </code>false<code>// アライメントを無効とする int a = 1; int somelongname = 2; double c = 3; </code>AcrossEmptyLines(Boolean)空白行を挟んだ要素を整列するかを指定する。true<code>// 空白行を挟んだ要素も整列を行う int a            = 1; int somelongname = 2; double c         = 3; </code>false<code>// 空白行を挟んだ要素は別で整列を行う int a            = 1; int somelongname = 2; double c = 3; </code>AcrossComments(Boolean)コメント行を挟んだ要素を整列するかを指定する。true<code>// コメント行を挟んだ要素も整列を行う int a            = 1; int somelongname = 2; /* コメント */ double c         = 3; </code>false<code>// コメント行を挟んだ要素は別で整列を行う int a            = 1; int somelongname = 2; /* コメント */ double c = 3; </code>AlignCompound(Boolean)複合した演算子についての整列方法を指定する。 このフラグはAlignConsecutiveAssignmentsに対してのみ有効となる。true<code>// 演算子と複合の=について、演算子を加味した位置に調整を行う a   &amp;= 2; bbb  = 2; </code>false<code>// 演算子と複合の=について、演算子を加味しない位置に調整を行う a &amp;= 2; bbb = 2; </code>PadOperators(Boolean)長い演算子と短い演算子についての整列方法を指定する。 このフラグはAlignConsecutiveAssignmentsに対してのみ有効となる。true<code>// 演算子と複合の=について、演算子を加味した位置に調整を行う // 演算子の幅も加味して=の位置を調整する a   &gt;&gt;= 2; bbb   = 2; a     = 2; bbb &gt;&gt;= 2; </code>false<code>// =の位置を軸として調整を行う a &gt;&gt;= 2; bbb = 2; a     = 2; bbb &gt;&gt;= 2; </code></p>
+</li>
+<li><p>AlignConsecutiveBitFields(AlignConsecutiveStyle) 11以降</p>
+<p>連続したビットフィールドの揃え方を指定する。 指定可能な値の範囲はAlignConsecutiveAssignmentsと同じのため、そちらを参照のこと。</p>
+</li>
+<li><p>AlignConsecutiveDeclarations(AlignConsecutiveStyle) 3.8以降</p>
+<p>連続した宣言の揃え方を指定する。 指定可能な値の範囲はAlignConsecutiveAssignmentsと同じのため、そちらを参照のこと。</p>
+</li>
+<li><p>AlignConsecutiveMacros(AlignConsecutiveStyle) 9以降</p>
+<p>連続したマクロ定義の揃え方を指定する。 指定可能な値の範囲はAlignConsecutiveAssignmentsと同じのため、そちらを参照のこと。</p>
+</li>
+<li><p>AlignEscapedNewlines(EscapedNewlineAlignmentStyle) 5以降</p>
+<p>エスケープ文字された改行文字の揃え方を指定する。 値意味DontAlignエスケープされた改行文字を揃えないLeftエスケープされた改行文字をできるだけ左に揃えるRightエスケープされた改行文字を右端の列に揃えるDontAlign<code>// エスケープされた改行文字を揃えない(各行左詰めにする) #define A \  int aaaa; \  int b; \  int dddddddddd; </code>Left<code>// エスケープされた改行文字をできるだけ左に揃える #define A   \  int aaaa; \  int b;    \  int dddddddddd; </code>Right<code>// ColumnLimitで指定した値の位置にエスケープ文字を合わせる。 // ColumnLimitが0(無制限)の場合、Leftと同じ動作となる。 #define A                                                                      \  int aaaa;                                                                    \  int b;                                                                       \  int dddddddddd; </code></p>
+</li>
+<li><p>AlignOperands(OperandAlignmentStyle) 3.5以降</p>
+<p>2項式及び3項式のオペランドの位置を指定する。 値意味DontAlignオペランドの整列を行わない。改行した行は行頭からContinuationIndentWidth分のスペースがインデントされる。Align水平に揃えるAlignAfterOperator水平に揃える。Alignとの差はBreakBeforeBinaryOperatorsを指定した場合の動作だけとなる。trueAlignと同じ動作。(レガシーオプション)falseDontAlignと同じ動作。(レガシーオプション)Align及びAlignAfterOperator(BreakBeforeBinaryOperatorsがNone又は未指定)<code>// オペランドは行末に付与され、改行後は変数名等を先頭に整列が行われる int aaa = bbbbbbbbbbbbbbb +          ccccccccccccccc; </code>Align(BreakBeforeBinaryOperatorsが指定あり)<code>// オペランドは改行後の先頭に付与され、オペランドの位置は先頭行の変数の頭に整列される int aaa = bbbbbbbbbbbbbbb          + ccccccccccccccc; </code>AlignAfterOperator(BreakBeforeBinaryOperatorsが指定あり)<code>// オペランドは改行後の先頭に付与され、オペランドの位置は先頭行のオペランドに整列される int aaa = bbbbbbbbbbbbbbb        + ccccccccccccccc; </code></p>
+</li>
+<li><p>AlignTrailingComments(Boolean) 3.7以降</p>
+<p>コメントの整列方法を指定する。 true<code>// コメントの位置を整列する int a;     // comment a int b = 2; // comment b </code>false<code>// コメントの位置を整列しない(スペース1個分の位置まで詰める) int a; // comment a int b = 2; // comment b </code></p>
+</li>
+<li><p>AllowAllArgumentsOnNextLine(Boolean) 9以降</p>
+<p>関数の引数や初期化リストが1行に収まらない場合の動作を指定する。BinPackArgumentsにfalseを指定している場合でもこの処理は動作する。 true<code>// 関数の引数を1行で記載する callFunction(    a, b, c, d); </code>false<code>// 関数の引数を複数行で記載する callFunction(a,             b,             c,             d); </code><strong>メモ書き</strong> 筆者環境にて動作が確認できず。(RHEL9.0、clang-format15) –style&#x3D;{ BreakBeforeBraces: Linux, BinPackArguments: true&#x2F;false, AllowAllArgumentsOnNextLine: true&#x2F;false }で4パターン試行して、どの指定でも変換が行われなかった。</p>
+</li>
+<li><p>AllowAllConstructorInitializersOnNextLine(Boolean) 9以降</p>
+<p>非推奨なオプション。PackConstructorInitializersのNextLineを参照すること。 </p>
+</li>
+<li><p>AllowShortBlocksOnASingleLine(ShortBlockStyle) 3.5以降</p>
+<p>短いwhile文( while (true) { continue; } )の並べ方を指定する。 ※ステートメントを波括弧で囲んでいる場合の動作。波括弧を付与しない場合、AllowShortLoopsOnASingleLineにより指定を行う。 値意味Neverブロックを1行に並べない。Empty空のブロックだけ1行に並べる。Always短いブロックは1行に並べる。trueAlwaysと同じ動作となる。(レガシーオプション)falseNeverと同じ動作となる。(レガシーオプション)Never<code>// 短いwhile文も必ず折り返す while (true) &#123; &#125; while (true) &#123;  continue; &#125; </code>Empty<code>// 空のwhile文は1行に纏める while (true) &#123;&#125; while (true) &#123;  continue; &#125; </code>Always<code>// while文を1行に纏める while (true) &#123;&#125; while (true) &#123; continue; &#125; </code></p>
+</li>
+<li><p>AllowShortCaseLabelsOnASingleLine(Boolean) 3.6以降</p>
+<p>短いcase文のまとめ方を指定する。 true<code>// caseラベルとその処理を1行にまとめる switch (a) &#123; case 1: x = 1; break; case 2: return; &#125; </code>false<code>// caseラベルとその処理を1行にまとめない switch (a) &#123; case 1:  x = 1;  break; case 2:  return; </code></p>
+</li>
+<li><p>AllowShortEnumsOnASingleLine(Boolean) 11以降</p>
+<p>短い列挙型のまとめ方を指定する。 true<code>// 列挙型を1行にまとめる enum &#123; A, B &#125; myEnum; &#125; </code>false<code>// 列挙型を1行にまとめない enum &#123;  A,  B &#125; myEnum; </code></p>
+</li>
+<li><p>AllowShortFunctionsOnASingleLine(ShortFunctionStyle) 3.5以降</p>
+<p>短い関数(処理が1行以下)の纏め方を指定する。 値意味None関数を1行に纏めない。InlineOnlyクラス内で定義した関数だけ1行に纏める。Inlineと同じ動作だが、空の関数についてのみ動作が異なる。Empty空の関数は1行に纏める。Inlineクラス内で定義した関数だけ1行に纏める。Allすべての関数を1行に纏めるtrueAllと同じ動作となる。(レガシーオプション)falseNoneと同じ動作となる。(レガシーオプション)InlineOnly<code>// クラスメソッドは1行に纏められる。 class Foo &#123;  void f1() &#123; foo(); &#125; &#125;; void f2() &#123;  foo(); &#125; // Inlineと異なる箇所 void f3() &#123; &#125; </code>Empty<code>class Foo &#123;  void f1() &#123;    foo();  &#125; &#125;; void f2() &#123;  foo(); &#125; // 空のメソッドだけ1行に纏める void f3() &#123;&#125; </code>Inline<code>// クラスメソッドと空のメソッドが1行に纏められる。 class Foo &#123;  void f1() &#123; foo(); &#125; &#125;; void f2() &#123;  foo(); &#125; void f3() &#123;&#125; </code>All<code>// すべて1行に纏める。 class Foo &#123;  void f1() &#123; foo(); &#125; &#125;; void f2() &#123; foo(); &#125; void f3() &#123;&#125; </code></p>
+</li>
+<li><p>AllowShortIfStatementsOnASingleLine(ShortIfStyle) 3.3以降</p>
+<p>短いif及びelseの纏め方を指定する。 値意味Never短いifを同じ行に並べない。WithoutElseelse文がない場合のみ、短いifを同じ行に並べる。OnlyFirstIf短いifだけを並べる。else ifやelse文は並べない。AllIfsAndElse短いif、else if及びelse文を同じ行に並べる。AlwaysOnlyFirstIfと同じ動作となる。(レガシーオプション)trueWithoutElseと同じ動作となる。(レガシーオプション)falseNeverと同じ動作となる。(レガシーオプション)Never<code>if (a)  return; if (b)  return; else  return; if (c)  return; else &#123;  return; &#125; </code>WithoutElse<code>// ifだけの場合、1行に纏める。 if (a) return; if (b)  return; else  return; if (c)  return; else &#123;  return; &#125; </code>AllIfsAndElse<code>// すべて1行に纏める。 if (a) return; if (b) return; else return; if (c) return; else &#123;  return; &#125; </code></p>
+</li>
+<li><p>AllowShortIfStatementsOnASingleLine(ShortLambdaStyle) 9以降</p>
+<p>短いラムダ式の纏め方を指定する。 値意味None短いラムダ式を同じ行に並べない。Empty空のラムダ式だけ1行に並べる。Inline関数の引数として指定したラムダ式だけ1行に並べる。Allすべての短いラムダ式を1行に並べる。trueAllと同じ動作となる。(レガシーオプション)falseNoneと同じ動作となる。(レガシーオプション)Empty<code>// 空のラムダ式だけ1行に並べる。 auto lambda = [](int a) &#123;&#125;; auto lambda2 = [](int a) &#123;  return a; &#125;; sort(vct.begin(), vct.end(), [](int x, int y) &#123;  return x &lt; y; &#125;); </code>Inline<code>auto lambda = [](int a) &#123; &#125;; auto lambda2 = [](int a) &#123;  return a; &#125;; // 関数の引数として指定したラムダ式だけ1行に並べる。 sort(vct.begin(), vct.end(), [](int x, int y) &#123; return x &lt; y; &#125;); </code>All<code>// すべての短いラムダ式を1行に並べる。 auto lambda = [](int a) &#123;&#125;; auto lambda2 = [](int a) &#123; return a; &#125;; sort(vct.begin(), vct.end(), [](int x, int y) &#123; return x &lt; y; &#125;); </code></p>
+</li>
+<li><p>AllowShortLoopsOnASingleLine(Boolean) 3.7以降</p>
+<p>短いwhile文( while (true) continue; )の並べ方を指定する。 ※ステートメントを波括弧で囲んでいない場合の動作。波括弧を付与する場合、AllowShortBlocksOnASingleLine により指定を行う。true<code>while (true) &#123; continue; &#125; </code>false<code>while (true) &#123;  continue; &#125; </code></p>
+</li>
+<li><p>AlwaysBreakAfterDefinitionReturnType(DefinitionReturnTypeBreakingStyle) 3.7以降</p>
+<p>非推奨なオプション。</p>
+</li>
+<li><p>AlwaysBreakAfterReturnType(ReturnTypeBreakingStyle) 3.8以降</p>
+<p>関数の戻り値の改行スタイルを指定する。 値意味None戻り値を改行しない。All戻り値の後で必ず改行する。TopLevelトップレベルの関数だけ、戻り値の後で改行する。AllDefinitions関数の実体定義だけ、戻り値の後で改行する。TopLevelDefinitionsトップレベルの関数の実体定義だけ、戻り値の後で改行する。trueAllと同じ動作となる。(レガシーオプション)falseNoneと同じ動作となる。(レガシーオプション)None<code>class B &#123;  int f() &#123; return 0; &#125;; &#125;; int f(); int f() &#123; return 1; &#125; </code>All<code>class B &#123;  int  f() &#123;    return 0;  &#125;; &#125;; int f(); int f() &#123;  return 1; &#125; </code>TopLevel<code>class B &#123;  int f() &#123; return 0; &#125;; &#125;; // トップレベルのメソッド(クラススコープのメソッドではない？)は改行する。 int f(); int f() &#123;  return 1; &#125; </code>AllDefinitions<code>// 関数の実体定義がある場合は改行する。 class B &#123;  int  f() &#123;    return 0;  &#125;; &#125;; int f(); int f() &#123;  return 1; &#125; </code></p>
+</li>
+<li><p>AlwaysBreakBeforeMultilineStrings(Boolean) 3.4以降</p>
+<p>文字列リテラルの並べ方を指定する。 ContinuationIndentWidthが未指定の場合だけ、このフラグが有効となる。true<code>const char *sz =    &quot;aaaa&quot;    &quot;bbbb&quot;; </code>false<code>const char *sz = &quot;aaaa&quot;                 &quot;bbbb&quot;; </code></p>
+</li>
+<li><p>AlwaysBreakTemplateDeclarations(BreakTemplateDeclarationsStyle) 3.4以降</p>
+<p>テンプレート宣言の改行スタイルを指定する。 値意味Noテンプレート宣言の後に改行を行わない。MultiLineテンプレート宣言の後が複数行になる場合だけ改行を行うYes必ずテンプレート宣言の後に改行を行う。falseMultiLineと同じ動作となる。(レガシーオプション)trueYesと同じ動作となる。(レガシーオプション)No<code>template &lt;typename T&gt; T foo() &#123; &#125; template &lt;typename T&gt; T foo(int aaaaaaaaaaaaaaaaaaaaa,                            int bbbbbbbbbbbbbbbbbbbbb) &#123; &#125; </code>MultiLine<code>template &lt;typename T&gt; T foo() &#123; &#125; // テンプレート宣言の後ろに複数行ある場合だけ改行を行う template &lt;typename T&gt; T foo(int aaaaaaaaaaaaaaaaaaaaa,      int bbbbbbbbbbbbbbbbbbbbb) &#123; &#125; </code>Yes<code>// テンプレート宣言の後は必ず改行する template &lt;typename T&gt; T foo() &#123; &#125; template &lt;typename T&gt; T foo(int aaaaaaaaaaaaaaaaaaaaa,      int bbbbbbbbbbbbbbbbbbbbb) &#123; </code></p>
+</li>
+<li><p>AttributeMacros(List of Strings) 12以降</p>
+<p>識別子ではなく、属性&#x2F;修飾子として解釈されるべき文字列のリストを指定する。 つまり、このリストで指定したキーワードは属性&#x2F;修飾子としてフォーマットが行われる。  .clang-format 設定ファイルでは、次の様に設定することができる。<code>AttributeMacros: [&#39;__capability&#39;, &#39;__output&#39;, &#39;__ununsed&#39;] </code></p>
+</li>
+<li><p>BinPackArguments(Boolean) 3.7以降</p>
+<p>関数の引数の並べ方を指定する。 true<code>// 1行の最大文字数を基準に折り返しを行う void f() &#123;  f(aaaaaaaaaaaaaaaaaaaa, aaaaaaaaaaaaaaaaaaaa,    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa); &#125; </code>false<code>// 引数を各1行ずつに折り返す void f() &#123;  f(aaaaaaaaaaaaaaaaaaaa,    aaaaaaaaaaaaaaaaaaaa,    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa); &#125; </code></p>
+</li>
+<li><p>BinPackParameters(Boolean) 3.7以降</p>
+<p>関数宣言や関数定義の引数の並べ方を指定する。 true<code>// 1行の最大文字数を基準に折り返しを行う void f(int aaaaaaaaaaaaaaaaaaaa, int aaaaaaaaaaaaaaaaaaaa,       int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) &#123;&#125; </code>false<code>// 引数を各1行ずつに折り返す void f(int aaaaaaaaaaaaaaaaaaaa,       int aaaaaaaaaaaaaaaaaaaa,       int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) &#123;&#125; </code></p>
+</li>
+<li><p>BitFieldColonSpacing(BitFieldColonSpacingStyle) 12以降</p>
+<p>テンプレート宣言の改行スタイルを指定する 値意味Bothコロンの前後にスペースを挿入する。Noneコロンの前後にスペースを挿入しない。Beforeコロンの前だけスペースを挿入する。Afterコロンの後ろだけスペースを挿入する。Both<code>unsigned bf : 2; </code>None<code>unsigned bf:2; </code>Before<code>unsigned bf :2; </code>After<code>unsigned bf: 2; </code></p>
+</li>
+<li><p>BraceWrapping (BraceWrappingFlags) 3.8以降</p>
+<p>括弧の個別制御を指定する。このフラグはBreakBeforeBracesがBS_Customに設定されている場合だけ有効で、それ以外の場合は無視される。.clang-formatの書式例<code>BreakBeforeBraces: Custom BraceWrapping:  AfterEnum: true  AfterStruct: false  SplitEmptyFunction: false </code>各設定フラグについては以下のとおり。AfterCaseLabel(Boolean)caseラベルに対する括弧の制御方法を指定する。true<code> // caseラベルの後ろの括弧は改行する  switch (foo) &#123;    case 1:    &#123;      bar();      break;    &#125;    default:    &#123;      plop();    &#125;  &#125;</code>false<code> // caseラベルの後ろの括弧は改行しない  switch (foo) &#123;    case 1: &#123;      bar();      break;    &#125;    default: &#123;      plop();    &#125;  &#125;</code>AfterClass(Boolean)クラス定義に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する class foo &#123;&#125;; </code>false<code>// 後ろの括弧は改行しない class foo &#123;&#125;; </code><strong>メモ書き</strong> 公式ドキュメントに誤記あり。 trueとfalseの動作が逆に記載されている。AfterControlStatement(BraceWrappingAfterControlStatementStyle)ステートメント(if、for、while、switch等)に対する括弧の制御方法を指定する。 値意味Never制御文の後の波括弧を改行しない。MultiLine複数行の制御文の後の波括弧だけ改行する。Always制御文の後の波括弧を改行する。falseNeverと同じ動作となる。(レガシーオプション)trueAlwaysと同じ動作となる。(レガシーオプション)Never<code> // 制御文の後の波括弧を改行しない。  if (foo()) &#123;  &#125; else &#123;  &#125;  for (int i = 0; i &lt; 10; ++i) &#123;  &#125;</code>MultiLine<code> // 複数行の制御文の後の波括弧だけ改行する。  if (foo &amp;&amp; bar &amp;&amp;      baz)  &#123;    quux();  &#125;  while (foo || bar) &#123;  &#125;</code>Always<code> // 制御文の後の波括弧を改行する。  if (foo())  &#123;  &#125; else  &#123;&#125;  for (int i = 0; i &lt; 10; ++i)  &#123;&#125;</code>AfterEnum(Boolean)列挙型に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する enum X : int &#123;  B &#125;; </code>false<code>// 後ろの括弧は改行しない enum X : int &#123; B &#125;; </code>AfterFunction(Boolean)関数に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する void foo() &#123;  bar();  bar2(); &#125; </code>false<code>// 後ろの括弧は改行しない void foo() &#123;  bar();  bar2(); &#125; </code>AfterNamespace(Boolean)名前空間に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する namespace &#123; int foo(); int bar(); &#125; </code>false<code>// 後ろの括弧は改行しない namespace &#123; int foo(); int bar(); &#125; </code>AfterObjCDeclaration(Boolean)Objective-Cの定義(@interface、@implementation等)、@autoreleasepool及び@synchronizedに対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する @interface MyObject : NSObject &#123;  int val; &#125; </code>false<code>// 後ろの括弧は改行しない @interface MyObject : NSObject &#123;  int val; &#125; </code>AfterStruct(Boolean)構造体に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する struct foo &#123;  int x; &#125;; </code>false<code>// 後ろの括弧は改行しない struct foo &#123;  int x; &#125;; </code>AfterUnion(Boolean)共用体に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する union foo &#123;  int x; &#125; </code>false<code>// 後ろの括弧は改行しない union foo &#123;  int x; &#125; </code>AfterExternBlock(Boolean)外部結合ブロック(extern)に対する括弧の制御方法を指定する。true<code>// 後ろの括弧は改行する extern &quot;C&quot; &#123;  int foo(); &#125; </code>false<code>// 後ろの括弧は改行しない extern &quot;C&quot; &#123; int foo(); &#125; </code>BeforeCatch(Boolean)catch句の前方の括弧の制御方法を指定する。true<code>// 前方の括弧は改行する try &#123;  foo(); &#125; catch () &#123; &#125; </code>false<code>// 前方の括弧は改行しない try &#123;  foo(); &#125; catch () &#123; &#125; </code>BeforeElse(Boolean)else句の前方の括弧の制御方法を指定する。true<code>// 前方の括弧は改行する if (foo()) &#123; &#125; else &#123; &#125; </code>false<code>// 前方の括弧は改行しない if (foo()) &#123; &#125; else &#123; &#125; </code>BeforeLambdaBody(Boolean)ラムダ式の前方の括弧の制御方法を指定する。true<code>// 前方の括弧は改行する(キャプチャとラムダ導入子も改行される？) connect(  []()  &#123;    foo();    bar();  &#125;); </code>false<code>// 前方の括弧は改行しない connect([]() &#123;  foo();  bar(); &#125;); </code>BeforeWhile(Boolean)do～whileの前方の括弧の制御方法を指定する。true<code>// 前方の括弧は改行する do &#123;  foo(); &#125; while (1); </code>false<code>// 前方の括弧は改行しない do &#123;  foo(); &#125; while (1); </code>IndentBraces(Boolean)折り返した波括弧のインデントの可否を指定する。true<code>// 折り返した波括弧をインデントする if (a) &#123;    foo(a,b); &#125; else &#123;  &#125; for (int i = 0; i &lt; 10; ++i) &#123;  &#125; </code>false<code>// 折り返した波括弧をインデントしない if (a) &#123;  foo(a, b); &#125; else &#123; &#125; for (int i = 0; i &lt; 10; ++i) &#123; &#125; </code>SplitEmptyFunction(Boolean)空の関数本体を1行に纏めるかを指定する。このオプションはAllowShortFunctionsOnASingleLine にNone、AfterFunctionにtrueを指定している場合のみ適用されます。true<code>// 空の関数の括弧を1行に並べない。 int f() &#123; &#125; </code>false<code>// 空の関数の括弧を1行に並べる。 int f() &#123;&#125; </code>SplitEmptyRecord(Boolean)空のクラス本体を1行に纏めるかを指定する。AfterClassにtrueを指定している場合のみ適用されます。true<code>// 空のクラスの括弧を1行に並べない。 class Foo &#123; &#125; </code>false<code>// 空のクラスの括弧を1行に並べる。 class Foo &#123;&#125; </code>SplitEmptyNamespace(Boolean)空の名前空間本体を1行に纏めるかを指定する。AfterNamespaceにtrueを指定している場合のみ適用されます。true<code>// 空のクラスの括弧を1行に並べない。 namespace Foo &#123; &#125; </code>false<code>// 空のクラスの括弧を1行に並べる。 namespace Foo &#123;&#125; </code></p>
+</li>
+<li><p>BreakAfterJavaFieldAnnotations(Boolean) 3.8以降</p>
+<p>Javaファイルのアノテーションの改行を指定する。true<code>// アノテーションで改行する @Partial @Mock DataLoad loader; </code>false<code>// アノテーションで改行しない @Partial @Mock DataLoad loader; </code></p>
+</li>
+<li><p>BreakBeforeBinaryOperators(BinaryOperatorStyle) 3.6以降</p>
+<p>二項演算子の並べ方を指定する。 値意味None演算子の後で改行する。NonAssignment代入ではない演算子の前で改行する。All演算子の前で改行する。trueAllと同じ動作。falseNoneと同じ動作。None<code>// 演算子の後で改行する。 LooooooooooongType loooooooooooooooooooooongVariable =    someLooooooooooooooooongFunction(); bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa +                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ==                 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa &amp;&amp;             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa &gt;                 ccccccccccccccccccccccccccccccccccccccccc; </code>NonAssignment<code>// 代入ではない演算子の後で改行する。 LooooooooooongType loooooooooooooooooooooongVariable =    someLooooooooooooooooongFunction(); bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                     + aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                 == aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa             &amp;&amp; aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                    &gt; ccccccccccccccccccccccccccccccccccccccccc; </code>All<code>// 演算子の前で改行する。 LooooooooooongType loooooooooooooooooooooongVariable    = someLooooooooooooooooongFunction(); bool value = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                     + aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                 == aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa             &amp;&amp; aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa                    &gt; ccccccccccccccccccccccccccccccccccccccccc; </code><strong>メモ書き</strong> NonAssignmentとAllの挙動が理解できない。改行位置はわかるがインデントはどうしてこの動作になるのか。(実動作を確認の結果、記載のインデントになる)</p>
+</li>
+<li><p>BreakBeforeBraces(BraceBreakingStyle) 3.7以降</p>
+<p>括弧の制御を一括で指定する。 値意味Attach文脈の後に括弧を並べる。LinuxAttachと同様。ただし関数、名前空間、クラス定義(C#のレコード型を含む)の括弧は改行する。MozillaAttachと同様。ただし列挙型、関数、名前空間、クラス定義(C#のレコード型を含む)の括弧は改行する。StroustrupAttachと同様。ただし関数定義、catch、elseの前の括弧は改行する。Allman文脈の後の括弧を改行する。WhitesmithsAllmanと同様。ただし波括弧にインデントを付ける。GNUAllmanと同様。ただし制御文の波括弧にインデントを付ける。WebKitAttachと同様。ただし関数の括弧は改行する。CustomBraceWrappingフラグにより個々の改行ルールを決定する。(BraceWrappingの項を参照)Attach<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try &#123;    do &#123;      switch (i) &#123;      case 1: &#123;        foobar();        break;      &#125;      default: &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125; catch (...) &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b) &#123;    baz(2);  &#125; else &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>Linux<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try &#123;    do &#123;      switch (i) &#123;      case 1: &#123;        foobar();        break;      &#125;      default: &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125; catch (...) &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b) &#123;    baz(2);  &#125; else &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>Mozilla<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try &#123;    do &#123;      switch (i) &#123;      case 1: &#123;        foobar();        break;      &#125;      default: &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125; catch (...) &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b) &#123;    baz(2);  &#125; else &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>Stroustrup<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try &#123;    do &#123;      switch (i) &#123;      case 1: &#123;        foobar();        break;      &#125;      default: &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125;  catch (...) &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b) &#123;    baz(2);  &#125;  else &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>Allman<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try  &#123;    do    &#123;      switch (i)      &#123;      case 1:      &#123;        foobar();        break;      &#125;      default:      &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125;  catch (...)  &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b)  &#123;    baz(2);  &#125;  else  &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>Whitesmiths<code>namespace N  &#123; enum E  &#123;  E1,  E2,  &#125;; class C  &#123; public:  C();  &#125;; bool baz(int i)  &#123;  try    &#123;    do      &#123;      switch (i)        &#123;        case 1:        &#123;        foobar();        break;        &#125;        default:        &#123;        break;        &#125;        &#125;      &#125; while (--i);    return true;    &#125;  catch (...)    &#123;    handleError();    return false;    &#125;  &#125; void foo(bool b)  &#123;  if (b)    &#123;    baz(2);    &#125;  else    &#123;    baz(5);    &#125;  &#125; void bar() &#123; foo(true); &#125;  &#125; // namespace N </code>GNU<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try    &#123;      do        &#123;          switch (i)            &#123;            case 1:              &#123;                foobar();                break;              &#125;            default:              &#123;                break;              &#125;            &#125;        &#125;      while (--i);      return true;    &#125;  catch (...)    &#123;      handleError();      return false;    &#125; &#125; void foo(bool b) &#123;  if (b)    &#123;      baz(2);    &#125;  else    &#123;      baz(5);    &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code>WebKit<code>namespace N &#123; enum E &#123;  E1,  E2, &#125;; class C &#123; public:  C(); &#125;; bool baz(int i) &#123;  try &#123;    do &#123;      switch (i) &#123;      case 1: &#123;        foobar();        break;      &#125;      default: &#123;        break;      &#125;      &#125;    &#125; while (--i);    return true;  &#125; catch (...) &#123;    handleError();    return false;  &#125; &#125; void foo(bool b) &#123;  if (b) &#123;    baz(2);  &#125; else &#123;    baz(5);  &#125; &#125; void bar() &#123; foo(true); &#125; &#125; // namespace N </code></p>
+</li>
+<li><p>BreakBeforeConceptDeclarations(BreakBeforeConceptDeclarationsStyle) 12以降</p>
+<p>コンセプトに対する括弧の制御方法を指定する。 値意味Neverテンプレート宣言とコンセプトを並べる。Allowed他のフラグ指定に従い、テンプレート宣言の後に改行を行うことが可能。指定がない場合、テンプレート宣言とコンセプトを並べる。Alwaysコンセプトの前で改行する。trueAlwaysと同じ動作。(レガシーオプション)falseAllowedと同じ動作。(レガシーオプション)Never<code>template &lt;class T&gt; concept Foo = requires(T &amp;x) &#123;&#125;; </code>Always<code>template &lt;class T&gt; concept Foo = requires(T &amp;x) &#123;&#125;; </code></p>
+</li>
+<li><p>BreakBeforeTernaryOperators(Boolean) 3.7以降</p>
+<p>1行に収まらない三項演算子に対する括弧の制御方法を指定する。true<code>// 演算子の前で改行を行う veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription    ? firstValue    : SecondValueVeryVeryVeryVeryLong; </code>false<code>// 演算子の後で改行を行う veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongDescription ?    firstValue :    SecondValueVeryVeryVeryVeryLong; </code></p>
+</li>
+<li><p>BreakConstructorInitializers(BreakConstructorInitializersStyle) 5以降</p>
+<p>コンストラクタの初期化リストに対する制御方法を指定する。 値意味BeforeColonコロンの前とカンマの後で改行する。BeforeCommaコロンとカンマの前で改行し、コロンとカンマの位置を合わせる。AfterColonコロンとカンマの後で改行する。BeforeColon<code>Constructor()    : initializer1(),      initializer2() </code>BeforeComma<code>Constructor()    : initializer1()    , initializer2() </code>AfterColon<code>Constructor() :    initializer1(),    initializer2() </code></p>
+</li>
+<li><p>BreakInheritanceList(BreakInheritanceListStyle) 7以降</p>
+<p>継承リストに対する制御方法を指定する。 値意味BeforeColonコロンの前とカンマの後で改行する。BeforeCommaコロンとカンマの前で改行し、コロンとカンマの位置を合わせる。AfterColonコロンとカンマの後で改行する。AfterCommaカンマの後で改行する。BeforeColon<code>class Foo    : Base1,      Base2 &#123;&#125;; </code>BeforeComma<code>class Foo    : Base1    , Base2 &#123;&#125;; </code>AfterColon<code>class Foo :    Base1,    Base2 &#123;&#125;; </code>AfterComma<code>class Foo : Base1,            Base2 &#123;&#125;; </code></p>
+</li>
+<li><p>BreakStringLiterals(Boolean) 3.9以降</p>
+<p>1行に収まらない文字列リテラルに対する制御方法を指定する。true<code>// 1行の最大文字数で文字列リテラルを分割する const char* x = &quot;veryVeryVeryVeryVeryVe&quot;                &quot;ryVeryVeryVeryVeryVery&quot;                &quot;VeryLongString&quot;; </code>false<code>// 文字列リテラルを分割しない const char* x =  &quot;veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongString&quot;; </code><strong>メモ書き</strong> 一度、BreakStringLiteralsをtrueに指定し文字列リテラルを整形したのち、falseを指定してフォーマットしなおした場合、分割された文字列リテラルは自動で繋がらない。(元に戻らない)</p>
+</li>
+<li><p>ColumnLimit(Unsigned) 3.7以降</p>
+<p>1行の最大文字数を指定する。 0を指定した場合、ステートメント内で他のルールと矛盾しない限り無制限となる。</p>
+</li>
+<li><p>CommentPragmas(String) 3.7以降</p>
+<p>行分割してはいけないコメントを、正規表現で指定する。 例<code>// CommentPragmas: &#39;^ FOOBAR pragma:&#39; // 上記の値を指定した場合、以下の行は改行されない。 #include &lt;vector&gt; // FOOBAR pragma: keep </code></p>
+</li>
+<li><p>CompactNamespaces(boolean) 5以降</p>
+<p>連続した名前空間に対する制御方法を指定する。 true<code>// 連続した名前空間を改行しない。 namespace Foo &#123; namespace Bar &#123; &#125;&#125; // ただし、1行に収まらない場合、改行が行われる。 namespace Foo &#123; namespace Bar &#123; namespace Extra &#123; &#125;&#125;&#125; </code>false<code>// 連続した名前空間を改行する。 namespace Foo &#123; namespace Bar &#123; &#125; &#125; </code></p>
+</li>
+<li><p>ConstructorInitializerAllOnOneLineOrOnePerLine(Boolean) 3.7以降</p>
+<p>非推奨のオプション。CurrentLine又はPackConstructorInitializersを参照。 </p>
+</li>
+<li><p>ConstructorInitializerIndentWidth(Unsigned) 3.7以降</p>
+<p>コンストラクタの初期化リスト及び継承リストのインデントを指定する。 </p>
+</li>
+<li><p>ContinuationIndentWidth(Unsigned) 3.7以降</p>
+<p>連続する行のインデントを指定する。 例<code>// ContinuationIndentWidth: 2 を指定した場合、連続した記述についてインデントが2ずつ付与される。 int i =         //  VeryVeryVeryVeryVeryLongComment  longFunction( // Again a long comment    arg); </code></p>
+</li>
+<li><p>Cpp11BracedListStyle(Boolean) 3.4以降</p>
+<p>C++11の初期化リストのフォーマットを指定する。 【重要な相違点】 trueを指定した場合、 ・波括弧付きリストの内部に空白を入れない。 ・閉じ波括弧の前に改行しない。 ・ブロック・インデントではなく、継続インデントでインデントする。 となる。  基本的に、C++11 の初期化リストは、関数呼び出しと全く同じ書式で記述されます。初期化リストが名前（例えば型名や変数名）の後にある場合、clang-formatは{}をその名前を持つ関数呼び出しの括弧であるかのようにフォーマットします。もし名前がなければ、長さ0の名前と見なします。true<code>// 初期化リストの開き括弧の後と閉じ括弧の前に空白を挿入しない。 vector&lt;int&gt; x&#123;1, 2, 3, 4&#125;; vector&lt;T&gt; x&#123;&#123;&#125;, &#123;&#125;, &#123;&#125;, &#123;&#125;&#125;; f(MyMap[&#123;composite, key&#125;]); new int[3]&#123;1, 2, 3&#125;; </code>false<code>// 初期化リストの開き括弧の後と閉じ括弧の前に空白を挿入する。 vector&lt;int&gt; x&#123; 1, 2, 3, 4 &#125;; vector&lt;T&gt; x&#123; &#123;&#125;, &#123;&#125;, &#123;&#125;, &#123;&#125; &#125;; f(MyMap[&#123; composite, key &#125;]); new int[3]&#123; 1, 2, 3 &#125;; </code></p>
+</li>
+<li><p>DeriveLineEnding(Boolean) 10以降</p>
+<p>改行コードをCR+LF又はLFに統一する。 DeriveLineEndingにtrueを指定した場合、ファイル内で一番多い改行コードでファイルの改行を統一する。 DeriveLineEndingにfalseを指定した場合、UseCRLFがtrueであればファイルの改行コードをCR+LFで統一し、UseCRLFがfalseであればDeriveLineEndingにtrueを指定した場合と同じ動作となる。</p>
+</li>
+<li><p>DerivePointerAlignment(Boolean) 3.7以降</p>
+<p>参照(&amp;)及びポインタ(*)の位置を統一する。 trueを指定した場合、ファイル内で一番記述の参照及びポインタの書式に統一する。 falseを指定した場合、PointerAlignmentで指定した値に従い書式を変更する。PointerAlignmentの指定がない場合、trueと同じ動作となる。例<code>int* p1 = NULL; // データ型に*が寄せられている int &amp;r1 = d;    // 変数名に&amp;が寄せられている int *p2 = NULL; // 変数名に*が寄せられている ↓ // DerivePointerAlignment: true を指定した場合 int *p1 = NULL; // 多数決(2対1)で変数名に寄せているパターンが多いので変数名側に統一される。 int &amp;r1 = d; int *p2 = NULL; </code></p>
+</li>
+<li><p>DisableFormat(Boolean) 3.7以降</p>
+<p>フォーマットを無効にする。 </p>
+</li>
+<li><p>EmptyLineAfterAccessModifier(EmptyLineAfterAccessModifierStyle) 13以降</p>
+<p>アクセス修飾子の後に対する制御方法を指定する。 値意味Neverアクセス修飾子の後の空行をすべて削除する。Leaveアクセス修飾子の後の空行を削除しない。代わりにMaxEmptyLinesToKeepによる制御が行われる。Alwaysアクセス修飾子の後の空行を追加する。MaxEmptyLinesToKeepによる制御も同時に適用される。Never<code>struct foo &#123; private:  int i; protected:  int j;  /* comment */ public:  foo() &#123;&#125; private: protected: &#125;; </code>Always<code>struct foo &#123; private:   int i; protected:   int j;  /* comment */ public:   foo() &#123;&#125; private: protected: &#125;; </code></p>
+</li>
+<li><p>EmptyLineBeforeAccessModifier(EmptyLineBeforeAccessModifierStyle) 12以降</p>
+<p>アクセス修飾子の前に対する制御方法を指定する。 値意味Neverアクセス修飾子の前の空行をすべて削除する。Leaveアクセス修飾子の前の空行を削除しない。LogicalBlockアクセス修飾子が新しい論理ブロックを開始する場合だけ、空行を追加する。論理ブロックとは1つ以上のフィールド又は関数からなるグループのことを指す。Alwaysアクセス修飾子がクラスや構造体の先頭にある場合を除き、アクセス修飾子の前に空行を追加する。Never<code>struct foo &#123; private:  int i; protected:  int j;  /* comment */ public:  foo() &#123;&#125; private: protected: &#125;; </code>LogicalBlock<code>struct foo &#123; private:  int i; protected:  int j;  /* comment */ public:  foo() &#123;&#125; private: protected: &#125;; </code>Always<code>struct foo &#123; private:  int i; protected:  int j;  /* comment */ public:  foo() &#123;&#125; private: protected: &#125;; </code></p>
+</li>
+<li><p>ExperimentalAutoDetectBinPacking(Boolean) 3.7以降</p>
+<p>trueの場合、clang-formatは関数呼び出しと定義が1行に1つのパラメータでフォーマットされているかどうかを検出します。  各呼び出しはbin-packed、1行ごと、または決定的でないことができます。もし結論が出ない場合、例えば完全に一行で、しかし決定を下す必要がある場合、clang-formatは入力ファイルに他のbin-packedケースがあるかどうかを分析し、それに応じて行動します。 <strong>注意</strong> これは実験的なフラグであり、削除されたり名前が変更されたりする可能性があります。設定ファイルなどでは使用しないでください。ご自身の責任で使用してください。<strong>メモ書き</strong> 記述内容及び挙動が理解できなかった為、直訳のみ。</p>
+</li>
+<li><p>FixNamespaceComments(Boolean) 5以降</p>
+<p>名前空間の終了に自動でコメントを挿入するかを指定する。 true<code>namespace a &#123; foo(); bar(); &#125; // namespace a // ↑上記のコメントが自動で挿入される。 </code>false<code>namespace a &#123; foo(); bar(); &#125; // コメントの挿入が行われない。 </code><strong>メモ書き</strong> falseを指定しても既存のコメントが削除となるわけではない。逆にtrueを指定した場合、既存で独自にコメントを記載していても自動挿入で上書きされてしまう。</p>
+</li>
+<li><p>ForEachMacros(List of Strings) 3.7以降</p>
+<p>foreachとして解釈されるべきマクロ名のリストを指定する。 例<code>// FOREACHマクロがforeachとして動作する FOREACH(&lt;variable-declaration&gt;, ...)  &lt;loop-body&gt; </code>.clang-format 設定ファイルでは、次の様に設定することができる。<code>ForEachMacros: [&#39;RANGES_FOR&#39;, &#39;FOREACH&#39;, &#39;BOOST_FOREACH&#39;] </code></p>
+</li>
+<li><p>IfMacros(List of Strings) 13以降</p>
+<p>ifとして解釈されるべきマクロ名のリストを指定する。 例<code>IF(...)  &lt;conditional-body&gt; else IF(...)  &lt;conditional-body&gt; </code>.clang-format 設定ファイルでは、次の様に設定することができる。<code>ForEachMacros: [&#39;IF&#39;, &#39;KJ_IF_MAYBE&#39;] </code></p>
+</li>
+<li><p>IncludeBlocks(IncludeBlocksStyle) 6以降</p>
+<p>#include定義の並び順を決定する。 値意味Preserveブロック単位でソートを行う。Mergeブロックを結合し、ソートを行う。Regroupブロックを結合し、ソートを行う。その後、カテゴリの優先順位に基づいてグループを分割する。IncludeCategoriesを参照。参考：ソート前<code>#include &quot;b.h&quot; #include &lt;lib/main.h&gt; #include &quot;a.h&quot;  </code>Preserve<code>#include &quot;b.h&quot; #include &quot;a.h&quot;  #include &lt;lib/main.h&gt; </code>Merge<code>#include &quot;a.h&quot;  #include &quot;b.h&quot; #include &lt;lib/main.h&gt; </code>Regroup<code>#include &quot;a.h&quot;  #include &quot;b.h&quot; #include &lt;lib/main.h&gt; </code></p>
+</li>
+<li><p>IncludeBlocks(List of IncludeCategories) 3.8以降</p>
+<p>インクルードの順序付けに使用される、さまざまな #include カテゴリを示す正規表現です。 正規表現の表記はPOSIXに準拠する。 これらの正規表現は、インクルードのファイル名(&lt;&gt;または””を含む)の順に照合されます。最初にマッチした正規表現に属する優先順位が割り当てられ、#includeは、優先順位及びカテゴリ内でアルファベット順にソートされます。  どの正規表現にも一致しない場合、INT_MAXがカテゴリーとして割り当てられます。ソースファイルのメインヘッダは自動的にカテゴリ0になります。そのため、一般的には#includesの先頭に置かれます。しかし、常に最初に来る必要があるヘッダーがある場合は、負の優先順位を割り当てることもできます。  3番目のオプションフィールドにSortPriorityがあります。これは、IncludeBlocksにRegroupを指定した場合、有効となり、#includesを並べる優先順位を定義することができます。Priorityの値は、#includeブロックの順序を定義し、また、異なる優先順位の#includeをグループ化することができます。SortPriorityが指定されていない場合、Priorityの値がデフォルトとして設定されます。  各正規表現は、CaseSensitiveフィールドで大文字と小文字を区別するようにマークすることができますが、デフォルトではそうではありません。 .clang-format ファイルで設定するには、次のようにします。<code>IncludeCategories:  - Regex:           &#39;^&quot;(llvm|llvm-c|clang|clang-c)/&#39;    Priority:        2    SortPriority:    2    CaseSensitive:   true  - Regex:           &#39;^((&lt;|&quot;)(gtest|gmock|isl|json)/)&#39;    Priority:        3  - Regex:           &#39;&lt;[[:alnum:].]+&gt;&#39;    Priority:        4  - Regex:           &#39;.*&#39;    Priority:        1    SortPriority:    0 </code><strong>メモ書き</strong> SortPriority及びCaseSensitiveについては、古いバージョンでは指定ができない。(少なくとも8.0.1では使用ができなかった。)。いつ段階から実装されたかについては未調査。</p>
+</li>
+<li><p>IncludeIsMainRegex(String) 3.9以降</p>
+<p>file-to-main-include のマッピングで許可されるサフィックスの正規表現を指定します。 ある#includeが「メイン」includeであるかどうかを推測する場合（カテゴリ0を割り当てるため、上記を参照）、ヘッダーステムに許容される接尾辞のこの正規表現を使用します。部分マッチが行われ、次のようになります。- “” は “任意のサフィックス” を意味します - “$” は “サフィックスなし” を意味します。  例えば、”(_test)?$” と設定した場合、ヘッダ a.h は a.cc と a_test.cc の両方で “main” include とみなされるでしょう。 <strong>メモ書き</strong> 記述内容が明確に理解できなかった為、直訳。 以下、見解。 IncludeCategoriesの動作でソースファイルに対応するメインヘッダを判定するための正規表現を指定する。つまり、”(_test)?$”という正規表現を指定した場合、a.ccというソースファイルのヘッダファイルはa.hと判断し、インクルードの記述をソートする際に、(負の優先度を持つヘッダを除いて)一番先頭に配置される。</p>
+</li>
+<li><p>IncludeIsMainSourceRegex(String) 10以降</p>
+<p>フォーマットされるファイルのうち、file-to-main-includeマッピングで “main “とみなすことが許されるファイルの正規表現を指定します。  デフォルトでは、clang-formatはファイルが以下のように終わるときだけ “main “と見なします。.c, .cc, .cpp, .c++, .cxx, .m, .mm の拡張子で終わる場合のみ、clang-format はファイルを “main” と見なします。これらのファイルでは、「main」インクルードの推測が行われます（カテゴリ0を割り当てるには、上記を参照してください）。このオプションは、”main “とみなされるファイルのサフィックスと拡張子を追加することができます。  例えば、このオプションを (Impl.hpp)$ に設定すると、ClassImpl.hpp が “main” と見なされ (Class.c, Class.cc, Class.cpp などに加えて)、”main include file” ロジックが実行されます (IncludeIsMainRegex 設定も後のフェーズで尊重される)。このオプションが設定されていないと、ClassImpl.hppは他のどのincludeよりも先にmain include fileをトップに置くことができません。 <strong>メモ書き</strong> 記述内容が明確に理解できなかった為、直訳。 以下、見解。 IncludeIsMainRegexのソースファイル版。ソースファイルをインクルードした場合にメインとなるソースを判定する為の正規表現を指定する。</p>
+</li>
+<li><p>IndentAccessModifiers(Boolean) 13以降</p>
+<p>アクセス修飾子が独自のインデントレベルを持つかどうかを指定します。 trueの場合、アクセス修飾子は独自のインデント・レベルを取得します。その結果、アクセス修飾子の有無にかかわらず、レコードのメンバは常にレコードの下の2つのレベルにインデントされます。AccessModifierOffsetの値は無視されます。 false の場合、アクセス修飾子はAccessModifierOffsetに従ってレコード・メンバから相対的にインデント (またはアウトデント)されます。レコード・メンバーはレコードの1レベル下にインデントされます。 true<code>class C &#123;    class D &#123;        void bar();      protected:        D();    &#125;;  public:    C(); &#125;; void foo() &#123;  return 1; &#125; </code>false<code>class C &#123;  class D &#123;    void bar();  protected:    D();  &#125;; public:  C(); &#125;; void foo() &#123;  return 1; &#125; </code></p>
+</li>
+<li><p>IndentCaseBlocks(Boolean) 11以降</p>
+<p>ケースラベルブロックをケースラベルから1レベルインデントします。 trueの場合、ブロックはスコープブロックとしてインデントされます。 false の場合、ケースラベルに続くブロックはケースラベルと同じインデントレベルを使用し、ケースラベルは if 文と同じように扱われます。 true<code>switch (fool) &#123; case 1:  &#123;    bar();  &#125;  break; default:  &#123;    plop();  &#125; &#125; </code>false<code>switch (fool) &#123; case 1: &#123;  bar(); &#125; break; default: &#123;  plop(); &#125; &#125; </code></p>
+</li>
+<li><p>IndentCaseLabels(Boolean) 3.3以降</p>
+<p>switch文のケースラベルのインデントを指定する。 trueの場合、ケースラベルはswitch文よりも一段インデントされます。 falseの場合、ケースラベルはswitch文と同じインデントレベルを使用します。 ステートメント本体は常にケースラベルよりも一段インデントされます。 true<code>switch (fool) &#123;  case 1:    bar();    break;  default:    plop(); &#125; </code>false<code>switch (fool) &#123; case 1:  bar();  break; default:  plop(); &#125; </code></p>
+</li>
+<li><p>IndentExternBlock(IndentExternBlockStyle) 11以降</p>
+<p>外部結合ブロックのインデントの種類を指定する。 値意味AfterExternBlockBraceWrapping.AfterExternBlockの動作に従う。(AfterExternBlockの項を参照)NoIndent外部結合ブロックのインデントを行わない。Indent外部結合ブロックのインデントを行う。trueIndentと同じ動作となる。(レガシーオプション)falseNoIndentと同じ動作となる。(レガシーオプション)NoIndent<code>extern &quot;C&quot; &#123; void foo(); &#125; </code>Indent<code>extern &quot;C&quot; &#123;  void foo(); &#125; </code></p>
+</li>
+<li><p>IndentGotoLabels(Boolean) 10以降</p>
+<p>gotoラベルのインデントを指定する。 true<code>// gotoラベルはステートメント内で左寄せになる int f() &#123;  if (foo()) &#123;  label1:    bar();  &#125; label2:  return 1; &#125; </code>false<code>// gotoラベルは左寄せになる int f() &#123;  if (foo()) &#123; label1:    bar();  &#125; label2:  return 1; &#125; </code></p>
+</li>
+<li><p>IndentPPDirectives(IndentExternBlockStyle) 6以降</p>
+<p>プリプロセッサ・ディレクティブのインデントの種類を指定する。 値意味Noneプリプロセッサ・ディレクティブのインデントを行わない。AfterHashハッシュの後についてインデントを行う。BeforeHashハッシュを含めてインデントを行う。None<code>#if FOO #if BAR #include &lt;foo&gt; #endif #endif </code>AfterHash<code>#if FOO #  if BAR #    include &lt;foo&gt; #  endif #endif </code>BeforeHash<code>#if FOO  #if BAR    #include &lt;foo&gt;  #endif #endif </code></p>
+</li>
+<li><p>IndentRequiresClause(Boolean) 15以降</p>
+<p>テンプレート定義のrequires節のインデントを指定する。 これは、RequiresClausePositionがOwnLine又はWithFollowingの場合にのみ適用されます。 備考 名前が変更されています。clang-format 12～14では、IndentRequiresという名前でした。true<code>template &lt;typename It&gt;  requires Iterator&lt;It&gt; void sort(It begin, It end) &#123;  //.... &#125; </code>false<code>template &lt;typename It&gt; requires Iterator&lt;It&gt; void sort(It begin, It end) &#123;  //.... &#125; </code></p>
+</li>
+<li><p>IndentWidth(Unsigned) 3.7以降</p>
+<p>インデントに使用する値を指定する </p>
+</li>
+<li><p>IndentWrappedFunctionNames(Boolean) 3.7以降</p>
+<p>関数定義や宣言が1行に収まらない場合、次行をインデントするか指定する。 true<code>// 次の行をインデントする LoooooooooooooooooooooooooooooooooooooooongReturnType    LoooooooooooooooooooooooooooooooongFunctionDeclaration(); </code>false<code>// 次の行をインデントしない LoooooooooooooooooooooooooooooooooooooooongReturnType    LoooooooooooooooooooooooooooooooongFunctionDeclaration(); </code></p>
+</li>
+<li><p>InsertBraces(Boolean) 15以降</p>
+<p>C++の制御文（if, else, for, do, while）の後に波括弧を入れる。ただし、制御文がマクロ定義の中にあるか、波括弧がプリプロセッサー指令を囲んでしまう場合は除く。 警告 このオプションを true に設定すると、clang-format の完全なセマンティック情報の欠如により、不正なコードフォーマットになる可能性があります。そのため、このオプションで変更されたコードをレビューする際には、特に注意が必要です。true<code>// 波括弧を省略しているステートメントについて自動で波括弧を付与する if (isa&lt;FunctionDecl&gt;(D)) &#123;  handleFunctionDecl(D); &#125; else if (isa&lt;VarDecl&gt;(D)) &#123;  handleVarDecl(D); &#125; else &#123;  return; &#125; while (i--) &#123;  for (auto *A : D.attrs()) &#123;    handleAttr(A);  &#125; &#125; do &#123;  --i; &#125; while (i); </code>false<code>// 波括弧を省略しているステートメントについて何もしない if (isa&lt;FunctionDecl&gt;(D))  handleFunctionDecl(D); else if (isa&lt;VarDecl&gt;(D))  handleVarDecl(D); else  return; while (i--)  for (auto *A : D.attrs())    handleAttr(A); do  --i; while (i); </code><strong>メモ書き</strong> 既に波括弧を付与しているファイルに対してfalseを指定しても、波括弧の削除は行われない。</p>
+</li>
+<li><p>InsertTrailingCommas(TrailingCommaStyle) 11以降</p>
+<p>複数行にまたがるコンテナリテラル(配列とオブジェクト)の末尾のカンマを付与を指定する。 Clang-Format15の段階ではJavaScriptのみ使用可能で、デフォルトはNoneで無効となっている。 また、BinPackArgumentsと同時に使用することは出来ません。 値意味None末尾にカンマを挿入しない。Wrapped末尾にカンマを挿入する。Wrapped<code>const someArray = [ aaaaaaaaaaaaaaaaaaaaaaaaaa, aaaaaaaaaaaaaaaaaaaaaaaaaa, aaaaaaaaaaaaaaaaaaaaaaaaaa, //                        ^ inserted ] </code></p>
+</li>
+<li><p>InsertTrailingCommas(List of Strings) 8以降</p>
+<p>Javaのimport宣言のグループ化の接頭辞を指定する。 一致する接頭辞が複数ある場合、最長の接頭辞を優先する。グループ内は辞書順にソートされる。静的なインポートは別でグループ化され、同じルールが適用となる。デフォルトでは静的なインポート宣言は非静的なインポート宣言の前に配置される。この動作はSortJavaStaticImportにより変更が可能である。 .clang-format ファイルで次の設定をした場合、Javaのインポート宣言は以下のように並びます。<code>JavaImportGroups: [&#39;com.example&#39;, &#39;com&#39;, &#39;org&#39;] </code>Javaソースの例<code>import static com.example.function1; import static com.test.function2; import static org.example.function3; import com.example.ClassA; import com.example.Test; import com.example.a.ClassB; import com.test.ClassC; import org.example.ClassD; </code></p>
+</li>
+<li><p>JavaScriptQuotes(JavaScriptQuoteStyle) 3.9以降</p>
+<p>JavaScriptの文字列のクォートを指定する。 値意味Leave文字列のクォートは変更しない。Single常にシングルクォートを使用する。Double常にダブルクォートを使用する。Leave<code>string1 = &quot;foo&quot;; string2 = &#39;bar&#39;; </code>Single<code>string1 = &#39;foo&#39;; string2 = &#39;bar&#39;; </code>Single<code>string1 = &quot;foo&quot;; string2 = &quot;bar&quot;; </code></p>
+</li>
+<li><p>JavaScriptWrapImports(Boolean) 3.9以降</p>
+<p>JavaScriptのimport&#x2F;export文をラップ方法を指定する。 true<code>import &#123;    VeryLongImportsAreAnnoying,    VeryLongImportsAreAnnoying,    VeryLongImportsAreAnnoying, &#125; from &#39;some/module.js&#39; </code>false<code>import &#123;VeryLongImportsAreAnnoying, VeryLongImportsAreAnnoying, VeryLongImportsAreAnnoying,&#125; from &quot;some/module.js&quot; </code></p>
+</li>
+<li><p>KeepEmptyLinesAtTheStartOfBlocks(Boolean) 3.7以降</p>
+<p>ブロックの先頭の空白の扱いを指定する。 true<code>// ブロックの先頭の空白を維持する if (foo) &#123;   bar(); &#125; </code>false<code>// ブロックの先頭の空白を削除する if (foo) &#123;  bar(); &#125; </code><strong>メモ書き</strong> 維持であり、挿入ではない。trueを指定しても空白行の挿入は行われない。</p>
+</li>
+<li><p>LambdaBodyIndentation(LambdaBodyIndentationKind) 13以降</p>
+<p>ラムダ式の本体の改行ルールを指定する。 コールバックの多いコードではOuterScopeを使用してシグネチャを2段階インデントした方が可読性が高くなる場合がある。(<a target="_blank" rel="noopener" href="https://github.com/capnproto/capnproto/blob/master/style-guide.md">KJ Style guide</a>ではOuterScopeを必須としています) 値意味Signatureラムダ式の本体をシグネチャのインデントレベルに対して1段下げる。OuterScopeラムダ式の本体を親スコープのインデントレベルに対して1段下げる。Signature<code>someMethod(    [](SomeReallyLongLambdaSignatureArgument foo) &#123;      return;    &#125;); </code>OuterScope<code>someMethod(    [](SomeReallyLongLambdaSignatureArgument foo) &#123;  return; &#125;); </code></p>
+</li>
+<li><p>Language(LanguageKind) 3.5以降</p>
+<p>対象となる言語を指定する。 値意味CppC言語及びC++に使用する。CSharpC♯に使用する。JavaJavaに使用する。JavaScriptJavaScriptに使用する。JsonJsonに使用する。ObjCObjective-C及びObjective-C++に使用する。ProtoProtocol Buffersに使用する。(<a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/)TableGenTableGen%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%80%82TextProto%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E5%BD%A2%E5%BC%8F%E3%81%AEProtocol">https://developers.google.com/protocol-buffers/)TableGenTableGenに使用する。TextProtoテキスト形式のProtocol</a> Buffersに使用する。(<a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/)VerilogVerilog%E5%8F%8A%E3%81%B3SystemVerilog%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%80%82">https://developers.google.com/protocol-buffers/)VerilogVerilog及びSystemVerilogに使用する。</a>(<a target="_blank" rel="noopener" href="https://standards.ieee.org/ieee/1800/6700/">https://standards.ieee.org/ieee/1800/6700/</a> <a target="_blank" rel="noopener" href="https://sci-hub.st/10.1109/IEEESTD.2018.8299595)**%E3%83%A1%E3%83%A2%E6%9B%B8%E3%81%8D">https://sci-hub.st/10.1109/IEEESTD.2018.8299595)**メモ書き</a>** 公式にはNoneが使用不可で記載されている。プログラム上、LanguageKindにNoneの定義が無いので指定するとyamlの解析でエラーになる。(使用不可というかそもそも使えない、レガシー？)例<code>--- # 各言語の共通設定を記述する BasedOnStyle: LLVM IndentWidth: 4 --- # C++固有の設定を書く Language: Cpp ... # ここまでC++固有の設定 --- # JavaScript固有の設定を書く Language: JavaScript ... # ここまでJavaScript固有の設定 --- # 以下同様に必要な言語の設定を記載していく ... </code></p>
+</li>
+<li><p>MacroBlockBegin(String) 3.7以降 MacroBlockEnd(String) 3.7以降</p>
+<p>ブロックの先頭及び末尾となるマクロを正規表現で指定する。 記述例<code>MacroBlockBegin: &quot;^NS_MAP_BEGIN|NS_TABLE_HEAD$&quot; MacroBlockEnd: &quot;^NS_MAP_END|NS_TABLE_.*_END$&quot; </code>実行例(MacroBlockBegin及びMacroBlockEndを指定しない場合)<code>// マクロで開始終了を内包するようなパターンの場合 #deinfe NS_MAP_BEGIN if( x ) &#123; #deinfe NS_MAP_END   &#125; // 開始/終了のマクロが判断できないため、本体部分の処理が前寄せになる。 NS_MAP_BEGIN foo(); NS_MAP_END </code>実行例(MacroBlockBegin及びMacroBlockEndを指定した場合)<code>// 開始/終了のマクロが正規表現で判定出来たため、本体部分の処理にインデントが付与される。 NS_MAP_BEGIN  foo(); NS_MAP_END </code></p>
+</li>
+<li><p>MaxEmptyLinesToKeep(String) 3.7以降 </p>
+<p>空行の最大保持数を指定する。 変更前<code>int f() &#123;   int i = 1;   i = foo();   return i;  &#125; </code>MaxEmptyLinesToKeep : 0 を指定した場合<code>int f() &#123;  int i = 1;  i = foo();  return i; &#125; </code>MaxEmptyLinesToKeep : 1 を指定した場合<code>int f() &#123;   int i = 1;   i = foo();   return i; &#125; // ↑ステートメントの終了前の空白は必ずすべて削除される。 </code><strong>メモ書き</strong> MaxEmptyLinesToKeepにNを指定しても最大N行の空白行が残るだけで、N行の空白が挿入となるわけではない。</p>
+</li>
+<li><p>NamespaceIndentation(NamespaceIndentationKind) 3.7以降</p>
+<p>名前空間のインデントを指定する。 コールバックの多いコードではOuterScopeを使用してシグネチャを2段階インデントした方が可読性が高くなる場合がある。(<a target="_blank" rel="noopener" href="https://github.com/capnproto/capnproto/blob/master/style-guide.md">KJ Style guide</a>ではOuterScopeを必須としています) 値意味None名前空間にインデントを行わない。Innerネストした名前空間だけインデントを行う。Allすべての名前空間をインデントする。None<code>namespace out &#123; int i; namespace in &#123; int i; &#125; &#125; </code>Inner<code>namespace out &#123; int i; namespace in &#123;  int i; &#125; &#125; </code>All<code>namespace out &#123;  int i;  namespace in &#123;    int i;  &#125; &#125; </code></p>
+</li>
+<li><p>NamespaceMacros(List of Strings) 9以降 </p>
+<p>名前空間の開始となるマクロのリストを指定する。 記述例<code>NamespaceMacros: [&#39;NAMESPACE&#39;, &#39;TESTSUITE&#39;] </code>実行例<code>NAMESPACE(&lt;namespace-name&gt;, ...) &#123;  &lt;namespace-content&gt; &#125; </code></p>
+</li>
+<li><p>ObjCBinPackProtocolList(BinPackStyle) 9以降</p>
+<p>Objective-Cプロトコル準拠のリスト項目がColumnLimitを超えた場合の改行の制御を指定する。 値意味AutoBinPackParametersの指定に従う。BinPackParametersがtrueの場合、Alwaysと同じ動作となる。falseの場合、Neverと同じ動作となる。AlwaysColumnLimitに収まる最小の行に纏める。Never個々の行に纏める。Always(又はAutoかつBinPackParametersがtrue)<code>@interface ccccccccccccc () &lt;    ccccccccccccc, ccccccccccccc,    ccccccccccccc, ccccccccccccc&gt; &#123; &#125; </code>Never(又はAutoかつBinPackParametersがfalse)<code>@interface ddddddddddddd () &lt;    ddddddddddddd,    ddddddddddddd,    ddddddddddddd,    ddddddddddddd&gt; &#123; &#125; </code></p>
+</li>
+<li><p>ObjCBlockIndentWidth(Unsigned) 3.7以降</p>
+<p>Objective-Cブロックのインデントの値を指定する。 </p>
+</li>
+<li><p>ObjCBreakBeforeNestedBlockParam(Boolean) 11以降</p>
+<p>Objective-Cの関数呼び出し時にブロックパラメータがネストしている場合の、パラメータリストの記載方法について指定する。 true<code>- (void)_aMethod &#123;  [self.test1 t:self              w:self       callback:^(typeof(self) self, NSNumber *u, NSNumber *v) &#123;           u = c;       &#125;] &#125; </code>false<code>- (void)_aMethod &#123;  [self.test1 t:self w:self       callback:^(typeof(self) self, NSNumber *u, NSNumber *v) &#123;           u = c;       &#125;] &#125; </code></p>
+</li>
+<li><p>ObjCSpaceAfterProperty(Boolean) 3.7以降</p>
+<p>Objective-Cの@propertyの後にスペースを入れるかを指定する。 true<code>@property (readonly) NSString* foo;  </code>false<code>@property(readonly) NSString* foo;  </code></p>
+</li>
+<li><p>ObjCSpaceBeforeProtocolList(Boolean) 3.7以降</p>
+<p>Objective-Cのプロトコルリストの前にスペースを入れるかを指定する。 true<code>@protocol Foo &lt;NSObject&gt; </code>false<code>@protocol Foo&lt;NSObject&gt; </code></p>
+</li>
+<li><p>PPIndentWidth(Integer) 13以降</p>
+<p>プリプロセッサのインデントの値を指定する。 -1を指定した場合、IndentWidthの値が使用される。PPIndentWidth: 1 の場合<code>#ifdef __linux__ # define FOO #else # define BAR #endif </code></p>
+</li>
+<li><p>PackConstructorInitializers(PackConstructorInitializersStyle) 14以降</p>
+<p>コンストラクタの初期化リストの並べ方について指定する。 値意味Never初期化リストは1行ずつ改行する。BinPackColumnLimitに収まる最小の行に纏める。CurrentLineすべての初期化リストが1行に収まる場合、1行に纏める。1行に収まらない場合、Neverと同じ動作となる。NextLineCurrentLineと同じ動作。ただし、コンストラクタの開始行にすべての要素が収まらない場合、次の行に収まるようにする。Never<code>Constructor()    : a(),      b() </code>BinPack<code>Constructor()    : aaaaaaaaaaaaaaaaaaaa(), bbbbbbbbbbbbbbbbbbbb(),      cccccccccccccccccccc() </code>CurrentLine<code>Constructor() : a(), b() // すべての要素が1行で収まらない場合、Neverと同じ動作をする Constructor()    : aaaaaaaaaaaaaaaaaaaa(),      bbbbbbbbbbbbbbbbbbbb(),      ddddddddddddd() </code>NextLine<code>// コンストラクタと同じ行に収まる場合、その行にすべての要素を出力する。 Constructor() : a(), b() // コンストラクタと同じ行に収まらない場合、次の行に収まるように整形する。 Constructor()    : aaaaaaaaaaaaaaaaaaaa(), bbbbbbbbbbbbbbbbbbbb(), ddddddddddddd() // 次の行にも収まらない長さの場合、Neverと同じ動作をする。 Constructor()    : aaaaaaaaaaaaaaaaaaaa(),      bbbbbbbbbbbbbbbbbbbb(),      cccccccccccccccccccc() </code></p>
+</li>
+<li><p>PenaltyBreakAssignment(Unsigned) 5以降</p>
+<p>代入演算子関連の改行に対するペナルティ <strong>メモ書き</strong> 以降Penalty～について、用途が理解できなかった為、直訳のみ。 ただし、BasedOnStyleの各定義を見ると値を設定しているため、必要な数値である模様。</p>
+</li>
+<li><p>PenaltyBreakBeforeFirstCallParameter(Unsigned) 3.7以降</p>
+<p>関数呼び出し後の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyBreakComment(Unsigned) 3.7以降</p>
+<p>コメント内での改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyBreakFirstLessLess(Unsigned) 3.7以降</p>
+<p>最初の左シフトの前の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyBreakOpenParenthesis(Unsigned) 14以降</p>
+<p>’(’の後の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyBreakString(Unsigned) 3.7以降</p>
+<p>文字列リテラル内の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyBreakTemplateDeclaration(Unsigned) 7以降</p>
+<p>テンプレート宣言の後の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyExcessCharacter(Unsigned) 3.7以降</p>
+<p>行の最大文字数を超過した場合の文字の改行に対するペナルティ </p>
+</li>
+<li><p>PenaltyIndentedWhitespace(Unsigned) 12以降</p>
+<p>空白文字のインデント1文字あたりのペナルティ(非ホワイトスペースの先頭列からの相対値でカウントされる)。 </p>
+</li>
+<li><p>PenaltyReturnTypeOnItsOwnLine(Unsigned) 3.7以降</p>
+<p>関数の戻り値の型を関数と同一行とした場合のペナルティ。 </p>
+</li>
+<li><p>PointerAlignment(PointerAlignmentStyle) 3.7以降</p>
+<p>ポインタ及び参照のアライメントについて指定する。 値意味Left左に寄せる。Right右に寄せる。Middle中央に寄せる。trueLeftと同じ動作。(レガシーオプション)falseRightと同じ動作。(レガシーオプション)Left<code>int* a; </code>Right<code>int *a; </code>Middle<code>int * a; </code></p>
+</li>
+<li><p>QualifierAlignment(QualifierAlignmentStyle) 14以降</p>
+<p>指定子や修飾子の並べ方を指定する(例：const&#x2F;volatile)。 <strong>警告</strong> QualifierAlignmentをLeave以外に設定すると、clang-formatsが完全な意味情報を持っていないため、間違った判断を下してしまい、コードが正しくフォーマットされない可能性があります。そのため、このオプションを使って変更されたコードをレビューする際には、特別な注意を払う必要があります。値意味Leave変更しない。Left指定子及び修飾子を左に寄せる。Right指定子及び修飾子を右に寄せる。CustomQualifierOrderで指定した値に従う。Leave<code>int const a; const int *a; </code>Left<code>const int a; const int *a; </code>Right<code>int const a; int const *a; </code>QualifierOrderの指定(Custom用)<code>QualifierOrder: [&#39;inline&#39;, &#39;static&#39; , &#39;type&#39;, &#39;const&#39;] </code>Custom<code>// 修飾子及び型がQualifierOrderで指定した順序(&#39;type&#39;, &#39;const&#39;)の順に並ぶ int const a; int const *a; </code></p>
+</li>
+<li><p>QualifierOrder(List of Strings) 14以降</p>
+<p>型、指定子及び修飾子の並び順を文字列リストで指定する。 この値はQualifierAlignmentにCustomを指定した場合、使用される。 指定する文字列リストは必ず’type’を含む必要がある。 指定可能なキーワードは以下のとおり。 ・const ・inline ・static ・constexpr ・volatile ・restrict ・type ※typeはデータ型を意味する(例えばint)例<code>QualifierOrder: [&#39;inline&#39;, &#39;static&#39; , &#39;type&#39;, &#39;const&#39;] </code></p>
+</li>
+<li><p>RawStringFormats(List of RawStringFormats) 6以降</p>
+<p>変換対象のファイルの内容がどの言語のコードブロックであるか判断するための定義を指定する。 デリミタが一致するか、関数名が一致する文字列を検出した場合、.clang-formatでその言語用に指定した定義によりフォーマットを行う。特定言語に対しての定義が見つからない場合、BasedOnStyleで指定したフォーマットに従い再変換を行う。BasedOnStyleが見つからない場合、llvmのフォーマットに基づき変換を行う。 マッチする言語は区切り文字にマッチするものが関数にマッチするものよりも優先されます。 例<code>RawStringFormats:  - Language: TextProto  # Language参照      Delimiters: # 拡張子        - &#39;pb&#39;        - &#39;proto&#39;      EnclosingFunctions: # 一致する関数等        - &#39;PARSE_TEXT_PROTO&#39;      BasedOnStyle: google # 一致した場合のフォーマット  - Language: Cpp      Delimiters:        - &#39;cc&#39;        - &#39;cpp&#39;      BasedOnStyle: llvm      CanonicalDelimiter: &#39;cc&#39; </code></p>
+</li>
+<li><p>ReferenceAlignment(ReferenceAlignmentStyle) 13以降</p>
+<p>参照のアライメントについて指定する。(参照についてPointerAlignmentの指定を上書きする) 値意味PointerPointerAlignmentの指定に従う。Left左に寄せる。Right右に寄せる。Middle中央に寄せる。Left<code>int&amp; a; </code>Right<code>int &amp;a; </code>Middle<code>int &amp; a; </code></p>
+</li>
+<li><p>ReflowComments(ReferenceAlignmentStyle) 4以降</p>
+<p>1行の最大文字数を超えたコメントの折り返しについて指定する。 true<code>// ColumnLimitを超えるコメントを自動で改行する // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of // information /* second veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of * information */ </code>false<code>// ColumnLimitを超えるコメントの改行を行わない // veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information /* second veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongComment with plenty of information */ </code></p>
+</li>
+<li><p>RemoveBracesLLVM(Boolean) 14以降</p>
+<p>LLVMコーディングスタイルに従って、C++の制御文（if, else, for, while）のオプションの波括弧を削除する。 <strong>警告</strong> このオプションは名称を変更し、他のスタイルにも対応できるように拡張する予定です。<strong>警告</strong> このオプションを true に設定すると、clang-format の完全なセマンティック情報の欠如により、不正なコードフォーマットになる可能性があります。そのため、このオプションで変更されたコードをレビューする際には、特に注意が必要です。true<code>// 省略が可能な波括弧について削除する if (isa&lt;FunctionDecl&gt;(D))  handleFunctionDecl(D); else if (isa&lt;VarDecl&gt;(D))  handleVarDecl(D); if (isa&lt;VarDecl&gt;(D)) &#123;  for (auto *A : D.attrs())    if (shouldProcessAttr(A))      handleAttr(A); &#125; if (isa&lt;FunctionDecl&gt;(D))  for (auto *A : D.attrs())    handleAttr(A); if (auto *D = (T)(D)) &#123;  if (shouldProcess(D))    handleVarDecl(D);  else    markAsIgnored(D); &#125; if (a)  b(); else if (c)  d(); else  e(); </code>false<code>// 波括弧を特に変更しない if (isa&lt;FunctionDecl&gt;(D)) &#123;  handleFunctionDecl(D); &#125; else if (isa&lt;VarDecl&gt;(D)) &#123;  handleVarDecl(D); &#125; if (isa&lt;VarDecl&gt;(D)) &#123;  for (auto *A : D.attrs()) &#123;    if (shouldProcessAttr(A)) &#123;      handleAttr(A);    &#125;  &#125; &#125; if (isa&lt;FunctionDecl&gt;(D)) &#123;  for (auto *A : D.attrs()) &#123;    handleAttr(A);  &#125; &#125; if (auto *D = (T)(D)) &#123;  if (shouldProcess(D)) &#123;    handleVarDecl(D);  &#125; else &#123;    markAsIgnored(D);  &#125; &#125; if (a) &#123;  b(); &#125; else &#123;  if (c) &#123;    d();  &#125; else &#123;    e();  &#125; &#125; </code></p>
+</li>
+<li><p>RequiresClausePosition(RequiresClausePositionStyle) 15以降</p>
+<p>requires句の改行について指定する。 値意味OwnLine必ず改行する。WithPreceding宣言と同じ行となるようにする。クラス又は関数のテンプレート宣言の場合、テンプレート宣言に従う。関数宣言の場合、引数リストに従う。WithFollowingクラスや関数の宣言と同じにする。SingleLine可能な限り1行に記載する。1行で記載できない場合、改行する。OwnLine<code>template &lt;typename T&gt; requires C&lt;T&gt; struct Foo &#123;... template &lt;typename T&gt; requires C&lt;T&gt; void bar(T t) &#123;... template &lt;typename T&gt; void baz(T t) requires C&lt;T&gt; &#123;... </code>WithPreceding<code>template &lt;typename T&gt; requires C&lt;T&gt; struct Foo &#123;... template &lt;typename T&gt; requires C&lt;T&gt; void bar(T t) &#123;... template &lt;typename T&gt; void baz(T t) requires C&lt;T&gt; &#123;... </code>WithFollowing<code>template &lt;typename T&gt; requires C&lt;T&gt; struct Foo &#123;... template &lt;typename T&gt; requires C&lt;T&gt; void bar(T t) &#123;... template &lt;typename T&gt; void baz(T t) requires C&lt;T&gt; &#123;... </code>SingleLine<code>// 1行で収まる場合 template &lt;typename T&gt; requires C&lt;T&gt; struct Foo &#123;... template &lt;typename T&gt; requires C&lt;T&gt; void bar(T t) &#123;... template &lt;typename T&gt; void bar(T t) requires C&lt;T&gt; &#123;... // 1行で収まらない場合 template &lt;typename LongName&gt; requires C&lt;LongName&gt; struct Foo &#123;... template &lt;typename LongName&gt; requires C&lt;LongName&gt; void bar(LongName ln) &#123; template &lt;typename LongName&gt; void bar(LongName ln)    requires C&lt;LongName&gt; &#123; </code></p>
+</li>
+<li><p>SeparateDefinitionBlocks(SeparateDefinitionStyle) 14以降</p>
+<p>クラス、構造体、列挙型、関数などの定義ブロックの区切りに、空行を挿入するかを指定する。 値意味Leave変更しない。Always定義ブロックの区切りに改行を挿入する。Never定義ブロックの区切りの改行を削除する。Always<code>#include &lt;cstring&gt; struct Foo &#123;  int a, b, c; &#125;; namespace Ns &#123; class Bar &#123; public:  struct Foobar &#123;    int a;    int b;  &#125;; private:  int t;   int method1() &#123;    // ...  &#125;   enum List &#123;    ITEM1,    ITEM2  &#125;;   template &lt;typename T&gt; int method2(T x) &#123;    // ...  &#125;   int i, j, k;   int method3(int par) &#123;    // ...  &#125; &#125;; class C &#123;&#125;; &#125; </code>Never<code>#include &lt;cstring&gt; struct Foo &#123;  int a, b, c; &#125;; namespace Ns &#123; class Bar &#123; public:  struct Foobar &#123;    int a;    int b;  &#125;; private:  int t;  int method1() &#123;    // ...  &#125;  enum List &#123;    ITEM1,    ITEM2  &#125;;  template &lt;typename T&gt; int method2(T x) &#123;    // ...  &#125;  int i, j, k;  int method3(int par) &#123;    // ...  &#125; &#125;; class C &#123;&#125;; &#125; </code></p>
+</li>
+<li><p>ShortNamespaceLines(Unsigned) 13以降</p>
+<p>短い名前空間は何行以下であるかについて、行数を指定する。デフォルトは1。 この値はFixNamespaceCommentsがtrueの場合、終了コメントを追加するために使用する。ShortNamespaceLines: 0 を指定した場合<code>// どちらの名前空間も0行より大きいので、FixNamespaceCommentsの動作により名前空間の末尾にコメントを挿入する。 namespace a &#123;  int foo; &#125; // namespace a namespace b &#123;  int foo;  int bar; &#125; // namespace b </code>ShortNamespaceLines: 1 を指定した場合<code>// 名前空間aは1行以下なのでコメントの挿入を行わない。bは1行より大きいのでコメントの挿入を行う。 namespace a &#123;  int foo; &#125; namespace b &#123;  int foo;  int bar; &#125; // namespace b </code></p>
+</li>
+<li><p>SortIncludes(SortIncludesOptions) 4以降</p>
+<p>インクルート文のソート条件について指定する。 値意味Neverソートしない。CaseSensitive大文字と小文字を区別してアスキーコード順にソートを行う。CaseInsensitive大文字と小文字を区別せずアルファベット順にソートを行う。trueCaseSensitiveと同じ動作。(レガシーオプション)falseNeverと同じ動作。(レガシーオプション)Never<code>#include &quot;B/A.h&quot; #include &quot;A/B.h&quot; #include &quot;a/b.h&quot; #include &quot;A/b.h&quot; #include &quot;B/a.h&quot; </code>CaseSensitive<code>#include &quot;A/B.h&quot; #include &quot;A/b.h&quot; #include &quot;B/A.h&quot; #include &quot;B/a.h&quot; #include &quot;a/b.h&quot; </code>CaseInsensitive<code>#include &quot;A/B.h&quot; #include &quot;A/b.h&quot; #include &quot;a/b.h&quot; #include &quot;B/A.h&quot; #include &quot;B/a.h&quot; </code></p>
+</li>
+<li><p>SortJavaStaticImport(SortJavaStaticImportOptions) 12以降</p>
+<p>Javaのインポート文の並び順について指定する。 値意味Before静的なインポートを非静的なインポートの前に置く。After静的なインポートを非静的なインポートの後に置く。Before<code>import static org.example.function1; import org.example.ClassA; </code>After<code>import org.example.ClassA; import static org.example.function1; </code><strong>メモ書き</strong> 公式ドキュメントに不備あり。JavaStaticImportAfterImportについてはSortJavaStaticImportの誤記の理解。</p>
+</li>
+<li><p>SortUsingDeclarations(Boolean) 5以降</p>
+<p>using宣言のソート方法を指定する。 ソートは名前空間の単位で行う。また、ソートは大文字小文字を区別せず、アルファベット順で行う。true<code>using foo::bar; using std::cin; using std::cout; using ABC::DEF::GHI; using ABC::XYZ::GHI; </code>false<code>using std::cout; using std::cin; using foo::bar; using ABC::XYZ::GHI; using ABC::DEF::GHI; </code></p>
+</li>
+<li><p>SpaceAfterCStyleCast(Boolean) 3.5以降</p>
+<p>C言語キャストの後のスペースを指定する。 true<code>// C言語キャストの後にスペースを挿入する (int) i;  </code>false<code>// C言語キャストの後にスペースを挿入しない (int) i;  </code></p>
+</li>
+<li><p>SpaceAfterLogicalNot(Boolean) 9以降</p>
+<p>論理否定の後のスペースを指定する。 true<code>// 論理否定の後にスペースを挿入する ! someExpression(); </code>false<code>// 論理否定の後にスペースを挿入しない !someExpression(); </code></p>
+</li>
+<li><p>SpaceAfterTemplateKeyword(Boolean) 4以降</p>
+<p>テンプレートキーワードの後のスペースを指定する。 true<code>// テンプレートキーワードの後にスペースを挿入する template &lt;int&gt; void foo(); </code>false<code>// テンプレートキーワードの後にスペースを挿入しない template&lt;int&gt; void foo(); </code></p>
+</li>
+<li><p>SpaceAroundPointerQualifiers(SpaceAroundPointerQualifiersStyle) 12以降</p>
+<p>ポインタ修飾子(const&#x2F;volatile)の前後の空白を指定する。 また、PointerAlignmentの動作とは別で空白の挿入が行われる。 値意味DefaultPointerAlignmentで指定した動作とする。Beforeポインタ修飾子の前に空白を挿入する。Afterポインタ修飾子の後に空白を挿入する。Bothポインタ修飾子の前後に空白を挿入する。Default(PointerAlignment: Leftの場合)<code>void* const* x = NULL; </code>Default(PointerAlignment: Rightの場合)<code>void *const *x = NULL; </code>Before(PointerAlignment: Leftの場合)<code>void* const* x = NULL; </code>Before(PointerAlignment: Rightの場合)<code>void * const * x = NULL; </code>After(PointerAlignment: Leftの場合)<code>void* const * x = NULL; </code>After(PointerAlignment: Rightの場合)<code>void *const *x = NULL; </code>Both(PointerAlignment: Leftの場合)<code>void* const * x = NULL; </code>Both(PointerAlignment: Rightの場合)<code>void * const *x = NULL; </code></p>
+</li>
+<li><p>SpaceBeforeAssignmentOperators(Boolean) 3.7以降</p>
+<p>代入演算子の前のスペースを指定する。 true<code>// 代入演算子の前にスペースを挿入する。 int a = 5; a += 42; </code>false<code>// 代入演算子の前のスペースを削除する。 int a= 5; a+= 42; </code></p>
+</li>
+<li><p>SpaceBeforeCaseColon(Boolean) 12以降</p>
+<p>caseラベルのコロンの前のスペースを指定する。 true<code>// caseラベルのコロンの前にスペースを挿入する。 switch (x) &#123;  case 1 : break; &#125; </code>false<code>// caseラベルのコロンの前のスペースを削除する。 switch (x) &#123;  case 1: break; &#125; </code></p>
+</li>
+<li><p>SpaceBeforeCpp11BracedList(Boolean) 7以降</p>
+<p>C++11の初期化リストの前のスペースを指定する。 true<code>// 初期化リストの前にスペースを挿入する。 Foo foo &#123; bar &#125;; Foo &#123;&#125;; vector&lt;int&gt; &#123; 1, 2, 3 &#125;; new int[3] &#123; 1, 2, 3 &#125;; </code>false<code>// 初期化リストの前のスペースを削除する。 Foo foo&#123; bar &#125;; Foo&#123;&#125;; vector&lt;int&gt;&#123; 1, 2, 3 &#125;; new int[3]&#123; 1, 2, 3 &#125;; </code></p>
+</li>
+<li><p>SpaceBeforeCtorInitializerColon(Boolean) 7以降</p>
+<p>コンストラクタの初期化リストのコロンの前のスペースを指定する。 true<code>// コロンの前にスペースを挿入する。 Foo::Foo() : a(a) &#123;&#125;  </code>false<code>// コロンの前のスペースを削除する。 Foo::Foo(): a(a) &#123;&#125; </code></p>
+</li>
+<li><p>SpaceBeforeInheritanceColon(Boolean) 7以降</p>
+<p>クラス宣言の継承リストのコロンの前のスペースを指定する。 true<code>// コロンの前にスペースを挿入する。 class Foo : Bar &#123;&#125; </code>false<code>// コロンの前のスペースを削除する。 class Foo: Bar &#123;&#125;  </code></p>
+</li>
+<li><p>SpaceBeforeParens(SpaceBeforeParensStyle) 3.5以降</p>
+<p>丸括弧の前にスペースを挿入する条件を指定する。 値意味Never丸括弧の前の空白を削除する。ControlStatements制御文のキーワード(for&#x2F;if&#x2F;while等)の後のみ、丸括弧の前に空白を挿入する。ControlStatementsExceptControlMacrosControlStatementsと同じ動作。ただし、ForEachMacros及びIfMacrosにて指定したマクロ名には適用されない。NonEmptyParentheses括弧内が空ではない場合、丸括弧の前に空白を挿入する。Always構文規約で禁止されている(関数マクロの定義等)又は他のスタイル規則で決められている場合を除き、丸括弧の前に空白を挿入する。CustomSpaceBeforeParensOptionsにより、個別に指定を行う。falseNeverと同じ動作。(レガシーオプション)trueControlStatementsと同じ動作。(レガシーオプション)ControlStatementsExceptForEachMacrosControlStatementsExceptControlMacrosと同じ動作。(レガシーオプション)Never<code>void f() &#123;  if(true) &#123;    f();  &#125; &#125; </code>ControlStatements<code>void f() &#123;  if (true) &#123;    f();  &#125; &#125; </code>ControlStatementsExceptControlMacros<code>void f() &#123;  Q_FOREACH(...) &#123;    f();  &#125; &#125; </code>NonEmptyParentheses<code>void() &#123;  if (true) &#123;    f();    g (x, y, z);  &#125; &#125; </code>Always<code>void f () &#123;  if (true) &#123;    f ();  &#125; &#125; </code></p>
+</li>
+<li><p>SpaceBeforeParensOptions(SpaceBeforeParensCustom) 14以降</p>
+<p>丸括弧の前にスペース制御を個別に指定する。 SpaceBeforeParensがCustomに指定されている場合、SpaceBeforeParensOptionsで指定した値に従い、スペースの制御を行います。SpaceBeforeParensがCustom以外の場合、この値は無視されます。記述例<code>SpaceBeforeParens: Custom SpaceBeforeParensOptions:  AfterControlStatements: true  AfterFunctionDefinitionName: true </code>AfterControlStatements(Boolean)制御文のキーワード(for&#x2F;if&#x2F;while等)と開始括弧の間のスペースを指定する。true<code>// スペースを挿入する if (...) &#123;&#125; </code>false<code>// スペースを削除する if(...) &#123;&#125; </code>AfterForeachMacros(Boolean)ForEachMacrosで指定したマクロと開始括弧の間のスペースを指定する。true<code>// スペースを挿入する FOREACH (...)  &lt;loop-body&gt; </code>false<code>// スペースを削除する FOREACH(...)  &lt;loop-body&gt; </code>AfterFunctionDeclarationName(Boolean)関数宣言と開始括弧の間のスペースを指定する。true<code>// スペースを挿入する void f (); </code>false<code>// スペースを削除する void f(); </code>AfterFunctionDefinitionName(Boolean)関数定義と開始括弧の間のスペースを指定する。true<code>// スペースを挿入する void f () &#123;&#125;; </code>false<code>// スペースを削除する void f() &#123;&#125;; </code>AfterIfMacros(Boolean)IfMacrosで指定したマクロと開始括弧の間のスペースを指定する。true<code>// スペースを挿入する IF (...)  &lt;conditional-body&gt; </code>false<code>// スペースを削除する IF(...)  &lt;conditional-body&gt; </code>AfterIfMacros(Boolean)演算子のオーバーロードと開始括弧の間のスペースを指定する。true<code>// スペースを挿入する void operator++ (int a); object.operator++ (10);  </code>false<code>// スペースを削除する void operator++(int a); object.operator++(10);  </code>AfterRequiresInClause(Boolean)requires句と開始括弧の間のスペースを指定する。true<code>// スペースを挿入する template&lt;typename T&gt; requires (A&lt;T&gt; &amp;&amp; B&lt;T&gt;) ... </code>false<code>// スペースを削除する template&lt;typename T&gt; requires(A&lt;T&gt; &amp;&amp; B&lt;T&gt;) ... </code>AfterRequiresInExpression(Boolean)requires式と開始括弧の間のスペースを指定する。true<code>// スペースを挿入する template&lt;typename T&gt; concept C = requires (T t) &#123;              ...            &#125; </code>false<code>// スペースを削除する template&lt;typename T&gt; concept C = requires(T t) &#123;              ...            &#125; </code>BeforeNonEmptyParentheses(Boolean)括弧内が空ではない場合の、開始括弧の間のスペースを指定する。true<code>// 括弧内が空白ではない場合、スペースを挿入する void f (int a); f (a); </code>false<code>// スペースを削除する void f(); f(); </code></p>
+</li>
+<li><p>SpaceBeforeRangeBasedForLoopColon(Boolean) 7以降</p>
+<p>範囲指定でのfor文のコロンの前のスペースを指定する。 true<code>// コロンの前にスペースを挿入する。 for (auto v : values) &#123;&#125; </code>false<code>// コロンの前のスペースを削除する。 for (auto v: values) &#123;&#125; </code><strong>メモ書き</strong> 公式の例ではforの前のスペースについても変更されているが、誤記の理解。(clang-format8.0.1及び15で確認の結果、変更されない)</p>
+</li>
+<li><p>SpaceBeforeSquareBrackets(Boolean) 10以降</p>
+<p>角括弧の前のスペースを指定する。ただし、ラムダ式についてはこの指定の影響を受けない。 true<code>// 角括弧の前にスペースを挿入する。 int a [5]; int a [5][5]; </code>false<code>// 角括弧の前のスペースを削除する。 int a[5]; int a[5][5]; </code></p>
+</li>
+<li><p>SpaceInEmptyBlock(Boolean) 10以降</p>
+<p>空白の波括弧の間のスペースを指定する。 true<code>// 空白の波括弧の間にスペースを挿入する。 void f() &#123; &#125; while (true) &#123; &#125; </code>false<code>// 空白の波括弧の間のスペースを削除する。 void f() &#123;&#125; while (true) &#123;&#125; </code></p>
+</li>
+<li><p>SpaceInEmptyParentheses(Boolean) 3.7以降</p>
+<p>空白の丸括弧の間のスペースを指定する。 true<code>// 空白の丸括弧の間にスペースを挿入する。 void f( ) &#123;  int x[] = &#123;foo( ), bar( )&#125;;  if (true) &#123;    f( );  &#125; &#125; </code>false<code>// 空白の丸括弧の間のスペースを削除する。 void f() &#123;  int x[] = &#123;foo(), bar()&#125;;  if (true) &#123;    f();  &#125; &#125; </code></p>
+</li>
+<li><p>SpacesBeforeTrailingComments(Unsigned) 3.7以降</p>
+<p>行コメント(&#x2F;&#x2F;)の前のスペースの数を指定する。 SpacesBeforeTrailingComments: 3 の場合<code>// 空白の丸括弧の間にスペースを挿入する。 void f() &#123;  if (true) &#123;   // スペース3個分空白が開く    f();        // 上に合わせる  &#125;             // foo &#125; </code></p>
+</li>
+<li><p>SpacesInAngles(SpacesInAnglesStyle) 3.4以降</p>
+<p>テンプレートの引数リストの前後の空白を指定する。 値意味Never&lt; の後と &gt; の前のスペースを削除する。Always&lt; の後と &gt; の前にスペースを挿入する。Leave&lt; の後と &gt; の前にスペースがあった場合、スペースを1つずつ残す。StandardにCpp03を指定している場合、そちらを優先する。trueAlwaysと同じ動作。(レガシーオプション)falseNeverと同じ動作。(レガシーオプション)Never<code>// 引数リストの前後のスペースを削除する。 static_cast&lt;int&gt;(arg); std::function&lt;void(int)&gt; fct; </code>Always<code>// 引数リストの前後にスペースを挿入する。 static_cast&lt; int &gt;(arg); std::function&lt; void(int) &gt; fct; </code></p>
+</li>
+<li><p>SpacesInCStyleCastParentheses(Boolean) 3.7以降</p>
+<p>C言語キャストの丸括弧内のスペースを指定する。 true<code>// 開き丸括弧の後及び閉じ丸括弧の前にスペースを挿入する。 x = ( int32 )y; </code>false<code>// 開き丸括弧の後及び閉じ丸括弧の前のスペースを削除する。 x = (int32)y; </code></p>
+</li>
+<li><p>SpacesInConditionalStatement(Boolean) 10以降</p>
+<p>制御文(if, for, switch, while)の丸括弧内のスペースを指定する。 true<code>// 開き丸括弧の後及び閉じ丸括弧の前にスペースを挿入する。 if ( a )  &#123; ... &#125; while ( i &lt; 5 )  &#123; ... &#125; </code>false<code>// 開き丸括弧の後及び閉じ丸括弧の前のスペースを削除する。 if (a)  &#123; ... &#125; while (i &lt; 5)  &#123; ... &#125; </code></p>
+</li>
+<li><p>SpacesInContainerLiterals(Boolean) 3.7以降</p>
+<p>コンテナ・リテラル(Objective-CやJavascriptの配列やdictリテラルなど)内のスペースを指定する。 true<code>// コンテナ・リテラル内にスペースを挿入する。 var arr = [ 1, 2, 3 ]; f(&#123;a : 1, b : 2, c : 3&#125;); </code>false<code>// コンテナ・リテラル内のスペースを削除する。 var arr = [1, 2, 3]; f(&#123;a: 1, b: 2, c: 3&#125;); </code></p>
+</li>
+<li><p>SpacesInLineCommentPrefix(SpacesInLineComment) 13以降</p>
+<p>行頭のコメントで許容されるスペースの数の最大値及び最小値を指定する。 最大値に―1を指定した場合、最大値は無効となる。それ以外の場合、最大値が最小値より優先される。書式例<code>SpacesInLineCommentPrefix:  Minimum: 1  Maximum: -1 </code>Minimum: 2、Maximum: -1の場合<code>//  //の後に2文字スペースが挿入される //  if (b) &#123; //    return true; //  &#125;          </code>Minimum: 2、Maximum: 1の場合<code>// //の後に1文字スペースが挿入される(最小は2だが最大が1の為、最大数を設定となる) // if (b) &#123; //   return true; // &#125;          </code></p>
+</li>
+<li><p>SpacesInParentheses(Boolean) 3.7以降</p>
+<p>丸括弧内の前後のスペースを指定する。 true<code>// 開き丸括弧の後及び閉じ丸括弧の前にスペースを挿入する。 t f( Deleted &amp; ) &amp; = delete; </code>false<code>// 開き丸括弧の後及び閉じ丸括弧の前のスペースを削除する。 t f(Deleted &amp;) &amp; = delete; </code></p>
+</li>
+<li><p>SpacesInSquareBrackets(Boolean) 3.7以降</p>
+<p>角括弧内の前後のスペースを指定する。ただしラムダ式と値の無い角括弧のブロックについては対象外とする。 true<code>// 開き角括弧の後及び閉じ角括弧の前にスペースを挿入する。 int a[ 5 ]; std::unique_ptr&lt;int[]&gt; foo() &#123;&#125; // 値の無い角括弧は対象外 </code>false<code>// 開き角括弧の後及び閉じ角括弧の前のスペースを削除する。 int a[5]; </code></p>
+</li>
+<li><p>Standard(LanguageStandard) 3.7以降</p>
+<p>対象とするC++の規格を指定する。 値意味c++03 C++03 Cpp03C++03を指定する。c++11 Cpp11C++11を指定する。c++14C++17を指定する。c++17C++14を指定する。c++20C++20を指定する。LatestLatestを指定する。動作としてはC++11と同じになる。Auto自動で判別を行う。</p>
+</li>
+<li><p>StatementAttributeLikeMacros(List of Strings) 12以降</p>
+<p>識別子として解釈させず、属性と同じように無視されるキーワードを指定する。 Qtのemitなどを識別子として処理させないための定義である。 書式例<code>StatementAttributeLikeMacros: [&#39;emit&#39;, &#39;Q_EMIT&#39;] </code>StatementAttributeLikeMacros: [] を指定した場合<code>unsigned char data = &#39;x&#39;; emit          signal(data); // emitを識別子と勘違いしてしまい、おかしな並び方になる </code>StatementAttributeLikeMacros: [‘emit’] を指定した場合<code>unsigned char data = &#39;x&#39;; emit signal(data); // emitを識別子と認識させない </code></p>
+</li>
+<li><p>StatementMacros(List of Strings) 8以降</p>
+<p>完全な式として解釈されるべきマクロを指定する。 書式例<code>StatementMacros: [&#39;Q_UNUSED&#39;, &#39;QT_REQUIRE_VERSION&#39;] </code></p>
+</li>
+<li><p>TabWidth(Unsigned) 3.7以降</p>
+<p>タブ文字の数を指定する。 </p>
+</li>
+<li><p>TypenameMacros(List of Strings) 9以降</p>
+<p>関数呼び出しとしてではなく、型宣言として解釈されるべきマクロを指定する。 書式例<code>TypenameMacros: [&#39;STACK_OF&#39;, &#39;LIST&#39;] </code></p>
+</li>
+<li><p>UseCRLF(Unsigned) 10以降</p>
+<p>ファイル内の改行コードを指定する。 trueを指定した場合、ファイルの改行コードをCR+LFで統一する。DeriveLineEndingにtrueの場合、このフラグは無効となる。 </p>
+</li>
+<li><p>UseTab(UseTabStyle) 3.7以降</p>
+<p>変換結果のファイルでのタブの使用について指定する。 値意味Neverタブを使用しない。ForIndentationインデントについてのみタブを使用する。ForContinuationAndIndentation先頭の空白はすべてタブで埋め、行内に現れるアライメント(連続した代入や宣言など)にはスペースを使用する。AlignWithSpaces行の継続とインデントにはタブを使用し、整列にはスペースを使用します。Always少なくとも1つのタブストップから次のタブストップまでの空白を埋める必要がある場合は、タブを使用します。trueAlwaysと同じ動作を行う。(レガシーオプション)falseNeverと同じ動作を行う。(レガシーオプション)</p>
+</li>
+<li><p>WhitespaceSensitiveMacros(List of Strings) 11以降</p>
+<p>ホワイトスペースが影響する変更をかけてはいけないマクロを指定する。 書式例<code>WhitespaceSensitiveMacros: [&#39;STRINGIZE&#39;, &#39;PP_STRINGIZE&#39;] </code></p>
+</li>
+</ul>
+<h2 id="３-書式例"><a href="#３-書式例" class="headerlink" title="３. 書式例"></a>３. 書式例</h2><p>Clang-Format15でのLLVMの既定値を以下に示す。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">Language:        Cpp</span><br><span class="line"># BasedOnStyle:  LLVM</span><br><span class="line">AccessModifierOffset: -2</span><br><span class="line">AlignAfterOpenBracket: Align</span><br><span class="line">AlignArrayOfStructures: None</span><br><span class="line">AlignConsecutiveMacros: None</span><br><span class="line">AlignConsecutiveAssignments: None</span><br><span class="line">AlignConsecutiveBitFields: None</span><br><span class="line">AlignConsecutiveDeclarations: None</span><br><span class="line">AlignEscapedNewlines: Right</span><br><span class="line">AlignOperands:   Align</span><br><span class="line">AlignTrailingComments: true</span><br><span class="line">AllowAllArgumentsOnNextLine: true</span><br><span class="line">AllowAllConstructorInitializersOnNextLine: true</span><br><span class="line">AllowAllParametersOfDeclarationOnNextLine: true</span><br><span class="line">AllowShortEnumsOnASingleLine: true</span><br><span class="line">AllowShortBlocksOnASingleLine: Never</span><br><span class="line">AllowShortCaseLabelsOnASingleLine: false</span><br><span class="line">AllowShortFunctionsOnASingleLine: All</span><br><span class="line">AllowShortLambdasOnASingleLine: All</span><br><span class="line">AllowShortIfStatementsOnASingleLine: Never</span><br><span class="line">AllowShortLoopsOnASingleLine: false</span><br><span class="line">AlwaysBreakAfterDefinitionReturnType: None</span><br><span class="line">AlwaysBreakAfterReturnType: None</span><br><span class="line">AlwaysBreakBeforeMultilineStrings: false</span><br><span class="line">AlwaysBreakTemplateDeclarations: MultiLine</span><br><span class="line">AttributeMacros:</span><br><span class="line">  - __capability</span><br><span class="line">BinPackArguments: true</span><br><span class="line">BinPackParameters: true</span><br><span class="line">BraceWrapping:</span><br><span class="line">  AfterCaseLabel:  false</span><br><span class="line">  AfterClass:      false</span><br><span class="line">  AfterControlStatement: Never</span><br><span class="line">  AfterEnum:       false</span><br><span class="line">  AfterFunction:   false</span><br><span class="line">  AfterNamespace:  false</span><br><span class="line">  AfterObjCDeclaration: false</span><br><span class="line">  AfterStruct:     false</span><br><span class="line">  AfterUnion:      false</span><br><span class="line">  AfterExternBlock: false</span><br><span class="line">  BeforeCatch:     false</span><br><span class="line">  BeforeElse:      false</span><br><span class="line">  BeforeLambdaBody: false</span><br><span class="line">  BeforeWhile:     false</span><br><span class="line">  IndentBraces:    false</span><br><span class="line">  SplitEmptyFunction: true</span><br><span class="line">  SplitEmptyRecord: true</span><br><span class="line">  SplitEmptyNamespace: true</span><br><span class="line">BreakBeforeBinaryOperators: None</span><br><span class="line">BreakBeforeConceptDeclarations: true</span><br><span class="line">BreakBeforeBraces: Attach</span><br><span class="line">BreakBeforeInheritanceComma: false</span><br><span class="line">BreakInheritanceList: BeforeColon</span><br><span class="line">BreakBeforeTernaryOperators: true</span><br><span class="line">BreakConstructorInitializersBeforeComma: false</span><br><span class="line">BreakConstructorInitializers: BeforeColon</span><br><span class="line">BreakAfterJavaFieldAnnotations: false</span><br><span class="line">BreakStringLiterals: true</span><br><span class="line">ColumnLimit:     80</span><br><span class="line">CommentPragmas:  &#x27;^ IWYU pragma:&#x27;</span><br><span class="line">CompactNamespaces: false</span><br><span class="line">ConstructorInitializerAllOnOneLineOrOnePerLine: false</span><br><span class="line">ConstructorInitializerIndentWidth: 4</span><br><span class="line">ContinuationIndentWidth: 4</span><br><span class="line">Cpp11BracedListStyle: true</span><br><span class="line">DeriveLineEnding: true</span><br><span class="line">DerivePointerAlignment: false</span><br><span class="line">DisableFormat:   false</span><br><span class="line">EmptyLineAfterAccessModifier: Never</span><br><span class="line">EmptyLineBeforeAccessModifier: LogicalBlock</span><br><span class="line">ExperimentalAutoDetectBinPacking: false</span><br><span class="line">FixNamespaceComments: true</span><br><span class="line">ForEachMacros:</span><br><span class="line">  - foreach</span><br><span class="line">  - Q_FOREACH</span><br><span class="line">  - BOOST_FOREACH</span><br><span class="line">IfMacros:</span><br><span class="line">  - KJ_IF_MAYBE</span><br><span class="line">IncludeBlocks:   Preserve</span><br><span class="line">IncludeCategories:</span><br><span class="line">  - Regex:           &#x27;^&quot;(llvm|llvm-c|clang|clang-c)/&#x27;</span><br><span class="line">    Priority:        2</span><br><span class="line">    SortPriority:    0</span><br><span class="line">    CaseSensitive:   false</span><br><span class="line">  - Regex:           &#x27;^(&lt;|&quot;(gtest|gmock|isl|json)/)&#x27;</span><br><span class="line">    Priority:        3</span><br><span class="line">    SortPriority:    0</span><br><span class="line">    CaseSensitive:   false</span><br><span class="line">  - Regex:           &#x27;.*&#x27;</span><br><span class="line">    Priority:        1</span><br><span class="line">    SortPriority:    0</span><br><span class="line">    CaseSensitive:   false</span><br><span class="line">IncludeIsMainRegex: &#x27;(Test)?$&#x27;</span><br><span class="line">IncludeIsMainSourceRegex: &#x27;&#x27;</span><br><span class="line">IndentAccessModifiers: false</span><br><span class="line">IndentCaseLabels: false</span><br><span class="line">IndentCaseBlocks: false</span><br><span class="line">IndentGotoLabels: true</span><br><span class="line">IndentPPDirectives: None</span><br><span class="line">IndentExternBlock: AfterExternBlock</span><br><span class="line">IndentRequires:  false</span><br><span class="line">IndentWidth:     2</span><br><span class="line">IndentWrappedFunctionNames: false</span><br><span class="line">InsertTrailingCommas: None</span><br><span class="line">JavaScriptQuotes: Leave</span><br><span class="line">JavaScriptWrapImports: true</span><br><span class="line">KeepEmptyLinesAtTheStartOfBlocks: true</span><br><span class="line">LambdaBodyIndentation: Signature</span><br><span class="line">MacroBlockBegin: &#x27;&#x27;</span><br><span class="line">MacroBlockEnd:   &#x27;&#x27;</span><br><span class="line">MaxEmptyLinesToKeep: 1</span><br><span class="line">NamespaceIndentation: None</span><br><span class="line">ObjCBinPackProtocolList: Auto</span><br><span class="line">ObjCBlockIndentWidth: 2</span><br><span class="line">ObjCBreakBeforeNestedBlockParam: true</span><br><span class="line">ObjCSpaceAfterProperty: false</span><br><span class="line">ObjCSpaceBeforeProtocolList: true</span><br><span class="line">PenaltyBreakAssignment: 2</span><br><span class="line">PenaltyBreakBeforeFirstCallParameter: 19</span><br><span class="line">PenaltyBreakComment: 300</span><br><span class="line">PenaltyBreakFirstLessLess: 120</span><br><span class="line">PenaltyBreakString: 1000</span><br><span class="line">PenaltyBreakTemplateDeclaration: 10</span><br><span class="line">PenaltyExcessCharacter: 1000000</span><br><span class="line">PenaltyReturnTypeOnItsOwnLine: 60</span><br><span class="line">PenaltyIndentedWhitespace: 0</span><br><span class="line">PointerAlignment: Right</span><br><span class="line">PPIndentWidth:   -1</span><br><span class="line">ReferenceAlignment: Pointer</span><br><span class="line">ReflowComments:  true</span><br><span class="line">ShortNamespaceLines: 1</span><br><span class="line">SortIncludes:    CaseSensitive</span><br><span class="line">SortJavaStaticImport: Before</span><br><span class="line">SortUsingDeclarations: true</span><br><span class="line">SpaceAfterCStyleCast: false</span><br><span class="line">SpaceAfterLogicalNot: false</span><br><span class="line">SpaceAfterTemplateKeyword: true</span><br><span class="line">SpaceBeforeAssignmentOperators: true</span><br><span class="line">SpaceBeforeCaseColon: false</span><br><span class="line">SpaceBeforeCpp11BracedList: false</span><br><span class="line">SpaceBeforeCtorInitializerColon: true</span><br><span class="line">SpaceBeforeInheritanceColon: true</span><br><span class="line">SpaceBeforeParens: ControlStatements</span><br><span class="line">SpaceAroundPointerQualifiers: Default</span><br><span class="line">SpaceBeforeRangeBasedForLoopColon: true</span><br><span class="line">SpaceInEmptyBlock: false</span><br><span class="line">SpaceInEmptyParentheses: false</span><br><span class="line">SpacesBeforeTrailingComments: 1</span><br><span class="line">SpacesInAngles:  Never</span><br><span class="line">SpacesInConditionalStatement: false</span><br><span class="line">SpacesInContainerLiterals: true</span><br><span class="line">SpacesInCStyleCastParentheses: false</span><br><span class="line">SpacesInLineCommentPrefix:</span><br><span class="line">  Minimum:         1</span><br><span class="line">  Maximum:         -1</span><br><span class="line">SpacesInParentheses: false</span><br><span class="line">SpacesInSquareBrackets: false</span><br><span class="line">SpaceBeforeSquareBrackets: false</span><br><span class="line">BitFieldColonSpacing: Both</span><br><span class="line">Standard:        Latest</span><br><span class="line">StatementAttributeLikeMacros:</span><br><span class="line">  - Q_EMIT</span><br><span class="line">StatementMacros:</span><br><span class="line">  - Q_UNUSED</span><br><span class="line">  - QT_REQUIRE_VERSION</span><br><span class="line">TabWidth:        8</span><br><span class="line">UseCRLF:         false</span><br><span class="line">UseTab:          Never</span><br><span class="line">WhitespaceSensitiveMacros:</span><br><span class="line">  - STRINGIZE</span><br><span class="line">  - PP_STRINGIZE</span><br><span class="line">  - BOOST_PP_STRINGIZE</span><br><span class="line">  - NS_SWIFT_NAME</span><br><span class="line">  - CF_SWIFT_NAME</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://nagoriyuki0408.github.io/2024/08/02/CPP-Clang-Format%E7%9A%84%E4%B9%A6%E5%86%99%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/08/02/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%9Ac-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            预处理器：c++预处理器
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/08/02/%E9%A1%B9%E7%9B%AE%EF%BC%9ALocale-Emulator%E7%A0%B4%E8%A7%A3/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">项目：Locale_Emulator破解</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    appid: "NE1hi2bwLBi5TmvHcJqkvMj4-MdYXbMMI",
+    appkey: "tlaS1mHTwUo374IsMy8CwE2j",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021-2025
+        <i class="ri-heart-fill heart_icon"></i> SHIOKOU
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="柳瀬しおこうの夢"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://x.com/tsumugi0408">推特</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://bangumi.tv/">番组</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>帮我买张OST吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/copy-tex.min.css">
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28699497&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
